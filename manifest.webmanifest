@@ -1,0 +1,16 @@
+{
+  "name": "Fallpfad · Pflege am Fall",
+  "short_name": "Fallpfad",
+  "description": "Interaktive Lernplattform für die generalistische Pflegeausbildung",
+  "lang": "de",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f9fc",
+  "theme_color": "#0062FF",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
