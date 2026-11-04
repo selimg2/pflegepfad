@@ -4,14 +4,61 @@ Dieser Ordner ist die Website für die Lernenden (zum Beispiel https://pflegepfa
 
 | Datei | Wofür |
 |---|---|
-| `index.html` | die komplette App mit allen 34 Modulen |
+| `index.html` | die komplette App |
 | `config.BEISPIEL.js` | Vorlage für die Datenbank-Verbindung. Nur nötig, wenn du noch keine `config.js` hast |
 | `favicon.svg`, `icon-*.png`, `apple-touch-icon.png` | App-Symbole für Browser und Handy-Startbildschirm |
 | `manifest.webmanifest` | macht die App auf dem Handy installierbar |
 | `sw.js` | hält die App offline verfügbar |
 | `vercel.json` | Einstellung für Vercel |
 | `netlify.toml` | Einstellung für Netlify (nur falls du Netlify nutzt) |
-| `supabase/schema.sql` | Tabelle für den Lernfortschritt (einmal in Supabase ausführen) |
+| `supabase/*.sql` | Datenbank-Erweiterungen, siehe unten |
 
 **Wichtig:** Deine bestehende `config.js` mit deinen Supabase-Werten behältst du. Überschreibe sie nicht.
-Die Schritt-für-Schritt-Anleitung steht im Dokument „Fallpfad Lehrer-Portal: Technische Anleitung“.
+
+## Datenbank einrichten
+
+Die Website zeigt keine technischen Einrichtungshinweise an. Wenn eine Funktion „gerade nicht verfügbar“ meldet, fehlt meist eine der folgenden Dateien in Supabase. Jede Datei im Supabase-Dashboard unter SQL Editor > New query einfügen und auf Run klicken. Alle Dateien sind wiederholbar.
+
+| Reihenfolge | Datei | Wofür |
+|---|---|---|
+| 1 | `supabase/schema.sql` | Lernfortschritt |
+| 2 | `lehrer_schema.sql` (im Lehrer-Portal) | Kurse, Profile, Lehrkräfte |
+| 3 | `supabase/aufgaben.sql` | Aufgaben |
+| 4 | `supabase/live.sql` | Live-Klassenfall |
+| 5 | `supabase/kurse_examen.sql` | Kurs-Einstellungen und Examenssimulator |
+| 6 | `supabase/team.sql` | Team-Krankenhaus |
+| 7 | `supabase/kommunikation.sql` | Eigene Gruppenarbeiten, Nachrichten an Kurse und Lernende, Stundenplan |
+| 8 | `supabase/nachweis.sql` | Digitaler Ausbildungsnachweis: Einsätze, Stunden, Praxisanleitung, Fehlzeiten, Gespräche, Unterschriften, Praxisanleitende, Praxisaufgaben |
+| 9 | `supabase/begleitung.sql` | Bezugslehrkraft, wichtige Nachricht aus dem Einsatz, Einsatz-Feedback, Unterrichtspuls, Prüfungsbögen (Prüfen) |
+
+Fehlermeldungen zur Konfiguration (zum Beispiel ein falscher Schlüssel in `config.js`) erscheinen nur in der Browser-Konsole (Entwicklertools > Konsole), beginnend mit „[Fallpfad]“.
+
+## Ausbildungsnachweis
+
+Lernende führen den Nachweis im Tab Praxis. Beim Anlegen eines Einsatzes wählen sie, ob sie Arbeitstage selbst eintragen oder ob die Einrichtung stempelt (automatische Zeiterfassung); im zweiten Fall entfallen Arbeitstage und Fehlzeiten, und die Stunden kommen über den Einsatznachweis.
+
+Bestätigt wird standardmäßig direkt auf dem Gerät der Lernenden: Die Person tippt ihren Namen ein, wählt ihre Funktion (Praxisanleitung, Pflegefachperson oder Stations-/Wohnbereichsleitung bzw. Vertretung) und unterschreibt mit dem Finger. Es gibt keinen Code und keine Registrierung. Die Datenbank setzt den Zeitstempel, bildet die SHA-256-Prüfsumme und sperrt den Eintrag. QR-Code (30 Minuten) und Einmal-Link (72 Stunden, `?bestaetigen=TOKEN`) bleiben als freiwillige Alternative, etwa aus Hygienegründen; dort kann sich die Person ihr Handy merken lassen.
+
+Den Einsatznachweis nach BIBB-Muster unterschreibt die Einrichtung, standardmäßig die Stations- oder Wohnbereichsleitung bzw. ihre Vertretung, danach die Lernenden zur Kenntnis. Wer unterschreiben darf und welche zusätzlichen Nachweise verlangt werden, stellt die Schule im Lehrer-Portal unter Ausbildungsnachweis > Vorlagen ein.
+
+Je Einsatz können mehrere Praxisanleitende bestätigen; Abschlussgespräch und Leistungseinschätzung bestätigt die Haupt-Praxisanleitung. Unter Ausbildungsnachweis > Prüfungsaudit prüft ein Klick einen Kurs auf die Zulassungsvoraussetzungen und rechnet alle Prüfsummen nach.
+
+Wer `nachweis.sql` schon ausgeführt hat, führt die neue Fassung einfach erneut aus; vorhandene Daten bleiben erhalten.
+
+## Begleitung im Einsatz, Feedback und Prüfen
+
+Schüler-App: Eine Woche vor Einsatzbeginn und während des Einsatzes zeigt die Startseite die passende Praxisvorbereitung aus dem Training. Zu Beginn, zur Mitte und zum Ende erinnert sie an Erst-, Zwischen- und Abschlussgespräch, an Einsatznachweis und Leistungseinschätzung und an Rückstände bei der Praxisanleitung (gemessen am zeitlichen Fortschritt). Drei Wochen vor Einsatzende öffnet das Einsatz-Feedback (sieben Kriterien mit 1 bis 5 Sternen, Weiterempfehlung, zwei kurze Texte); die Erinnerung bleibt auf der Startseite, bis es erledigt ist. Unter Praxis > Feedback & Kontakt können Lernende während eines Einsatzes eine wichtige Nachricht an ihre Bezugslehrkraft senden; die Bezugslehrkraft wählen sie unter Fortschritt > Einstellungen. Ohne Wahl sehen alle Lehrkräfte die Nachricht. In Unterrichtsphasen erscheint jede Woche ein kurzer Unterrichtspuls (Verständnis, Zufriedenheit, Stichworte).
+
+Lehrer-Portal: Kurse & Schüler bündelt Kursblöcke mit Live-Status (im Einsatz oder im Unterricht mit Stimmungsbalken), Schülerübersichten mit Stunden, Praxisanleitung, Nachtdienst, fehlenden Voraussetzungen, Dokumenten zum Herunterladen und einem ZIP-Export aller Nachweise (ein Unterordner je Person, HTML-Dokumente plus Übersicht.csv). Benachrichtigungen entstehen automatisch: offene Pflichtpunkte im Nachweis, fehlende Unterlagen nach einem Einsatz, Nachtdienst unter dem Soll, Frühwarnung aus dem Unterrichtspuls (zwei von drei Rückmeldungen mit wenig Verständnis oder Unsicherheit), ungelesene Nachrichten aus dem Einsatz, fehlendes Feedback und Einrichtungen, in denen die Praxisanleitung auffällig oft unter 10 % liegt. Der Reiter Feedback wertet Einsatz-Feedback nach Träger und Station und den Unterrichtspuls je Kurs aus. Unter Prüfen entsteht aus einem Erwartungshorizont ein Prüfungsbogen nach dem OSCE-Prinzip; er lässt sich mit Lehrkräften und, ab einem gewählten Zeitpunkt, mit Kursen teilen. Hinweise für Prüfende sehen Lernende nie.
+
+Die Benachrichtigungen erscheinen im Portal, nicht per E-Mail oder Push.
+
+## Datenschutz im Pilotbetrieb
+
+Im Lehrer-Portal unter Ausbildungsnachweis > Datenschutz steht eine Verarbeitungsübersicht (welche Daten in welcher Supabase-Tabelle liegen, wer sie sehen darf, Schutzmaßnahmen, Checkliste für den Auftragsverarbeitungsvertrag), die sich als PDF exportieren lässt. Je Person gibt es in der Detailansicht eine Auskunft als JSON und, nach Ablauf der Aufbewahrungsfrist, eine Löschfunktion mit Namensbestätigung.
+
+Die Datenbank erzwingt: Fehlzeiten speichern nur Art und Stunden (jeder weitere Inhalt wird entfernt), kein Datum in der Zukunft, Einträge nur innerhalb des eigenen Einsatzes, plausible Stunden, Einsatzdaten nach der ersten Bestätigung gesperrt, Einmal-Links nach Nutzung ohne Inhalt. Jede Schule bekommt ein eigenes Supabase-Projekt; darüber sind die Daten der Schulen getrennt.
+
+Vor dem Echtbetrieb: Supabase-Projekt in einer EU-Region, Auftragsverarbeitungsvertrag mit Supabase abschließen, Datenschutzbeauftragte einbinden, Aufbewahrungsfristen nach Landesrecht festlegen und bei der zuständigen Landesbehörde schriftlich bestätigen lassen, dass der elektronisch geführte Nachweis und der PDF-Export für die Prüfungszulassung anerkannt werden.
+
+Nach diesen Dateien sind keine weiteren Änderungen in Supabase nötig. Gruppenarbeiten, Nachrichten und Stundenpläne legen Lehrkräfte vollständig im Lehrer-Portal an.
