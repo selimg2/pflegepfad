@@ -15,6 +15,53 @@ Dieser Ordner ist die Website für die Lernenden (zum Beispiel https://pflegepfa
 
 **Wichtig:** Deine bestehende `config.js` mit deinen Supabase-Werten behältst du. Überschreibe sie nicht.
 
+## Neu in dieser Version
+
+**Beim Hochladen unbedingt mitnehmen:** den neuen Ordner `vendor/` (alle Bibliotheken liegen jetzt auf deinem eigenen Server, die App lädt nichts mehr von fremden Servern) und die Seiten `datenschutz.html`, `nutzungsbedingungen.html`, `impressum.html`, `konto-loeschen.html`. In diesen vier Seiten vorher die Platzhalter in eckigen Klammern ausfüllen.
+
+- **Neues Design im Stil von Apple (Erinnerungen):** ruhige graue Flächen, weiße Karten ohne Schatten, große Titel, Seitenleiste mit farbigen Kreis-Symbolen, untere Leiste auf dem Handy wie die iOS-Tab-Bar, iOS-Schalter und Segmente. Gilt für Schüler-App und Lehrer-Portal.
+- **Fünf neu abgestimmte Farbprofile:** Blau (Standard, das Fallpfad-Blau), Grün, Lila-Pink, Orange und Graphit. Jedes Profil hat eine eigene, passende Symbolpalette, keine bunte Mischung mehr. Der Dunkelmodus ist je Profil eigens abgestimmt: echtes Schwarz, erhöhte graue Flächen, aufgehellte Akzente.
+- **Logo flach** wie das App-Symbol.
+- **Neuer Reiter „Einstellungen“** (auf dem Handy „Optionen“): Konto und Profilbild, Farbe und Meine Sprache, Hell/Dunkel und Schriftgröße, Kurs beitreten, Bezugslehrkraft, Tutorial wiederholen, Kontakt, Datenschutz, Nutzungsbedingungen, Impressum, Konto löschen, Lernfortschritt zurücksetzen. Fortschritt zeigt nur noch den Fortschritt.
+- **Tutorial:** Der Knopf unten links ist weg. Das Tutorial startet über das Profilmenü („Tutorial ansehen“) und unter Einstellungen.
+- **Zwei neue Fälle in der Praktischen Examen Übung** (jetzt 10): Kardiologie mit 12-Kanal-EKG als Simulation und Nachblutung nach Herzkatheter als Bildbefund, Pneumologie mit endotrachealem Absaugen über die Trachealkanüle und COPD mit zu viel Sauerstoff als Bildbefund. Jeweils mit Vitalzeichen, Medikamentencheck, Störfall, Pflegebericht, Übergabe und Reflexion.
+- **Meine Sprache:** Für alle, denen Fachdeutsch schwerfällt. Im Profil eine von über 20 Sprachen oder „Einfaches Deutsch“ wählen. Dann gibt es neben „Vorlesen“ in jedem Lernblock einen Knopf mit Weltkugel: Er zeigt den Text übersetzt bzw. vereinfacht und darunter die wichtigen Wörter mit Artikel (der/die/das farbig), Übersetzung und Aussprache. Text markieren (in Fällen, Aufgaben, Live) blendet eine kleine Leiste zum Vorlesen und Übersetzen ein. Fachbegriffe im Lexikon und in den Begriffs-Fenstern zeigen die Übersetzung direkt. Wörterbuch und Vorlesen laufen ohne Server auf dem Gerät; ganze Texte übersetzt die neue Edge Function `uebersetzen`. Die Sprachwahl bleibt nur auf dem Gerät.
+- **Training „Fachsprache Deutsch“:** 177 Grundwörter der Pflege in 9 Themenfeldern mit Artikel und Aussprache (übersetzt in Englisch, Türkisch, Arabisch, Ukrainisch, Russisch, Vietnamesisch), 27 Sätze für den Dienst (Patientengespräch, Übergabe, Notfall) und drei Übungen: Bedeutung, Hören und erkennen, der/die/das.
+- **Konto löschen in der App:** Profil > Konto löschen (Pflicht für App Store und Google Play, Recht auf Löschung). Braucht die Edge Function `konto-loeschen`.
+- **Rechtliches in der App:** Links zu Datenschutz, Nutzungsbedingungen und Impressum auf der Anmeldeseite und im Profilmenü.
+- **Vorlesen datenschutzfreundlicher:** Die App wählt bevorzugt Stimmen, die auf dem Gerät laufen. Mit „Langsamer vorlesen“ (unter Meine Sprache) wird langsamer gesprochen.
+
+### Einrichtung für diese Version
+
+| Schritt | Was |
+|---|---|
+| 1 | `supabase/meine_sprache.sql` ausführen (Übersetzungs-Zwischenspeicher, Tageszähler) |
+| 2 | `supabase/datenschutz_aufraeumen.sql` ausführen (automatische Löschfristen; vorher unter Database > Extensions `pg_cron` aktivieren) |
+| 3 | Edge Functions `uebersetzen` und `konto-loeschen` bereitstellen (Ordner `supabase/functions` im Lehrer-Portal-Paket). `uebersetzen` nutzt denselben Secret `OPENAI_API_KEY` wie der Folien-Import. Optional: `OPENAI_MODEL_UEBERSETZEN`, `FALLPFAD_LS_ZEICHEN_TAG` (Standard 60000 Zeichen je Person und Tag) |
+| 4 | Optional in `config.js` ergänzen: `webUrl` (Adresse der Web-App), `datenschutzUrl`, `nutzungUrl`, `impressumUrl`, falls die Rechtstexte woanders liegen (siehe `config.BEISPIEL.js`) |
+
+## Aus der letzten Version (großer Ausbau)
+
+- **Profilmenü mit 5 Farbprofilen:** Ein Klick auf dein Profil (oben rechts oder unten links) öffnet ein Menü mit Profilbild, fünf Farben (jeweils hell und dunkel), Hell/Dunkel/Automatisch, Einstellungen und Abmelden. Die Schrift bleibt immer gleich.
+- **Einführung nur nach der Registrierung:** Neue Konten sehen die Tour automatisch beim ersten Anmelden. Eine Stunde lang gibt es danach unten links den kleinen Knopf „Tutorial“ zum erneuten Ansehen. Lehrer- und Schüler-Tour erklären jetzt Schritt für Schritt, wie man etwas erledigt.
+- **Mini-Effekte und Handy-Feinschliff:** kurze Rückmeldung beim Antippen, sanfte Seitenwechsel, kompakte untere Leiste im Lehrer-Portal, Sprungleiste zu den Ausbildungsjahren, Kitteltasche als Schnellaktion unter Praxis.
+- **Live im Unterricht ohne Vitalzeichen:** Die Lehrkraft zeigt eine Live-Stunde, ein Fallbeispiel oder ein ganzes Modul an der Tafel. Ihr scannt den QR-Code, seht auf dem Handy genau den Schritt, der vorne gezeigt wird, und antwortet anonym: ankreuzen, schätzen, einordnen, Stichworte für die Wortwolke. Weiterklicken kann nur die Lehrkraft. Neu dabei: Sicherheit angeben („sicher“ oder „geraten“), Stellen auf einer Körperkarte antippen, Begriffe zuordnen, Fälle Hinweis für Hinweis lösen, aus einer zugelosten Rolle antworten und im Klassenentscheid abstimmen.
+- **Vier neue Fallmodule nach Curriculum:** Hygiene und Infektionsschutz (Jahr 1), Körperpflege, Haut und Mund (Jahr 1), Atmung unterstützen: Pneumonie und Sauerstoff (Jahr 2), Gesund bleiben im Beruf (Jahr 3). Damit sind es 41 Module.
+- **Viel mehr Lernkarten:** zu jedem Modul zehn zusätzliche Karten (rund 370 neue), auch für „Nach Hause: Entlassung“, das bisher keine hatte. Alle Begriffe stehen automatisch auch im Fachlexikon.
+- **Kitteltasche erweitert:** 15 neue Spickzettel, u. a. NEWS2, qSOFA, BE-FAST, Hypoglykämie, Flüssigkeitsbilanz, BMI, Elektrolyte, Infusions- und Dosisrechnung, Dekubitus-Kategorien, Vorgehen nach Sturz, Isolierung, Kinder-Reanimation, Pupillenkontrolle und das Telefonat mit der Ärztin.
+- **Freischalten durch die Lehrkraft:** Module, die noch nicht dran sind, zeigen ein Schloss „Noch gesperrt“. Ausgeblendete Module erscheinen gar nicht.
+- **Home:** Die Kachel „Arbeitstag eintragen“ heißt jetzt **„Mein Praxiseinsatz“**. Sie zeigt, wie lange der Einsatz noch läuft, und führt direkt zu Nachweis, Anleitung und Unterschriften.
+- **Ruhigeres, moderneres Design:** feinere Schatten, klarere Kacheln, schlanke Scrollleisten.
+
+## Ältere Neuerungen
+
+- **Demo-Konten zum Vorstellen:** In der Schüler-App mit `schueler@demo.fallpfad.de` und Passwort `Demo2026` anmelden. Es öffnet sich Mila Krause im 2. Ausbildungsjahr mit Lernfortschritt, drei Praxiseinsätzen im Ausbildungsnachweis, Aufgaben und Nachrichten. Die Daten bleiben nur in diesem Browser. „Beenden“ (unten rechts) oder Abmelden setzt die Demo zurück. Das Konto gibt es nicht in der Datenbank, es wird nur in der App erkannt.
+- **Einführung beim ersten Start:** Eine kurze Tour zeigt Home, Lernmodule, Training, Praxis, Aufgaben, Fortschritt und die Suche. 
+- **Farben je Bereich:** Jede Rubrik hat ihre Farbe (Navigation, Seitenkopf, Karten). Modulkarten sind nach Ausbildungsjahr eingefärbt, alle Karten haben den Stil der Trainingskacheln.
+- **Praxis einfacher:** Oben stehen Schnellaktionen „Arbeitstag eintragen“, „Praxisanleitung eintragen“, „Unterschrift holen“, „Gespräch festhalten“, „Fehlzeit melden“ und „Nachweis als PDF“. Sie öffnen direkt das passende Formular im laufenden Einsatz.
+- **Home:** Vier Schnellstart-Kacheln (Weiterlernen, Mein Praxiseinsatz, Aufgaben, Training).
+- **Mehrere Schulen:** Nach `schulen.sql` lädt die App eigene Module nur noch für angemeldete Lernende der eigenen Schule.
+
 ## Datenbank einrichten
 
 Die Website zeigt keine technischen Einrichtungshinweise an. Wenn eine Funktion „gerade nicht verfügbar“ meldet, fehlt meist eine der folgenden Dateien in Supabase. Jede Datei im Supabase-Dashboard unter SQL Editor > New query einfügen und auf Run klicken. Alle Dateien sind wiederholbar.
@@ -30,6 +77,9 @@ Die Website zeigt keine technischen Einrichtungshinweise an. Wenn eine Funktion 
 | 7 | `supabase/kommunikation.sql` | Eigene Gruppenarbeiten, Nachrichten an Kurse und Lernende, Stundenplan |
 | 8 | `supabase/nachweis.sql` | Digitaler Ausbildungsnachweis: Einsätze, Stunden, Praxisanleitung, Fehlzeiten, Gespräche, Unterschriften, Praxisanleitende, Praxisaufgaben |
 | 9 | `supabase/begleitung.sql` | Bezugslehrkraft, wichtige Nachricht aus dem Einsatz, Einsatz-Feedback, Unterrichtspuls, Prüfungsbögen (Prüfen), Teilen unter Lehrkräften, automatisches Ablaufen von Nachrichten, Prüfungsdurchläufe mit Bewertung |
+| 10 | `lehrer_erweiterung.sql` (im Lehrer-Portal) | Lehrer-Stundenplan, Aufgabenarten Training, Team, Live |
+| 11 | `supabase/schulen.sql` | Mehrere Schulen in einer Datenbank: jede Schule sieht nur ihre Daten, Schulverwaltung für die Administration, Folien-Import-Protokoll. Danach Schritt 12. |
+| 12 | `supabase/live_unterricht.sql` | Live im Unterricht: Freitext-Antworten (Wortwolke), gesperrte Module für die Freischaltung. Nach `schulen.sql` ausführen. |
 
 Fehlermeldungen zur Konfiguration (zum Beispiel ein falscher Schlüssel in `config.js`) erscheinen nur in der Browser-Konsole (Entwicklertools > Konsole), beginnend mit „[Fallpfad]“.
 
@@ -85,18 +135,34 @@ Nach diesen Dateien sind keine weiteren Änderungen in Supabase nötig. Gruppena
 
 Der Reiter Training zeigt alle Trainings als farbige Kacheln, gruppiert nach Prüfung & Examen, Simulieren & Handeln, Üben & Wiederholen sowie Nachschlagen & Sammeln. Ein Tipp auf eine Kachel öffnet das Training, „Alle Trainings“ führt zurück.
 
-„Praktisches Examen Übung“ steht ganz oben und enthält sechs komplette Prüfungstage nach § 16 PflAPrV, jeweils auf einer Station mit zwei oder drei Patientinnen und Patienten:
+„Praktisches Examen Übung“ ist eine normale Kachel unter Prüfung & Examen und enthält acht komplette Prüfungstage nach § 16 PflAPrV, jeweils mit zwei oder drei Patientinnen und Patienten:
 
-| Fall | Station | Pflegehandlung als Simulation | Bildbefund, Vitalzeichen und Medikamente | Beratung |
+| Fall | Ort | Pflegehandlung als Simulation | Bildbefund, Vitalzeichen und Medikamente | Beratung |
 |---|---|---|---|---|
-| Akutgeriatrie | 4B | Blasenkatheter | EKG, Medikamente Herr Kowalski | Entscheidungsbaum |
-| Viszeralchirurgie | 3A | Stomaversorgung | Frau Hollweg (NEWS2) | Nüchternheit vor der OP |
-| Innere Medizin | 5B | Infusion an Venenverweilkanüle mit Pflegefachperson | Frau Kranz (Herzinsuffizienz) | – |
-| Unfallchirurgie | 2C | Verbandswechsel Hüft-TEP | Herr Lange (Kompartment) | Entlassung |
+| Akutgeriatrie | Station 4B | Blasenkatheter legen | Herr Kowalski: Zimmerbild, Puls 60 s mit Pulsdefizit, NEWS2 | Entscheidungsbaum |
+| Viszeralchirurgie | Station 3A | Stomaversorgung | Frau Hollweg (NEWS2) | Nüchternheit vor der OP |
+| Innere Medizin | Station 5B | Infusion an Venenverweilkanüle mit Pflegefachperson | Frau Kranz (Herzinsuffizienz) | – |
+| Unfallchirurgie | Station 2C | Verbandswechsel Hüft-TEP | Herr Lange (Kompartment) | Entlassung |
 | Neurologie | Stroke Unit 6N | Dysphagie, Essen anreichen | Frau Albers | – |
-| Pädiatrie | K2 | Inhalation mit Spacer | Emil (Dosisberechnung) | Hypoglykämie |
+| Pädiatrie | K2 | Inhalation mit Spacer | Emil | Hypoglykämie |
+| **Neu:** Stationäre Langzeitpflege | Seniorenzentrum, Wohnbereich 2 | Transfer Bett > Rollstuhl | Herr Stenzel: Zimmer, Gewicht, BZ, Dosett | Diabetische Fußpflege |
+| **Neu:** Ambulante Pflege | Pflegedienst, Tour Nord | Kompressionsverband nach Pütter | Herr Ritter: Wohnung, BZ, Dosett | – |
 
-Jeder Fall hat Vorbereitungstag, Schichtbeginn (Übergabe, SBAR, Prioritätenplan), Live-Handlungen, Störfall, Dokumentation, Übergabe, Reflexion und Note nach Punkteschlüssel und Kompetenzbereichen I–V. In allen Fällen werden die Medikamente nach den R-Regeln gegen die Kurve kontrolliert. Tätigkeiten, die Auszubildende nicht übernehmen dürfen, kommen nicht vor; im Fall Innere Medizin wird die Infusion nur angehängt, nachdem eine Pflegefachperson dazugeholt wurde. Durchgänge liegen im normalen Lernfortschritt (Feld `pex`).
+Jeder Fall hat Vorbereitungstag, Schichtbeginn (Übergabe, SBAR, Prioritätenplan), Live-Handlungen, Störfall, Dokumentation, Übergabe, Reflexion und Note nach Punkteschlüssel und Kompetenzbereichen I–V.
+
+- **Menschen und Sprechblasen wie in den Modulen:** Alle Patientinnen und Patienten, Angehörigen, Praxisanleitende und Prüfende haben ein eigenes Bild. Wer spricht, spricht in einer kleinen Sprechblase.
+- **Pflegehandlung als Animation:** Die Lernenden wählen jeden Handgriff aus einer Werkzeugleiste. Die Szene zeigt jeden Schritt animiert, mit Hinweisen, Fehlgriffen und K.-o.-Fehlern.
+- **Bildbefunde** sind gezeichnete Szenen, auf die man tippt, um Auffälligkeiten zu finden.
+- **Nur pflegerische Tätigkeiten:** EKG-Auswertung und andere ärztliche Aufgaben sind entfernt. Tätigkeiten, die Auszubildende nicht übernehmen dürfen, kommen nicht vor.
+- Durchgänge liegen im normalen Lernfortschritt (Feld `pex`).
+
+## Unterrichtsfeedback nur freitags
+
+Die Frage „Wie lief der Unterricht diese Woche?“ erscheint nur noch freitags, als kleines Fenster beim Öffnen von Home. „Später“ blendet sie für diese Woche aus. Auf Home steht das aktuelle Modul wieder ganz oben unter „Weiterlernen“.
+
+## App-Symbol
+
+Das App-Symbol in der Seitenleiste ist im hellen Modus ein blauer Verlauf passend zum Design und im Dunkelmodus ein helleres, leuchtendes Blau.
 
 ## Aufgaben: Training, Team-Krankenhaus und Live-Fall
 
