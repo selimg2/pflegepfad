@@ -2475,6 +2475,97 @@ h2,h3{letter-spacing:-.018em}
 .fxf-seg button.on.aus{background:#64748b;color:#fff}
 .fxf-ok{color:#059669;font-weight:600;font-size:14px}
 @media (max-width:640px){.fxf-row{flex-wrap:wrap}.fxf-seg{width:100%;justify-content:stretch}.fxf-seg button{flex:1}}
+.fxl-grid>.card+.card,.fxl-tiles>.card+.card,.fxl-grid>*+*{margin-top:0}
+.fxl-kitgrid>*+*,.fxl-big>*+*{margin-top:0}
+
+/* ===== Neue Live-Methoden ===== */
+.fxl-new{font-style:normal;font-size:10.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;margin-left:8px;padding:2px 7px;border-radius:99px;background:var(--c,#7C3AED);color:#fff;vertical-align:2px}
+.fxl-kitgrid .btn{margin-top:8px}
+.fxb-zones{display:flex;flex-wrap:wrap;gap:6px}
+.fxb-zone{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:99px;border:1px solid var(--line,#e2e8f0);font-size:13.5px;cursor:pointer;background:var(--surface,#fff)}
+.fxb-zone.on{border-color:#059669;background:color-mix(in srgb,#10B981 12%,var(--surface,#fff));color:#047857;font-weight:600}
+.fxb-zone input{accent-color:#059669}
+.fxb-graph{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;line-height:1.5}
+.fxp-btn.clue{background:#B45309;color:#fff}
+/* Sicher oder geraten */
+.fxp-matrix{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+.fxp-matrix .q{padding:14px 18px;border-radius:16px;display:flex;flex-direction:column;gap:2px;background:rgba(148,163,184,.12)}
+.fxp-matrix .q b{font-size:clamp(26px,3vw,40px);line-height:1}
+.fxp-matrix .q span{font-weight:700;font-size:clamp(15px,1.5vw,19px)}
+.fxp-matrix .q small{opacity:.75;font-size:14px}
+.fxp-matrix .gs{background:rgba(16,185,129,.14)}.fxp-matrix .gs b{color:#059669}
+.fxp-matrix .gu{background:rgba(245,158,11,.14)}.fxp-matrix .gu b{color:#B45309}
+.fxp-matrix .fu{background:rgba(100,116,139,.14)}
+.fxp-matrix .fs{background:rgba(239,68,68,.14);box-shadow:inset 0 0 0 2px rgba(239,68,68,.45)}.fxp-matrix .fs b{color:#DC2626}
+/* Körperkarte */
+.fxp-body{display:grid;grid-template-columns:minmax(220px,340px) 1fr;gap:28px;align-items:center}
+.fxp-bodyfig svg,.fxl-body svg{width:100%;height:auto;display:block}
+.fxp-bodyfig{max-height:62vh;aspect-ratio:1/2;margin:0 auto}
+.fxp-zl{margin:8px 0 0;padding-left:20px;font-size:clamp(15px,1.5vw,19px);line-height:1.6}
+.fxl-body{max-width:260px;margin:4px auto 0;border-radius:18px;background:var(--surface2,#f0f4fa);padding:10px;touch-action:manipulation}
+.fxl-body.live{cursor:crosshair;box-shadow:inset 0 0 0 2px color-mix(in srgb,#BE185D 30%,transparent)}
+.fxl-reset{display:block;margin:8px auto 0}
+:root[data-theme=dark] .fxp,:root[data-theme=dark] .fxl-body{--bfill:#1e293b;--bline:#64748b}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .fxp,:root:not([data-theme=light]) .fxl-body{--bfill:#1e293b;--bline:#64748b}}
+/* Live-Zuordnung */
+.fxp-legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;font-weight:600}
+.fxp-legend span{display:inline-flex;align-items:center;gap:6px}
+.fxp-legend i{width:14px;height:14px;border-radius:4px;background:var(--bc)}
+.fxp-sort{display:flex;flex-direction:column;gap:8px}
+.fxp-srow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:14px;align-items:center;padding:8px 12px;border-radius:12px;background:rgba(148,163,184,.1)}
+.fxp-srow.weak{box-shadow:inset 4px 0 0 #EF4444}
+.fxp-srow.good{box-shadow:inset 4px 0 0 #10B981}
+.fxp-sl{font-size:clamp(15px,1.5vw,19px);font-weight:600;display:flex;flex-direction:column}
+.fxp-sl em{font-style:normal;font-size:.8em}
+.fxp-stack{display:flex;height:30px;border-radius:9px;overflow:hidden;background:rgba(148,163,184,.18)}
+.fxp-stack b{display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;transition:width .4s}
+.fxl-sort{display:flex;flex-direction:column;gap:10px}
+.fxl-si{padding:10px 12px;border-radius:14px;background:var(--surface2,#f0f4fa)}
+.fxl-si>b{display:block;margin-bottom:8px}
+.fxl-si>div{display:flex;flex-wrap:wrap;gap:6px}
+.fxl-si button{font:inherit;font-size:14px;padding:7px 12px;border-radius:99px;border:1.5px solid var(--sc,#94a3b8);background:var(--surface,#fff);color:var(--fg,#0f172a);cursor:pointer}
+.fxl-si button.on{background:var(--sc);color:#fff}
+.fxl-si.ok{box-shadow:inset 4px 0 0 #10B981}.fxl-si.bad{box-shadow:inset 4px 0 0 #EF4444}
+.fxl-si small{display:block;margin-top:6px;color:#B91C1C;font-weight:600}
+/* Hinweis für Hinweis */
+.fxp-clues,.fxl-clues{list-style:none;margin:0 0 14px;padding:0;display:flex;flex-direction:column;gap:8px}
+.fxp-clues li,.fxl-clues li{display:flex;gap:12px;align-items:baseline;padding:10px 14px;border-radius:12px;background:rgba(180,83,9,.08);border-left:4px solid #B45309}
+.fxp-clues li{font-size:clamp(16px,1.7vw,22px)}
+.fxp-clues li b,.fxl-clues li b{color:#B45309;white-space:nowrap;font-size:.8em;text-transform:uppercase;letter-spacing:.04em}
+.fxp-clues li.new,.fxl-clues li.new{animation:fxpop .45s cubic-bezier(.22,1,.36,1) both;background:rgba(180,83,9,.16)}
+.fxp-clues li.more{background:none;border-left-style:dashed;opacity:.6;font-size:15px}
+.fxp-when{margin-top:12px}
+.fxp-whenrow{display:flex;gap:10px;align-items:flex-end;height:120px;margin-top:8px}
+.fxp-whenrow>div{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:4px}
+.fxp-whenrow i{width:100%;max-width:70px;border-radius:8px 8px 0 0;background:#B45309}
+.fxp-whenrow small{font-size:13px;opacity:.7}.fxp-whenrow em{font-style:normal;font-size:13px;font-weight:700}
+/* Perspektivwechsel */
+.fxp-roles{display:grid;gap:12px;margin-top:6px}
+.fxp-role{border-radius:16px;background:color-mix(in srgb,var(--rc) 8%,transparent);border-top:5px solid var(--rc);padding:12px 14px;min-height:180px;display:flex;flex-direction:column;gap:8px}
+.fxp-role header{display:flex;justify-content:space-between;font-size:clamp(16px,1.6vw,20px)}
+.fxp-role header span{font-weight:800;color:var(--rc)}
+.fxp-role p{margin:0;padding:8px 10px;border-radius:10px;background:var(--surface,#fff);font-size:clamp(14px,1.3vw,17px);line-height:1.4;box-shadow:0 2px 6px -4px rgba(15,23,42,.3);animation:fxpop .35s ease both}
+:root[data-theme=dark] .fxp-role p{background:#111a2e}
+.fxl-rolecard{padding:14px 16px;border-radius:16px;background:color-mix(in srgb,var(--rc) 12%,var(--surface,#fff));border-left:5px solid var(--rc);display:flex;flex-direction:column}
+.fxl-rolecard small{text-transform:uppercase;letter-spacing:.06em;font-weight:700;font-size:11.5px;color:var(--rc)}
+.fxl-rolecard b{font-size:20px}
+/* Klassenentscheid */
+.fxp-path{padding:16px 20px;border-radius:16px;background:rgba(220,38,38,.07);border-left:5px solid #DC2626;display:flex;flex-direction:column;gap:6px;font-size:clamp(16px,1.6vw,20px)}
+.fxp-path p{margin:0}
+.fxp-alt{display:flex;flex-direction:column;gap:2px;margin-top:6px;padding-top:8px;border-top:1px dashed rgba(148,163,184,.6)}
+.fxp-alt small{font-size:15px;opacity:.85}
+/* Sicherheit (Schüler) */
+.fxl-conf{margin-top:12px}
+.fxl-conf p{margin:0 0 6px;font-weight:600}
+.fxl-conf>div{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.fxl-conf button{font:inherit;font-weight:600;padding:12px;border-radius:14px;border:1.5px solid var(--line,#e2e8f0);background:var(--surface,#fff);color:var(--fg,#0f172a);cursor:pointer}
+.fxl-conf button.on{background:#0F766E;border-color:#0F766E;color:#fff}
+.fxl-conf button.on.u{background:#B45309;border-color:#B45309}
+.fxl-me{margin-top:10px;padding:12px 14px;border-radius:14px;font-weight:600}
+.fxl-me.ok{background:color-mix(in srgb,#10B981 12%,var(--surface,#fff));color:#047857}
+.fxl-me.bad{background:color-mix(in srgb,#EF4444 10%,var(--surface,#fff));color:#B91C1C}
+@media (max-width:900px){.fxp-body{grid-template-columns:1fr}.fxp-roles{grid-template-columns:1fr 1fr!important}}
+@media (min-width:1100px){.fxp-matrix{grid-template-columns:repeat(4,1fr)}.fxp-matrix .q{padding:12px 14px}}
 </style>
 <script>/* Fallpfad Training-Hub + Praktisches Examen Übung */
 /* Demo-Schülerkonto: legt beim ersten Start einen glaubwürdigen Lernstand an (Mila Krause, 2. Ausbildungsjahr). */
@@ -9639,6 +9730,74 @@ window.PXA = (function () {
   }
 })();
 
+/* Fallpfad Live: Körperkarte (Silhouette vorne/hinten) und benannte Zonen, gemeinsam für Lehrer-Portal und Schüler-App.
+   Koordinaten im viewBox 0 0 100 200. Antippungen werden als x 0..99, y 0..99 (halbe Höhe) übertragen. */
+(function () {
+  var Z = {
+    hinten: {
+      hinterkopf: ["Hinterkopf", [[50, 11, 7]]],
+      ohren: ["Ohrmuscheln", [[38, 16, 4], [62, 16, 4]]],
+      schulter: ["Schulterblätter", [[40, 45, 7], [60, 45, 7]]],
+      dorn: ["Dornfortsätze der Wirbelsäule", [[50, 62, 5]]],
+      ellenbogen: ["Ellenbogen", [[18, 66, 6], [82, 66, 6]]],
+      kreuzbein: ["Kreuzbein", [[50, 88, 7]]],
+      sitzbein: ["Sitzbeinhöcker", [[43, 100, 5], [57, 100, 5]]],
+      trochanter: ["Großer Rollhügel (Trochanter)", [[28, 95, 6], [72, 95, 6]]],
+      kniekehle: ["Kniekehlen", [[41, 140, 5], [59, 140, 5]]],
+      waden: ["Waden", [[41, 160, 6], [59, 160, 6]]],
+      fersen: ["Fersen", [[41, 186, 6], [59, 186, 6]]]
+    },
+    vorne: {
+      stirn: ["Stirn", [[50, 9, 6]]],
+      deltoid: ["Oberarm, Deltamuskel", [[26, 44, 6], [74, 44, 6]]],
+      brust: ["Brustkorb", [[50, 48, 9]]],
+      bauch: ["Bauchhaut seitlich des Nabels", [[41, 78, 6], [59, 78, 6]]],
+      nabel: ["Nabel", [[50, 78, 3]]],
+      leiste: ["Leiste", [[38, 96, 5], [62, 96, 5]]],
+      oberschenkel: ["Oberschenkel vorne außen", [[36, 120, 7], [64, 120, 7]]],
+      knie: ["Knie", [[41, 148, 6], [59, 148, 6]]],
+      schienbein: ["Schienbein", [[41, 162, 5], [59, 162, 5]]],
+      knoechel: ["Knöchel", [[40, 177, 5], [60, 177, 5]]],
+      handruecken: ["Handrücken", [[17, 101, 5], [83, 101, 5]]],
+      unterarm: ["Unterarm innen", [[19, 80, 5], [81, 80, 5]]]
+    }
+  };
+  function svg(fig, extra) {
+    var back = fig === "hinten";
+    var s = '<svg viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg" class="fxbody-svg" role="img" aria-label="Körperkarte ' + (back ? "Rückseite" : "Vorderseite") + '">' +
+      '<g fill="var(--bfill,#e8eef7)" stroke="var(--bline,#94a3b8)" stroke-width="1.2" stroke-linejoin="round">' +
+      '<circle cx="50" cy="16" r="11"/>' + (back ? "" : '') +
+      '<path d="M45 26h10v7H45z"/>' +
+      '<path d="M30 32Q50 28 70 32L72 92Q50 99 28 92Z"/>' +
+      '<path d="M30 34L22 36L14 96L21 97L30 52Z"/><path d="M70 34L78 36L86 96L79 97L70 52Z"/>' +
+      '<circle cx="17" cy="101" r="5"/><circle cx="83" cy="101" r="5"/>' +
+      '<path d="M30 90L49 93L47 179L36 179Z"/><path d="M51 93L70 90L64 179L53 179Z"/>' +
+      '<ellipse cx="41" cy="185" rx="8" ry="4"/><ellipse cx="59" cy="185" rx="8" ry="4"/></g>' +
+      '<g fill="none" stroke="var(--bline,#94a3b8)" stroke-width=".8" opacity=".7">' +
+      (back ? '<path d="M50 34V90"/><path d="M38 40q2 8 8 10M62 40q-2 8-8 10"/><path d="M42 96q8 4 16 0"/>' : '<path d="M44 21q6 4 12 0"/><circle cx="50" cy="78" r="1.4"/><path d="M38 46q6 5 11 2M62 46q-6 5-11 2"/>') +
+      "</g>" + (extra || "") + '<text x="50" y="198" text-anchor="middle" font-size="7" fill="var(--bline,#94a3b8)">' + (back ? "Rückseite" : "Vorderseite") + "</text></svg>";
+    return s;
+  }
+  function zonesSvg(fig, keys, labels) {
+    var Zf = Z[fig] || {}, out = "";
+    (keys || []).forEach(function (k) {
+      var z = Zf[k]; if (!z) return;
+      z[1].forEach(function (c, i) {
+        out += '<circle cx="' + c[0] + '" cy="' + c[1] + '" r="' + (c[2] + 1.5) + '" fill="rgba(16,185,129,.18)" stroke="#059669" stroke-width="1.1" stroke-dasharray="2 1.5"/>';
+        if (labels && i === 0) out += '<text x="' + Math.min(96, Math.max(4, c[0])) + '" y="' + (c[1] - c[2] - 3 < 7 ? c[1] + c[2] + 6 : c[1] - c[2] - 3) + '" text-anchor="middle" font-size="5.2" font-weight="700" fill="#047857" paint-order="stroke" stroke="#fff" stroke-width="1.6">' + z[0].replace(/&/g, "&amp;") + "</text>";
+      });
+    });
+    return out;
+  }
+  function hit(fig, keys, x, y) {
+    var Zf = Z[fig] || {}, X = x + 0.5, Y = y * 2 + 1;
+    return (keys || []).some(function (k) { var z = Zf[k]; return z && z[1].some(function (c) { var dx = X - c[0], dy = Y - c[1]; return dx * dx + dy * dy <= (c[2] + 3) * (c[2] + 3); }); });
+  }
+  function enc(taps) { var a = []; taps.forEach(function (t) { a.push(Math.floor(t[0] / 10), t[0] % 10, Math.floor(t[1] / 10), t[1] % 10); }); return a; }
+  function dec(ch) { var t = []; for (var i = 0; i + 3 < (ch || []).length; i += 4) t.push([ch[i] * 10 + ch[i + 1], ch[i + 2] * 10 + ch[i + 3]]); return t; }
+  window.FP_BODY = { Z: Z, svg: svg, zonesSvg: zonesSvg, hit: hit, enc: enc, dec: dec };
+})();
+
 /* Schüler-App: Live-Unterricht. Zeigt immer nur den Schritt, den die Lehrkraft vorne freigibt.
    Lernende können antworten, aber nicht selbst weiterblättern. */
 (function () {
@@ -9668,19 +9827,35 @@ window.PXA = (function () {
     var s4 = useState(false), busy = s4[0], setBusy = s4[1];
     var s5 = useState(null), err = s5[0], setErr = s5[1];
     var s6 = useState(null), lastStep = s6[0], setLast = s6[1];
+    var s7 = useState(null), conf = s7[0], setConf = s7[1];
+    var s8 = useState([]), taps = s8[0], setTaps = s8[1];
+    var s9 = useState(0), role = s9[0], setRole = s9[1];
+    var B = window.FP_BODY;
     useEffect(function () {
       if (step === lastStep) return;
       setLast(step); setErr(null);
-      var mine = st.mine || null, mt = st.mytxt || null;
+      var mine = st.mine || null, mt = st.mytxt || null, kd = (st.pub || {}).kind;
       setSel(mine && !mt ? mine.slice() : []);
       setTxt(mt || "");
       setSent(mine || mt ? (mt || mine.join(",")) : null);
+      setConf(null); setTaps([]);
+      if (kd === "conf" || kd === "clue") { setSel(mine && !mt ? [mine[0]] : []); if (kd === "conf" && mine) setConf(mine[1]); if (mine) setSent(kd === "conf" ? mine[0] + "/" + mine[1] : String(mine[0])); }
+      if (kd === "body") { var tp = mine && B ? B.dec(mine) : []; setTaps(tp); if (mine) setSent(tp.map(function (t) { return t.join(":"); }).join(",")); }
+      if (kd === "role") {
+        var n = ((st.pub || {}).roles || []).length || 1, key = "fp-live-role-" + p.code + "-" + step, r = null;
+        var m = /^\[(\d)\]\s*([\s\S]*)$/.exec(mt || "");
+        if (m) { r = Number(m[1]); setTxt(m[2]); setSent(m[2]); }
+        if (r == null) { try { r = sessionStorage.getItem(key); } catch (e) {} r = r == null ? Math.floor(Math.random() * n) : Number(r); }
+        try { sessionStorage.setItem(key, String(r)); } catch (e) {}
+        setRole(r % n);
+      }
     }, [step]);
     var open = ph === "question", rev = ph === "reveal" ? k.rev : null, kind = k.kind;
     function toggle(i) {
       if (!open) return;
       setSel(function (a) {
         if (kind === "order") return a.indexOf(i) >= 0 ? a.filter(function (x) { return x !== i; }) : a.concat([i]);
+        if (kind === "conf" || kind === "clue") return [i];
         if (k.multi || kind === "lines") return a.indexOf(i) >= 0 ? a.filter(function (x) { return x !== i; }) : a.concat([i]).sort();
         return [i];
       });
@@ -9689,11 +9864,29 @@ window.PXA = (function () {
       setBusy(true); setErr(null);
       try {
         var ok;
+        var sig = sigNow();
         if (kind === "word" || kind === "estimate") ok = await p.answer(step, String(txt).trim());
+        else if (kind === "role") ok = await p.answer(step, "[" + role + "] " + String(txt).trim());
+        else if (kind === "conf") ok = await p.vote(step, [sel[0], conf]);
+        else if (kind === "clue") ok = await p.vote(step, [sel[0], 5 + Math.min(4, k.clue || 0)]);
+        else if (kind === "body") ok = await p.vote(step, B.enc(taps));
         else ok = await p.vote(step, sel);
-        if (ok) setSent(kind === "word" || kind === "estimate" ? String(txt).trim() : sel.join(",")); else setErr("Die Abstimmung ist gerade geschlossen.");
+        if (ok) setSent(sig); else setErr("Die Abstimmung ist gerade geschlossen.");
       } catch (e) { setErr(e.message || String(e)); }
       setBusy(false);
+    }
+    function sigNow() {
+      if (kind === "word" || kind === "estimate" || kind === "role") return String(txt).trim();
+      if (kind === "conf") return sel.join(",") + "/" + conf;
+      if (kind === "clue") return sel.join(",");
+      if (kind === "body") return taps.map(function (t) { return t.join(":"); }).join(",");
+      return sel.join(",");
+    }
+    function tapBody(e) {
+      if (!open || !B) return;
+      var sv = e.currentTarget.querySelector("svg"), r = (sv || e.currentTarget).getBoundingClientRect(), x = Math.round((e.clientX - r.left) / r.width * 99), y = Math.round((e.clientY - r.top) / r.height * 99);
+      x = Math.max(0, Math.min(99, x)); y = Math.max(0, Math.min(99, y));
+      setTaps(function (a) { var n = a.concat([[x, y]]); return n.slice(-Math.max(1, k.taps || 1)); });
     }
     var head = h("header", { className: "lvhead" }, h("div", null, h("b", null, "Fallpfad Live"), h("small", null, "Code " + p.code)), h("button", { type: "button", className: "btn ghost sm", onClick: p.leave }, "Verlassen"));
     var title = h("div", { className: "lvtitle" }, h("span", { className: "eyebrow" }, k.title || "Live-Unterricht"), k.total ? h("span", { className: "lvstep" }, "Schritt " + (Math.max(0, step) + 1) + " von " + k.total) : null);
@@ -9727,9 +9920,35 @@ window.PXA = (function () {
       } else if (kind === "word") {
         body.push(h("div", { key: "w", className: "fxl-word" }, h("input", { className: "input", maxLength: 60, value: txt, disabled: !open, onChange: function (e) { setTxt(e.target.value); }, placeholder: k.hint || "Ein bis drei Stichworte, mit Komma getrennt" })));
       }
+      if (kind === "conf" || kind === "clue") {
+        if (kind === "clue") body.splice(body.length - 1, 0, h("ol", { key: "clues", className: "fxl-clues" }, (k.clues || []).map(function (c, i) { return h("li", { key: i, className: i === (k.clues || []).length - 1 && open ? "new" : "" }, h("b", null, "Hinweis " + (i + 1)), h("span", null, c)); })));
+        if (kind === "clue" && open) body.push(h("p", { key: "hint", className: "lvhint" }, "Leg dich jetzt fest. Bei jedem neuen Hinweis darfst du umdenken."));
+        body.push(h("div", { key: "opts", className: "lvopts fxl-opts" }, (k.opts || []).map(function (o, i) {
+          var on = sel.indexOf(i) >= 0, ok = rev && rev.ok && rev.ok.indexOf(i) >= 0;
+          return h("button", { key: i, type: "button", className: "lvopt" + (on ? " on" : "") + (rev && rev.ok ? (ok ? " ok" : on ? " bad" : " dim") : ""), onClick: function () { toggle(i); }, disabled: !open, "aria-pressed": on }, h("i", null, "ABCDEF"[i]), h("span", null, o));
+        })));
+        if (kind === "conf") body.push(h("div", { key: "conf", className: "fxl-conf" }, h("p", null, "Wie sicher bist du?"), h("div", null, [[8, "Ich bin mir sicher"], [9, "Eher geraten"]].map(function (c) { return h("button", { key: c[0], type: "button", className: conf === c[0] ? "on" + (c[0] === 9 ? " u" : "") : "", disabled: !open, onClick: function () { setConf(c[0]); } }, c[1]); }))));
+        if (kind === "conf" && rev && rev.ok && sel.length) { var good = rev.ok.indexOf(sel[0]) >= 0, sure = conf !== 9; body.push(h("div", { key: "me", className: "fxl-me " + (good ? "ok" : "bad") }, good ? (sure ? "Sicher und richtig. Gefestigt!" : "Richtig, obwohl du geraten hast. Schau dir die Erklärung noch einmal an.") : (sure ? "Du warst sicher, aber das stimmt nicht. Genau das lohnt sich zu klären." : "Geraten und falsch. Gut, dass du es jetzt weißt."))); }
+      } else if (kind === "body" && B) {
+        var dots = taps.map(function (t) { return '<circle cx="' + (t[0] + 0.5) + '" cy="' + (t[1] * 2 + 1) + '" r="3.2" fill="#BE185D" stroke="#fff" stroke-width="1"/>'; }).join("");
+        body.push(h("p", { key: "hint", className: "lvhint" }, open ? (k.taps > 1 ? "Tippe bis zu " + k.taps + " Stellen an. Ein neuer Tipp ersetzt den ältesten." : "Tippe eine Stelle an.") : ""));
+        body.push(h("div", { key: "body", className: "fxl-body" + (open ? " live" : ""), onClick: tapBody, dangerouslySetInnerHTML: { __html: B.svg(k.fig, (rev && rev.zones ? B.zonesSvg(k.fig, rev.zones, true) : "") + dots) } }));
+        if (open && taps.length) body.push(h("button", { key: "rs", type: "button", className: "btn ghost sm fxl-reset", onClick: function () { setTaps([]); } }, "Zurücksetzen"));
+      } else if (kind === "sort") {
+        var asg = sel.length === (k.items || []).length ? sel : (k.items || []).map(function (_, i) { return sel[i] == null ? -1 : sel[i]; });
+        body.push(h("div", { key: "sort", className: "fxl-sort" }, (k.items || []).map(function (it, ii) {
+          var a = rev && rev.ans ? rev.ans[ii] : null;
+          return h("div", { key: ii, className: "fxl-si" + (a != null ? (asg[ii] === a ? " ok" : " bad") : "") }, h("b", null, it), h("div", null, (k.cats || []).map(function (c, ci) { return h("button", { key: ci, type: "button", disabled: !open, className: asg[ii] === ci ? "on" : "", style: { "--sc": (k.colors || [])[ci] }, onClick: function () { var n = asg.slice(); n[ii] = ci; setSel(n); } }, c); })), a != null && asg[ii] !== a ? h("small", null, "Richtig: " + k.cats[a]) : null);
+        })));
+      } else if (kind === "role") {
+        var RC = ["#2563EB", "#DB2777", "#0D9488", "#EA580C"];
+        body.splice(body.length - 1, 0, h("div", { key: "role", className: "fxl-rolecard", style: { "--rc": RC[role % 4] } }, h("small", null, "Deine Rolle"), h("b", null, (k.roles || [])[role] || "")));
+        body.push(h("div", { key: "w", className: "fxl-word" }, h("textarea", { className: "input", maxLength: 160, rows: 3, value: txt, disabled: !open, onChange: function (e) { setTxt(e.target.value); }, placeholder: "Ein Satz in der Ich-Form aus der Sicht deiner Rolle" })));
+      }
+      if (rev && rev.pick != null) body.push(h("div", { key: "pick", className: "fxl-exp" }, h("b", null, "Die Klasse hat entschieden: " + "ABCDE"[rev.pick]), rev.cons ? h("p", null, rev.cons) : null));
       if (open) {
-        var can = kind === "word" || kind === "estimate" ? String(txt).trim().length > 0 : sel.length > 0 && (kind !== "order" || sel.length === (k.items || []).length);
-        var same = answered && (kind === "word" || kind === "estimate" ? String(txt).trim() === sent : sel.join(",") === sent);
+        var can = kind === "word" || kind === "estimate" || kind === "role" ? String(txt).trim().length > 0 : kind === "conf" ? sel.length > 0 && conf != null : kind === "body" ? taps.length > 0 : kind === "sort" ? sel.length === (k.items || []).length && sel.every(function (x) { return x >= 0; }) : sel.length > 0 && (kind !== "order" || sel.length === (k.items || []).length);
+        var same = answered && sigNow() === sent;
         body.push(h("div", { key: "send", className: "fxl-send" }, h("button", { type: "button", className: "btn", disabled: !can || busy || same, onClick: send }, same ? "Abgegeben ✓" : answered ? "Antwort ändern" : "Antwort abgeben"), answered && h("small", null, "Du kannst deine Antwort ändern, bis die Lehrkraft auflöst.")));
       } else if (ph === "question" || !rev) {
         body.push(h("p", { key: "wait", className: "fxl-look" }, answered ? "Danke! Warte auf die Auflösung." : "Die Abstimmung ist geschlossen."));
