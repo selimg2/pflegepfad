@@ -53,6 +53,12 @@ Lehrer-Portal: Kurse & Schüler bündelt Kursblöcke mit Live-Status (im Einsatz
 
 Die Benachrichtigungen erscheinen im Portal, nicht per E-Mail oder Push.
 
+## Dokumente als PDF
+
+Alle Dokumente entstehen als echte PDF-Dateien direkt im Browser (pdfmake, geladen von cdnjs; eine Internetverbindung ist nötig). Es gibt drei Wege: jedes Dokument einzeln (zum Beispiel nur das Erstgespräch des Orientierungseinsatzes), den Ausbildungsnachweis vollständig in einer PDF und ein ZIP mit Ordnerstruktur. Im ZIP liegt je Person ein Ordner Nachname_Vorname mit dem Gesamtnachweis und einem Unterordner je Einsatz (zum Beispiel 01_Orientierungseinsatz_Klinikum_Nord) mit Einsatzprotokoll, Gesprächen, Einsatznachweis, Leistungseinschätzung und Feedback einzeln. Im Lehrer-Portal gibt es das ZIP auch je Kurs (Kurs/Nachname_Vorname/Einsatz/…) und für alle Kurse. Dateinamen: Nachname_Vorname_Einsatzart_Dokumentart_Datum.pdf. Die Namen kommen aus dem Profil; damit Vor- und Nachname im Dateinamen stehen, sollten Lernende ihren vollen Namen eintragen.
+
+Jedes unterschriebene Dokument ist sofort einzeln als PDF verfügbar, in der App direkt am Eintrag („PDF“) und unter „Dokumente dieses Einsatzes“. Die PDF wird bei jedem Download aus den gesperrten, mit Prüfsumme gesicherten Daten neu erzeugt und enthält Unterschriften, Zeitstempel und Prüfsumme.
+
 ## Teilen, eigene Bilder und Nachrichten
 
 Module, Live-Fälle und eigene Gruppenarbeiten gehören der Lehrkraft, die sie erstellt. Neue Inhalte sind zunächst nur für sie sichtbar. Über „Teilen“ gibt sie den Inhalt an ausgewählte Lehrkräfte oder per Knopfdruck an die ganze Schule frei. Andere Lehrkräfte nutzen geteilte Inhalte und legen bei Bedarf eine eigene Kopie an; ändern kann nur die Erstellerin. Bearbeitete Fallpfad-Originale und angepasste Arbeitsaufträge fertiger Team-Fälle gelten immer schulweit. Was vor dieser Version angelegt wurde, bleibt für alle Lehrkräfte sichtbar. Lernende betrifft das nicht: Sie sehen weiterhin, was für ihren Kurs veröffentlicht ist.
