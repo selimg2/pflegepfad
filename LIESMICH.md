@@ -80,3 +80,9 @@ Die Datenbank erzwingt: Fehlzeiten speichern nur Art und Stunden (jeder weitere 
 Vor dem Echtbetrieb: Supabase-Projekt in einer EU-Region, Auftragsverarbeitungsvertrag mit Supabase abschließen, Datenschutzbeauftragte einbinden, Aufbewahrungsfristen nach Landesrecht festlegen und bei der zuständigen Landesbehörde schriftlich bestätigen lassen, dass der elektronisch geführte Nachweis und der PDF-Export für die Prüfungszulassung anerkannt werden.
 
 Nach diesen Dateien sind keine weiteren Änderungen in Supabase nötig. Gruppenarbeiten, Nachrichten und Stundenpläne legen Lehrkräfte vollständig im Lehrer-Portal an.
+
+## Training: Kachel-Übersicht und Praktisches Examen Übung
+
+Der Reiter Training zeigt alle Trainings als Kacheln, gruppiert nach Prüfung & Examen, Simulieren & Handeln, Üben & Wiederholen sowie Nachschlagen & Sammeln. Ein Tipp auf eine Kachel öffnet das Training, „Alle Trainings“ führt zurück. Links aus anderen Bereichen (z. B. „Heute im Dienst“) öffnen das passende Training weiterhin direkt.
+
+„Praktisches Examen Übung“ steht ganz oben. Sie spielt das praktische Examen nach § 16 PflAPrV mit drei Patientinnen und Patienten der Akutgeriatrie durch: Vorbereitungstag (Akten mit ungeordneter Anamnese, Pflegeplanung), Schichtbeginn (Nachtdienst-Übergabe, SBAR-Fallvorstellung, Prioritätenplan), Live-Handlungen (EKG-Bildbefund, Blasenkatheter Schritt für Schritt mit Korrekturschleife und K.o.-Kriterien, Gespräch als Entscheidungsbaum, Störfall, Pflegebericht) und Schichtende (Übergabe, Reflexionsgespräch, Note nach Punkteschlüssel und Kompetenzbereichen I–V). Freitexte werden per Selbsteinschätzung gegen den Erwartungshorizont bewertet. Der laufende Durchgang und die letzten zehn Ergebnisse liegen im normalen Lernfortschritt (Feld `pex`); es ist keine neue SQL-Datei nötig.
