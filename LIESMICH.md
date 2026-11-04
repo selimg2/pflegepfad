@@ -29,7 +29,7 @@ Die Website zeigt keine technischen Einrichtungshinweise an. Wenn eine Funktion 
 | 6 | `supabase/team.sql` | Team-Krankenhaus |
 | 7 | `supabase/kommunikation.sql` | Eigene Gruppenarbeiten, Nachrichten an Kurse und Lernende, Stundenplan |
 | 8 | `supabase/nachweis.sql` | Digitaler Ausbildungsnachweis: Einsätze, Stunden, Praxisanleitung, Fehlzeiten, Gespräche, Unterschriften, Praxisanleitende, Praxisaufgaben |
-| 9 | `supabase/begleitung.sql` | Bezugslehrkraft, wichtige Nachricht aus dem Einsatz, Einsatz-Feedback, Unterrichtspuls, Prüfungsbögen (Prüfen) |
+| 9 | `supabase/begleitung.sql` | Bezugslehrkraft, wichtige Nachricht aus dem Einsatz, Einsatz-Feedback, Unterrichtspuls, Prüfungsbögen (Prüfen), Teilen unter Lehrkräften, automatisches Ablaufen von Nachrichten |
 
 Fehlermeldungen zur Konfiguration (zum Beispiel ein falscher Schlüssel in `config.js`) erscheinen nur in der Browser-Konsole (Entwicklertools > Konsole), beginnend mit „[Fallpfad]“.
 
@@ -52,6 +52,14 @@ Schüler-App: Eine Woche vor Einsatzbeginn und während des Einsatzes zeigt die 
 Lehrer-Portal: Kurse & Schüler bündelt Kursblöcke mit Live-Status (im Einsatz oder im Unterricht mit Stimmungsbalken), Schülerübersichten mit Stunden, Praxisanleitung, Nachtdienst, fehlenden Voraussetzungen, Dokumenten zum Herunterladen und einem ZIP-Export aller Nachweise (ein Unterordner je Person, HTML-Dokumente plus Übersicht.csv). Benachrichtigungen entstehen automatisch: offene Pflichtpunkte im Nachweis, fehlende Unterlagen nach einem Einsatz, Nachtdienst unter dem Soll, Frühwarnung aus dem Unterrichtspuls (zwei von drei Rückmeldungen mit wenig Verständnis oder Unsicherheit), ungelesene Nachrichten aus dem Einsatz, fehlendes Feedback und Einrichtungen, in denen die Praxisanleitung auffällig oft unter 10 % liegt. Der Reiter Feedback wertet Einsatz-Feedback nach Träger und Station und den Unterrichtspuls je Kurs aus. Unter Prüfen entsteht aus einem Erwartungshorizont ein Prüfungsbogen nach dem OSCE-Prinzip; er lässt sich mit Lehrkräften und, ab einem gewählten Zeitpunkt, mit Kursen teilen. Hinweise für Prüfende sehen Lernende nie.
 
 Die Benachrichtigungen erscheinen im Portal, nicht per E-Mail oder Push.
+
+## Teilen, eigene Bilder und Nachrichten
+
+Module, Live-Fälle und eigene Gruppenarbeiten gehören der Lehrkraft, die sie erstellt. Neue Inhalte sind zunächst nur für sie sichtbar. Über „Teilen“ gibt sie den Inhalt an ausgewählte Lehrkräfte oder per Knopfdruck an die ganze Schule frei. Andere Lehrkräfte nutzen geteilte Inhalte und legen bei Bedarf eine eigene Kopie an; ändern kann nur die Erstellerin. Bearbeitete Fallpfad-Originale und angepasste Arbeitsaufträge fertiger Team-Fälle gelten immer schulweit. Was vor dieser Version angelegt wurde, bleibt für alle Lehrkräfte sichtbar. Lernende betrifft das nicht: Sie sehen weiterhin, was für ihren Kurs veröffentlicht ist.
+
+Im Modul-Baukasten gibt es den Baustein „Eigenes Bild“, im Team-Krankenhaus die Bausteine „Bild“, „Material“ und „Checkliste“. Bilder (JPG oder PNG) werden im Browser auf höchstens 1.400 Pixel und etwa 450 KB verkleinert und mit dem Inhalt gespeichert. Fertige Team-Fälle lassen sich über „Mit Bausteinen bearbeiten“ als eigene Fassung umbauen, die das Original für Lernende ersetzen kann.
+
+Nachrichten der Schule haben immer ein Ablaufdatum (Standard zwei Wochen, höchstens 180 Tage) und werden 30 Tage nach Ablauf gelöscht. Gelesene Nachrichten blenden sich bei den Lernenden nach einer Woche aus. Dauerhaft bleiben der Ausbildungsnachweis, die Nachrichten aus dem Einsatz und das Einsatz-Feedback in der Akte der Person.
 
 ## Datenschutz im Pilotbetrieb
 
