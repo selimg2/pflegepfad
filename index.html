@@ -13351,7 +13351,7 @@ window.FP_KOMM_DATA = {
         else if (typeof e === "string") d = e;
         if (!d) d = (t || "").replace(/\s+/g, " ").trim().slice(0, 400);
         try { console.error("[Fallpfad Sprachverbindung] OpenAI " + r.status + " " + (r.statusText || ""), meta && meta.rtcUrl, t); } catch (x) {}
-        throw new Error((r.status === 429 ? "Der Sprachdienst ist gerade ausgelastet (429)" : "Die Sprachverbindung wurde abgelehnt (" + r.status + ")") + (d ? ": " + d : ". OpenAI hat keinen Grund mitgeschickt."));
+        throw new Error((r.status === 429 ? "Der Sprachdienst ist gerade ausgelastet (429)" : "Die Sprachverbindung wurde abgelehnt (" + r.status + ")") + (d ? ": " + d : ". OpenAI hat keinen Grund mitgeschickt.") + " · Server: " + ((meta && meta.rtcUrl) || "?").replace(/^https?:\/\//, "").split("/")[0]);
       });
       return r.text();
     }).then(function (sdp) {
