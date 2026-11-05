@@ -1,6 +1,6 @@
 // Fallpfad Offline-Cache: App-Dateien und Bibliotheken (Ordner vendor) bleiben ohne Netz verfügbar.
 // Supabase-Anfragen (Login, Speichern, Übersetzen) gehen immer direkt ins Netz.
-const C = "fallpfad-v31";
+const C = "fallpfad-v32";
 const CORE = ["./", "index.html", "favicon.svg", "manifest.webmanifest", "icon-192.png", "icon-512.png",
   "vendor/react.production.min.js", "vendor/react-dom.production.min.js", "vendor/supabase.js",
   "datenschutz.html", "nutzungsbedingungen.html", "impressum.html"];
