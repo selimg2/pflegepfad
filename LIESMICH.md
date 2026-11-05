@@ -15,7 +15,17 @@ Dieser Ordner ist die Website für die Lernenden (zum Beispiel https://pflegepfa
 
 **Wichtig:** Deine bestehende `config.js` mit deinen Supabase-Werten behältst du. Überschreibe sie nicht.
 
-## Neu in dieser Version: Training „Kommunikation“
+## Neu in dieser Version: Training „Stationsalltag“
+
+- **Neue Simulation unter Training > Stationsalltag:** ein Frühdienst auf der Inneren Medizin, Station 5B, 06:30 bis 11:00 Uhr. Fünf Zimmer mit Betten, acht Patientinnen und Patienten und eine Neuaufnahme. Eine Simulationsuhr läuft im Zeitraffer (Pause, 1×, 2×, 4×), jede Aufgabe kostet Stationszeit.
+- **Stationsplan:** Zimmer mit Betten, Patientinnen und Patienten, Status (beobachten, kritisch) und offenen Aufgaben. Zimmer mit neuen Ereignissen oder überfälligen Aufgaben pulsieren dezent. Daneben stehen die anstehenden Aufgaben nach Fälligkeit und die aktuellen Ereignisse (Klingel, Labor, Telefon, Visite, Aufnahme, Alarm).
+- **Zimmer und Patienten:** Ein Tipp auf ein Zimmer zeigt die Personen mit Übergabe, letzten Messwerten, Hinweisen, Patientenakte und Aufgaben. Für Personen aus den Lernmodulen öffnet sich die vorhandene Patientenakte des Moduls (Herr Schulte, Frau Neumann, Frau Berger, Herr Seifert, Herr Engel), dazu der Sprung ins Fallmodul. Herr Brinkmann und Frau Kranz kommen aus der Praktischen Examen Übung mit Akte, Bildbefund und der Simulation Kurzinfusion.
+- **Neuer Fall Herr Brückner:** Harnwegsinfekt, der sich im Lauf der Schicht zur Sepsis entwickelt. Mit eigener Akte, Vitalverlauf, NEWS2, SBAR-Anruf, Blutkulturen, Penicillinallergie in der Akte, Antibiose, Infusion, Kontrolle, Bilanz und Pflegebericht. Wer zu spät reagiert oder die Allergie übersieht, erlebt die Folgen.
+- **Aufgabentypen:** Messen mit NEWS2-Berechnung, Entscheidungen, Mehrfachauswahl, Reihenfolgen, Rechenaufgaben, Bildbefunde und schrittweise Pflegehandlungen aus der Praktischen Examen Übung. Wo es passt, verlinkt die Aufgabe die passende Übung unter Simulationen.
+- **Auswertung:** Gesamtergebnis, Sicherheit, fachliches Handeln, Kommunikation und Dokumentation, Organisation, Pünktlichkeit, kritische Situationen, offene Aufgaben zur Übergabe und die ganze Schicht im Rückblick. Eine laufende Schicht wird gespeichert und lässt sich fortsetzen.
+- **Ohne KI:** Alles läuft nach festen Abläufen und Regeln. Neue Szenarien, Ereignisse und Aufgaben werden nur als Daten ergänzt (Datei `fx-station-data.js` im Quellpaket). Für den Stationsalltag ist nichts in Supabase einzurichten.
+
+## Training „Kommunikation“ (letzte Version)
 
 - **Neuer Bereich unter Training > Kommunikation** mit fünf Kategorien: Patientengespräch, Angehörigengespräch, Konflikt- und Beschwerdegespräch, Aufnahmegespräch und Beratungsgespräch. Je Kategorie drei Gespräche (insgesamt 15), alle Personen erfunden.
 - **Sprachsimulation in Echtzeit:** Die lernende Person spricht über das Mikrofon mit einer KI, die die Gesprächsperson spielt und mit natürlicher Stimme antwortet. Die Person fragt nach, versteht manchmal etwas nicht, reagiert auf Fachwörter, Tempo und Ton und gibt Wichtiges erst preis, wenn gut nachgefragt wird. Die Stimmung verändert sich je nach Gesprächsführung. Live-Untertitel sind zuschaltbar, statt zu sprechen kann man auch schreiben. Höchstens 10 Minuten je Gespräch, bei Verbindungsabbruch geht das Gespräch nahtlos weiter.
