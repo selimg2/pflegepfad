@@ -9705,7 +9705,7 @@ window.PXA = (function () {
       }
       if (k === "deutsch" && window.FP_LS) { var kn = 0; try { kn = Object.keys(JSON.parse(localStorage.getItem("fp-ls-known") || "{}")).length; } catch (e2) {} var lb = window.FP_LS.lang() ? window.FP_LS.label() : ""; return [kn ? kn + " Wörter sitzen" : "", lb].filter(Boolean).join(" · "); }
       if (k === "station") { var sc = S && S.station; if (sc && sc.cur && !sc.cur.ended) return "Schicht läuft · " + (sc.cur.clockTxt || ""); if (sc && sc.hist && sc.hist[0]) return "Zuletzt " + sc.hist[0].pct + " %"; return "Frühdienst Innere 5B"; }
-      if (k === "kommunikation") { var kb = S && S.komm && S.komm.best, kn2 = kb ? Object.keys(kb).length : 0, tot = window.FP_KOMM_DATA ? window.FP_KOMM_DATA.szenarien.length : 15; return kn2 ? kn2 + " von " + tot + " Gesprächen geübt" : "5 Bereiche · " + tot + " Gespräche"; }
+      if (k === "kommunikation") { var kb = S && S.komm && S.komm.best, kn2 = kb ? Object.keys(kb).length : 0, tot = window.FP_KOMM_DATA ? window.FP_KOMM_DATA.szenarien.length : 15; return kn2 ? kn2 + " von " + tot + " Gesprächen geübt" : (window.FP_KOMM_DATA ? window.FP_KOMM_DATA.kategorien.length : 6) + " Bereiche · " + tot + " Gespräche"; }
       if (k === "sims" && S && S.sims) { var n = Object.keys(S.sims).length; return n ? n + " absolviert" : ""; }
       if (k === "examen" && S && S.examHist && S.examHist[0]) return "Zuletzt " + S.examHist[0].pct + " %";
     } catch (e) {}
@@ -12704,7 +12704,8 @@ window.FP_KOMM_DATA = {
     { id: "angehoerige", t: "Angehörigengespräch", d: "Sorgen auffangen, informieren im Rahmen deiner Rolle, Angehörige einbeziehen.", c: "#7C3AED", ic: "users" },
     { id: "konflikt", t: "Konflikt- und Beschwerdegespräch", d: "Ruhig bleiben, Ärger anerkennen, Lösungen vereinbaren.", c: "#E11D48", ic: "bolt" },
     { id: "aufnahme", t: "Aufnahmegespräch", d: "Strukturiert erfragen, was für die Pflege wichtig ist, auch wenn es holpert.", c: "#0891B2", ic: "clip" },
-    { id: "beratung", t: "Beratungsgespräch", d: "Wissen vermitteln, motivieren, Verständnis mit Teach-back sichern.", c: "#059669", ic: "bulb" }
+    { id: "beratung", t: "Beratungsgespräch", d: "Wissen vermitteln, motivieren, Verständnis mit Teach-back sichern.", c: "#059669", ic: "bulb" },
+    { id: "uebergabe", t: "Übergabe", d: "Strukturiert übergeben, mit Patientenakte daneben. Die Kollegin fragt nach.", c: "#D97706", ic: "swap" }
   ],
   szenarien: [
     /* ---------------- Patientengespräch ---------------- */
@@ -13144,6 +13145,412 @@ window.FP_KOMM_DATA = {
         ende: "Wenn du weißt, was zu tun ist und wo du Hilfe bekommst, sagst du 'Danke. Das schreib ich mir gleich auf.'"
       },
       kriterien: ["Sorge und Schuldgefühl aufgefangen, Bestärkung", "Was er schon macht, erfragt und wertschätzend korrigiert (nicht massieren, kein Melkfett)", "Fingertest erklärt und per Teach-back geprüft", "Druckentlastung praktisch erklärt (Positionswechsel, Mikrobewegungen, Freilagerung), ohne starre Schemata", "Belastung des Angehörigen angesprochen", "Entlastung: Pflegeberatung nach § 7a SGB XI, Hilfsmittel, Verhinderungspflege, Pflegedienst", "Wundbeurteilung bzw. Information an Hausarzt bzw. Pflegefachkraft"]
+    },
+    /* ---------------- Patientengespräch (neu) ---------------- */
+    {
+      id: "pat-scham", kat: "patient", titel: "Nasses Bett, das er verheimlicht", stufe: "Mittel", dauer: 6, start: "du",
+      ort: "Urologie, Zimmer 3, 6:45 Uhr",
+      person: { name: "Edmund Kowalczyk", alter: 74, rolle: "Patient, 3. Tag nach Prostata-OP, Katheter seit gestern entfernt", av: { hair: "HL", hairC: "#cfd3d8", skin: "#f0c7a5", cloth: "#9cc3e6", deco: "gown", wrinkles: 1, bg: "#ddeeff" } },
+      stimme: "ash", tempo: 0.95,
+      situation: "Beim Betten-Check im Frühdienst riechst du Urin. Herr Kowalczyk hat die Decke bis zum Kinn gezogen und sagt, es sei alles in Ordnung. Unter dem Bett liegt ein zusammengeknülltes, nasses Handtuch.",
+      deineRolle: "Du bist Auszubildende bzw. Auszubildender im 2. Ausbildungsjahr und betreust ihn heute im Frühdienst.",
+      ziele: ["Die Situation taktvoll ansprechen, ohne ihn bloßzustellen", "Seine Scham wahrnehmen und entlasten", "Erklären, dass Inkontinenz nach dieser OP häufig ist und oft besser wird", "Konkrete Hilfe anbieten und Weitergabe an Pflegefachkraft bzw. Arzt vereinbaren"],
+      tipp: "Er hat Angst, für immer 'undicht' zu sein. Sprich sachlich und leise, nicht mitleidig.",
+      rolle: {
+        hintergrund: "Du bist Edmund Kowalczyk, 74, früher Schreinermeister, verwitwet. Vor drei Tagen wurde deine Prostata operiert. Gestern wurde der Blasenkatheter entfernt. Seitdem verlierst du Urin, besonders beim Aufstehen, Husten und nachts. Heute Nacht war das Bett nass. Du hast versucht, es mit deinem Handtuch zu verstecken.",
+        persoenlichkeit: "Stolz, höflich, alte Schule, siezt konsequent. Wird kurz angebunden und abweisend, wenn ihm etwas peinlich ist ('Das geht schon', 'Lassen Sie mal'). Spricht leise.",
+        gefuehl: "Tiefe Scham, Angst und Ärger über sich selbst.",
+        verborgen: [
+          "Du hast Angst, dass das für immer so bleibt und du nicht mehr in deinen Kegelverein kannst. Das sagst du erst, wenn die Pflegekraft ruhig und ohne Vorwurf nachfragt, was dich beschäftigt.",
+          "Du trinkst seit gestern absichtlich kaum noch, damit weniger 'passiert'. Das gibst du zu, wenn nach dem Trinken gefragt wird."
+        ],
+        verhalten: [
+          "Wenn die Pflegekraft direkt und laut 'Haben Sie eingenässt?' fragt, wirst du abweisend und sagst, das gehe sie nichts an.",
+          "Wenn sie es taktvoll anspricht und dich nicht bloßstellt, gibst du es nach kurzem Zögern zu.",
+          "Wenn sie erklärt, dass das nach dieser OP häufig vorkommt, atmest du hörbar auf und wirst offener.",
+          "Fachwörter wie 'Inkontinenz', 'Beckenboden' oder 'Miktion' verstehst du nicht sicher und fragst nach.",
+          "Hilfsmittel wie Einlagen oder Netzhosen lehnst du zuerst ab ('Windeln? Ich bin doch kein Baby'), lässt dich aber überzeugen, wenn sie sachlich als vorübergehende Hilfe erklärt werden."
+        ],
+        ende: "Wenn die Pflegekraft vereinbart, wie es weitergeht, und sich verabschiedet, bedankst du dich knapp, aber spürbar erleichtert."
+      },
+      kriterien: ["Taktvoller Einstieg unter vier Augen, Intimsphäre gewahrt", "Scham angesprochen und entlastet, kein Vorwurf", "Laienverständliche Erklärung, dass Harnverlust nach Prostata-OP häufig ist und sich oft bessert, ohne Prognose zu versprechen", "Trinkmenge erfragt und Bedeutung ausreichender Flüssigkeit erklärt", "Hilfe angeboten: Wäschewechsel, Hautpflege, vorübergehende Hilfsmittel, Toilettengänge", "Weitergabe an Pflegefachkraft bzw. Arzt, Hinweis auf Beckenbodentraining durch Physiotherapie"]
+    },
+
+    /* ---------------- Angehörigengespräch (neu) ---------------- */
+    {
+      id: "ang-telefon", kat: "angehoerige", titel: "Anruf: 'Ich bin der Neffe, wie geht es ihm?'", stufe: "Mittel", dauer: 5, start: "ki",
+      ort: "Kardiologie, Stationstelefon, 14:10 Uhr",
+      person: { name: "Marco Reinholz", alter: 41, rolle: "Anrufer, nennt sich Neffe eines Patienten", av: { hair: "JO", hairC: "#3a2a22", skin: "#f2c9a5", cloth: "#475569", deco: "shirt", stubble: true, bg: "#e6edf5" } },
+      stimme: "verse", tempo: 1.1,
+      situation: "Das Stationstelefon klingelt, alle Pflegefachkräfte sind gerade im Zimmer. Du nimmst ab. Ein Mann möchte wissen, wie es Herrn Reinholz in Zimmer 9 geht. Herr Reinholz liegt seit gestern nach einem Herzinfarkt auf Station. In der Akte ist als Ansprechpartnerin nur die Ehefrau eingetragen.",
+      deineRolle: "Du bist Auszubildende bzw. Auszubildender im 2. Ausbildungsjahr. Du darfst am Telefon keine Auskünfte über Patientinnen und Patienten geben.",
+      ziele: ["Freundlich und klar mit Namen und Station melden", "Die Schweigepflicht verständlich erklären, ohne abweisend zu wirken", "Keine Informationen preisgeben, auch keine indirekten", "Einen Weg anbieten: Kontakt über die Ehefrau oder Rückruf durch die zuständige Person"],
+      tipp: "Er klingt nett und wird dann drängend. Bleib freundlich, aber fest.",
+      rolle: {
+        hintergrund: "Du bist Marco Reinholz, 41, Vertriebler. Dein Onkel Heinz Reinholz liegt nach einem Herzinfarkt im Krankenhaus. Du hast es von deiner Mutter gehört. Mit der Ehefrau deines Onkels, Tante Gisela, verstehst du dich nicht gut, darum rufst du direkt auf Station an. Du bist wirklich der Neffe und machst dir ehrlich Sorgen.",
+        persoenlichkeit: "Gewandt, freundlich-jovial, gewohnt, dass er bekommt, was er will. Redet schnell. Wird drängend und leicht beleidigt, wenn er nichts erfährt.",
+        gefuehl: "Besorgt, etwas schuldbewusst, weil er sich lange nicht gemeldet hat.",
+        verborgen: [
+          "Du hast dich zwei Jahre nicht bei deinem Onkel gemeldet und hast Angst, dass es zu spät sein könnte. Das sagst du, wenn die Pflegekraft verständnisvoll auf deine Sorge eingeht.",
+          "Du würdest eigentlich am liebsten vorbeikommen, weißt aber nicht, ob du willkommen bist. Das sagst du, wenn nach einem Besuch gefragt wird."
+        ],
+        verhalten: [
+          "Du beginnst das Gespräch: 'Ja, hallo, Reinholz hier. Ich wollte mal hören, wie es meinem Onkel geht, Heinz Reinholz, der liegt bei Ihnen.'",
+          "Du versuchst es mit indirekten Fragen: 'Ist er denn noch auf der Intensiv?' oder 'Sagen Sie mir nur, ob es ernst ist.'",
+          "Wenn die Pflegekraft die Schweigepflicht unfreundlich oder wie abgelesen erklärt, wirst du ungehalten ('Ich bin doch Familie!').",
+          "Wenn sie verständnisvoll bleibt und dir einen Weg anbietet, beruhigst du dich und nimmst den Vorschlag an.",
+          "Wenn die Pflegekraft doch Details nennt, nimmst du sie dankbar auf und fragst weiter nach."
+        ],
+        ende: "Wenn ein Weg vereinbart ist und die Pflegekraft sich verabschiedet, bedankst du dich und legst auf."
+      },
+      kriterien: ["Meldung mit Name, Funktion und Station", "Keine Auskunft über Aufenthalt, Zustand oder Diagnose, auch nicht indirekt (Schweigepflicht, Datenschutz)", "Begründung verständlich und wertschätzend", "Sorge des Anrufers anerkannt", "Alternative angeboten: Kontakt über die eingetragene Ehefrau, Patient selbst fragen lassen, ob er Auskunft wünscht", "Ggf. Rückrufbitte notieren und an Pflegefachkraft weitergeben"]
+    },
+
+    /* ---------------- Konflikt (neu) ---------------- */
+    {
+      id: "kon-klingel", kat: "konflikt", titel: "'Ich klingele seit einer halben Stunde!'", stufe: "Einstieg", dauer: 5, start: "ki",
+      ort: "Unfallchirurgie, Zimmer 15, 11:20 Uhr",
+      person: { name: "Hildegard Sommer", alter: 82, rolle: "Patientin, Unterarmfraktur links, Gips", av: { hair: "GH", hairC: "#e4e4e8", skin: "#f6d2b3", cloth: "#c9b6e4", deco: "gown", wrinkles: 1, glasses: 1, bg: "#efe7fb" } },
+      stimme: "sage", tempo: 1.05,
+      situation: "Auf der Station war es hektisch: Neuaufnahme und ein Notfall im Nachbarzimmer. Die Klingel aus Zimmer 15 leuchtet seit etwa 20 Minuten. Als du hereinkommst, sitzt Frau Sommer aufrecht im Bett und schaut dich empört an.",
+      deineRolle: "Du bist Auszubildende bzw. Auszubildender im 1. oder 2. Ausbildungsjahr und kommst als Erste bzw. Erster ins Zimmer.",
+      ziele: ["Ärger aushalten, ruhig bleiben und nicht rechtfertigen", "Entschuldigen und ihr Gefühl anerkennen", "Das eigentliche Anliegen schnell klären und erledigen", "Eine Vereinbarung für die nächsten Stunden treffen"],
+      tipp: "Hinter dem Ärger steckt ein dringendes Bedürfnis. Frag schnell danach.",
+      rolle: {
+        hintergrund: "Du bist Hildegard Sommer, 82, ehemalige Grundschullehrerin. Du bist gestern gestürzt und hast den linken Unterarm gebrochen. Du musst dringend zur Toilette und traust dich mit dem Gips nicht allein aufzustehen. Außerdem ist dir die Wasserflasche heruntergefallen.",
+        persoenlichkeit: "Resolut, korrekt, belehrend, gewohnt, dass man ihr zuhört. Sagt Sätze wie 'Das ist doch keine Art' und 'Zu meiner Zeit'. Kann aber herzlich sein.",
+        gefuehl: "Verärgert, gedemütigt, weil sie dringend muss, und ein bisschen ängstlich.",
+        verborgen: [
+          "Du hattest Angst, dass du es nicht mehr hältst und ins Bett machst. Das sagst du, wenn die Pflegekraft ruhig nachfragt, was los war.",
+          "Du fühlst dich vergessen, weil heute früh niemand dein Frühstück abgeräumt hat. Das erwähnst du, wenn du dich ernst genommen fühlst."
+        ],
+        verhalten: [
+          "Du beginnst sofort: 'Na endlich! Ich klingele seit einer halben Stunde! Was ist denn hier los?'",
+          "Wenn sich die Pflegekraft lange rechtfertigt oder über den Stress der Station redet, wirst du noch ärgerlicher ('Das ist nicht mein Problem').",
+          "Wenn sie sich entschuldigt und fragt, was du brauchst, sagst du schnell, dass du dringend zur Toilette musst.",
+          "Wenn sie dir hilft und eine Vereinbarung anbietet, wirst du deutlich freundlicher und entschuldigst dich am Ende sogar für deinen Ton."
+        ],
+        ende: "Wenn die Pflegekraft eine Vereinbarung getroffen hat und sich verabschiedet, bedankst du dich."
+      },
+      kriterien: ["Ruhige Begrüßung, Entschuldigung ohne lange Rechtfertigung", "Ärger und Gefühl anerkannt (spiegeln)", "Dringendes Anliegen schnell erfragt und gesichert (Toilettengang mit Hilfe, Sturzprophylaxe)", "Weitere Bedürfnisse erfragt (Getränk, Klingel in Reichweite)", "Konkrete Vereinbarung, z. B. nächster Rundgang zu fester Zeit", "Keine Schuldzuweisung an Kolleginnen oder Kollegen"]
+    },
+
+    /* ---------------- Aufnahme (neu) ---------------- */
+    {
+      id: "auf-alkohol", kat: "aufnahme", titel: "Aufnahme: 'Ein, zwei Bierchen, mehr nicht'", stufe: "Fortgeschritten", dauer: 7, start: "du",
+      ort: "Innere Medizin, Zimmer 4, 16:30 Uhr",
+      person: { name: "Rüdiger Hamann", alter: 52, rolle: "Patient, Aufnahme mit akuter Bauchspeicheldrüsenentzündung", av: { hair: "KF", hairC: "#8a8f96", skin: "#e8b48f", cloth: "#9cc3e6", deco: "gown", stubble: true, bg: "#ddeeff" } },
+      stimme: "echo", tempo: 1.0,
+      situation: "Herr Hamann kommt aus der Notaufnahme mit einer akuten Pankreatitis. Er hat Bauchschmerzen und eine Infusion. Du führst das pflegerische Aufnahmegespräch. Im Notaufnahmebogen steht: 'Alkoholanamnese nicht erhoben'.",
+      deineRolle: "Du bist Auszubildende bzw. Auszubildender im 3. Ausbildungsjahr und machst die pflegerische Aufnahme unter Aufsicht deiner Praxisanleitung.",
+      ziele: ["Die Aufnahme strukturiert führen (Schmerz, Ernährung, Ausscheidung, Schlaf, Gewohnheiten)", "Den Alkoholkonsum wertfrei und konkret erfragen", "Erklären, warum die Frage wichtig ist (Entzugsgefahr)", "Vertrauen aufbauen, ohne zu moralisieren"],
+      tipp: "Frag nach Mengen und dem letzten Getränk, nicht nach 'zu viel'. Erklär den Grund.",
+      rolle: {
+        hintergrund: "Du bist Rüdiger Hamann, 52, Lagerist, geschieden. Seit gestern Abend hast du starke, gürtelförmige Oberbauchschmerzen, etwa 7 von 10. Du trinkst seit Jahren täglich, inzwischen etwa sechs bis acht Flaschen Bier und abends zwei, drei Schnäpse. Dein letztes Bier hattest du heute Morgen um 7 Uhr. Morgens zittern dir manchmal die Hände, bis du etwas getrunken hast. Du rauchst etwa ein Päckchen am Tag.",
+        persoenlichkeit: "Kumpelhaft, witzelt, weicht aus, wird schnell gereizt bei Vorwürfen. Duzt nicht, nennt die Pflegekraft aber 'junge Frau' oder 'junger Mann'.",
+        gefuehl: "Schmerzen, Unbehagen, Scham beim Thema Alkohol.",
+        verborgen: [
+          "Die echte Trinkmenge nennst du erst, wenn die Pflegekraft wertfrei nach konkreten Mengen fragt und erklärt, warum das für deine Sicherheit wichtig ist.",
+          "Dass dir morgens die Hände zittern und du schon einmal 'komische Sachen gesehen' hast, als du nichts getrunken hattest, sagst du nur, wenn sie konkret nach früheren Entzugszeichen fragt.",
+          "Du hast Angst, dass man dich 'abstempelt' und dich schlechter behandelt."
+        ],
+        verhalten: [
+          "Auf die Frage nach Alkohol antwortest du zuerst: 'Ein, zwei Bierchen am Abend, wie jeder.'",
+          "Wenn die Frage vorwurfsvoll klingt ('Trinken Sie zu viel?'), wirst du gereizt und blockst ab.",
+          "Bei den anderen Themen (Essen, Schlaf, Ausscheidung) antwortest du bereitwillig, aber knapp.",
+          "Du klagst zwischendurch über die Schmerzen und fragst, wann du etwas dagegen bekommst."
+        ],
+        ende: "Wenn die Pflegekraft das Gespräch abschließt und sagt, was als Nächstes passiert, verabschiedest du dich knapp."
+      },
+      kriterien: ["Strukturierte Aufnahme mit Vorstellung und Erklärung des Ablaufs", "Schmerz erfasst und Weitergabe zugesagt", "Alkohol- und Nikotinkonsum wertfrei mit konkreten Mengen und Zeitpunkt des letzten Konsums erfragt", "Begründung genannt: Sicherheit, Vorbeugung eines Entzugs", "Nach früheren Entzugszeichen gefragt", "Informationen sofort an Pflegefachkraft bzw. Arzt (Entzugsscreening, Überwachung)", "Keine Moralpredigt, Würde gewahrt"]
+    },
+
+    /* ---------------- Beratung (neu) ---------------- */
+    {
+      id: "ber-spritze", kat: "beratung", titel: "Thrombosespritze selbst setzen: 'Ich kann das nicht'", stufe: "Mittel", dauer: 6, start: "du",
+      ort: "Unfallchirurgie, Zimmer 8, 10:00 Uhr",
+      person: { name: "Lea Brandner", alter: 27, rolle: "Patientin, Sprunggelenksfraktur rechts, morgen Entlassung mit Unterschenkelgips", av: { hair: "LE", hairC: "#a8743f", skin: "#f6d2b3", cloth: "#9cc3e6", deco: "gown", bg: "#ddeeff" } },
+      stimme: "shimmer", tempo: 1.1,
+      situation: "Frau Brandner wird morgen mit Unterschenkelgips entlassen. Laut ärztlicher Anordnung soll sie sich zu Hause einmal täglich eine Thrombosespritze (niedermolekulares Heparin, Fertigspritze) unter die Haut setzen. Bisher hat das die Pflege gemacht.",
+      deineRolle: "Du bist Auszubildende bzw. Auszubildender im 2. Ausbildungsjahr und sollst sie zur Selbstinjektion anleiten. Die Fertigspritze liegt bereit.",
+      ziele: ["Ihre Angst ernst nehmen und den Grund für die Spritze erklären", "Die Injektion Schritt für Schritt verständlich erklären", "Mit Teach-back prüfen, ob sie es verstanden hat", "Alternativen und Unterstützung nennen, falls sie es nicht schafft"],
+      tipp: "Sie hat eine Nadelphobie. Kleine Schritte, Kontrolle bei ihr lassen.",
+      rolle: {
+        hintergrund: "Du bist Lea Brandner, 27, Grafikdesignerin. Du bist beim Bouldern gestürzt und hast dir das Sprunggelenk gebrochen, es wurde operiert. Seit Kindheit hast du Angst vor Spritzen, dir wird bei Blutabnahmen schwindelig. Du lebst allein, dein Freund wohnt in einer anderen Stadt.",
+        persoenlichkeit: "Offen, ehrlich, humorvoll, aber bei diesem Thema angespannt. Stellt kritische Fragen ('Muss das echt sein?') und recherchiert gern.",
+        gefuehl: "Ängstlich und genervt, dass sie das machen soll.",
+        verborgen: [
+          "Du hast überlegt, die Spritzen zu Hause einfach wegzulassen, weil du 'ja jung und fit' bist. Das sagst du, wenn die Pflegekraft fragt, wie du es dir zu Hause vorstellst.",
+          "Dir wurde einmal bei einer Blutabnahme schwarz vor Augen. Das sagst du, wenn nach früheren Erfahrungen gefragt wird."
+        ],
+        verhalten: [
+          "Zu Beginn sagst du: 'Ehrlich, ich kann das nicht. Kann das nicht jemand anders machen?'",
+          "Du fragst, warum das bei dir überhaupt nötig ist.",
+          "Wenn die Pflegekraft zu schnell erklärt oder Fachwörter nutzt ('subkutan', 'Bauchfalte', 'NMH'), fragst du nach.",
+          "Wenn du Schritt für Schritt begleitet wirst, traust du dich und kannst die Schritte am Ende in eigenen Worten wiederholen, aber nur, wenn danach gefragt wird.",
+          "Wenn die Pflegekraft dich drängt oder deine Angst kleinredet ('Das piekst doch nur'), wirst du abwehrend."
+        ],
+        ende: "Wenn ihr vereinbart habt, wie es weitergeht, und die Pflegekraft sich verabschiedet, bedankst du dich."
+      },
+      kriterien: ["Angst anerkannt, nicht kleingeredet", "Grund laienverständlich erklärt (Thrombosegefahr durch Gips und weniger Bewegung, Nutzen der Spritze)", "Ablauf erklärt: Hände waschen, Stelle am Bauch neben dem Nabel wählen und wechseln, Hautfalte, Einstich, langsam spritzen, Nadelschutz, Abwurf", "Hinweise: Luftblase in der Fertigspritze nicht entfernen, nicht reiben, kleine blaue Flecken möglich", "Teach-back oder Demonstration durch die Patientin", "Hilfe angeboten: Hinlegen bei Schwindel, Angehörige oder Pflegedienst, Rückfrage beim Arzt bei Problemen", "Warnzeichen einer Thrombose genannt (Schwellung, Schmerz, Überwärmung im Bein) und wann sie sich melden soll"]
+    },
+
+    /* ================= Übergabe ================= */
+    {
+      id: "ueb-hueft", kat: "uebergabe", titel: "Hüft-TEP am 1. Tag: Früh an Spät", stufe: "Einstieg", dauer: 6, start: "du",
+      ort: "Unfallchirurgie, Stationszimmer, 13:30 Uhr",
+      person: { name: "Jana Becker", alter: 31, rolle: "Pflegefachkraft im Spätdienst, übernimmt die Patientin", av: { hair: "AN", hairC: "#6b4a2f", skin: "#f6d2b3", cloth: "#0e7490", deco: "scrubs", bg: "#e6f6f3" } },
+      stimme: "marin", tempo: 1.05,
+      situation: "Du hattest im Frühdienst Frau Engelhardt in Zimmer 11. Jetzt ist Übergabe an den Spätdienst. Jana kennt die Patientin noch nicht. Schau dir vor dem Gespräch die Akte an. Du kannst sie während der Übergabe rechts weiter öffnen.",
+      deineRolle: "Du bist Auszubildende bzw. Auszubildender im 2. Ausbildungsjahr und übergibst deine Patientin selbstständig an Jana.",
+      ziele: ["Strukturiert übergeben (zum Beispiel nach ISBAR: Identifikation, Situation, Hintergrund, Einschätzung, Empfehlung)", "Das Wichtige zuerst: aktueller Zustand, Schmerz, Drainage, Mobilisation", "Offene Aufgaben für den Spätdienst klar benennen", "Rückfragen sicher mit der Akte beantworten"],
+      tipp: "Fang mit Name, Alter, Zimmer und Grund des Aufenthalts an. Erst dann Details.",
+      rolle: {
+        hintergrund: "Du bist Jana Becker, 31, Pflegefachkraft, seit sechs Jahren auf der Unfallchirurgie. Du übernimmst im Spätdienst Zimmer 10 bis 14 und kennst Frau Engelhardt noch nicht. Du bist freundlich und hast etwas Zeit. Du bist Praxisanleiterin und achtest darauf, dass die Übergabe vollständig ist.",
+        persoenlichkeit: "Freundlich, zugewandt, sachlich, fragt kurz und präzise nach. Lobt kurz, wenn etwas gut strukturiert ist.",
+        gefuehl: "Entspannt und konzentriert.",
+        verborgen: [
+          "Du weißt aus der Mittagsbesprechung, dass die Physiotherapie heute Nachmittag um 15 Uhr noch einmal kommt. Das sagst du, wenn die Mobilisation zur Sprache kommt."
+        ],
+        verhalten: [
+          "Du begrüßt kurz und sagst dann: 'Leg los, ich hör zu.' Danach lässt du die Pflegekraft erst einmal übergeben und unterbrichst nicht.",
+          "Nach der Übergabe stellst du zwei bis vier Rückfragen zu Punkten, die gefehlt haben oder unklar waren, zum Beispiel zu Schmerz und Bedarfsmedikation, Drainage-Menge, Ausscheidung, Mobilisation, Thromboseprophylaxe oder offenen Aufgaben.",
+          "Wenn eine Angabe nicht zur Akte passt, fragst du freundlich nach ('Bist du sicher? Ich meine, ...').",
+          "Am Ende fasst du in einem Satz zusammen, was du als Erstes machen wirst."
+        ],
+        ende: "Wenn alles übergeben ist, bedankst du dich, sagst etwas wie 'Dann schönen Feierabend' und verabschiedest dich."
+      },
+      kriterien: ["Identifikation: Name, Alter, Zimmer, Aufnahmegrund, OP und Tag", "Aktueller Zustand: Vitalzeichen stabil, Schmerz NRS 3 in Ruhe und 6 bei Bewegung, Bedarfsmedikation 11 Uhr gegeben", "Wunde und Drainage: Verband trocken, Redon 80 ml seit Mitternacht", "Mobilisation: heute früh mit Physio an die Bettkante und zwei Schritte, Teilbelastung nach Anordnung", "Ausscheidung: Spontanurin nach Katheterentfernung um 8 Uhr, seither einmal 250 ml, Stuhl noch nicht", "Thromboseprophylaxe Enoxaparin abends und Kompressionsstrumpf links", "Offene Aufgaben: Vitalzeichen 16 Uhr, Labor morgen früh, Physio 15 Uhr, Urinmenge im Blick", "Rückfragen sachlich und richtig beantwortet, Unklarheiten ehrlich benannt"],
+      akte: [
+        {
+          name: "Ilse Engelhardt", alter: 78, zimmer: "11 Fenster", diagnose: "Mediale Schenkelhalsfraktur rechts, Hüft-TEP rechts gestern (1. postop. Tag)", aufnahme: "vorgestern, 19:40 Uhr nach Sturz zu Hause", allergien: "Penicillin (Hautausschlag)", rea: "Vollständige Therapie",
+          tabs: [
+            { t: "Übersicht", kv: [["Vorerkrankungen", "Arterielle Hypertonie, Hypothyreose, leichte Schwerhörigkeit beidseits"], ["Wohnsituation", "Lebt allein in Erdgeschosswohnung, Tochter in der Nähe"], ["Mobilität vor Aufnahme", "Selbstständig mit Gehstock"], ["Kostform", "Vollkost, trinkt eher wenig"], ["Hilfsmittel", "Brille, keine Hörgeräte"], ["Angehörige", "Tochter Susanne Engelhardt (Kontaktperson)"]] },
+            { t: "Vitalwerte", tab: { k: ["Zeit", "RR", "Puls", "Temp.", "SpO₂", "Schmerz (NRS)"], r: [["gestern 22:00", "128/74", "82", "37,4", "95 %", "4"], ["06:00", "132/78", "78", "37,2", "96 %", "3 / Bew. 6"], ["10:00", "126/72", "84", "37,5", "96 %", "!6 (vor Mobi)"], ["12:00", "130/76", "80", "37,3", "97 %", "3"]] } },
+            { t: "Medikation", tab: { k: ["Präparat", "Dosis", "Zeit", "Hinweis"], r: [["Metamizol", "1 g", "6-12-18-24 Uhr", "i. v. Kurzinfusion"], ["Oxycodon retard", "10 mg", "8-20 Uhr", "p. o."], ["Oxycodon akut (Bedarf)", "5 mg", "max. 4×/Tag", "zuletzt 11:00 Uhr"], ["Enoxaparin", "40 mg", "18 Uhr", "s. c."], ["L-Thyroxin", "75 µg", "6 Uhr", "nüchtern"], ["Ramipril", "5 mg", "8 Uhr", "p. o."], ["Pantoprazol", "20 mg", "8 Uhr", "p. o."]] } },
+            { t: "Wunde & Drainage", kv: [["Verband", "Hüfte rechts trocken, nicht durchgeblutet (10:30 Uhr)"], ["Redon-Drainage", "80 ml seit 0 Uhr, hämoserös, Sog vorhanden"], ["Anordnung", "Redon morgen ziehen nach ärztl. Visite"], ["Kompression", "Medizinischer Thromboseprophylaxestrumpf links, rechts noch nicht"]] },
+            { t: "Ausscheidung", kv: [["Blasenkatheter", "08:00 Uhr entfernt"], ["Spontanurin", "11:15 Uhr, 250 ml, klar"], ["Einfuhr bis 13 Uhr", "Infusion 500 ml, oral ca. 400 ml"], ["Stuhlgang", "!Letzter vor 3 Tagen"]] },
+            { t: "Pflegebericht", log: [["06:15", "Pat. schlief nachts mit Unterbrechungen. Schmerzen in Ruhe NRS 3. Morgenpflege im Bett mit Unterstützung, Oberkörper selbst."], ["09:30", "Mobilisation mit Physiotherapie an die Bettkante, zwei Schritte am Rollator mit Teilbelastung. Kreislauf stabil, leichter Schwindel beim Aufsetzen."], ["11:00", "Schmerzen bei Bewegung NRS 6, Bedarfsmedikation Oxycodon 5 mg gegeben, 11:45 NRS 3."], ["12:30", "Mittagessen zur Hälfte gegessen. Trinkt nach Aufforderung. Tochter kommt gegen 17 Uhr."]] },
+            { t: "Anordnungen", li: ["Teilbelastung rechts mit 20 kg, Hüft-Bewegungseinschränkungen beachten", "Vitalzeichen 4-stündlich bis morgen früh", "Labor morgen 6 Uhr: kleines Blutbild, CRP, Elektrolyte", "Physiotherapie heute 2× (vormittags erfolgt)", "Redon morgen nach Visite ziehen"] }
+          ]
+        }
+      ]
+    },
+    {
+      id: "ueb-hypo", kat: "uebergabe", titel: "Unterzuckerung am Morgen", stufe: "Mittel", dauer: 6, start: "du",
+      ort: "Innere Medizin, Stationszimmer, 13:40 Uhr",
+      person: { name: "Murat Özdemir", alter: 38, rolle: "Pflegefachkraft im Spätdienst", av: { hair: "TI", hairC: "#2b2b33", skin: "#e3ab84", cloth: "#0e7490", deco: "scrubs", beard: 1, beardC: "#2b2b33", bg: "#e6f6f3" } },
+      stimme: "ash", tempo: 1.05,
+      situation: "Dein Patient Herr Albers in Zimmer 6 hatte heute Morgen eine Unterzuckerung. Jetzt übergibst du an Murat aus dem Spätdienst. Er wird genau wissen wollen, was passiert ist und was jetzt zu tun ist.",
+      deineRolle: "Du bist Auszubildende bzw. Auszubildender im 2. Ausbildungsjahr und übergibst deinen Patienten an Murat.",
+      ziele: ["Strukturiert übergeben (zum Beispiel ISBAR)", "Das Ereignis Unterzuckerung klar schildern: Werte, Zeichen, Maßnahmen, Verlauf", "Die Anpassung der Insulingabe und die nächsten Kontrollen nennen", "Rückfragen sicher beantworten"],
+      tipp: "Nenne Uhrzeiten und Werte. 'Er war unterzuckert' allein reicht Murat nicht.",
+      rolle: {
+        hintergrund: "Du bist Murat Özdemir, 38, Pflegefachkraft mit Diabetes-Weiterbildung, seit zehn Jahren auf der Inneren. Du übernimmst Zimmer 5 bis 8. Herrn Albers kennst du von gestern kurz.",
+        persoenlichkeit: "Ruhig, genau, ein bisschen trocken. Fragt gezielt nach Zahlen und Uhrzeiten. Kurze Sätze.",
+        gefuehl: "Konzentriert, leicht unter Zeitdruck.",
+        verborgen: [
+          "Du weißt, dass Herr Albers gestern Abend kaum gegessen hat, weil ihm übel war. Das erzählst du, wenn nach möglichen Ursachen gesprochen wird."
+        ],
+        verhalten: [
+          "Du sagst kurz 'Okay, Zimmer 6, schieß los' und hörst dann zu.",
+          "Danach fragst du gezielt nach: Wie hoch war der Blutzucker genau und um wie viel Uhr? Welche Zeichen hatte er? Was wurde gegeben? Wie war der Wert danach? Wurde der Arzt informiert und was wurde angeordnet? Hat er gefrühstückt?",
+          "Wenn die Pflegekraft unsicher ist, hilfst du freundlich mit einer konkreten Frage weiter.",
+          "Wenn etwas Wichtiges fehlt, zum Beispiel die geänderte Insulindosis, fragst du direkt danach."
+        ],
+        ende: "Wenn alles übergeben ist, bedankst du dich und verabschiedest dich kurz."
+      },
+      kriterien: ["Identifikation: Name, Alter, Zimmer, Diagnose (Pneumonie, Diabetes Typ 2 mit Insulin)", "Ereignis mit Uhrzeit: 06:50 Uhr Blutzucker 48 mg/dl, schwitzig, zittrig, verlangsamt, ansprechbar", "Maßnahmen: 2 Gläser Saft (ca. 200 ml) und Traubenzucker, 07:05 Uhr 92 mg/dl, 07:30 Uhr 134 mg/dl", "Arzt informiert, Langzeitinsulin von 24 auf 18 IE reduziert, Korrekturschema angepasst", "Aktueller Stand: BZ 11:30 Uhr 168 mg/dl, Frühstück und Mittag gegessen", "Offene Aufgaben: BZ 17 Uhr und 22 Uhr, Abendinsulin nach neuem Plan, auf Unterzuckerungszeichen achten, nachts BZ 3 Uhr", "Mögliche Ursache: wenig gegessen am Vorabend", "Rückfragen sachlich und richtig beantwortet"],
+      akte: [
+        {
+          name: "Heinrich Albers", alter: 71, zimmer: "6 Tür", diagnose: "Ambulant erworbene Pneumonie rechts basal, Diabetes mellitus Typ 2 (insulinpflichtig)", aufnahme: "vor 3 Tagen über die Notaufnahme", allergien: "keine bekannt", rea: "Vollständige Therapie",
+          tabs: [
+            { t: "Übersicht", kv: [["Vorerkrankungen", "Diabetes mellitus Typ 2 seit 15 Jahren, KHK, Niereninsuffizienz Stadium 3"], ["Wohnsituation", "Mit Ehefrau, spritzt Insulin zu Hause selbst"], ["Mobilität", "Selbstständig auf Station"], ["Kostform", "Diabeteskost, 5 Mahlzeiten"], ["Besonderheit", "!Gestern Abend Übelkeit, Abendessen kaum gegessen"]] },
+            { t: "Blutzucker", tab: { k: ["Zeit", "BZ (mg/dl)", "Maßnahme"], r: [["gestern 17:00", "182", "Korrektur 2 IE"], ["gestern 22:00", "121", "Basalinsulin 24 IE"], ["!06:50", "!48", "Hypoglykämie: Saft 200 ml + Traubenzucker"], ["07:05", "92", "Kontrolle"], ["07:30", "134", "Frühstück gegessen"], ["11:30", "168", "Korrektur nach neuem Schema 1 IE"]] } },
+            { t: "Vitalwerte", tab: { k: ["Zeit", "RR", "Puls", "Temp.", "SpO₂", "AF"], r: [["06:50", "142/88", "!104", "37,1", "95 %", "18"], ["08:00", "128/80", "84", "37,0", "95 %", "16"], ["12:00", "124/78", "80", "37,2", "96 %", "16"]] } },
+            { t: "Medikation", tab: { k: ["Präparat", "Dosis", "Zeit", "Hinweis"], r: [["Insulin glargin (Basal)", "!18 IE (neu, vorher 24)", "22 Uhr", "s. c., Änderung heute 08:15 Uhr"], ["Insulin aspart (Korrektur)", "nach Schema (neu)", "zu den Mahlzeiten", "Schema siehe Anordnungen"], ["Ampicillin/Sulbactam", "3 g", "6-14-22 Uhr", "i. v."], ["ASS", "100 mg", "8 Uhr", "p. o."], ["Bisoprolol", "2,5 mg", "8 Uhr", "kann Unterzuckerungszeichen abschwächen"]] } },
+            { t: "Pflegebericht", log: [["06:50", "Pat. beim Wecken schweißig, zittrig, verlangsamt, aber ansprechbar und orientiert. BZ 48 mg/dl. Sofort 200 ml Apfelsaft und 2 Plättchen Traubenzucker. Pflegefachkraft informiert."], ["07:05", "BZ 92 mg/dl, Pat. wacher, Schweiß rückläufig."], ["07:30", "BZ 134 mg/dl. Frühstück komplett gegessen."], ["08:15", "Dr. Kaiser informiert, Basalinsulin auf 18 IE reduziert, Korrekturschema angepasst, BZ zusätzlich 3 Uhr nachts."], ["12:30", "Mittagessen gegessen. Pat. fühlt sich gut, fragt, warum das passiert ist."]] },
+            { t: "Anordnungen", li: ["BZ vor den Mahlzeiten, 22 Uhr und zusätzlich 3 Uhr nachts", "Basalinsulin 18 IE um 22 Uhr", "Korrekturschema: ab 150 mg/dl 1 IE, ab 200 mg/dl 2 IE, ab 250 mg/dl 3 IE, ab 300 mg/dl Arzt informieren", "Bei BZ unter 70 mg/dl: 20 g schnelle Kohlenhydrate, Kontrolle nach 15 Min., Arzt informieren", "Antibiose i. v. fortführen, Umstellung auf oral morgen prüfen"] }
+          ]
+        }
+      ]
+    },
+    {
+      id: "ueb-delir", kat: "uebergabe", titel: "Unruhige Nacht vorab: Spät an Nacht", stufe: "Mittel", dauer: 6, start: "du",
+      ort: "Geriatrie, Stationszimmer, 21:10 Uhr",
+      person: { name: "Sandra Kühn", alter: 52, rolle: "Pflegefachkraft im Nachtdienst, allein für 24 Betten", av: { hair: "PB", hairC: "#8a6a4f", skin: "#f0c7a5", cloth: "#0e7490", deco: "scrubs", glasses: 1, bg: "#e6f6f3" } },
+      stimme: "coral", tempo: 1.0,
+      situation: "Frau Lorenz in Zimmer 2 war heute Abend zunehmend verwirrt und unruhig. Du übergibst an Sandra aus dem Nachtdienst, die die Station nachts allein versorgt. Sie will wissen, worauf sie sich einstellen muss.",
+      deineRolle: "Du bist Auszubildende bzw. Auszubildender im 3. Ausbildungsjahr und übergibst Frau Lorenz an den Nachtdienst.",
+      ziele: ["Strukturiert übergeben (zum Beispiel ISBAR)", "Die Veränderung des Zustands konkret beschreiben (Beginn, Verhalten, Orientierung)", "Sicherheitsmaßnahmen und Sturzgefahr klar benennen", "Was nachts zu beobachten ist und wann der Arzt zu informieren ist"],
+      tipp: "'Verwirrt' ist zu ungenau. Beschreib, was du gesehen und gehört hast und seit wann.",
+      rolle: {
+        hintergrund: "Du bist Sandra Kühn, 52, Pflegefachkraft, seit 20 Jahren im Nachtdienst. Du versorgst nachts allein die ganze Station mit 24 Betten und hast eine Bereitschaftsärztin für das ganze Haus. Frau Lorenz kennst du nicht.",
+        persoenlichkeit: "Erfahren, pragmatisch, warmherzig, aber direkt. Sagt, wenn ihr etwas zu vage ist.",
+        gefuehl: "Leicht angespannt, weil sie die Nacht allein ist.",
+        verborgen: [
+          "Du kennst eine Sitzwache-Liste mit Ehrenamtlichen, die man im Notfall anrufen kann. Das erwähnst du, wenn über Angehörige oder Begleitung gesprochen wird."
+        ],
+        verhalten: [
+          "Du sagst: 'Na, wie war's? Erzähl.' und hörst dann zu.",
+          "Wenn die Pflegekraft nur 'Sie ist verwirrt' sagt, fragst du: 'Was heißt das konkret? Seit wann?'",
+          "Du fragst nach: Was war vorher normal? Ist sie gestürzt? Trinkt sie? Hat sie Schmerzen oder Fieber? Wann war der letzte Urin? Wurde die Ärztin informiert? Gibt es eine Bedarfsmedikation? Kommen Angehörige?",
+          "Du fragst nach freiheitsentziehenden Maßnahmen und hörst genau hin, ob die Pflegekraft weiß, dass dafür eine richterliche Genehmigung bzw. Einwilligung nötig ist. Du schlägst selbst keine vor.",
+          "Am Ende sagst du in einem Satz, worauf du nachts achten wirst."
+        ],
+        ende: "Wenn alles übergeben ist, bedankst du dich und wünschst einen schönen Feierabend."
+      },
+      kriterien: ["Identifikation: Name, Alter, Zimmer, Aufnahmegrund (Harnwegsinfekt, Exsikkose), Vorbefund leichte Demenz", "Veränderung konkret: seit ca. 18 Uhr zeitlich und örtlich desorientiert, nestelt, will nach Hause, verkennt Personen, tagsüber orientiert zur Person und ansprechbar", "Mögliche Ursachen und Werte: Temp. 38,1 um 20 Uhr, trinkt wenig (ca. 700 ml), letzter Urin 17 Uhr konzentriert", "Maßnahmen: Ärztin informiert, Paracetamol 1 g gegeben, Infusion angeordnet, Bedarfsmedikation Melperon 25 mg einmalig bei starker Unruhe", "Sicherheit: Niedrigflurbett, Sensormatte, Brille und Hörgerät, Licht, Klingel, Sturz vor 4 Wochen zu Hause, keine Fixierung", "Angehörige: Sohn erreichbar, darf auch nachts angerufen werden", "Beobachtung nachts: Vitalzeichen, Bewusstsein, Trinken, Urin, Arzt bei Verschlechterung", "Rückfragen sachlich beantwortet"],
+      akte: [
+        {
+          name: "Margarete Lorenz", alter: 86, zimmer: "2 Fenster", diagnose: "Harnwegsinfekt, Exsikkose, bekannte leichte Alzheimer-Demenz", aufnahme: "gestern, 15:20 Uhr", allergien: "keine bekannt", rea: "Keine Reanimation laut Patientenverfügung, sonst vollständige Therapie",
+          tabs: [
+            { t: "Übersicht", kv: [["Vorerkrankungen", "Leichte Alzheimer-Demenz, Herzinsuffizienz, Arthrose beider Knie"], ["Wohnsituation", "Betreutes Wohnen, ambulanter Pflegedienst 2× täglich"], ["Mobilität", "Mit Rollator, unsicher, Sturz vor 4 Wochen zu Hause"], ["Hilfsmittel", "Brille, Hörgerät links"], ["Orientierung bei Aufnahme", "Zur Person orientiert, zeitlich teilweise"], ["Angehörige", "Sohn Thomas Lorenz (Vorsorgevollmacht), auch nachts erreichbar"]] },
+            { t: "Vitalwerte", tab: { k: ["Zeit", "RR", "Puls", "Temp.", "SpO₂", "Bewusstsein"], r: [["08:00", "118/68", "84", "37,6", "95 %", "wach, orientiert zur Person"], ["14:00", "112/64", "88", "37,8", "95 %", "wach, ruhig"], ["!18:30", "126/72", "!98", "37,9", "94 %", "!unruhig, desorientiert"], ["!20:00", "122/70", "!102", "!38,1", "94 %", "!nestelt, will nach Hause"]] } },
+            { t: "Ein- & Ausfuhr", kv: [["Trinkmenge bis 20 Uhr", "!ca. 700 ml (Ziel 1500 ml)"], ["Infusion", "NaCl 0,9 % 1000 ml über 12 h, angelegt 20:30 Uhr"], ["Urin", "!Letzter Urin 17:00 Uhr, wenig, dunkel, riecht streng"], ["Stuhl", "heute Morgen"]] },
+            { t: "Medikation", tab: { k: ["Präparat", "Dosis", "Zeit", "Hinweis"], r: [["Cefuroxim", "1,5 g", "8-16-24 Uhr", "i. v."], ["Paracetamol", "1 g", "Bedarf, max. 4 g/Tag", "zuletzt 20:15 Uhr"], ["Melperon", "25 mg", "Bedarf einmalig nachts", "nur bei starker Unruhe, noch nicht gegeben"], ["Torasemid", "10 mg", "8 Uhr", "heute pausiert"], ["Donepezil", "5 mg", "20 Uhr", "gegeben"]] } },
+            { t: "Pflegebericht", log: [["10:00", "Pat. freundlich, kennt ihren Namen, weiß nicht genau den Wochentag. Mobilisation mit Rollator ins Bad mit Unterstützung."], ["15:30", "Sohn zu Besuch, Pat. erkennt ihn, wirkt müde. Trinkt nur nach Aufforderung."], ["18:30", "Pat. zunehmend unruhig, nestelt an der Decke, hält die Pflegekraft für ihre Schwester, will 'nach Hause zu den Kindern'. Lässt sich kurz beruhigen."], ["20:00", "Temp. 38,1. Dr. Seidel informiert: Paracetamol 1 g, Infusion, Urinkultur abgenommen, Melperon als Bedarf. Niedrigflurbett tiefgestellt, Sensormatte aktiv, Nachtlicht an."]] },
+            { t: "Anordnungen", li: ["Vitalzeichen und Bewusstsein 2-stündlich", "Infusion NaCl 0,9 % 1000 ml über 12 h", "Bei Temp. über 38,5, RR systolisch unter 100 oder zunehmender Bewusstseinsstörung: Ärztin informieren", "Melperon 25 mg einmalig bei starker Unruhe mit Eigengefährdung", "Keine freiheitsentziehenden Maßnahmen ohne Rücksprache und Genehmigung"] }
+          ]
+        }
+      ]
+    },
+    {
+      id: "ueb-sepsis", kat: "uebergabe", titel: "Er wird schlechter: Pneumonie mit Warnzeichen", stufe: "Fortgeschritten", dauer: 7, start: "du",
+      ort: "Innere Medizin, Stationszimmer, 21:15 Uhr",
+      person: { name: "Kai Wendt", alter: 29, rolle: "Pflegefachkraft im Nachtdienst, frisch eingearbeitet", av: { hair: "NO", hairC: "#a8743f", skin: "#f6d2b3", cloth: "#0e7490", deco: "scrubs", stubble: true, bg: "#e6f6f3" } },
+      stimme: "verse", tempo: 1.1,
+      situation: "Herr Petersen in Zimmer 9 hat seit dem Nachmittag steigendes Fieber, und sein Blutdruck sinkt. Du übergibst an Kai aus dem Nachtdienst. Die Ärztin war vor einer halben Stunde da. Jetzt kommt es darauf an, dass Kai die Dringlichkeit versteht.",
+      deineRolle: "Du bist Auszubildende bzw. Auszubildender im 3. Ausbildungsjahr und übergibst einen Patienten, dessen Zustand sich verschlechtert.",
+      ziele: ["Die Dringlichkeit gleich am Anfang klar machen", "Werte und Verlauf mit Uhrzeiten nennen (Atemfrequenz, Blutdruck, Bewusstsein, Temperatur)", "Was schon getan und angeordnet wurde und was noch aussteht", "Eine klare Empfehlung geben, wann die Ärztin erneut zu rufen ist"],
+      tipp: "Beginn mit der Einschätzung: 'Ich mache mir Sorgen um Herrn Petersen, weil ...'",
+      rolle: {
+        hintergrund: "Du bist Kai Wendt, 29, Pflegefachkraft seit einem Jahr, erst die dritte Woche im Nachtdienst. Du übernimmst die halbe Station. Herrn Petersen kennst du nicht.",
+        persoenlichkeit: "Freundlich, motiviert, etwas unsicher, stellt viele Rückfragen. Wenn etwas nebenbei erzählt wird, nimmt er es nicht so ernst.",
+        gefuehl: "Etwas nervös, will alles richtig machen.",
+        verborgen: [
+          "Du hattest in deiner ersten Nachtwoche einen Patienten mit Sepsis und hast Respekt davor. Das sagst du, wenn die Pflegekraft das Wort Sepsis benutzt."
+        ],
+        verhalten: [
+          "Du sagst: 'Hi, ich hab Zimmer 7 bis 12. Was ist mit der 9?' und hörst zu.",
+          "Wenn die Pflegekraft die Verschlechterung nur nebenbei erwähnt, reagierst du gelassen ('Ach, Fieber haben ja einige') und fragst erst nach, wenn sie die Dringlichkeit deutlich macht.",
+          "Du fragst gezielt: Wie hoch ist die Atemfrequenz? Wie ist der Blutdruck im Verlauf? Ist er wach und klar? Wie viel Urin? Was hat die Ärztin angeordnet? Sind die Blutkulturen abgenommen? Läuft das Antibiotikum schon? Wann soll ich die Ärztin wieder anrufen?",
+          "Wenn eine Angabe nicht zur Akte passt, fragst du nach.",
+          "Am Ende fasst du zusammen, was du in der nächsten Stunde als Erstes tust, und fragst, ob das so stimmt."
+        ],
+        ende: "Wenn alles übergeben ist, bedankst du dich und verabschiedest dich."
+      },
+      kriterien: ["Dringlichkeit früh benannt, Einschätzung 'Verdacht auf Sepsis bzw. Verschlechterung' klar ausgesprochen", "Identifikation: Name, Alter, Zimmer, Pneumonie links, Tag 2", "Werte im Verlauf: AF von 18 auf 26/min, RR von 128/76 auf 98/58, Puls 112, Temp. 39,2, SpO₂ 91 % mit 2 l O₂, neu verlangsamt", "Urinausscheidung vermindert: seit 14 Uhr nur 150 ml", "Erfolgt: Ärztin 20:45 Uhr da, Blutkulturen abgenommen, Laktat 2,8, Sauerstoff 2 l, Infusion 500 ml Ringer läuft", "Offen: Antibiotikum Piperacillin/Tazobactam um 21:30 Uhr anhängen, Vitalzeichen stündlich, Bilanz, Kontrolle Laktat 23 Uhr", "Klare Empfehlung: Ärztin sofort rufen bei RR systolisch unter 90, AF über 30, SpO₂ unter 90 % oder Bewusstseinsverschlechterung", "Rückfragen sicher beantwortet"],
+      akte: [
+        {
+          name: "Jens Petersen", alter: 67, zimmer: "9 Tür", diagnose: "Ambulant erworbene Pneumonie links, Verdacht auf beginnende Sepsis (seit 20:45 Uhr)", aufnahme: "gestern, 11:00 Uhr", allergien: "!Clarithromycin (Übelkeit, Herzrasen)", rea: "Vollständige Therapie",
+          tabs: [
+            { t: "Übersicht", kv: [["Vorerkrankungen", "COPD GOLD 2, Diabetes mellitus Typ 2 (Tabletten), Raucher 40 Packungsjahre"], ["Wohnsituation", "Mit Ehefrau, selbstständig"], ["Mobilität", "Heute nur noch ans Waschbecken, schnell erschöpft"], ["Sauerstoff", "2 l/min über Nasenbrille seit 18 Uhr"], ["Angehörige", "Ehefrau Birgit, informiert über Verschlechterung durch Ärztin"]] },
+            { t: "Vitalwerte", tab: { k: ["Zeit", "RR", "Puls", "Temp.", "SpO₂", "AF", "Bewusstsein"], r: [["08:00", "128/76", "92", "38,1", "93 % (Raumluft)", "18", "wach, klar"], ["14:00", "118/70", "98", "38,6", "92 % (Raumluft)", "22", "wach, müde"], ["18:00", "!106/62", "!106", "!38,9", "!90 % → 94 % mit 2 l", "!24", "wach, langsam"], ["!20:30", "!98/58", "!112", "!39,2", "!91 % mit 2 l", "!26", "!verlangsamt, antwortet verzögert"]] } },
+            { t: "Ein- & Ausfuhr", kv: [["Trinkmenge heute", "ca. 600 ml"], ["Infusion", "Ringer-Lösung 500 ml seit 20:50 Uhr (zügig)"], ["Urin", "!seit 14:00 Uhr nur ca. 150 ml"], ["Bilanz", "ab 21 Uhr stündlich, Urinflasche"]] },
+            { t: "Labor", tab: { k: ["Wert", "heute 06:00", "heute 20:45"], r: [["Leukozyten (/nl)", "!14,2", "!18,9"], ["CRP (mg/l)", "!142", "!238"], ["Laktat (mmol/l)", "–", "!2,8"], ["Kreatinin (mg/dl)", "1,1", "!1,6"], ["Blutkulturen", "–", "2 Paar abgenommen 20:45 Uhr"]] } },
+            { t: "Medikation", tab: { k: ["Präparat", "Dosis", "Zeit", "Hinweis"], r: [["Ampicillin/Sulbactam", "3 g", "abgesetzt 20:45 Uhr", "Umstellung durch Ärztin"], ["!Piperacillin/Tazobactam", "4,5 g", "!erste Gabe 21:30 Uhr, dann 8-stündlich", "!noch nicht angehängt"], ["Ringer-Lösung", "500 ml", "läuft seit 20:50 Uhr", "danach Rücksprache"], ["Paracetamol", "1 g", "Bedarf", "zuletzt 18:30 Uhr"], ["Metformin", "1000 mg", "pausiert", "wegen Nierenwert"], ["Salbutamol/Ipratropium", "Inhalation", "4× täglich", "zuletzt 18 Uhr"]] } },
+            { t: "Pflegebericht", log: [["14:00", "Pat. müde, hustet viel, gelbliches Sputum. Isst kaum."], ["18:00", "SpO₂ 90 % unter Raumluft, Atemfrequenz 24. Nach Rücksprache 2 l O₂. Pat. wirkt erschöpft."], ["20:30", "Pat. verlangsamt, antwortet verzögert, Haut warm, marmoriert an den Knien. RR 98/58, AF 26. Dr. Seidel sofort informiert."], ["20:45", "Ärztin am Bett. Verdacht auf Sepsis, Blutkulturen und Labor abgenommen, Antibiotikum umgestellt, Infusion. Ehefrau telefonisch informiert."]] },
+            { t: "Anordnungen", li: ["Vitalzeichen und Bewusstsein stündlich, NEWS dokumentieren", "Piperacillin/Tazobactam 4,5 g erste Gabe um 21:30 Uhr, dann 8-stündlich", "Ringer-Lösung 500 ml zügig, danach Rücksprache", "Stündliche Urinmessung, Bilanz", "Laktat-Kontrolle 23:00 Uhr", "Ärztin sofort rufen bei RR systolisch unter 90, AF über 30, SpO₂ unter 90 % trotz O₂ oder weiterer Bewusstseinsverschlechterung"] }
+          ]
+        }
+      ]
+    },
+    {
+      id: "ueb-palliativ", kat: "uebergabe", titel: "Palliativsituation mit Angehörigen", stufe: "Fortgeschritten", dauer: 7, start: "du",
+      ort: "Onkologie, Stationszimmer, 13:35 Uhr",
+      person: { name: "Elke Martens", alter: 58, rolle: "Pflegefachkraft im Spätdienst, Palliative-Care-Weiterbildung", av: { hair: "PB", hairC: "#bfc3c8", skin: "#f6d2b3", cloth: "#0e7490", deco: "scrubs", wrinkles: 1, bg: "#e6f6f3" } },
+      stimme: "sage", tempo: 0.95,
+      situation: "Frau Yilmaz in Zimmer 14 ist in ihrer letzten Lebensphase. Ihr Mann und ihre Tochter sind fast ständig da. Du übergibst an Elke aus dem Spätdienst. Neben den Werten geht es hier vor allem um Wünsche, Symptome und die Familie.",
+      deineRolle: "Du bist Auszubildende bzw. Auszubildender im 3. Ausbildungsjahr und hast Frau Yilmaz heute im Frühdienst begleitet.",
+      ziele: ["Strukturiert übergeben (zum Beispiel ISBAR)", "Symptome und ihre Linderung genau nennen (Schmerz, Atemnot, Unruhe, Mundtrockenheit)", "Wünsche der Patientin und Absprachen (Therapiezieländerung, keine Reanimation) klar weitergeben", "Situation und Bedürfnisse der Angehörigen schildern"],
+      tipp: "Elke fragt nach dem, was die Familie heute gesagt hat. Auch das gehört in die Übergabe.",
+      rolle: {
+        hintergrund: "Du bist Elke Martens, 58, Pflegefachkraft mit Palliative-Care-Weiterbildung. Du hast Frau Yilmaz vor drei Tagen einmal betreut und kennst die Familie flüchtig.",
+        persoenlichkeit: "Ruhig, warmherzig, langsam sprechend, aufmerksam für Zwischentöne. Fragt nach Gefühlen und Wünschen genauso wie nach Medikamenten.",
+        gefuehl: "Gesammelt, mitfühlend.",
+        verborgen: [
+          "Du weißt, dass ein Imam aus der Gemeinde der Familie bekannt ist. Das sprichst du an, wenn über religiöse oder spirituelle Wünsche geredet wird."
+        ],
+        verhalten: [
+          "Du sagst: 'Erzähl mir von Frau Yilmaz. Wie geht es ihr heute?' und hörst ruhig zu.",
+          "Du fragst nach: Wie ist der Schmerz und wie viel Bedarf hat sie gebraucht? Wie atmet sie? Isst und trinkt sie noch etwas, wie ist der Mund? Wie geht es der Familie, was haben sie gesagt oder gefragt? Gibt es Wünsche für die letzten Stunden? Was ist besprochen zum Therapieziel?",
+          "Wenn die Pflegekraft emotional berührt wirkt, sagst du kurz etwas Unterstützendes und fragst, wie es ihr selbst damit geht.",
+          "Am Ende sagst du, was du als Erstes bei Frau Yilmaz und der Familie tun wirst."
+        ],
+        ende: "Wenn alles übergeben ist, bedankst du dich und verabschiedest dich warmherzig."
+      },
+      kriterien: ["Identifikation: Name, Alter, Zimmer, Pankreaskarzinom mit Lebermetastasen, Sterbephase", "Therapieziel: ausschließlich lindernd, keine Reanimation, keine Verlegung auf Intensiv, keine Laborkontrollen", "Symptome: Schmerz mit s. c.-Pumpe Morphin gut kontrolliert, 1 Bedarfsgabe 10 Uhr, Rasselatmung seit Mittag, Butylscopolamin gegeben, zeitweise unruhig", "Mundpflege: trinkt nicht mehr, Mund trocken, Mundpflege mit Lieblingstee stündlich, Lippen pflegen", "Wünsche: möchte nicht allein sein, leise Musik, Familie wünscht Gebet bzw. religiöse Begleitung", "Angehörige: Ehemann erschöpft, Tochter fragt, ob die Mutter verdurstet, Gespräch mit Arzt und Aufklärung erfolgt, Übernachtung im Zimmer erlaubt", "Offen: Pumpe kontrollieren, Bedarfsmedikation nach Plan, Lagerung nach Wohlbefinden, Angehörige begleiten", "Ruhige, respektvolle Sprache"],
+      akte: [
+        {
+          name: "Nesrin Yilmaz", alter: 63, zimmer: "14 (Einzelzimmer)", diagnose: "Pankreaskarzinom mit Lebermetastasen, Sterbephase", aufnahme: "vor 9 Tagen", allergien: "keine bekannt", rea: "!Keine Reanimation, keine Intensivverlegung, ausschließlich lindernde Therapie (Patientenverfügung, Gespräch vor 2 Tagen)",
+          tabs: [
+            { t: "Übersicht", kv: [["Therapieziel", "Symptomlinderung, Lebensqualität, Begleitung"], ["Wünsche der Patientin", "Nicht allein sein, leise türkische Musik, Fenster einen Spalt offen"], ["Religion", "Muslimisch, Familie wünscht religiöse Begleitung"], ["Angehörige", "Ehemann Ahmet (Bevollmächtigter), Tochter Elif, übernachten abwechselnd im Zimmer"], ["Ernährung", "Isst und trinkt nicht mehr, keine künstliche Ernährung oder Flüssigkeit gewünscht"], ["Kommunikation", "Reagiert auf Ansprache mit Augenöffnen, spricht nicht mehr"]] },
+            { t: "Symptome", tab: { k: ["Zeit", "Schmerz (BESD)", "Atmung", "Unruhe", "Mund"], r: [["06:00", "2", "ruhig, AF 14", "ruhig", "trocken"], ["!10:00", "!6", "ruhig", "!stöhnt bei Lagerung", "trocken"], ["10:30", "1", "ruhig", "ruhig", "Mundpflege"], ["!12:30", "1", "!Rasselatmung", "leicht unruhig", "trocken"], ["13:00", "1", "Rasseln weniger", "ruhig", "Mundpflege"]] } },
+            { t: "Medikation", tab: { k: ["Präparat", "Dosis", "Weg", "Hinweis"], r: [["Morphin", "1 mg/h", "s. c.-Pumpe", "Spritze gewechselt 08:00 Uhr, reicht bis morgen 08:00 Uhr"], ["Morphin (Bedarf)", "2,5 mg", "s. c., max. stündlich", "zuletzt 10:00 Uhr vor Lagerung"], ["Butylscopolamin", "20 mg", "s. c., Bedarf, max. 4×/Tag", "zuletzt 12:40 Uhr"], ["Midazolam (Bedarf)", "2,5 mg", "s. c.", "bei starker Unruhe, heute nicht gegeben"], ["Alle übrigen Medikamente", "abgesetzt", "–", "laut Arztgespräch"]] } },
+            { t: "Pflegebericht", log: [["07:30", "Pat. schläft viel, öffnet bei Ansprache die Augen. Mann war über Nacht da, wirkt sehr erschöpft."], ["10:00", "Bei Lagerung Stöhnen und Mimik angespannt, Bedarf Morphin 2,5 mg, danach entspannt. Lagerung nur noch nach Wohlbefinden."], ["11:15", "Tochter Elif fragt weinend, ob ihre Mutter verdurstet. Erklärt, dass Sterbende kein Durstgefühl wie Gesunde haben und Mundpflege Trockenheit lindert. Tochter macht Mundpflege mit Apfeltee mit, wirkt erleichtert. Dr. Kaiser kommt am Nachmittag zum Gespräch."], ["12:30", "Rasselatmung, Oberkörper leicht erhöht, Seitenlage, Butylscopolamin 20 mg s. c. 12:40 Uhr. Familie erklärt, dass das Geräusch die Pat. vermutlich nicht quält."], ["13:00", "Rasseln weniger. Familie wünscht, dass ein Imam kommen darf."]] },
+            { t: "Absprachen", li: ["Keine Vitalzeichenkontrollen mehr, keine Blutentnahmen", "Mundpflege stündlich nach Wunsch der Familie, Lippen mit Pflegestift", "Angehörige dürfen jederzeit bleiben und übernachten, Klappbett im Zimmer", "Arztgespräch mit Familie heute Nachmittag (Dr. Kaiser)", "Religiöse Begleitung erwünscht, Seelsorge informieren"] }
+          ]
+        }
+      ]
+    },
+    {
+      id: "ueb-drei", kat: "uebergabe", titel: "Drei Patienten, fünf Minuten", stufe: "Fortgeschritten", dauer: 8, start: "du",
+      ort: "Chirurgie, Flur vor Zimmer 4, 13:45 Uhr",
+      person: { name: "Thomas Krämer", alter: 45, rolle: "Stationsleitung, springt im Spätdienst ein", av: { hair: "KF", hairC: "#6b6b6b", skin: "#f0c7a5", cloth: "#0e7490", deco: "scrubs", glasses: 1, bg: "#e6f6f3" } },
+      stimme: "cedar", tempo: 1.15,
+      situation: "Im Spätdienst ist eine Kollegin krank. Die Stationsleitung Thomas übernimmt deine drei Patientinnen und Patienten in Zimmer 4 und 5. Er hat wenig Zeit und will eine kurze, klare Übergabe. Die Akten aller drei findest du rechts.",
+      deineRolle: "Du bist Auszubildende bzw. Auszubildender im 3. Ausbildungsjahr und hattest im Frühdienst Zimmer 4 und 5.",
+      ziele: ["Unter Zeitdruck priorisieren: wer ist am dringlichsten?", "Pro Person kurz und strukturiert übergeben", "Termine und Aufgaben des Nachmittags klar benennen", "Bei Unterbrechungen den Faden behalten"],
+      tipp: "Fang mit der Person an, um die du dir die meisten Sorgen machst.",
+      rolle: {
+        hintergrund: "Du bist Thomas Krämer, 45, Stationsleitung der Allgemeinchirurgie. Heute ist eine Kollegin krank, du springst im Spätdienst ein. Dein Telefon klingelt ständig. Du kennst die drei Patienten nur aus der Morgenbesprechung.",
+        persoenlichkeit: "Effizient, freundlich, aber knapp. Duzt die Auszubildenden. Mag es, wenn jemand Prioritäten setzt.",
+        gefuehl: "Gestresst, aber freundlich.",
+        verborgen: [
+          "Du weißt, dass für Zimmer 5 Fenster ab 16 Uhr ein Bett für eine Neuaufnahme gebraucht wird. Das sagst du, wenn über die Entlassung von Herrn Brückner gesprochen wird."
+        ],
+        verhalten: [
+          "Du sagst: 'Hi, ich hab echt nur fünf Minuten. Wer ist wichtig?'",
+          "Wenn die Pflegekraft ohne Priorität einfach von Zimmer 4 Tür an der Reihe nach erzählt, unterbrichst du nach dem ersten Patienten freundlich: 'Okay, gibt's jemanden, um den ich mir Sorgen machen muss?'",
+          "Einmal unterbrichst du kurz mit 'Moment, Telefon', sagst ein paar Sekunden nichts Bedeutsames ('Ja ... ja, komme gleich') und sagst dann: 'So, wo waren wir?'",
+          "Du stellst zu jeder Person höchstens eine kurze Rückfrage, zum Beispiel zu Nüchternheit, Bedarfsmedikation, Entlassung oder Drainage.",
+          "Am Ende wiederholst du die zwei wichtigsten Aufgaben und fragst, ob das stimmt."
+        ],
+        ende: "Wenn alles übergeben ist, bedankst du dich kurz und verabschiedest dich."
+      },
+      kriterien: ["Priorisierung: Frau Gerlach (Zimmer 4 Fenster) zuerst wegen Schmerz und Fieber nach Galle-OP und ausstehender Arztrückmeldung", "Frau Gerlach: 1. postop. Tag Cholezystektomie, Temp. 38,4, Schmerz NRS 5, Arzt um 13 Uhr informiert, Rückruf ausstehend, Blutkulturen bei Fieber über 38,5", "Herr Brückner (Zimmer 4 Tür): Entlassung heute 16 Uhr, Entlassbrief und Medikamentenplan fertig, Abholung durch Sohn, Fäden ziehen beim Hausarzt", "Herr Okafor (Zimmer 5): morgen 8 Uhr Hernien-OP, ab 24 Uhr nüchtern, Prämedikationsgespräch erfolgt, Einverständnis unterschrieben, Thromboseprophylaxe abends, OP-Gebiet morgen früh vorbereiten", "Kurz und klar pro Person, keine Nebensächlichkeiten", "Nach Unterbrechung sicher weitergemacht", "Rückfragen richtig beantwortet"],
+      akte: [
+        {
+          name: "Renate Gerlach", alter: 59, zimmer: "4 Fenster", diagnose: "Laparoskopische Cholezystektomie gestern (1. postop. Tag)", aufnahme: "gestern, 07:00 Uhr", allergien: "Pflaster (Rötung)", rea: "Vollständige Therapie",
+          tabs: [
+            { t: "Übersicht", kv: [["Vorerkrankungen", "Adipositas, Asthma bronchiale"], ["Kostform", "Tee und Zwieback, heute Mittag Schonkost kaum gegessen"], ["Mobilität", "Selbstständig mit Begleitung"], ["Besonderheit", "!Seit Mittag Fieber und zunehmende Bauchschmerzen rechts"]] },
+            { t: "Vitalwerte", tab: { k: ["Zeit", "RR", "Puls", "Temp.", "SpO₂", "Schmerz (NRS)"], r: [["06:00", "134/82", "84", "37,3", "96 %", "2"], ["10:00", "130/80", "88", "37,8", "96 %", "3"], ["!12:45", "126/78", "!104", "!38,4", "95 %", "!5"]] } },
+            { t: "Medikation", tab: { k: ["Präparat", "Dosis", "Zeit", "Hinweis"], r: [["Metamizol", "1 g", "6-12-18-24 Uhr", "p. o."], ["Piritramid (Bedarf)", "3,75 mg", "s. c., max. 4×/Tag", "zuletzt 12:50 Uhr"], ["Enoxaparin", "40 mg", "18 Uhr", "s. c."], ["Salbutamol-Spray", "2 Hübe", "Bedarf", "heute nicht gebraucht"]] } },
+            { t: "Pflegebericht", log: [["08:30", "Pat. mobilisiert, Wunden trocken, Drainage entfernt durch Arzt."], ["12:45", "Pat. klagt über zunehmende Schmerzen im rechten Oberbauch, Temp. 38,4. Bauch weich, druckschmerzhaft rechts."], ["13:00", "!Dr. Roth informiert, kommt nach OP-Ende vorbei, Rückruf ausstehend. Piritramid 3,75 mg s. c. 12:50 Uhr."]] },
+            { t: "Anordnungen", li: ["Vitalzeichen 2-stündlich", "Bei Temp. über 38,5: Blutkulturen abnehmen und Arzt informieren", "Labor heute 15 Uhr: Blutbild, CRP, Leberwerte, Lipase", "Kostaufbau pausieren bis ärztliche Visite"] }
+          ]
+        },
+        {
+          name: "Werner Brückner", alter: 72, zimmer: "4 Tür", diagnose: "Leistenhernie rechts, offene OP vor 3 Tagen", aufnahme: "vor 4 Tagen", allergien: "keine bekannt", rea: "Vollständige Therapie",
+          tabs: [
+            { t: "Übersicht", kv: [["Entlassung", "!Heute 16:00 Uhr, Sohn holt ab"], ["Wohnsituation", "Mit Ehefrau, selbstständig"], ["Mobilität", "Selbstständig"], ["Unterlagen", "Entlassbrief und Medikamentenplan fertig, liegen im Stationszimmer"]] },
+            { t: "Vitalwerte", tab: { k: ["Zeit", "RR", "Puls", "Temp.", "Schmerz (NRS)"], r: [["06:00", "138/84", "72", "36,8", "1"], ["12:00", "136/82", "74", "36,9", "1"]] } },
+            { t: "Medikation", tab: { k: ["Präparat", "Dosis", "Zeit", "Hinweis"], r: [["Ibuprofen", "400 mg", "bei Bedarf, max. 3×/Tag", "für zu Hause, 10 Tabletten mitgegeben"], ["Amlodipin", "5 mg", "8 Uhr", "Hausmedikation"]] } },
+            { t: "Pflegebericht", log: [["09:00", "Wunde reizlos, trocken, Pflaster gewechselt. Pat. freut sich auf zu Hause."], ["11:30", "Entlassgespräch: Nicht schwer heben für 4 Wochen, Fäden ziehen beim Hausarzt am 10. Tag, Wundkontrolle. Pat. konnte es wiederholen."]] },
+            { t: "Anordnungen", li: ["Entlassung heute 16 Uhr", "Fäden ziehen beim Hausarzt am 10. postop. Tag", "Arbeitsunfähigkeitsbescheinigung im Entlassbrief"] }
+          ]
+        },
+        {
+          name: "Chidi Okafor", alter: 34, zimmer: "5 Fenster", diagnose: "Narbenhernie, geplante Netzimplantation morgen 08:00 Uhr", aufnahme: "heute, 10:00 Uhr", allergien: "keine bekannt", rea: "Vollständige Therapie",
+          tabs: [
+            { t: "Übersicht", kv: [["OP", "!Morgen 08:00 Uhr, erster Saal"], ["Nüchternheit", "!Ab 24 Uhr nichts essen, klare Flüssigkeit bis 06:00 Uhr"], ["Prämedikation", "Narkosegespräch erfolgt 11:30 Uhr"], ["Einverständnis", "OP- und Narkose-Einverständnis unterschrieben"], ["Sprache", "Spricht Deutsch und Englisch fließend"]] },
+            { t: "Vitalwerte", tab: { k: ["Zeit", "RR", "Puls", "Temp.", "SpO₂", "Gewicht"], r: [["10:30", "128/80", "68", "36,7", "98 %", "84 kg"]] } },
+            { t: "Medikation", tab: { k: ["Präparat", "Dosis", "Zeit", "Hinweis"], r: [["Enoxaparin", "40 mg", "heute 18 Uhr", "s. c."], ["Midazolam", "7,5 mg", "morgen 07:00 Uhr", "p. o., Prämedikation"], ["Pantoprazol", "40 mg", "morgen 06:00 Uhr", "mit einem Schluck Wasser"]] } },
+            { t: "Anordnungen", li: ["Ab 24 Uhr nüchtern, klare Flüssigkeit bis 06:00 Uhr", "OP-Gebiet morgen früh mit Clipper vorbereiten", "OP-Hemd, Schmuck ablegen, Thromboseprophylaxestrümpfe morgen anziehen", "Prämedikation 07:00 Uhr"] }
+          ]
+        }
+      ]
     }
   ]
 };
@@ -13264,6 +13671,7 @@ window.FP_KOMM_DATA = {
     bolt: '<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',
     clip: '<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6M9 18h3"/>',
     bulb: '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/>',
+    swap: '<path d="M4 8h13l-3.5-3.5M20 16H7l3.5 3.5"/>',
     left: '<path d="M15 6l-6 6 6 6"/>', right: '<path d="M9 6l6 6-6 6"/>',
     mic: '<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/>',
     micoff: '<path d="M4 4l16 16"/><path d="M9 9v2a3 3 0 0 0 5 2.2M15 10V6a3 3 0 0 0-5.7-1.3"/><path d="M5 11a7 7 0 0 0 11 5.7M19 11a7 7 0 0 1-.6 2.8M12 18v3"/>',
@@ -13279,7 +13687,7 @@ window.FP_KOMM_DATA = {
     shield: '<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>'
   };
   function Ic(p) { return h("svg", { viewBox: "0 0 24 24", width: p.s || 20, height: p.s || 20, fill: "none", stroke: "currentColor", strokeWidth: p.w || 2, strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true", dangerouslySetInnerHTML: { __html: ICO[p.k] || "" } }); }
-  var MOOD = { "pat-schmerz": "pain", "pat-angst": "worried", "pat-essen": "sad", "ang-delir": "worried", "ang-palliativ": "sad", "ang-mutter": "tired", "kon-sohn": "angry", "kon-gehen": "angry", "kon-team": "tired", "auf-knie": "happy", "auf-sprache": "worried", "auf-heim": "sad", "ber-insulin": "neutral", "ber-sturz": "smile", "ber-dekubitus": "worried" };
+  var MOOD = { "pat-schmerz": "pain", "pat-angst": "worried", "pat-essen": "sad", "ang-delir": "worried", "ang-palliativ": "sad", "ang-mutter": "tired", "kon-sohn": "angry", "kon-gehen": "angry", "kon-team": "tired", "auf-knie": "happy", "auf-sprache": "worried", "auf-heim": "sad", "ber-insulin": "neutral", "ber-sturz": "smile", "ber-dekubitus": "worried", "pat-scham": "sad", "ang-telefon": "worried", "kon-klingel": "angry", "auf-alkohol": "pain", "ber-spritze": "worried", "ueb-hueft": "smile", "ueb-hypo": "neutral", "ueb-delir": "neutral", "ueb-sepsis": "worried", "ueb-palliativ": "neutral", "ueb-drei": "tired" };
   function Av(p) {
     var html = window.PXAV ? window.PXAV.svg(p.sp, p.mood || "neutral", p.label || "") : "";
     return h("span", { className: "pxavw", "aria-hidden": "true", dangerouslySetInnerHTML: { __html: html } });
@@ -13456,7 +13864,7 @@ window.FP_KOMM_DATA = {
           h("span", { className: "km-sct" },
             h("b", null, s.titel),
             h("span", null, s.person.name + ", " + s.person.alter + " · " + s.person.rolle),
-            h("span", { className: "km-tags" }, h("span", { className: "km-tag" }, s.stufe), h("span", { className: "km-tag" }, "ca. " + s.dauer + " Min."), h("span", { className: "km-tag" }, s.start === "ki" ? "Sie spricht dich an" : "Du beginnst"))),
+            h("span", { className: "km-tags" }, h("span", { className: "km-tag" }, s.stufe), h("span", { className: "km-tag" }, "ca. " + s.dauer + " Min."), h("span", { className: "km-tag" }, s.start === "ki" ? "Sie spricht dich an" : "Du beginnst"), s.akte ? h("span", { className: "km-tag" }, s.akte.length > 1 ? s.akte.length + " Patientenakten" : "mit Patientenakte") : null)),
           best[s.id] ? h("span", { className: "km-score", title: "Beste Auswertung" }, best[s.id]) : h(Ic, { k: "right", s: 18 }));
       })));
   }
@@ -13482,6 +13890,9 @@ window.FP_KOMM_DATA = {
         h("div", { className: "km-sec" }, h("h4", null, "Deine Rolle"), h("p", null, s.deineRolle)),
         h("div", { className: "km-sec" }, h("h4", null, "Deine Ziele"), h("ul", { className: "km-goals" }, s.ziele.map(function (z, i) { return h("li", { key: i }, h("i", null, i + 1), h("span", null, z)); }))),
         h("div", { className: "km-sec" }, tip[0] ? h("div", { className: "km-tip" }, h(Ic, { k: "light", s: 18 }), h("span", null, s.tipp)) : h("button", { type: "button", className: "km-back", onClick: function () { tip[1](true); } }, h(Ic, { k: "light", s: 16 }), "Tipp anzeigen"))),
+      s.akte ? h("div", { className: "km-card km-brief-akte" },
+        h("div", { className: "km-sec", style: { marginTop: 0, marginBottom: 12 } }, h("h4", null, s.akte.length > 1 ? "Patientenakten" : "Patientenakte"), h("p", { style: { fontSize: 14.5 } }, "Lies dir die Akte vor der Übergabe in Ruhe durch. Im Gespräch bleibt sie rechts neben dem Chat offen, auf dem Handy wechselst du oben zwischen Gespräch und Akte.")),
+        h(Akte, { akte: s.akte })) : null,
       h("div", { className: "km-card" },
         h("div", { className: "km-row", style: { justifyContent: "space-between" } },
           h("div", { className: "km-seg", role: "group", "aria-label": "Wie möchtest du antworten?" },
@@ -13501,6 +13912,88 @@ window.FP_KOMM_DATA = {
       cons[0] ? h(Consent, { onClose: function () { cons[1](false); }, onOk: function () { cons[1](false); p.go({ v: "call", id: s.id, mode: canMic ? mode[0] : "text", cap: cap[0] }, true); } }) : null);
   }
 
+
+  /* ---------- Patientenakte (Übergabe) ---------- */
+  var AKTE_CSS = [
+    ".km-akte{display:flex;flex-direction:column;min-height:0;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;color:var(--fg)}",
+    ".km-ak-pts{display:flex;gap:6px;padding:10px 10px 0;overflow-x:auto;flex-shrink:0}",
+    ".km-ak-pt{all:unset;cursor:pointer;flex-shrink:0;padding:7px 12px;border-radius:10px;font-size:13.5px;font-weight:600;color:var(--muted);background:var(--fill,var(--surface2))}",
+    ".km-ak-pt[aria-pressed=true]{background:color-mix(in srgb,var(--c) 16%,var(--surface));color:var(--fg);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 40%,transparent)}",
+    ".km-ak-head{padding:14px 16px 12px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--c) 6%,var(--surface));flex-shrink:0}",
+    ".km-ak-head .eyebrow{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}",
+    ".km-ak-head b{display:block;font-size:18px;letter-spacing:-.02em;margin-top:2px}",
+    ".km-ak-head p{margin:4px 0 0;font-size:13.5px;line-height:1.45;color:var(--fg)}",
+    ".km-ak-flags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}",
+    ".km-ak-flag{font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--fill,var(--surface2));color:var(--fg);line-height:1.35}",
+    ".km-ak-flag.warn{background:var(--bad-soft,#fdecea);color:var(--bad-ink,#b00020)}",
+    ".km-ak-tabs{display:flex;gap:2px;padding:8px 10px 0;overflow-x:auto;border-bottom:1px solid var(--line);flex-shrink:0;scrollbar-width:none}",
+    ".km-ak-tabs::-webkit-scrollbar{display:none}",
+    ".km-ak-tab{all:unset;cursor:pointer;flex-shrink:0;padding:8px 11px 9px;font-size:13.5px;font-weight:600;color:var(--muted);border-bottom:2px solid transparent}",
+    ".km-ak-tab[aria-selected=true]{color:var(--fg);border-bottom-color:var(--c)}",
+    ".km-ak-body{padding:14px 16px 18px;overflow:auto;flex:1;min-height:0;font-size:14px;line-height:1.5}",
+    ".km-ak-kv{display:grid;grid-template-columns:minmax(110px,34%) 1fr;gap:8px 14px;margin:0}",
+    ".km-ak-kv dt{color:var(--muted);font-size:13px}.km-ak-kv dd{margin:0}",
+    ".km-ak-tw{overflow-x:auto;margin:0 -4px}",
+    ".km-ak-t{border-collapse:collapse;width:100%;font-size:13.5px;font-variant-numeric:tabular-nums}",
+    ".km-ak-t th{text-align:left;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:600;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}",
+    ".km-ak-t td{padding:7px 8px;border-bottom:1px solid color-mix(in srgb,var(--line) 70%,transparent);vertical-align:top}",
+    ".km-ak-t tr:last-child td{border-bottom:0}",
+    ".km-ak-t td:not(:last-child){white-space:nowrap}",
+    ".km-ak-bad{color:var(--bad-ink,#b00020);font-weight:650}",
+    ".km-ak-log{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}",
+    ".km-ak-log li{display:grid;grid-template-columns:52px 1fr;gap:10px}.km-ak-log time{font-weight:650;font-variant-numeric:tabular-nums;color:var(--muted);font-size:13px;padding-top:1px}",
+    ".km-ak-li{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}",
+    ".km-ak-note{font-size:12px;color:var(--muted);padding:8px 16px;border-top:1px solid var(--line);flex-shrink:0}",
+    ".km-brief-akte .km-akte{max-height:560px}",
+    /* Gespräch und Akte nebeneinander */
+    ".km-full.km-split{gap:16px}",
+    ".km-split .km-side{display:flex;min-height:0}",
+    ".km-split .km-side .km-akte{flex:1}",
+    ".km-sw{display:none}",
+    "@media (min-width:900px){.km-full.km-split{padding:24px}.km-split .km-stage{flex:0 1 440px;max-width:440px}.km-split .km-side{flex:1 1 620px;max-width:720px;height:min(780px,94vh)}.km-split .km-side .km-akte{border-radius:26px;box-shadow:0 30px 80px -20px rgba(0,0,0,.45)}}",
+    "@media (max-width:899px){.km-full.km-split{flex-direction:column;justify-content:flex-start;align-items:stretch;padding:0}.km-split .km-sw{display:flex;margin:calc(10px + env(safe-area-inset-top)) 12px 0;align-self:center}.km-split .km-stage{max-width:none;border-radius:0;border:0;padding-top:12px}.km-split .km-side{flex:1;padding:10px 12px calc(12px + env(safe-area-inset-bottom))}.km-split.show-akte .km-stage{display:none}.km-split:not(.show-akte) .km-side{display:none}.km-split .km-stage .km-top{padding-top:0}}"
+  ].join("\n");
+  (function () { var st2 = document.createElement("style"); st2.id = "fx-komm-akte-css"; st2.textContent = AKTE_CSS; (document.head || document.documentElement).appendChild(st2); })();
+
+  function akCell(v) {
+    var s = String(v == null ? "" : v);
+    return s.charAt(0) === "!" ? h("span", { className: "km-ak-bad" }, s.slice(1)) : s;
+  }
+  function Akte(p) {
+    var list = p.akte || [];
+    var pi = uS(0), ti = uS(0);
+    var pt = list[Math.min(pi[0], list.length - 1)] || {};
+    var tabs = pt.tabs || [];
+    var tab = tabs[Math.min(ti[0], tabs.length - 1)] || {};
+    function body() {
+      if (tab.kv) return h("dl", { className: "km-ak-kv" }, tab.kv.map(function (r, i) { return h(Fr, { key: i }, h("dt", null, r[0]), h("dd", null, akCell(r[1]))); }));
+      if (tab.tab) return h("div", { className: "km-ak-tw" }, h("table", { className: "km-ak-t" },
+        h("thead", null, h("tr", null, tab.tab.k.map(function (c, i) { return h("th", { key: i, scope: "col" }, c); }))),
+        h("tbody", null, tab.tab.r.map(function (r, i) { return h("tr", { key: i }, r.map(function (c, j) { return h("td", { key: j }, akCell(c)); })); }))));
+      if (tab.log) return h("ol", { className: "km-ak-log" }, tab.log.map(function (r, i) { return h("li", { key: i }, h("time", null, r[0]), h("span", null, akCell(r[1]))); }));
+      if (tab.li) return h("ul", { className: "km-ak-li" }, tab.li.map(function (r, i) { return h("li", { key: i }, akCell(r)); }));
+      return null;
+    }
+    var allergie = String(pt.allergien || ""), rea = String(pt.rea || "");
+    return h("section", { className: "km-akte", "aria-label": "Patientenakte" },
+      list.length > 1 ? h("div", { className: "km-ak-pts", role: "group", "aria-label": "Patientin oder Patient wählen" }, list.map(function (x, i) {
+        return h("button", { key: i, type: "button", className: "km-ak-pt", "aria-pressed": i === pi[0], onClick: function () { pi[1](i); ti[1](0); } }, "Zi. " + String(x.zimmer || "").split(" ")[0] + " · " + x.name.split(" ").slice(-1)[0]);
+      })) : null,
+      h("div", { className: "km-ak-head" },
+        h("div", { className: "eyebrow" }, "Patientenakte · Zimmer " + (pt.zimmer || "")),
+        h("b", null, pt.name + ", " + pt.alter + " Jahre"),
+        h("p", null, pt.diagnose),
+        h("div", { className: "km-ak-flags" },
+          pt.aufnahme ? h("span", { className: "km-ak-flag" }, "Aufnahme: " + pt.aufnahme) : null,
+          allergie ? h("span", { className: "km-ak-flag" + (/^keine/i.test(allergie) ? "" : " warn") }, "Allergien: " + allergie.replace(/^!/, "")) : null,
+          rea ? h("span", { className: "km-ak-flag" + (rea.charAt(0) === "!" ? " warn" : "") }, rea.replace(/^!/, "")) : null)),
+      h("div", { className: "km-ak-tabs", role: "tablist", "aria-label": "Bereiche der Akte" }, tabs.map(function (t, i) {
+        return h("button", { key: i, type: "button", role: "tab", className: "km-ak-tab", "aria-selected": i === ti[0], onClick: function () { ti[1](i); } }, t.t);
+      })),
+      h("div", { className: "km-ak-body", role: "tabpanel" }, body()),
+      h("div", { className: "km-ak-note" }, "Erfundene Übungsakte. Rot markiert: auffällige Werte und wichtige Hinweise."));
+  }
+
   /* ---------- Live-Gespräch ---------- */
   function Call(p) {
     var s = sz(p.id), k = kat(s.kat);
@@ -13508,7 +14001,7 @@ window.FP_KOMM_DATA = {
     var elapsed = uS(0), aiTalk = uS(false), userTalk = uS(false), hint = uS(s.start === "du"), reconnecting = uS(false), maxS = uS(600);
     var conn = uR(null), audioEl = uR(null), ctx = uR(null), stops = uR([]), orbRef = uR(null), capRef = uR(null);
     var M = uR({ t0: 0, speakMs: 0, speakStart: 0, interrupts: 0, aiSpeaking: false, order: [], items: {}, ended: false, lvlKi: 0, lvlDu: 0 });
-    var mode = p.mode;
+    var mode = p.mode, view = uS("chat");
 
     function upd() {
       var m = M.current;
@@ -13634,7 +14127,10 @@ window.FP_KOMM_DATA = {
     var left = maxS[0] - elapsed[0];
     var live = phase[0] === "live";
     var stateText = !live ? (phase[0] === "connect" ? "Verbindung wird aufgebaut" : "") : reconnecting[0] ? "Verbindung unterbrochen" : userTalk[0] ? "hört dir zu" : aiTalk[0] ? "spricht" : state[0];
-    return portal(h("div", { className: "km-full", style: { "--c": k.c }, role: "dialog", "aria-modal": "true", "aria-label": "Gespräch mit " + s.person.name },
+    return portal(h("div", { className: "km-full" + (s.akte ? " km-split" + (view[0] === "akte" ? " show-akte" : "") : ""), style: { "--c": k.c }, role: "dialog", "aria-modal": "true", "aria-label": "Gespräch mit " + s.person.name },
+      s.akte ? h("div", { className: "km-seg km-sw", role: "group", "aria-label": "Ansicht" },
+        h("button", { type: "button", "aria-pressed": view[0] === "chat", onClick: function () { view[1]("chat"); } }, h(Ic, { k: "mic", s: 16 }), "Gespräch"),
+        h("button", { type: "button", "aria-pressed": view[0] === "akte", onClick: function () { view[1]("akte"); } }, h(Ic, { k: "clip", s: 16 }), "Patientenakte")) : null,
       h("div", { className: "km-stage" },
         h("div", { className: "km-top" },
           h("span", { className: "km-live" + (live && !reconnecting[0] ? "" : phase[0] === "error" ? " off" : " wait") }, h("i"), live && !reconnecting[0] ? "Live" : phase[0] === "error" ? "Getrennt" : "Verbinde"),
@@ -13652,7 +14148,7 @@ window.FP_KOMM_DATA = {
             h("button", { type: "button", className: "btn sm ghost", onClick: p.cancel }, "Zurück"))) : null,
         reconnecting[0] && live ? h("div", { className: "km-banner" }, "Die Verbindung ist unterbrochen. ", h("button", { type: "button", className: "btn sm", style: { marginLeft: 8 }, onClick: function () { if (conn.current) conn.current.close(); stops.current.forEach(function (f) { f(); }); stops.current = []; connect(true); } }, "Neu verbinden")) : null,
         p.cap ? h("div", { className: "km-cap", ref: capRef, "aria-live": "polite", "aria-label": "Untertitel" },
-          hint[0] && live ? h("div", { className: "km-hint" }, mode === "sprache" ? "Du beginnst. Sag zum Beispiel Hallo und stell dich vor." : "Du beginnst. Schreib unten deine erste Nachricht.") : null,
+          hint[0] && live ? h("div", { className: "km-hint" }, mode === "sprache" ? (s.kat === "uebergabe" ? "Du beginnst. Starte die Übergabe zum Beispiel mit Name, Alter, Zimmer und Grund des Aufenthalts. Die Akte bleibt daneben offen." : "Du beginnst. Sag zum Beispiel Hallo und stell dich vor.") : "Du beginnst. Schreib unten deine erste Nachricht.") : null,
           turns[0].map(function (x) { return h("div", { key: x.id, className: "km-msg " + x.r + (x.pend ? " pend" : "") }, x.t || "…"); })) : h("div", { style: { flex: 1 } }),
         typing[0] && live ? h("form", { className: "km-type", onSubmit: sendText },
           h("input", { type: "text", value: txt[0], placeholder: "Deine Antwort …", "aria-label": "Deine Antwort", autoFocus: true, onChange: function (e) { txt[1](e.target.value); } }),
@@ -13661,7 +14157,8 @@ window.FP_KOMM_DATA = {
           mode === "sprache" ? h("span", { className: "km-cbl" }, h("button", { type: "button", className: "km-cb", "aria-pressed": muted[0], "aria-label": muted[0] ? "Mikrofon einschalten" : "Mikrofon stummschalten", onClick: toggleMute, disabled: !live }, h(Ic, { k: muted[0] ? "micoff" : "mic" })), muted[0] ? "Stumm" : "Mikro") : null,
           h("span", { className: "km-cbl" }, h("button", { type: "button", className: "km-cb end", "aria-label": "Gespräch beenden", onClick: finish }, h(Ic, { k: "phone", s: 26 })), "Beenden"),
           h("span", { className: "km-cbl" }, h("button", { type: "button", className: "km-cb", "aria-pressed": typing[0], "aria-label": "Tastatur", onClick: function () { typing[1](!typing[0]); }, disabled: !live }, h(Ic, { k: "kbd" })), "Schreiben")),
-        h("p", { className: "km-foot" }, "KI-Gesprächsperson · keine echten Namen oder Patientendaten nennen"))));
+        h("p", { className: "km-foot" }, "KI-Gesprächsperson · keine echten Namen oder Patientendaten nennen")),
+      s.akte ? h("div", { className: "km-side" }, h(Akte, { akte: s.akte })) : null));
   }
 
   /* ---------- Auswertung ---------- */
