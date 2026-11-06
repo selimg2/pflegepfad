@@ -10944,13 +10944,17 @@ window.PXA = (function () {
     }
     var intent = null, title = "", sub = "", c = "#0062FF", ic = I.sims;
     if (k === "training") {
-      if (id.indexOf("praxexamen:") === 0) { var cs = caseById(id.split(":")[1]); intent = { tab: "praxexamen", pex: cs && cs.id }; title = "Praktisches Examen Übung"; sub = cs ? cs.station + " · " + cs.titel : ""; c = cs ? cs.farbe : c; ic = I.praxexamen; }
+      if (id.indexOf("kommunikation:") === 0) {
+        var kd = window.FP_KOMM_DATA, ksid = id.split(":")[1], ks = kd && kd.szenarien.filter(function (x) { return x.id === ksid; })[0], kk = ks && kd.kategorien.filter(function (x) { return x.id === ks.kat; })[0];
+        intent = { tab: "kommunikation", komm: ksid }; title = "Kommunikation" + (kk ? ": " + kk.t : ""); sub = ks ? ks.titel + " · " + ks.person.name : ""; c = kk ? kk.c : "#0EA5E9"; ic = I.kommunikation || ic;
+      }
+      else if (id.indexOf("praxexamen:") === 0) { var cs = caseById(id.split(":")[1]); intent = { tab: "praxexamen", pex: cs && cs.id }; title = "Praktisches Examen Übung"; sub = cs ? cs.station + " · " + cs.titel : ""; c = cs ? cs.farbe : c; ic = I.praxexamen; }
       else { var t = TILES.filter(function (x) { return x.k === id; })[0]; intent = { tab: id }; title = t ? t.t : "Training"; sub = t ? t.d : ""; c = t ? t.c : c; ic = I[id] || ic; }
     } else if (k === "team") { intent = { tab: "team" }; title = "Team-Krankenhaus"; sub = "Öffne das Team-Krankenhaus, wählt dort gemeinsam den Fall aus der Aufgabe und erstellt einen Raum für eure Gruppe."; c = "#0891B2"; ic = I.team; }
     return h("div", { className: "pxassign", style: { "--c": c } },
       h("span", { className: "pxcaseic" }, h(Ico, { d: ic, w: 1.8 })),
       h("div", { style: { flex: 1, minWidth: 0 } }, h("div", { className: "eyebrow" }, k === "team" ? "Gruppenarbeit" : "Training"), h("b", null, title), sub && h("p", { className: "muted", style: { margin: "2px 0 0", fontSize: 14 } }, sub)),
-      h("button", { type: "button", className: "btn", onClick: pd(function () { if (window.FP_openTraining) window.FP_openTraining(intent); }) }, k === "team" ? "Team-Krankenhaus öffnen" : "Training öffnen", h(Ico, { d: I.right })));
+      h("button", { type: "button", className: "btn", onClick: pd(function () { if (intent && intent.komm) window.FP_KOMM_OPEN = intent.komm; if (window.FP_openTraining) window.FP_openTraining(intent); }) }, k === "team" ? "Team-Krankenhaus öffnen" : "Training öffnen", h(Ico, { d: I.right })));
   }
   window.FP_AssignExtra = AssignExtra;
 
@@ -14299,9 +14303,10 @@ window.FP_KOMM_DATA = {
 
   /* ---------- Hauptkomponente ---------- */
   function Kommunikation(p) {
-    var nav = uS({ v: "home" }), data = uS(null), modeOverride = uS(null);
+    var nav = uS(function () { var o = window.FP_KOMM_OPEN; window.FP_KOMM_OPEN = null; return o && sz(o) ? { v: "brief", id: o } : { v: "home" }; }), data = uS(null), modeOverride = uS(null);
     var v = nav[0];
     function go(n) { nav[1](n); top(); }
+    uE(function () { var o = window.FP_KOMM_OPEN; if (o) { window.FP_KOMM_OPEN = null; if (sz(o)) go({ v: "brief", id: o }); } });
     if (v.v === "kat") return h(Kat, { kat: v.kat, S: p.S, go: go });
     if (v.v === "brief") return h(Brief, { id: v.id, S: p.S, go: go, mode: modeOverride[0] });
     if (v.v === "call") return h(Call, {
