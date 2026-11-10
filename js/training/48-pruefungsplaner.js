@@ -10,6 +10,30 @@
   function fmt(d) { var p = d.split("-"); return p[2] + "." + p[1] + "." + p[0]; }
   function minDate() { var d = new Date(Date.now() + 864e5); return d.toISOString().slice(0, 10); }
 
+  /* Wochenziel: offene Module des eigenen Ausbildungsjahres, gleichmäßig auf die Wochen bis zur Prüfung verteilt */
+  function lernstand() {
+    var best=null,bestD="";
+    for (var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k.indexOf("fallpfad-state:")!==0)continue;
+      try{var st=JSON.parse(localStorage.getItem(k)),d=st&&st.act?Object.keys(st.act).sort().pop()||"":"";if(!best||d>=bestD){best=st;bestD=d;}}catch(e){}}
+    return best;
+  }
+  function wochenziel(t) {
+    var st = lernstand(), mods = (window.FP_DATA && window.FP_DATA.mods) || [];
+    if (!st || t <= 0 || !mods.length) return "";
+    var jahr = st.year || 1;
+    var offen = mods.filter(function (m) {
+      if (m.year !== jahr) return false;
+      var e = 0, mx = 0;
+      Object.keys(st.res || {}).forEach(function (k) { if (k.indexOf(m.id + ".") === 0) { e += st.res[k].e; mx += st.res[k].m; } });
+      return !mx || e / mx < (m.passPercent || 70) / 100;
+    }).sort(function (a, b) { return (a.seq || 0) - (b.seq || 0); });
+    if (!offen.length) return "Alle Module deines Jahres sind geschafft – wiederholen lohnt trotzdem.";
+    var wochen = Math.max(1, Math.ceil(t / 7)), proWoche = Math.max(1, Math.ceil(offen.length / wochen));
+    var diese = offen.slice(0, Math.min(proWoche, 3)).map(function (m) { return (m.navTitle || m.title).replace(/^Fallmodul \d+ · /, "").split(":")[0]; });
+    var mehr = proWoche > 3 ? " +" + (proWoche - 3) + " weitere" : "";
+    return "Noch " + offen.length + (offen.length === 1 ? " offenes Modul" : " offene Module") + " · Pensum: " + proWoche + " pro Woche · als Nächstes: " + diese.join(", ") + mehr;
+  }
+
   var CSS = ".fpx-card{margin:14px 0 4px;border-radius:16px;padding:14px 16px;background:var(--surface,#fff);box-shadow:var(--elev-1,0 1px 2px rgba(15,23,42,.06),0 0 0 1px rgba(15,23,42,.05))}" +
     ".fpx-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}" +
     ".fpx-n{font-size:30px;font-weight:700;letter-spacing:-.02em;line-height:1;min-width:58px;text-align:center;color:var(--accent,#0062FF)}" +
@@ -40,7 +64,7 @@
       d.className = "fpx-card" + (t >= 0 && t <= 14 ? " fpx-warn" : "");
       d.innerHTML = '<div class="fpx-row">' +
         '<div class="fpx-n">' + (t >= 0 ? t : "✓") + "<small>" + (t >= 0 ? "Tage" : "vorbei") + "</small></div>" +
-        '<div class="fpx-t" style="flex:1"><b>' + (ex.art ? ex.art.charAt(0).toUpperCase() + ex.art.slice(1) + "e Prüfung" : "Prüfung") + " am " + fmt(ex.datum) + '</b><small>' + txt.replace(/<\/?b>/g, "") + wochen + (t > 0 ? " · der Assistent macht dir daraus einen Lernplan" : "") + "</small></div>" +
+        '<div class="fpx-t" style="flex:1"><b>' + (ex.art ? ex.art.charAt(0).toUpperCase() + ex.art.slice(1) + "e Prüfung" : "Prüfung") + " am " + fmt(ex.datum) + '</b><small>' + txt.replace(/<\/?b>/g, "") + wochen + (t > 0 && wochenziel(t) ? "<br>" + esc(wochenziel(t)) : t > 0 ? " · der Assistent macht dir daraus einen Lernplan" : "") + "</small></div>" +
         '<button type="button" class="fpx-b q" data-a="neu">Ändern</button>' +
         (t < 0 ? '<button type="button" class="fpx-b q" data-a="weg">Entfernen</button>' : "") +
         "</div>";
