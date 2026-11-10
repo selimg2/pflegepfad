@@ -1,0 +1,1 @@
+if("serviceWorker" in navigator&&location.protocol==="https:"&&!(window.Capacitor&&window.Capacitor.isNativePlatform&&window.Capacitor.isNativePlatform()))addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})});

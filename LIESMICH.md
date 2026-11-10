@@ -2,18 +2,35 @@
 
 Dieser Ordner ist die Website für die Lernenden (zum Beispiel https://pflegepfad.vercel.app).
 
-| Datei | Wofür |
-|---|---|
-| `index.html` | die komplette App |
-| `config.BEISPIEL.js` | Vorlage für die Datenbank-Verbindung. Nur nötig, wenn du noch keine `config.js` hast |
-| `favicon.svg`, `icon-*.png`, `apple-touch-icon.png` | App-Symbole für Browser und Handy-Startbildschirm |
-| `manifest.webmanifest` | macht die App auf dem Handy installierbar |
-| `sw.js` | hält die App offline verfügbar |
-| `vercel.json` | Einstellung für Vercel |
-| `netlify.toml` | Einstellung für Netlify (nur falls du Netlify nutzt) |
-| `supabase/*.sql` | Datenbank-Erweiterungen, siehe unten |
+## Aufbau (modular)
 
-**Wichtig:** Deine bestehende `config.js` mit deinen Supabase-Werten behältst du. Überschreibe sie nicht.
+Die App besteht nicht mehr aus einer einzigen `index.html`, sondern aus einzelnen Modulen. `index.html` lädt sie nur noch in der richtigen Reihenfolge.
+
+| Ordner / Datei | Inhalt |
+|---|---|
+| `index.html` | Grundgerüst: lädt Stylesheets, Daten und Skripte der Reihe nach |
+| `css/` | Gestaltung in Ebenen: `01-basis`, `02-training`, `03-apple`, `04-pro`, `05-v5`, `06-feinschliff` (Bewegung, Fokus, Bedienungshilfen) |
+| `daten/basis.js`, `daten/abbildungen.js`, `daten/figuren.js` | Grunddaten und Zeichnungen |
+| `daten/module/jahr-1` bis `jahr-3` | je Lernmodul eine Datei (`fm1.js` bis `fm56.js`) |
+| `js/kern/` | Start: Konfiguration, Demo-Konto, Farbprofile, Modul-Loader, Offline-Anmeldung |
+| `js/training/` | je Training bzw. Prüfungsfall eine Datei (Examen, Kommunikation, Stationsalltag, Meine Sprache …) |
+| `js/app/01-app.bundle.js` | der gebaute Kern der App (Module, Praxis, Aufgaben, Fortschritt) |
+| `js/funktionen/` | Zusatzfunktionen: PharmakoLab, Training zum Modul, Medaillen, Ruhig bleiben, Datenauskunft |
+| `vendor/` | Bibliotheken, liegen auf dem eigenen Server |
+| `sw.js` | Offline-Cache. Bei jeder Änderung an Dateien die Versionsnummer `fallpfad-v…` erhöhen |
+| `vercel.json`, `netlify.toml` | Sicherheits-Header (siehe unten) |
+
+Wichtig: Die Reihenfolge der `<script>`-Zeilen in `index.html` nicht ändern. Kommt eine neue Datei dazu, auch in die Liste `MODULE` in `sw.js` eintragen.
+
+## Sicherheit
+
+- **Content-Security-Policy:** Die Seite führt nur Skripte vom eigenen Server aus (kein Inline-Code mehr). Verbindungen sind nur zu Supabase und zu OpenAI (Sprachsimulation) erlaubt. Steht als `<meta>` in `index.html` und als Header in `vercel.json`.
+- **Weitere Header:** HSTS, `X-Content-Type-Options`, `X-Frame-Options: DENY`, `Referrer-Policy`, `Permissions-Policy` (Kamera und Mikrofon nur für die eigene Seite).
+- **Meine Daten herunterladen:** Einstellungen > Rechtliches. Lädt alles zum Konto Gespeicherte als Datei (Art. 15 und 20 DSGVO). Braucht `supabase/sicherheit_haertung.sql` aus dem Lehrer-Portal-Paket.
+- **Einwilligung zur Sprachsimulation** wird auf dem Server mit Zeitpunkt protokolliert, der Widerruf ebenso.
+- Das Backend (Datenbank, Edge Functions) ist im Lehrer-Portal-Paket unter `supabase/BACKEND.md` beschrieben.
+
+Prüfen nach Änderungen: `node werkzeuge/pruefen.mjs .` lädt die App in Chrome und meldet Konsolenfehler, fehlende Dateien und CSP-Verstöße.
 
 ## Neu in dieser Version: Training „Stationsalltag“
 
