@@ -26,3 +26,6 @@ html body .fpm-lbl{max-width:100%;padding:0 2px;overflow-wrap:anywhere;hyphens:a
 @container (max-width:455px){html body .fpm-track li{flex-basis:20%}}
 @container (max-width:379px){html body .fpm-track li{flex-basis:25%}}
 @container (max-width:259px){html body .fpm-track li{flex-basis:33.3333%}}
+
+/* Audit 11/2026: Mindestgröße für Tippflächen (WCAG 2.2, SC 2.5.8: 24 x 24 px) */
+html body .skip{min-height:24px}
