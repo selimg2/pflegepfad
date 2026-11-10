@@ -419,12 +419,12 @@
     var saved = uS(function () { return lsGet("fp-ast-plan-" + ukey, null); });
     var hinweis = uS(function () { return !lsGet("fp-ast-ok", false); });
     var l = uS(lang()), logRef = uR(null), taRef = uR(null);
-    var demo = !!window.FP_DEMO_ACC;
+    var demo = !!window.FP_DEMO_ACC, kein = uS(false);
     uE(function () { function f() { l[1](lang()); } window.addEventListener("fp-lang", f); return function () { window.removeEventListener("fp-lang", f); }; }, []);
     uE(function () { lsSet("fp-ast-chat-" + ukey, msgs.slice(-40)); var el = logRef.current; if (el && (msgs.length || busy[0])) setTimeout(function () { el.scrollTop = el.scrollHeight; }, 30); }, [msgs.length, busy[0]]);
     uE(function () {
       if (demo) { rest[1](3); return; }
-      invoke({ status: true }).then(function (r) { if (r && r.rest != null) { rest[1](r.rest); limit[1](r.limit || 3); } }, function () {});
+      invoke({ status: true }).then(function (r) { if (r && r.kurs === false) kein[1](true); if (r && r.rest != null) { rest[1](r.rest); limit[1](r.limit || 3); } }, function () {});
       setTimeout(index, 50);
     }, []);
     function set(m) { chat[1](m); }
@@ -455,6 +455,7 @@
       }, function (e) {
         set(mine2.concat([{ r: "ki", err: e.message || "Das hat nicht geklappt.", at: Date.now() }]));
         if (e.rest === 0) rest[1](0);
+        if (/Kurs bist/.test(e.message || "")) kein[1](true);
       }).then(function () { busy[1](false); });
     }
     function savePlan(plan) { var v = { plan: plan, done: {}, at: Date.now() }; lsSet("fp-ast-plan-" + ukey, v); saved[1](v); }
@@ -525,6 +526,7 @@
 
     return h("div", { className: "wrap ast-wrap" },
       h("div", { className: "hello" }, h("div", { className: "eyebrow" }, "KI-Assistent"), h("h1", null, "Assistent"), h("p", null, "Plant deine Prüfungsvorbereitung, erklärt und fragt ab, nur mit den Inhalten von Fallpfad.")),
+      kein[0] ? h("div", { className: "notice warn", role: "status", style: { marginBottom: 14 } }, h("b", null, "Noch kein Kurs: "), "Der Assistent und die anderen KI-Funktionen sind freigeschaltet, sobald du in einem Kurs bist. Gib dazu im Profil unter „Kurs beitreten“ den Kurscode deiner Lehrkraft ein.") : null,
       h("div", { className: "ast-grid" }, h("section", { className: "ast-chat", "aria-label": "Chat mit dem Assistenten" }, log, comp), side));
   }
 
