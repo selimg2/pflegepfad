@@ -146,7 +146,12 @@
             h("div", { className: "fpm-bar", role: "progressbar", "aria-valuemin": 0, "aria-valuemax": np[1], "aria-valuenow": Math.min(np[0], np[1]) }, h("i", { style: { width: Math.min(100, Math.round(100 * np[0] / Math.max(1, np[1]))) + "%" } })),
             h("small", { className: "muted" }, Math.min(np[0], np[1]) + " von " + np[1]))
             : h(R.Fragment, null, h("span", { className: "eyebrow" }, "Alle Checkpoints"), h("b", null, "Du hast den ganzen Pfad geschafft."))),
-        h("ol", { className: "fpm-track" }, CHECK.map(function (c, i) {
+        h("ol", { className: "fpm-track", "aria-label": "Checkpoints", ref: function (el) {
+          /* Den aktuellen Checkpoint in den sichtbaren Bereich holen (Einrasten sorgt dafür, dass kein Kreis halb angeschnitten bleibt) */
+          if (!el || el._fpPos) return; el._fpPos = 1;
+          var c = el.querySelector(".cur") || el.querySelector("li:not(.ok)");
+          if (c) el.scrollLeft = Math.max(0, c.offsetLeft - (el.clientWidth - c.offsetWidth) / 2);
+        } }, CHECK.map(function (c, i) {
           var ok = cps[i], cur = i === nIdx;
           return h("li", { key: c.id, className: (ok ? "ok" : "") + (cur ? " cur" : ""), title: c.d },
             h("span", { className: "fpm-node", dangerouslySetInnerHTML: { __html: ok ? svgIc("step", 16, 3) : String(i + 1) } }),

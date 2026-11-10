@@ -12,3 +12,17 @@ html body .tabbar .tab svg path{stroke-width:1.9}
 /* Einstellungen: Farbkreise bleiben auf Touch-Geräten rund (44-px-Regel betrifft nur die Schaltfläche) */
 html body .fps-sw{min-height:44px}
 html body .fps-sw i{aspect-ratio:1;flex:0 0 auto}
+
+/* Fortschrittskreise: Strich bleibt vollständig in der viewBox (Radius im Ring-Baustein: groß 19 bei Strich 9, normal 20 bei Strich 5).
+   overflow:visible ist nur eine zusätzliche Absicherung gegen Kantenglättung bei krummen Pixelgrößen. */
+html body .ring svg{overflow:visible}
+
+/* Checkpoints: Es passen immer nur ganze Schritte in die Leiste (je nach Breite 3 bis 8 sichtbar), die Leiste rastet
+   beim Wischen auf ganze Schritte ein. So wird kein Kreis am Rand abgeschnitten, auf keiner Bildschirmgröße. */
+html body .fpm-track{container-type:inline-size;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;padding:6px 0 4px}
+html body .fpm-track li{flex:0 0 12.5%;min-width:0;scroll-snap-align:start}
+html body .fpm-lbl{max-width:100%;padding:0 2px;overflow-wrap:anywhere;hyphens:auto}
+@container (max-width:607px){html body .fpm-track li{flex-basis:16.6667%}}
+@container (max-width:455px){html body .fpm-track li{flex-basis:20%}}
+@container (max-width:379px){html body .fpm-track li{flex-basis:25%}}
+@container (max-width:259px){html body .fpm-track li{flex-basis:33.3333%}}
