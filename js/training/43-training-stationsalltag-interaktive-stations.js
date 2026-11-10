@@ -775,7 +775,7 @@
       var hist = (p.S && p.S.station && p.S.station.hist) || [];
       return h("div", { className: "st" },
         h("div", { className: "st-hero" },
-          window.FP_SCENE ? h("div", { className: "st-ward", dangerouslySetInnerHTML: { __html: window.FP_SCENE.ward() } }) : h("div", { className: "st-mini", dangerouslySetInnerHTML: { __html: MINI } }),
+          h("div", { className: "st-mini", dangerouslySetInnerHTML: { __html: MINI } }),
           h("div", { className: "eyebrow" }, "Simulation · ohne Vorbereitung"),
           h("h2", null, "Eine Schicht auf Station"),
           h("p", null, "Du übernimmst Zimmer, Patientinnen und Patienten und eine Liste von Aufgaben. Die Uhr läuft im Zeitraffer, es klingelt, das Labor ruft an, und nicht alles läuft nach Plan. Du entscheidest, was zuerst dran ist.")),

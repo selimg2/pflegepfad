@@ -35,7 +35,9 @@
   s += X.ivpole(40, {}) + X.walker(70, 170) + X.trash(160, 244) + X.nightstand(190, { y: 170 }) + X.chair(260, 174) + X.monitor(312, 40, {}, {});
   s += X.cup(208, 162) + X.glass(232, 162, 0.5) + X.bell(330, 236) + X.syringe(110, 40, 60, 0, 0.6, "nacl") + X.pills(150, 90) + X.clipboard(300, 140, 80, 70, "Plan", []);
   $("objects").innerHTML = svg(s);
-  $("ward").innerHTML = S.ward();
+  var bs = window.__bs = S.bedside($("bedside"), {});
+  $("bs-replay").addEventListener("click", function () { bs.replay(); });
+  $("bs-pause").addEventListener("click", function () { bs.pause(); });
 
   Array.prototype.forEach.call(document.querySelectorAll("[data-ball]"), function (b) { b.addEventListener("click", function () { $(b.getAttribute("data-ball")).classList.toggle("go"); }); });
 })();

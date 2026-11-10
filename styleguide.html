@@ -109,9 +109,16 @@
   <h2>Objekte</h2>
   <div class="card scene" id="objects"></div>
 
-  <h2>Referenzszene: Stationsflur</h2>
-  <p>Erzählt den Kern der Stationsalltag-Simulation: Zimmer, Rufanlage, Übergabe, Stützpunkt, Uhrzeit. Bewegung: Atmen, Blinzeln, Rufanlage.</p>
-  <div class="card scene" id="ward"></div>
+  <h2>Referenzszene: Puls tasten am Krankenbett</h2>
+  <p>Ein Patient liegt im Bett, eine Pflegekraft tastet den Puls. Alle Teile kommen aus dem System: Raum, Bett, Patient, Figur, Gelenkmodell, Zeitleiste. Die Szene läuft in einer ruhigen Schleife von 9 Sekunden. Bei „Bewegung reduzieren“ steht sie in der Schlüsselpose.</p>
+  <div class="card scene" id="bedside"></div>
+  <div class="motion" style="margin-top:10px"><button type="button" id="bs-replay">Noch einmal abspielen</button><button type="button" id="bs-pause">Anhalten</button></div>
+  <h3>Gelenkmodell</h3>
+  <div class="grid">
+    <div class="card"><b>Kopf auf dem Hals</b><small>Das Kinn sitzt auf dem Halsende. Kopfmitte liegt 0,225 Kopfhöhen über dem Kinn, der sichtbare Hals ist etwa 0,13 Kopfhöhen lang und 0,15 breit.</small></div>
+    <div class="card"><b>Arm mit Ellbogen</b><small>Ober- und Unterarm haben feste Längen. Der Ellbogen ergibt sich aus Schulter und Ziel (<code>PXB.ik2</code>), nie aus einer freien Zahl.</small></div>
+    <div class="card"><b>Ebenen</b><small>Wand, Möbel, Bett, Patient, ruhender Arm, Körper, tätiger Arm, Randabdunklung. Nichts springt über eine Ebene.</small></div>
+  </div>
 
   <h2>Regeln in Beispielen</h2>
   <div class="rule">
@@ -131,6 +138,7 @@
 <script src="js/training/04-illustrationen-fuer-die-praktische.js"></script>
 <script src="js/training/05-figuren.js"></script>
 <script src="js/training/46-szenen-system.js"></script>
+<script src="js/training/47-szene-bettseite.js"></script>
 <script src="js/styleguide.js"></script>
 </body>
 </html>

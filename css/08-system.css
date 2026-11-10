@@ -157,9 +157,6 @@ html body .pa-sway{animation-duration:7s!important}
   html body *,html body *::before,html body *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
 }
 
-/* Stationsflur-Illustration: Hintergrund läuft auf breiten Bildschirmen in Wand-, Handlauf- und Bodenfarbe weiter */
-html body .st-ward{background:linear-gradient(#e4ecf5 0 10%,#eef3f8 10% 54.5%,#e9dcc7 54.5% 57.3%,#eef3f8 57.3% 77.3%,#dfe8f2 77.3% 80%,#b3c3d6 80% 80.6%,#dbe5ef 80.6%)}
-
 /* Illustrationen im dunklen Modus: Farbwelt bleibt (wie ein Foto), nur etwas gedämpft */
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body .st-ward svg,:root:not([data-theme="light"]) body .pxart2 svg{filter:brightness(.9) saturate(.95)}}
-:root[data-theme="dark"] body .st-ward svg,:root[data-theme="dark"] body .pxart2 svg{filter:brightness(.9) saturate(.95)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body .pxart2 svg{filter:brightness(.9) saturate(.95)}}
+:root[data-theme="dark"] body .pxart2 svg{filter:brightness(.9) saturate(.95)}

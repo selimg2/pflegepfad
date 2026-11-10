@@ -84,13 +84,14 @@
       return limb(a, armW - 1.4, sk) + limb(clothPart, armW + 0.6, cl) + hand(a[2][0], a[2][1] + 2, sk, kid ? 4.4 : 5, angOf(a[1], a[2]), a[2][0] > 0 ? "r" : "l");
     }
     var front = pose === "assist" || pose === "reach" || pose === "support" || pose === "hold" || pose === "wave" || pose === "chart" || pose === "talk";
-    if (!front) s += arm(la) + arm(ra);
+    if (o.arms === "none") { /* Arme werden von außen gezeichnet (Szenen mit Gelenkmodell, X.ik2) */ }
+    else if (!front) s += arm(la) + arm(ra);
     s += P(torso, cl, 2.2) + P("M" + (-sw + 4) + " " + (hip - 6) + "H" + (sw - 4), "none", 0, ' stroke="' + dk(cl, 0.12) + '" stroke-width="1.2" opacity=".7"') + clothDeco(sp, 0, sh);
     if (pose === "chart") s += '<g transform="translate(-14,' + (sh + 18) + ') rotate(-6)"><rect x="0" y="0" width="30" height="38" rx="4" fill="#c9a77c" stroke="' + K + '" stroke-width="1.8"/><rect x="4" y="6" width="22" height="28" rx="2" fill="#fff" stroke="' + K + '" stroke-width="1.3"/><path d="M8 14h14M8 20h14M8 26h9" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/><rect x="10" y="-3" width="10" height="6" rx="2" fill="#94a3b8" stroke="' + K + '" stroke-width="1.3"/></g>';
-    if (front) s += arm(la) + arm(ra);
+    if (front && o.arms !== "none") s += arm(la) + arm(ra);
     /* Kopf */
     s += headAt(sp, o.mood || "neutral", 0, hy, hs, o.flip, o.tilt);
-    X._fig = { x: x, y: y, sc: sc, head: [x, y + hy * sc], hand: [x + (o.flip ? -1 : 1) * la[2][0] * sc, y + la[2][1] * sc], handR: [x + (o.flip ? -1 : 1) * ra[2][0] * sc, y + ra[2][1] * sc] };
+    X._fig = { x: x, y: y, sc: sc, shL: [x + (o.flip ? 1 : -1) * (sw - 2) * sc, y + (sh + 8) * sc], shR: [x + (o.flip ? -1 : 1) * (sw - 2) * sc, y + (sh + 8) * sc], sleeve: sleeve, cloth: cl, skin: sk, head: [x, y + hy * sc], hand: [x + (o.flip ? -1 : 1) * la[2][0] * sc, y + la[2][1] * sc], handR: [x + (o.flip ? -1 : 1) * ra[2][0] * sc, y + ra[2][1] * sc] };
     return wrap(s, x, y, sc, o.flip, o.cls);
   };
 

@@ -130,10 +130,19 @@ Posenregeln:
 
 ## 9. Szenen
 
-Baukasten `window.FP_SCENE` (`js/training/46-szenen-system.js`): `ward()`, `door()`, `clock()`, `counter()`, `frame()`, `pal`, `people`.
+Baukasten `window.FP_SCENE` (`js/training/46-szenen-system.js`): `frame()`, `pal`, `people`, Zeitleiste (`track`, `ease`, `timeline`).
+Referenzszene: **Puls tasten am Krankenbett** (`js/training/47-szene-bettseite.js`, live in `styleguide.html`): `FP_SCENE.bedside(element)`.
+
+**Gelenkmodell (verbindlich für jede Figur, Fix der „langen Hälse“):**
+- Kopf: `PXB.headNeck(person, mood, halsansatz, kinn, größe, neigung, hautfarbe)`. Das Kinn sitzt auf dem Hals, der Kopfmittelpunkt (Ohrhöhe) liegt 0,225 Kopfhöhen über dem Kinn. Sichtbarer Hals ca. 0,13 Kopfhöhen lang, 0,15 breit. Reihenfolge: Hals, Rumpf (verdeckt den Ansatz), Kopf.
+- Im Bett: Hals folgt der Rückenlehne, Kopf neigt sich um den halben Lehnenwinkel nach vorn. Rückenlage (`flat`): Kopf ca. 72° seitlich auf dem Kissen, Hals waagerecht zur Schulter.
+- Arm: `PXB.ik2(schulter, ziel, oberarm, unterarm, richtung)` liefert den Ellbogen aus der Zwei-Knochen-Berechnung, `PXB.armSVG` zeichnet Unterarm, Oberarm im Ärmel (`sleeveFrac` für Kurzarm), Gegenstand, Hand. Armlängen ändern sich während einer Bewegung nie.
+- Ganzkörperfigur ohne Arme: `F.stand(..., { arms: "none" })`, Schulterpunkte in `X._fig.shL/shR`.
+
+**Zeitleiste:** Schlüsselbilder `[zeit, wert, kurve]` (`io` sanft, `out` bremst, `hold` hält). `timeline(element, { duration, draw, stillAt })` läuft nur sichtbar, pausiert bei verstecktem Tab, zeigt bei „Bewegung reduzieren“ nur das Standbild bei `stillAt`. Gleiche Zeit ergibt das gleiche Bild.
 
 Regeln:
-- ViewBox 400 × 280 (Bettszenen) oder 400 × 220 (Breitformat). Boden bei y = 214 bzw. 176.
+- ViewBox 400 × 280. Ebenen hinten nach vorn: Wand, Möbel, Bett, Patient, ruhender Arm, Körper, tätiger Arm, Randabdunklung.
 - Eine Aussage pro Szene. Was die Lernenden tun sollen, steht im Bild im Vordergrund.
 - Höchstens drei Personen. Die handelnde Person steht vorn, Nebenpersonen hinten oder angeschnitten.
 - Keine Texte im Bild außer Zimmernummern, Beschriftungen und Messwerten.
@@ -168,8 +177,10 @@ Regeln:
 | `js/training/30-mikro-effekte.js` | Bewegungssystem: kein Ring bei jedem Antippen, kein Kartenanheben, kein Hüpfen, Seitenwechsel nur bei Bereichswechsel, `window.FP_MOTION` |
 | `js/training/05-figuren.js` | größere Köpfe, Hände mit Daumen entlang des Unterarms, Hände bis Oberschenkelmitte, neue Posen `chart` und `talk` |
 | `js/training/04-illustrationen-fuer-die-praktische.js` | ruhiger Boden mit Sockelleiste, leise Wandversorgung, schwächere Vignette, `X.handShape`, Arm liegt auf der Decke, flache Lage mit Decke bis zur Brust, Kopf im Bett größer (82), Atmen am Oberkörper, Händedesinfektion als Gegenbewegung |
-| `js/training/46-szenen-system.js` | neu: Szenen-Baukasten `FP_SCENE` mit Referenzszene Stationsflur |
-| `js/training/43-training-stationsalltag-interaktive-stations.js` | Stationsalltag zeigt die Stationsflur-Szene statt eines abstrakten Rasters |
+| `js/training/46-szenen-system.js` | neu: Szenen-Baukasten `FP_SCENE` (Zeitleiste, Personen, Palette) |
+| `js/training/47-szene-bettseite.js` | neu: Referenzszene „Puls tasten am Krankenbett“ |
+| `js/training/04-…`, `05-figuren.js` | Gelenkmodell: `headNeck`, `ik2`, `armSVG`; Patient im Bett neu aufgebaut (Hals, Kopf, Schulter, Arm) |
+| `js/training/43-…stations.js` | Stationsflur-Bild wieder entfernt (Original wiederhergestellt) |
 | `styleguide.html`, `js/styleguide.js` | neu: lebende Übersicht aller Bausteine |
 | `index.html`, `sw.js` | neue Dateien eingebunden, Cache `fallpfad-v42` |
 | `werkzeuge/tests/nachweis/design-vorher-nachher.png`, `styleguide.png` | Nachweise |
