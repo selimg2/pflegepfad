@@ -160,7 +160,7 @@
         diag: "Gefahr einer Blutung bzw. eines Volumenmangels (00206) b/d frischer Darmanastomose und postoperativer Antikoagulation; Gefahr eines verzögerten Erkennens b/d Zurückhaltung, a/d „will niemanden aufhalten“, Klingel außer Reichweite. Dazu: Thrombosegefahr (Varikosis, Strümpfe heruntergerollt).",
         ziel: "Veränderungen von Kreislauf, Drainage und Wunde werden innerhalb einer Stunde erkannt und gemeldet. Frau Hollweg klingelt bei Frieren, Schwindel oder Schmerz und kann das selbst benennen.",
         mass: [
-          "Vitalzeichen mindestens alle 4 Stunden und bei Bedarf, mit NEWS2 und Verlauf; Drainage- und Wundkontrolle bei jedem Kontakt",
+          "Vitalzeichen mindestens alle 4 Stunden und bei Bedarf, im Verlauf; Drainage- und Wundkontrolle bei jedem Kontakt",
           "Klingel in Reichweite, Frau Hollweg ausdrücklich auffordern zu klingeln, Warnzeichen erklären",
           "Kompressionsstrümpfe korrekt sitzend ohne Falten, Frühmobilisation nach Anordnung",
           "Metamizol-Unverträglichkeit sichtbar dokumentieren; Analgesie nach Anordnung ohne Metamizol",
@@ -170,7 +170,7 @@
           { t: "Blutungs-/Volumenmangel- oder Infektionsgefahr als Diagnose", kw: ["blutung", "volumen", "nachblut", "schock", "infekt"] },
           { t: "Zurückhaltendes Verhalten und Klingel als Risiko benannt", kw: ["klingel", "zurückhalt", "melde"] },
           { t: "Überprüfbares Ziel (z. B. Veränderungen werden erkannt, sie klingelt)", kw: ["ziel", "erkannt", "klingelt"] },
-          { t: "Vitalzeichen mit Trend/NEWS2, Drainage und Wunde", kw: ["news", "vital", "drainage", "wunde", "verlauf"] },
+          { t: "Vitalzeichen mit Trend, Drainage und Wunde", kw: ["vital", "drainage", "wunde", "verlauf", "trend"] },
           { t: "Kompressionsstrümpfe / Thromboseprophylaxe", kw: ["strumpf", "strümpf", "thrombo", "kompression"] },
           { t: "Metamizol-Unverträglichkeit berücksichtigt", kw: ["metamizol", "novalgin"] }
         ]
@@ -221,13 +221,13 @@
           S: "Frau Hollweg, 71, Zimmer 306, Tag 1 nach laparoskopischer Sigmaresektion. Puls steigt seit 22 Uhr von 88 auf 104, Drainage 120 ml blutig, Sauerstoffbedarf neu.",
           B: "Rezidivierende Divertikulitis, Hypothyreose, Hypertonie, Enoxaparin um 08 Uhr. Unverträglichkeit Metamizol. Sie bagatellisiert und klingelt kaum.",
           A: "Der Trend spricht für eine beginnende Kreislaufverschlechterung, am ehesten eine Nachblutung. Dass sie „stabil wirkt“, schließt das nicht aus.",
-          R: "Als Erstes zu ihr: Vitalzeichen mit NEWS2, Drainage, Wunde, Haut. Arzt sofort informieren. Enoxaparin um 08 Uhr erst nach ärztlicher Rücksprache."
+          R: "Als Erstes zu ihr: Vitalzeichen im Verlauf, Drainage, Wunde, Haut. Arzt sofort informieren. Enoxaparin um 08 Uhr erst nach ärztlicher Rücksprache."
         },
         chk: [
           { t: "S: Pulsanstieg, blutige Drainage, neuer Sauerstoffbedarf", kw: ["104", "puls", "drainage", "sauerstoff"] },
           { t: "B: Antikoagulation, Metamizol-Unverträglichkeit", kw: ["enoxaparin", "metamizol"] },
           { t: "A: Verdacht auf Nachblutung / Volumenmangel", kw: ["nachblut", "blutung", "volumen", "schock"] },
-          { t: "R: zuerst zu ihr, NEWS2, Arzt sofort", kw: ["zuerst", "news", "arzt"] },
+          { t: "R: zuerst zu ihr, Vitalzeichen, Arzt sofort", kw: ["zuerst", "vital", "arzt"] },
           { t: "Enoxaparin vor Gabe mit Arzt klären", kw: ["enoxaparin", "rücksprache", "nicht geben"] }
         ]
       },
@@ -248,7 +248,7 @@
       }
     },
     prio: [
-      { id: "h1", t: "Frau Hollweg: Vitalzeichen mit NEWS2, Drainage und Wunde kontrollieren (Trend aus der Nacht)", zeit: "06:15", warum: "Steigender Puls, blutige Drainage und neuer Sauerstoffbedarf: Das ist die potenziell lebensbedrohliche Situation." },
+      { id: "h1", t: "Frau Hollweg: Vitalzeichen im Verlauf, Drainage und Wunde kontrollieren (Trend aus der Nacht)", zeit: "06:15", warum: "Steigender Puls, blutige Drainage und neuer Sauerstoffbedarf: Das ist die potenziell lebensbedrohliche Situation." },
       { id: "p1", t: "Herr Petersen: Ein-/Ausfuhrbilanz der Nacht auswerten, Arzt informieren, Trinkplan", zeit: "06:40", warum: "Drohende Dehydratation. Die Bilanz muss vor der Visite beim Arzt sein." },
       { id: "bz", t: "BZ-Messung bei Herrn Wendt vor dem Frühstück", zeit: "07:00", warum: "Zeitgebunden an die Mahlzeit." },
       { id: "p2", t: "Herr Petersen: Stomaversorgung vor dem Frühstück wechseln, mit Anleitung", zeit: "07:15", warum: "Vor dem Essen ist das Ileostoma weniger aktiv; die undichte, abgeklebte Versorgung schädigt die Haut weiter." },
@@ -388,10 +388,9 @@
             { k: "bew", t: "Bewusstsein", kurz: "ACVPU", val: "A", einheit: "wach, orientiert", farbe: "bew", wie: "ansprechen" }
           ],
           befund: "Haut kalt, blass und feucht, Rekapillarisierungszeit 4 Sekunden. Drainage seit 04 Uhr weitere 230 ml hellrot. Urin seit 04 Uhr 40 ml.",
-          news: { wert: 9, tol: 0, frage: "Berechne den NEWS2-Score (Skala 1 für SpO₂).", erk: "AF 22 = 2 · SpO₂ 95 % = 1 · Sauerstoff = 2 · RR syst. 94 = 2 · Puls 118 = 2 · wach = 0 · Temp 36,4 = 0. Summe 9: hohes Risiko, sofortige ärztliche Notfallbeurteilung." },
-          act: { text: "NEWS2 9, frisches Blut in der Drainage, Schockzeichen. Was tust du jetzt?", opts: [
-            { t: "Bei ihr bleiben, über Notruf Hilfe holen und das Notfallteam bzw. den Arzt sofort per SBAR alarmieren; flach lagern, Sauerstoff nach Standard weiter, Werte engmaschig, Drainage messen", ok: true, fb: "Richtig. NEWS2 ab 7 bedeutet Notfallteam. Du bleibst bei ihr und holst Hilfe in den Raum." },
-            { t: "Arzt informieren und in einer Stunde nachmessen", fb: "Zu langsam. Bei NEWS2 9 ist sofortige Notfallbeurteilung nötig, nicht eine Kontrolle in einer Stunde." },
+          act: { text: "Puls 118, RR 94/56, frisches Blut in der Drainage, Schockzeichen. Was tust du jetzt?", opts: [
+            { t: "Bei ihr bleiben, über Notruf Hilfe holen und das Notfallteam bzw. den Arzt sofort per SBAR alarmieren; flach lagern, Sauerstoff nach Standard weiter, Werte engmaschig, Drainage messen", ok: true, fb: "Richtig. Schockzeichen mit frischer Blutung bedeuten Notfallteam. Du bleibst bei ihr und holst Hilfe in den Raum." },
+            { t: "Arzt informieren und in einer Stunde nachmessen", fb: "Zu langsam. Bei Schockzeichen mit frischer Blutung ist sofortige Notfallbeurteilung nötig, nicht eine Kontrolle in einer Stunde." },
             { t: "Erst die 08-Uhr-Medikamente verteilen, dann den Arzt anrufen", fb: "Gefährlich. Die akute Kreislaufverschlechterung hat absoluten Vorrang." },
             { t: "Oberkörper hoch und mobilisieren, damit der Kreislauf in Schwung kommt", fb: "Bei Schockzeichen verschlechtert Aufsetzen die Hirndurchblutung. Flach lagern." }] }
         },
@@ -485,10 +484,10 @@
     doku: {
       clock: "12:00",
       auftrag: "Schreibe den Pflegebericht zu Frau Hollweg für den Zeitraum 07:40 bis 08:30 Uhr. Ergänzend: Dr. Neumann war um 07:52 Uhr am Bett, Notfallteam ab 07:50 Uhr. Hb 7,9 g/dl. 08:30 Uhr Abholung in den OP.",
-      muster: "07:40 Pat. im Bett, blass, kaltschweißig. Äußert: „Mir ist so kalt, und irgendwie ist alles weit weg.“ Verband Trokarstelle li. durchgeblutet (ca. 3 × 2 cm, Rand markiert). Drainage seit 04:00 weitere 230 ml hellrot. Urin seit 04:00 40 ml. Urinbeutel vom Boden aufgehängt. RR 94/56 mmHg, HF 118/min, AF 22/min, SpO₂ 95 % unter 2 l O₂, T 36,4 °C, wach, orientiert. NEWS2 9. 07:48 Notruf, flache Lagerung, Sauerstoff weiter nach Standard. 07:50 Notfallteam, 07:52 Dr. Neumann am Bett (SBAR). AO: nüchtern, Enoxaparin und Ramipril pausiert. 08:05 Levothyroxin und Pantoprazol mit Schluck Wasser lt. AO gegeben. Novaminsulfon im Dispenser (Unverträglichkeit Metamizol) entfernt, nicht gegeben, Meldung CIRS. 08:30 Übergabe an OP-Team mit Checkliste. [Name, Handzeichen]",
+      muster: "07:40 Pat. im Bett, blass, kaltschweißig. Äußert: „Mir ist so kalt, und irgendwie ist alles weit weg.“ Verband Trokarstelle li. durchgeblutet (ca. 3 × 2 cm, Rand markiert). Drainage seit 04:00 weitere 230 ml hellrot. Urin seit 04:00 40 ml. Urinbeutel vom Boden aufgehängt. RR 94/56 mmHg, HF 118/min, AF 22/min, SpO₂ 95 % unter 2 l O₂, T 36,4 °C, wach, orientiert. 07:48 Notruf, flache Lagerung, Sauerstoff weiter nach Standard. 07:50 Notfallteam, 07:52 Dr. Neumann am Bett (SBAR). AO: nüchtern, Enoxaparin und Ramipril pausiert. 08:05 Levothyroxin und Pantoprazol mit Schluck Wasser lt. AO gegeben. Novaminsulfon im Dispenser (Unverträglichkeit Metamizol) entfernt, nicht gegeben, Meldung CIRS. 08:30 Übergabe an OP-Team mit Checkliste. [Name, Handzeichen]",
       chk: [
         { t: "Uhrzeiten für Beobachtung, Notruf, Arzt, Maßnahmen", kw: ["07:", "08:"] },
-        { t: "Objektive Werte mit Einheit inkl. NEWS2", kw: ["mmhg", "/min", "news"] },
+        { t: "Objektive Werte mit Einheit", kw: ["mmhg", "/min", "%"] },
         { t: "Drainage und Urin mit Menge und Aussehen", kw: ["drainage", "ml", "urin"] },
         { t: "Patientenaussage wörtlich", kw: ["„", "\"", "äußert"] },
         { t: "Arzt und Notfallteam mit Name/Uhrzeit, Anordnung", kw: ["dr.", "neumann", "notfallteam", "ao", "anordnung"] },
@@ -511,15 +510,15 @@
     },
     ueb: {
       auftrag: "13:30 Uhr. Übergib an den Spätdienst (Pflegefachkraft Lea Brandt).",
-      muster: "Herr Petersen, 305: Ileostoma Tag 6, High-Output (Nacht 850 ml), Urin wenig und dunkel. Arzt informiert, Loperamid 2 mg 3× tgl. angeordnet, Trinkplan 2.000 ml mit Brühe und Elektrolytgetränk. Versorgung 07:15 neu: Ø 32 mm, Öffnung 34 mm, Hautschutzring; peristomale Rötung 4–7 Uhr, Stomatherapie kommt morgen. Er hat heute erstmals in den Spiegel geschaut und den Beutel selbst ausgestreift. Bitte Bilanz weiterführen.\n\nFrau Hollweg, 306: Nachblutung, Re-Laparoskopie 08:45 Uhr, zurück seit 12:40 Uhr. Blutung an einem Trokargefäß gestillt, 2 Erythrozytenkonzentrate im OP. Aktuell RR 118/70 mmHg, HF 92/min, NEWS2 2. Drainage seit Rückkehr 20 ml serös. Unverträglichkeit Metamizol: Heute früh war Novaminsulfon im Dispenser, entfernt, CIRS gemeldet. Enoxaparin bis auf Weiteres pausiert, Arzt entscheidet heute Abend. Klingel liegt in ihrer Hand, sie soll bei Frieren oder Schwindel klingeln.\n\nHerr Wendt, 307: OP morgen 08 Uhr. Beraten mit Teach-back: feste Nahrung bis 02 Uhr, klare Flüssigkeit bis 06 Uhr, Metformin und Ramipril morgen früh pausiert, BZ morgens messen. Ring: heute Abend mit Seife versuchen. Er ist ängstlich, Fragen an die Anästhesie sind weitergegeben.",
+      muster: "Herr Petersen, 305: Ileostoma Tag 6, High-Output (Nacht 850 ml), Urin wenig und dunkel. Arzt informiert, Loperamid 2 mg 3× tgl. angeordnet, Trinkplan 2.000 ml mit Brühe und Elektrolytgetränk. Versorgung 07:15 neu: Ø 32 mm, Öffnung 34 mm, Hautschutzring; peristomale Rötung 4–7 Uhr, Stomatherapie kommt morgen. Er hat heute erstmals in den Spiegel geschaut und den Beutel selbst ausgestreift. Bitte Bilanz weiterführen.\n\nFrau Hollweg, 306: Nachblutung, Re-Laparoskopie 08:45 Uhr, zurück seit 12:40 Uhr. Blutung an einem Trokargefäß gestillt, 2 Erythrozytenkonzentrate im OP. Aktuell RR 118/70 mmHg, HF 92/min. Drainage seit Rückkehr 20 ml serös. Unverträglichkeit Metamizol: Heute früh war Novaminsulfon im Dispenser, entfernt, CIRS gemeldet. Enoxaparin bis auf Weiteres pausiert, Arzt entscheidet heute Abend. Klingel liegt in ihrer Hand, sie soll bei Frieren oder Schwindel klingeln.\n\nHerr Wendt, 307: OP morgen 08 Uhr. Beraten mit Teach-back: feste Nahrung bis 02 Uhr, klare Flüssigkeit bis 06 Uhr, Metformin und Ramipril morgen früh pausiert, BZ morgens messen. Ring: heute Abend mit Seife versuchen. Er ist ängstlich, Fragen an die Anästhesie sind weitergegeben.",
       chk: [
         { t: "Alle Patienten mit Kernproblem und aktuellem Zustand", kw: ["305", "306", "307", "petersen", "hollweg", "wendt"] },
         { t: "Offene Aufgaben (Bilanz, Enoxaparin-Entscheidung, Nüchternheit)", kw: ["bilanz", "enoxaparin", "nüchtern", "bitte"] },
-        { t: "Sicherheitsrelevantes (Unverträglichkeit, NEWS2, Ausfuhr)", kw: ["metamizol", "news", "ausfuhr", "unverträglich"] }
+        { t: "Sicherheitsrelevantes (Unverträglichkeit, Vitalzeichen, Ausfuhr)", kw: ["metamizol", "vital", "ausfuhr", "unverträglich"] }
       ]
     },
     refl: [
-      { q: "Der Nachtdienst hielt Frau Hollweg für „stabil“. Woran hast du erkannt, dass sie es nicht war, und was hat dir NEWS2 dabei gebracht?", muster: "Einzelwerte wirkten in der Nacht noch grenzwertig, der Trend nicht: Puls 88 → 104 → 118, neuer Sauerstoffbedarf, blutige Drainage. Dazu klinische Zeichen: Blässe, kalter Schweiß, Frieren, wenig Urin, verlängerte Rekapillarisierung. NEWS2 fasst die Werte zusammen und gibt eine klare Handlungsschwelle vor (ab 7 Notfallteam). Das schützt auch vor dem Satz „sie wirkt ja stabil“. Eine Patientin, die nicht klagt, beobachte ich besonders genau." },
+      { q: "Der Nachtdienst hielt Frau Hollweg für „stabil“. Woran hast du erkannt, dass sie es nicht war, und welche Rolle spielte der Verlauf der Vitalzeichen?", muster: "Einzelwerte wirkten in der Nacht noch grenzwertig, der Trend nicht: Puls 88 → 104 → 118, neuer Sauerstoffbedarf, blutige Drainage. Dazu klinische Zeichen: Blässe, kalter Schweiß, Frieren, wenig Urin, verlängerte Rekapillarisierung. Der Verlauf macht die Verschlechterung sichtbar und begründet die Meldung mit konkreten Werten. Das schützt auch vor dem Satz „sie wirkt ja stabil“. Eine Patientin, die nicht klagt, beobachte ich besonders genau." },
       { q: "Warum hast du bei Herrn Petersen die Öffnung der Basisplatte neu ausgemessen, und wie hast du ihn einbezogen?", muster: "Ein frisches Stoma schwillt in den ersten Wochen ab. Die alte Öffnung war zu groß, dünnflüssige Ausscheidung lief auf die Haut, daher Rötung, Juckreiz und Undichtigkeit. Gemessen 32 mm, Öffnung 34 mm, Hautschutzring. Einbezogen habe ich ihn, ohne ihn zu zwingen: Er durfte wegschauen, bekam einen Spiegel angeboten und hat das Ausstreifen selbst übernommen. Sein Ziel Motorradfahren war der Türöffner. Nächstes Mal würde ich die Stomatherapie früher einbinden." },
       { q: "Wie hast du sichergestellt, dass Herr Wendt die Beratung zur Nüchternheit wirklich verstanden hat?", muster: "Ich habe konkret beraten: Uhrzeiten statt „ab Mitternacht“, Beispiele für klare Flüssigkeiten, die Begründung (Aspirationsgefahr, Gallenkolik). Am Ende habe ich ihn gebeten, mir in eigenen Worten zu sagen, bis wann er isst, was er morgens trinkt und welche Tabletten wegbleiben (Teach-back). Ich habe ihm ausdrücklich erlaubt, ehrlich zu sein, wenn er doch etwas isst, und ihm ein Infoblatt mitgegeben." }
     ]

@@ -61,7 +61,7 @@
   }
 
   function Top() {
-    useTick("fp-lang");
+    useTick("fp-lang"); useTick("fp-tr");
     var T = (window.FP_THEMES && window.FP_THEMES.list) || [], cs = uS(window.FP_THEMES ? window.FP_THEMES.current() : "blau"), cur = cs[0];
     uE(function () { order(); var t = setTimeout(order, 300); var mo = new MutationObserver(order); var w = document.querySelector(".fp-only-settings"); if (w) mo.observe(w, { childList: true, subtree: false }); return function () { clearTimeout(t); mo.disconnect(); }; }, []);
     return h(R.Fragment, null,
@@ -71,7 +71,11 @@
         h("div", { className: "fps-sws", role: "radiogroup", "aria-label": "Farbprofil" }, T.map(function (t) {
           return h("button", { key: t.id, type: "button", role: "radio", "aria-checked": cur === t.id, className: "fps-sw" + (cur === t.id ? " on" : ""), style: { "--a": t.dot }, onClick: function () { window.FP_THEMES.apply(t.id); cs[1](t.id); } }, h("i", null), h("span", null, t.n));
         })),
-        window.FP_LS ? h(Row, { ic: "globe", c: "#0A84FF", t: "Meine Sprache", sub: "Übersetzung, einfaches Deutsch, Vorlesen", val: window.FP_LS.label(), onClick: function () { window.FP_LS.open(); } }) : null));
+        window.FP_LS ? h(Row, { ic: "globe", c: "#0A84FF", t: "Meine Sprache", sub: "Übersetzung, einfaches Deutsch, Vorlesen", val: window.FP_LS.label(), onClick: function () { window.FP_LS.open(); } }) : null,
+        window.FP_LS && window.FP_LS.lang() && window.FP_TR ? h("button", { type: "button", className: "fps-row", role: "switch", "aria-checked": window.FP_TR.auto(), onClick: function () { window.FP_TR.setAuto(!window.FP_TR.auto()); if (!window.FP_TR.auto()) window.FP_TR.setOn(false); } },
+          h("span", { className: "fps-ic", style: { "--ic": "#5856D6" } }, h(Ico, { d: D.globe })),
+          h("span", { className: "fps-t" }, h("b", null, "Ganze App übersetzen"), h("small", null, "Alles erscheint automatisch in " + window.FP_LS.label() + ". Mit der Weltkugel oben zeigst du das Original.")),
+          h("span", { className: "fps-tg" + (window.FP_TR.auto() ? " on" : ""), "aria-hidden": "true" }, h("i"))) : null));
   }
   function Bottom() {
     var ss = uS(window.FP_SITE || null), s = ss[0];
@@ -102,5 +106,6 @@
     });
   }
   (function () { var q = 0; function go() { if (q) return; q = 1; requestAnimationFrame(function () { q = 0; shortTabs(); }); } if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", function () { new MutationObserver(go).observe(document.body, { childList: true, subtree: true }); go(); }); else { new MutationObserver(go).observe(document.body, { childList: true, subtree: true }); go(); } })();
+  (function () { var st = document.createElement("style"); st.textContent = ".fps-tg{width:51px;height:31px;flex:0 0 51px;border-radius:31px;background:var(--surface2,#e9e9eb);position:relative;transition:background .2s}.fps-tg i{position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.2);transition:transform .2s}.fps-tg.on{background:#34C759}.fps-tg.on i{transform:translateX(20px)}"; document.head.appendChild(st); })();
   window.FP_SETTINGS = function (p) { return p.part === "bottom" ? h(Bottom) : h(Top); };
 })();

@@ -203,8 +203,8 @@ window.FP_STATION_DATA = {
             ] } },
 
         /* ---------- Neuer Fall: Herr Brückner ---------- */
-        { id: "br-vit", pat: "brueckner", t: "Vitalzeichen Herr Brückner", kat: "sicherheit", ab: "06:30", faellig: "07:00", dauer: 8, punkte: 16, icon: "pulse", fall: true, link: { tab: "sims", id: "news2", t: "Simulation NEWS2" },
-          inhalt: { typ: "messen", news: true, frage: { q: "Wie gehst du mit diesen Werten um?",
+        { id: "br-vit", pat: "brueckner", t: "Vitalzeichen Herr Brückner", kat: "sicherheit", ab: "06:30", faellig: "07:00", dauer: 8, punkte: 16, icon: "pulse", fall: true,
+          inhalt: { typ: "messen", frage: { q: "Wie gehst du mit diesen Werten um?",
             opts: [
               { t: "Sofort die Ärztin informieren (SBAR): Verdacht auf Sepsis", ok: { status: "kritisch", pat: "brueckner" }, teil: true, setzt: ["br-auffaellig"], fb: "Bei diesen Werten richtig: Fieber, schneller Puls, schnelle Atmung, fallender Blutdruck und neue Verwirrtheit sind Warnzeichen einer Sepsis. Bei leicht auffälligen Werten ist frühes Melden nicht falsch, aber engmaschige Kontrolle hätte gereicht." },
               { t: "Pflegefachkraft informieren, Temperatur- und Trinkverlauf beobachten, spätestens in einer Stunde erneut messen", ok: { nichtStatus: "kritisch", pat: "brueckner" }, setzt: ["br-beob"], fb: "Bei leicht auffälligen Werten passend. Sind die Werte schon kritisch, reicht das nicht: Dann sofort die Ärztin." },
@@ -213,7 +213,7 @@ window.FP_STATION_DATA = {
             ] } } },
         { id: "br-vit2", pat: "brueckner", t: "Herr Brückner erneut messen", kat: "sicherheit", ab: "07:25", faellig: "07:35", dauer: 6, punkte: 14, icon: "pulse", fall: true,
           wenn: { alle: [{ gefeuert: "br-klingel" }, { erledigt: "br-vit" }, { nichtFlag: "br-auffaellig" }] },
-          inhalt: { typ: "messen", news: true, frage: { q: "Herr Brückner zittert stark. Was jetzt?",
+          inhalt: { typ: "messen", frage: { q: "Herr Brückner zittert stark. Was jetzt?",
             opts: [
               { t: "Sofort die Ärztin informieren (SBAR) und bei ihm bleiben bzw. die Pflegefachkraft dazuholen", ok: true, setzt: ["br-auffaellig"], fb: "Richtig. Schüttelfrost, Tachykardie, Hypotonie und neue Verwirrtheit: Verdacht auf Sepsis. Jede Stunde zählt." },
               { t: "Zudecken, Tee bringen, in 30 Minuten nachmessen", ok: false, setzt: [], fb: "Wärme ist angenehm, aber diese Werte brauchen sofort die Ärztin." }
@@ -223,7 +223,7 @@ window.FP_STATION_DATA = {
             items: [
               "S: „Hier ist … von Station 5B, Zimmer 512. Ich rufe an wegen Herrn Brückner, 79 Jahre. Ich mache mir Sorgen um eine Sepsis.“",
               "B: „Er ist seit gestern mit Harnwegsinfekt da, Ciprofloxacin oral, Diabetes. Allergie gegen Penicillin.“",
-              "A: „Jetzt Temperatur 39,4, Puls 114, Atmung 24, Blutdruck 104/62, neu verwirrt, NEWS2 12.“",
+              "A: „Jetzt Temperatur 39,4, Puls 114, Atmung 24, Blutdruck 104/62, neu verwirrt.“",
               "R: „Bitte kommen Sie sofort zur Beurteilung. Soll ich Blutkulturen und Zugang vorbereiten?“"
             ] } },
         { id: "br-bk", pat: "brueckner", t: "Blutkulturen vorbereiten", kat: "fachlich", faelligNach: { flag: "arzt-br", min: 15 }, dauer: 10, punkte: 12, icon: "tube", fall: true, wenn: { flag: "arzt-br" }, setzt: ["bk"],
@@ -255,7 +255,7 @@ window.FP_STATION_DATA = {
         { id: "br-inf", pat: "brueckner", t: "Infusion an der Pumpe einstellen", kat: "fachlich", faelligNach: { flag: "arzt-br", min: 20 }, dauer: 6, punkte: 10, icon: "drip", fall: true, wenn: { flag: "arzt-br" }, setzt: ["volumen"], link: { tab: "sims", id: "infusion", t: "Simulation Infusionsmanagement" },
           inhalt: { typ: "zahl", q: "Angeordnet: 1 000 ml Vollelektrolytlösung über 60 Minuten. Welche Laufrate stellst du an der Infusionspumpe ein?", wert: 1000, tol: 0, einheit: "ml/h", erkl: "1 000 ml in 60 Minuten sind 1 000 ml pro Stunde. Danach Blutdruck, Atmung und Lunge (Rasseln?) im Blick behalten." } },
         { id: "br-kontrolle", pat: "brueckner", t: "Kontrolle 30 Minuten nach Therapiebeginn", kat: "sicherheit", faelligNach: { flag: ["antibiose", "volumen"], min: 35 }, ab0: true, dauer: 6, punkte: 12, icon: "pulse", fall: true, wenn: { alle: [{ flag: "antibiose" }, { flag: "volumen" }] },
-          inhalt: { typ: "messen", news: true, frage: { q: "Wie geht es weiter?",
+          inhalt: { typ: "messen", frage: { q: "Wie geht es weiter?",
             opts: [
               { t: "Werte dokumentieren und melden, weiter alle 30 Minuten kontrollieren, Bilanz führen", ok: true, fb: "Richtig. Er spricht auf die Therapie an, bleibt aber engmaschig überwacht." },
               { t: "Er ist über den Berg, nächste Messung am Nachmittag", ok: false, fb: "Zu früh. In den ersten Stunden kann sich der Zustand wieder verschlechtern." }
@@ -265,7 +265,7 @@ window.FP_STATION_DATA = {
         { id: "br-doku", pat: "brueckner", t: "Pflegebericht schreiben", kat: "doku", ab: "10:00", faellig: "10:50", dauer: 6, punkte: 10, icon: "doc", fall: true, wenn: { flag: "arzt-br" },
           inhalt: { typ: "quiz", q: "Welcher Eintrag ist fachlich und rechtlich am besten?",
             opts: [
-              { t: "„07:25 Schüttelfrost, T 39,4 °C, HF 114, AF 24, RR 104/62, neu verwirrt (NEWS2 12). 07:30 Dr. Sommerfeld per SBAR informiert. Blutkulturen 2×2, Penicillinallergie gemeldet, Meropenem umgestellt, VEL 1 000 ml. Kontrolle: siehe Verlauf.“", ok: true, fb: "Genau: Uhrzeiten, Messwerte, Maßnahmen, wer informiert wurde. Nachvollziehbar und ohne Wertung." },
+              { t: "„07:25 Schüttelfrost, T 39,4 °C, HF 114, AF 24, RR 104/62, neu verwirrt. 07:30 Dr. Sommerfeld per SBAR informiert. Blutkulturen 2×2, Penicillinallergie gemeldet, Meropenem umgestellt, VEL 1 000 ml. Kontrolle: siehe Verlauf.“", ok: true, fb: "Genau: Uhrzeiten, Messwerte, Maßnahmen, wer informiert wurde. Nachvollziehbar und ohne Wertung." },
               { t: "„Pat. ging es heute morgen schlecht, Arzt informiert, jetzt besser.“", ok: false, fb: "Zu ungenau: keine Uhrzeiten, keine Werte, keine Maßnahmen." },
               { t: "„Pat. hat nachts zu wenig getrunken, daher Verschlechterung. Nachtdienst informiert.“", ok: false, fb: "Wertend und spekulativ. Dokumentiert werden Beobachtungen und Maßnahmen." }
             ] } }

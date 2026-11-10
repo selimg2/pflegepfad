@@ -96,11 +96,10 @@
         { k: "bew", t: "Bewusstsein", kurz: "ACVPU", val: "wach", einheit: "orientiert", ico: "bew", wie: "ansprechen" }
       ],
       befund: "06:22 Uhr: RR 108/64 mmHg (gestern 124/72) · Puls 104/min unregelmäßig, Monitor 128/min · AF 22/min · SpO₂ 92 % bei Raumluft · Temp 37,6 °C · wach, orientiert, „schwummrig“, kein Brustschmerz, keine Atemnot in Ruhe.",
-      news: { wert: 7, tol: 1, frage: "Berechne den NEWS2-Score (für die Herzfrequenz zählt die höhere gemessene Frequenz von 128/min).", erk: "AF 22 = 2, SpO₂ 92 % = 2, RR 108 = 1, HF 128 = 2, Temperatur und Bewusstsein = 0. Gesamt 7: hohes Risiko, sofortige ärztliche Beurteilung." },
       act: {
-        text: "NEWS2 7, Schwindel, unregelmäßiger Puls mit Pulsdefizit. Was tust du jetzt?",
+        text: "Herzfrequenz 128/min, Schwindel, unregelmäßiger Puls mit Pulsdefizit. Was tust du jetzt?",
         opts: [
-          { t: "Bei ihm bleiben, Bettruhe sichern, über die Klingel Hilfe holen und die Ärztin sofort nach SBAR informieren lassen; Vitalzeichen engmaschig weiter", ok: true, fb: "Richtig. Ein Score ab 7 heißt: sofortige ärztliche Beurteilung, die Pflegefachperson ist eingebunden und du bleibst am Patienten." },
+          { t: "Bei ihm bleiben, Bettruhe sichern, über die Klingel Hilfe holen und die Ärztin sofort nach SBAR informieren lassen; Vitalzeichen engmaschig weiter", ok: true, fb: "Richtig. Schwindel mit Tachyarrhythmie und Pulsdefizit heißt: sofortige ärztliche Beurteilung, die Pflegefachperson ist eingebunden und du bleibst am Patienten." },
           { t: "Die Elektroden neu kleben und den Alarm bis zur Visite leiser stellen", fb: "Kritisch: Alarme stumm schalten und Befunde ignorieren gefährdet ihn." },
           { t: "Die Bisoprolol-Dosis von 08 Uhr jetzt schon geben, weil der Puls hoch ist", fb: "Das ist eine ärztliche Entscheidung und bei RR 108 zusätzlich riskant." },
           { t: "Ihn zum Kreislauftraining an die Bettkante setzen", fb: "Bei Schwindel und Rhythmusstörung erhöht das die Sturzgefahr." }

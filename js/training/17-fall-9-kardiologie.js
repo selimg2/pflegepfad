@@ -139,7 +139,6 @@
         { k: "bew", t: "Bewusstsein", kurz: "ACVPU", val: "wach", einheit: "unruhig", ico: "bew", wie: "ansprechen" }
       ],
       befund: "06:22 Uhr: RR 98/60 mmHg (gestern 138/80) · Puls 108/min, flach · AF 20/min · SpO₂ 96 % · Temp 36,4 °C · wach, unruhig, blass, kaltschweißig · Druckverband re. Leiste durchgeblutet, Leiste geschwollen, Fußpuls re. schwach tastbar.",
-      news: { wert: 3, tol: 0, frage: "Berechne den NEWS2-Score (Raumluft).", erk: "AF 20 = 0, SpO₂ 96 % = 0, Raumluft = 0, RR 98 = 2, Puls 108 = 1, wach = 0, Temp 36,4 °C = 0. Gesamt 3. Der Score ist niedrig, aber eine sichtbare Blutung mit fallendem Blutdruck ist unabhängig vom Score ein Notfall: Der Verlauf und das klinische Bild zählen." },
       act: {
         text: "Blutung, Puls steigt, Blutdruck fällt. Was ist jetzt richtig?",
         opts: [

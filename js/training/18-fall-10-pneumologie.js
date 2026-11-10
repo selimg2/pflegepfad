@@ -140,9 +140,8 @@
           { t: "Schmerzreiz setzen, um sicher zu sein", fb: "Nicht nötig, sie reagiert auf Ansprache." }] } }
       ],
       befund: "07:27 Uhr: AF 26/min mit Lippenbremse · SpO₂ 97 % unter 6 l/min O₂ (Ziel 88 bis 92 %) · RR 148/86 mmHg · Puls 104/min · Temp 38,1 °C · reagiert auf Ansprache (V), Kopfschmerz, Lippen leicht zyanotisch.",
-      news: { wert: 13, tol: 1, frage: "Berechne den NEWS2-Score. Für die Sättigung gilt bei ihr Skala 2 (Zielbereich 88 bis 92 %).", erk: "AF 26 = 3, SpO₂ 97 % unter Sauerstoff (Skala 2) = 3, Sauerstoffgabe = 2, RR 148 = 0, Puls 104 = 1, Bewusstsein V (neu) = 3, Temp 38,1 °C = 1. Gesamt 13: Notfall, sofortige ärztliche Beurteilung." },
       act: {
-        text: "NEWS2 13, neu schläfrig unter 6 l/min Sauerstoff. Was tust du?",
+        text: "Neu schläfrig unter 6 l/min Sauerstoff, Atemfrequenz 26/min. Was tust du?",
         opts: [
           { t: "Ärztin sofort an das Bett holen lassen, bei ihr bleiben, Oberkörper hoch, Sauerstoff nach Anordnung auf die Zielsättigung anpassen, Werte engmaschig", ok: true, fb: "Richtig. Ab 7 Punkten sofortige ärztliche Beurteilung." },
           { t: "Paracetamol gegen das Fieber geben und in einer Stunde nachmessen", fb: "Behebt nicht das Problem und verzögert die Meldung." },
@@ -295,13 +294,13 @@
     sbar: {
       A: { muster: { S: "Herr Krause, 66, Zimmer 820, Trachealkanüle, rasselnde Atmung, SpO₂ 88 %, habe zweimal abgesaugt, jetzt 94 %.", B: "Z. n. Langzeitbeatmung und Pneumonie, Cuff entblockt, nachts zweimal abgesaugt, Sekret zäh gelblich.", A: "Das Sekret nimmt zu und ist zäh, ich vermute eine erneute Infektion.", R: "Bitte heute ansehen. Soll ich eine Sekretprobe abnehmen und die Inhalation häufiger geben?" },
         chk: [{ t: "S: Rasseln, Sättigung", kw: ["rassel", "88", "sättig", "spo"] }, { t: "B: Kanüle, Vorgeschichte", kw: ["kanüle", "beatm", "pneumon"] }, { t: "A: Einschätzung", kw: ["vermute", "infekt", "sekret"] }, { t: "R: Vorschlag", kw: ["bitte", "probe", "inhal"] }, { t: "Werte vorher und nachher", kw: ["94"] }] },
-      B: { muster: { S: "Frau Winkler, 74, Zimmer 822, seit heute früh schläfrig, reagiert nur auf Ansprache, Kopfschmerz, SpO₂ 97 % unter 6 l/min.", B: "COPD-Exazerbation mit Pneumonie, Zielsättigung 88 bis 92 %, sie hat nachts selbst den Sauerstoff hochgedreht. Gestern pCO₂ 54.", A: "Ich vermute eine CO₂-Anreicherung, NEWS2 13.", R: "Bitte sofort kommen. Soll ich eine Blutgasanalyse vorbereiten? Den Sauerstoff passe ich nach Anordnung auf die Zielsättigung an." },
-        chk: [{ t: "S: schläfrig, SpO₂ unter 6 l", kw: ["schläfr", "6 l", "97"] }, { t: "B: COPD, Zielsättigung", kw: ["copd", "88", "92"] }, { t: "A: CO₂-Verdacht, NEWS2", kw: ["co2", "co₂", "news"] }, { t: "R: sofort, BGA", kw: ["sofort", "bga", "blutgas"] }, { t: "Sauerstoff hochgedreht", kw: ["gedreht", "hochgedreht"] }] }
+      B: { muster: { S: "Frau Winkler, 74, Zimmer 822, seit heute früh schläfrig, reagiert nur auf Ansprache, Kopfschmerz, SpO₂ 97 % unter 6 l/min.", B: "COPD-Exazerbation mit Pneumonie, Zielsättigung 88 bis 92 %, sie hat nachts selbst den Sauerstoff hochgedreht. Gestern pCO₂ 54.", A: "Ich vermute eine CO₂-Anreicherung, sie ist neu schläfrig.", R: "Bitte sofort kommen. Soll ich eine Blutgasanalyse vorbereiten? Den Sauerstoff passe ich nach Anordnung auf die Zielsättigung an." },
+        chk: [{ t: "S: schläfrig, SpO₂ unter 6 l", kw: ["schläfr", "6 l", "97"] }, { t: "B: COPD, Zielsättigung", kw: ["copd", "88", "92"] }, { t: "A: CO₂-Verdacht, neu schläfrig", kw: ["co2", "co₂", "schläfr"] }, { t: "R: sofort, BGA", kw: ["sofort", "bga", "blutgas"] }, { t: "Sauerstoff hochgedreht", kw: ["gedreht", "hochgedreht"] }] }
     },
     prio: [
       { id: "k1", t: "Herr Krause: Absaugen bei Rasseln und SpO₂ 88 %", zeit: "06:42", warum: "Freie Atemwege haben Vorrang." },
       { id: "w1", t: "Frau Winkler: Blick ins Zimmer, Sauerstoff und Bewusstsein", zeit: "07:20", warum: "Nachts Sauerstoff hochgedreht, Gefahr einer CO₂-Anreicherung." },
-      { id: "w2", t: "Frau Winkler: Vitalzeichen, NEWS2, Ärztin informieren", zeit: "07:25", warum: "Verschlechterung früh erkennen." },
+      { id: "w2", t: "Frau Winkler: Vitalzeichen und Bewusstsein, Ärztin informieren", zeit: "07:25", warum: "Verschlechterung früh erkennen." },
       { id: "w3", t: "Frau Winkler: Morgenmedikation prüfen", zeit: "08:00", warum: "Umstellung der Antibiose, Allergie." },
       { id: "k2", t: "Herr Krause: Inhalation, Kanülenpflege, Vorbereitung Schluckdiagnostik", zeit: "09:00", warum: "Sekret lösen, Termin um 11 Uhr." },
       { id: "do", t: "Dokumentation, Übergabe vorbereiten", zeit: "13:00", warum: "Fortlaufend dokumentieren." }
@@ -328,13 +327,13 @@
     doku: {
       clock: "10:20",
       auftrag: "Schreibe den Pflegebericht zu Frau Winkler (07:20 bis 08:10 Uhr). Ergänzend: Dr. Seifert kam 07:32 Uhr, BGA 07:40 Uhr: pCO₂ 68 mmHg, pH 7,29. AO: Sauerstoff 1 l/min, Zielsättigung 88 bis 92 %, nicht-invasive Beatmung (NIV) über Maske ab 08:00 Uhr, Lorazepam abgesetzt.",
-      muster: "07:20 Pat. schläfrig, öffnet die Augen erst auf laute Ansprache, äußert: „Ich bin so müde, der Kopf brummt.“ Lippen leicht zyanotisch. O₂ lief mit 6 l/min (AO 1 bis 2 l/min, Ziel 88 bis 92 %), Pat. hat nachts selbst erhöht. Zigaretten und Feuerzeug auf dem Nachttisch, nach Rücksprache mit Pat. verwahrt. 07:27 AF 26/min mit Lippenbremse, SpO₂ 97 % unter 6 l/min, RR 148/86 mmHg, P 104/min, Temp 38,1 °C, ACVPU V, NEWS2 13. 07:28 Dr. Seifert informiert (SBAR), O₂ nach AO reduziert. 07:40 BGA durch Ärztin: pCO₂ 68 mmHg, pH 7,29. 08:00 NIV-Maske nach AO, Pat. toleriert die Maske nach Erklärung. 08:10 SpO₂ 90 %, Pat. reagiert auf Ansprache, orientiert. Lorazepam abgesetzt, Amoxicillin/Clavulansäure im Dispenser trotz Allergie gefunden, nicht gegeben, Kollegin und Ärztin informiert, CIRS-Meldung. [Name, HZ]",
+      muster: "07:20 Pat. schläfrig, öffnet die Augen erst auf laute Ansprache, äußert: „Ich bin so müde, der Kopf brummt.“ Lippen leicht zyanotisch. O₂ lief mit 6 l/min (AO 1 bis 2 l/min, Ziel 88 bis 92 %), Pat. hat nachts selbst erhöht. Zigaretten und Feuerzeug auf dem Nachttisch, nach Rücksprache mit Pat. verwahrt. 07:27 AF 26/min mit Lippenbremse, SpO₂ 97 % unter 6 l/min, RR 148/86 mmHg, P 104/min, Temp 38,1 °C, ACVPU V. 07:28 Dr. Seifert informiert (SBAR), O₂ nach AO reduziert. 07:40 BGA durch Ärztin: pCO₂ 68 mmHg, pH 7,29. 08:00 NIV-Maske nach AO, Pat. toleriert die Maske nach Erklärung. 08:10 SpO₂ 90 %, Pat. reagiert auf Ansprache, orientiert. Lorazepam abgesetzt, Amoxicillin/Clavulansäure im Dispenser trotz Allergie gefunden, nicht gegeben, Kollegin und Ärztin informiert, CIRS-Meldung. [Name, HZ]",
       chk: [
         { t: "Uhrzeiten", kw: ["07:", "08:"] },
         { t: "Werte mit Einheiten", kw: ["/min", "mmhg", "%"] },
         { t: "Wörtliche Aussage", kw: ["„", "äußert"] },
         { t: "Sauerstoff Ist und Soll", kw: ["6 l", "88", "92"] },
-        { t: "Bewusstsein / NEWS2", kw: ["acvpu", "news", "ansprache"] },
+        { t: "Bewusstsein (ACVPU)", kw: ["acvpu", "ansprache", "schläfr"] },
         { t: "Ärztliche Info und Anordnung", kw: ["dr.", "seifert", "niv", "bga"] },
         { t: "Medikationsfehler gemeldet", kw: ["amoxi", "allerg", "cirs"] }
       ],
@@ -352,7 +351,7 @@
     },
     ueb: {
       auftrag: "13:30 Uhr. Übergib an den Spätdienst.",
-      muster: "Herr Krause, 820: Trachealkanüle, heute dreimal abgesaugt, Sekret zäh gelblich, Probe ins Labor. 09:40 Dislokation der Kanüle beim Husten: Stoma offen gehalten, Sauerstoff, Dr. Seifert hat 09:48 neue Kanüle Gr. 8 eingesetzt, Band neu, jetzt stabil, SpO₂ 95 %. Schluckdiagnostik verschoben auf morgen 11 Uhr. Notfallset ist wieder vollständig. Bitte Band und Sitz kontrollieren, Ehefrau ist noch sehr aufgeregt.\n\nFrau Winkler, 822: Heute früh Hyperkapnie, pCO₂ 68, NEWS2 13. Hatte nachts den Sauerstoff selbst auf 6 l erhöht. Jetzt NIV nach Plan, dazwischen 1 l/min, Ziel 88 bis 92 %, wach und orientiert. Lorazepam abgesetzt. Amoxicillin lag trotz Penicillin-Allergie im Dispenser, nicht gegeben, CIRS gemeldet. Doxycyclin gegeben. Zigaretten verwahrt. Bitte Bewusstsein und Sättigung engmaschig, NIV-Zeiten einhalten, Sohn wegen der Katze anrufen.",
+      muster: "Herr Krause, 820: Trachealkanüle, heute dreimal abgesaugt, Sekret zäh gelblich, Probe ins Labor. 09:40 Dislokation der Kanüle beim Husten: Stoma offen gehalten, Sauerstoff, Dr. Seifert hat 09:48 neue Kanüle Gr. 8 eingesetzt, Band neu, jetzt stabil, SpO₂ 95 %. Schluckdiagnostik verschoben auf morgen 11 Uhr. Notfallset ist wieder vollständig. Bitte Band und Sitz kontrollieren, Ehefrau ist noch sehr aufgeregt.\n\nFrau Winkler, 822: Heute früh Hyperkapnie, pCO₂ 68. Hatte nachts den Sauerstoff selbst auf 6 l erhöht. Jetzt NIV nach Plan, dazwischen 1 l/min, Ziel 88 bis 92 %, wach und orientiert. Lorazepam abgesetzt. Amoxicillin lag trotz Penicillin-Allergie im Dispenser, nicht gegeben, CIRS gemeldet. Doxycyclin gegeben. Zigaretten verwahrt. Bitte Bewusstsein und Sättigung engmaschig, NIV-Zeiten einhalten, Sohn wegen der Katze anrufen.",
       chk: [
         { t: "Beide mit Kernproblem", kw: ["krause", "winkler"] },
         { t: "Offene Aufgaben", kw: ["bitte", "morgen", "einhalten"] },

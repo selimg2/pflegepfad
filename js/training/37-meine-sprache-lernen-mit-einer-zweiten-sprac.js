@@ -10,7 +10,7 @@
   var R = window.React;
   if (!R) return;
   var h = R.createElement, uS = R.useState, uE = R.useEffect, uM = R.useMemo, Fr = R.Fragment;
-  var DL = ["en", "tr", "ar", "uk", "ru", "vi"];
+  var DL = ["en", "tr", "ar", "uk", "ru", "vi", "sq"];
   var LANGS = [
     { id: "einfach", n: "Einfaches Deutsch", nn: "Kurze Sätze, Fachwörter erklärt" },
     { id: "en", n: "Englisch", nn: "English", v: "en-GB" },
@@ -185,6 +185,7 @@
       '<button type="button" data-l="" class="' + (!cur ? "on" : "") + '"><span>Nur Deutsch</span><small>Keine Hilfen anzeigen</small></button>' +
       LANGS.map(function (x) { return '<button type="button" data-l="' + x.id + '" class="' + (cur === x.id ? "on" : "") + '"' + (x.rtl ? ' dir="auto"' : "") + "><span>" + esc(x.id === "einfach" ? x.n : x.nn) + "</span><small>" + esc(x.id === "einfach" ? x.nn : x.n) + (hasDict(x.id) ? " · mit Wörterbuch" : "") + "</small></button>"; }).join("") +
       "</div>" +
+      '<label class="ls-pick-slow ls-pick-app"><input type="checkbox"' + (get("fp-ls-app", "") === "1" ? " checked" : "") + '> <span><b>Ganze App übersetzen</b><small>Navigation, Lernmodule und Trainings erscheinen automatisch in deiner Sprache. Oben schaltest du mit der Weltkugel jederzeit zum Original.</small></span></label>' +
       (canSpeak ? '<label class="ls-pick-slow"><input type="checkbox"' + (slow() ? " checked" : "") + '> <span>Langsamer vorlesen</span></label>' : "") +
       "</div>";
     document.body.appendChild(bg); pickEl = bg;
@@ -194,7 +195,8 @@
       var b = e.target.closest("[data-l]");
       if (b) { setLang(b.getAttribute("data-l")); closePicker(); if (after) after(); toast(b.getAttribute("data-l") ? "Meine Sprache: " + (L(b.getAttribute("data-l")) || {}).n : "Nur Deutsch"); }
     });
-    var cb = bg.querySelector(".ls-pick-slow input"); if (cb) cb.addEventListener("change", function () { setSlow(cb.checked); });
+    var cb = bg.querySelector(".ls-pick-slow:not(.ls-pick-app) input"); if (cb) cb.addEventListener("change", function () { setSlow(cb.checked); });
+    var ca = bg.querySelector(".ls-pick-app input"); if (ca) ca.addEventListener("change", function () { if (window.FP_TR) window.FP_TR.setAuto(ca.checked); else put("fp-ls-app", ca.checked ? "1" : ""); });
   }
   function toast(t) {
     var d = document.createElement("div"); d.className = "ls-toast"; d.textContent = t; document.body.appendChild(d);

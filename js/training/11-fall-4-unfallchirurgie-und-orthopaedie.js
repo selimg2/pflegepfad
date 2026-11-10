@@ -290,10 +290,9 @@
             { k: "temp", t: "Temperatur", kurz: "Temp", val: "37,9", einheit: "°C", farbe: "temp", wie: "Ohr" }
           ],
           befund: "Zehen links kühl, blass, Kapillarfüllung 4 Sekunden, Kribbeln, passive Streckung der Zehen sehr schmerzhaft. Rechts unauffällig.",
-          news: { wert: 2, tol: 0, frage: "Berechne den NEWS2-Score (Skala 1, Herr Lange ist wach).", erk: "AF 20 = 0 · SpO₂ 98 % = 0 · Raumluft = 0 · RR syst. 146 = 0 · Puls 112 = 2 · wach = 0 · Temp 37,9 = 0. Summe 2: niedriges Risiko. Der NEWS2 erfasst kein Kompartmentsyndrom!" },
-          act: { text: "NEWS2 nur 2. Was tust du?", opts: [
-            { t: "Trotzdem sofort Arzt informieren: Verdacht auf Kompartmentsyndrom. Bein auf Herzhöhe, Kühlakku weg, einschnürende Binde nach Standard lösen, DMS engmaschig, nüchtern lassen bis zur ärztlichen Entscheidung", ok: true, fb: "Richtig. NEWS2 misst Vitalfunktionen, keine Gliedmaßen. Das Kompartmentsyndrom ist ein Notfall, oft mit Operation (Fasziotomie)." },
-            { t: "NEWS2 ist niedrig, also nächste Kontrolle in 4 Stunden", fb: "Gefährlich. Hier entscheidet der klinische Befund, nicht der Score." },
+          act: { text: "Die Vitalzeichen sind fast unauffällig. Was tust du?", opts: [
+            { t: "Trotzdem sofort Arzt informieren: Verdacht auf Kompartmentsyndrom. Bein auf Herzhöhe, Kühlakku weg, einschnürende Binde nach Standard lösen, DMS engmaschig, nüchtern lassen bis zur ärztlichen Entscheidung", ok: true, fb: "Richtig. Vitalzeichen zeigen die Durchblutung einer Gliedmaße nicht. Das Kompartmentsyndrom ist ein Notfall, oft mit Operation (Fasziotomie)." },
+            { t: "Die Vitalzeichen sind fast normal, also nächste Kontrolle in 4 Stunden", fb: "Gefährlich. Hier entscheidet der klinische Befund an der Gliedmaße." },
             { t: "Noch eine Oxycodon-akut-Tablette geben und abwarten", fb: "Mehr Opioid verdeckt das Leitsymptom, ohne die Ursache zu behandeln." },
             { t: "Bein noch höher lagern und mehr kühlen", fb: "Starke Hochlagerung senkt den Zufluss, Kälte schädigt. Beides verschlechtert die Situation." }] }
         },
@@ -320,7 +319,7 @@
           { t: "„Nein. Die Tablette gibt den Wirkstoff über 12 Stunden ab. Zerbissen kommt die ganze Dosis auf einmal, das kann gefährlich werden. Wenn der Schmerz stärker wird, klingeln Sie bitte sofort, der Schmerz ist bei Ihnen ein wichtiges Warnzeichen.“", ok: true, fb: "Richtig. Begründet, mit Hinweis auf das Warnsignal." },
           { t: "„Ja, wenn Sie viel Wasser trinken.“", fb: "Falsch, und er ist nüchtern." },
           { t: "„Ist egal, Hauptsache sie ist drin.“", fb: "Gefährliche Fehlinformation bei Opioiden." }] },
-        merke: "Ein niedriger NEWS2 schließt kein Kompartmentsyndrom aus. Bei NSAR-Unverträglichkeit wird jede „harmlose“ Schmerztablette geprüft."
+        merke: "Unauffällige Vitalzeichen schließen kein Kompartmentsyndrom aus. Bei NSAR-Unverträglichkeit wird jede „harmlose“ Schmerztablette geprüft."
       },
       {
         k: "vw", typ: "steps", pat: "A", t: "Frau Vogt · Verbandwechsel", kurzname: "Aseptischer Verbandwechsel Schritt für Schritt", clock: "07:40", max: 16,
@@ -459,7 +458,7 @@
     doku: {
       clock: "11:30",
       auftrag: "Schreibe den Pflegebericht zu Herrn Lange für den Zeitraum 06:15 bis 07:00 Uhr.",
-      muster: "06:15 Pat. wach, angespannt. Äußert: „Das Bein platzt gleich.“ Schmerz NRS 9 trotz Oxycodon akut 5 mg um 03:00. DMS li.: Zehen kühl, blass, Kapillarfüllung 4 s, Kribbeln, passive Zehenstreckung stark schmerzhaft; re. unauffällig. Bein auf drei Kissen über Herzhöhe, Kühlakku direkt auf der Haut, Binde der Schiene einschnürend. HF 112/min, RR 146/88 mmHg, AF 20/min, SpO₂ 98 %, T 37,9 °C, NEWS2 2. 06:20 Kühlakku entfernt, Bein auf Herzhöhe gelagert, Binde nach Standard gelockert. 06:25 Dr. Wiesner telefonisch (SBAR), 06:35 am Bett: V. a. Kompartmentsyndrom, OP heute, nüchtern ab 06:40. 06:50 DMS-Kontrolle: unverändert, Schmerz NRS 8. [Name, Handzeichen]",
+      muster: "06:15 Pat. wach, angespannt. Äußert: „Das Bein platzt gleich.“ Schmerz NRS 9 trotz Oxycodon akut 5 mg um 03:00. DMS li.: Zehen kühl, blass, Kapillarfüllung 4 s, Kribbeln, passive Zehenstreckung stark schmerzhaft; re. unauffällig. Bein auf drei Kissen über Herzhöhe, Kühlakku direkt auf der Haut, Binde der Schiene einschnürend. HF 112/min, RR 146/88 mmHg, AF 20/min, SpO₂ 98 %, T 37,9 °C. 06:20 Kühlakku entfernt, Bein auf Herzhöhe gelagert, Binde nach Standard gelockert. 06:25 Dr. Wiesner telefonisch (SBAR), 06:35 am Bett: V. a. Kompartmentsyndrom, OP heute, nüchtern ab 06:40. 06:50 DMS-Kontrolle: unverändert, Schmerz NRS 8. [Name, Handzeichen]",
       chk: [
         { t: "Uhrzeiten für Befund, Maßnahmen, Arzt", kw: ["06:"] },
         { t: "DMS konkret beschrieben (Farbe, Temperatur, Kapillarfüllung, Sensibilität, Motorik)", kw: ["dms", "kapillar", "kribbel", "blass"] },
@@ -493,7 +492,7 @@
       ]
     },
     refl: [
-      { q: "Herrn Langes NEWS2 lag bei 2. Warum hast du trotzdem sofort den Arzt gerufen?", muster: "NEWS2 erfasst Vitalfunktionen, nicht die Durchblutung einer Gliedmaße. Die Leitsymptome des Kompartmentsyndroms waren da: Schmerz trotz Opioid, Druckgefühl, Kribbeln, Dehnungsschmerz, verlängerte Kapillarfüllung. Dazu Risikofaktoren: frische Fraktur, einschnürende Binde, Hochlagerung über Herzhöhe. Ein Score unterstützt meine Einschätzung, er ersetzt sie nicht. Bei Herrn Lange war die klinische Beobachtung entscheidend." },
+      { q: "Herrn Langes Vitalzeichen waren fast unauffällig. Warum hast du trotzdem sofort den Arzt gerufen?", muster: "Vitalzeichen zeigen die Vitalfunktionen, nicht die Durchblutung einer Gliedmaße. Die Leitsymptome des Kompartmentsyndroms waren da: Schmerz trotz Opioid, Druckgefühl, Kribbeln, Dehnungsschmerz, verlängerte Kapillarfüllung. Dazu Risikofaktoren: frische Fraktur, einschnürende Binde, Hochlagerung über Herzhöhe. Messwerte unterstützen meine Einschätzung, sie ersetzen sie nicht. Bei Herrn Lange war die klinische Beobachtung entscheidend." },
       { q: "Wie hast du beim Verbandwechsel bei Frau Vogt Asepsis und Luxationsprophylaxe gleichzeitig sichergestellt?", muster: "Vorher: Analgesie mit Vorlauf, Jodallergie geprüft, kein Bettenmachen. Lagerung in Rückenlage mit leichter Kippung und Abduktionskissen, keine Adduktion oder Innenrotation. Dann Non-Touch: Hände desinfizieren, alten Verband mit unsterilen Handschuhen ab, Handschuhwechsel, steriles Set, von innen nach außen, jede Kompresse einmal. Als eine Kompresse auf die Decke fiel, habe ich sie verworfen. Zum Schluss habe ich die Luxationsregeln mit ihr wiederholt." },
       { q: "Frau Nowak hat große Angst vor den Spritzen. Wie hast du Selbstbestimmung und Sicherheit abgewogen?", muster: "Ich habe ihre Angst nicht kleingeredet, sondern als Teil der Versorgung ernst genommen. Wir haben im Liegen geübt, ich habe jeden Schritt erklärt. Gleichzeitig darf die Thromboseprophylaxe nicht ausfallen. Deshalb habe ich parallel mit Arzt und Sozialdienst eine Alternative vorbereitet. So kann sie selbst entscheiden, ohne dass ein Risiko entsteht." }
     ]

@@ -22,24 +22,7 @@
   function shuffle(a, seed) { a = a.slice(); var r = seed || 1; for (var i = a.length - 1; i > 0; i--) { r = (Math.imul(r, 1103515245) + 12345) >>> 0; var j = r % (i + 1); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
   function top() { try { window.scrollTo({ top: 0, behavior: "smooth" }); } catch (e) { window.scrollTo(0, 0); } }
 
-  /* NEWS2 (Royal College of Physicians), Skala 2 für Menschen mit hyperkapnischem Atemversagen */
-  function news2(v, copd) {
-    if (!v) return null;
-    var af = num(v.af), sp = num(v.spo2), rr = num(String(v.rr || "").split("/")[0]), hf = num(v.hf), t = num(v.t), o2 = !!v.o2, bw = v.bw || "A";
-    var p = { af: 0, spo2: 0, o2: 0, rr: 0, hf: 0, bw: 0, t: 0 };
-    if (af != null) p.af = af <= 8 ? 3 : af <= 11 ? 1 : af <= 20 ? 0 : af <= 24 ? 2 : 3;
-    if (sp != null) {
-      if (!copd) p.spo2 = sp <= 91 ? 3 : sp <= 93 ? 2 : sp <= 95 ? 1 : 0;
-      else if (sp <= 83) p.spo2 = 3; else if (sp <= 85) p.spo2 = 2; else if (sp <= 87) p.spo2 = 1; else if (sp <= 92 || !o2) p.spo2 = 0; else p.spo2 = sp <= 94 ? 1 : sp <= 96 ? 2 : 3;
-    }
-    p.o2 = o2 ? 2 : 0;
-    if (rr != null) p.rr = rr <= 90 ? 3 : rr <= 100 ? 2 : rr <= 110 ? 1 : rr <= 219 ? 0 : 3;
-    if (hf != null) p.hf = hf <= 40 ? 3 : hf <= 50 ? 1 : hf <= 90 ? 0 : hf <= 110 ? 1 : hf <= 130 ? 2 : 3;
-    p.bw = bw === "A" ? 0 : 3;
-    if (t != null) p.t = t <= 35 ? 3 : t <= 36 ? 1 : t <= 38 ? 0 : t <= 39 ? 1 : 2;
-    var sum = 0, three = false; for (var k in p) { sum += p[k]; if (p[k] === 3) three = true; }
-    return { p: p, sum: sum, stufe: sum >= 7 ? "hoch" : sum >= 5 || three ? "mittel" : sum >= 1 ? "niedrig" : "keins" };
-  }
+
   var BW = { A: "wach, orientiert", C: "neu verwirrt", V: "reagiert auf Ansprache", P: "reagiert auf Schmerz", U: "reagiert nicht" };
 
   /* ================= ENGINE ================= */
@@ -310,7 +293,6 @@
     ".st-spin{width:22px;height:22px;border-radius:50%;border:3px solid color-mix(in srgb,var(--c) 20%,transparent);border-top-color:var(--c);animation:stspin .8s linear infinite}",
     "@keyframes stspin{to{transform:rotate(360deg)}}",
     ".st-input{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.st-input input{width:120px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:0 12px;font-size:17px;font-variant-numeric:tabular-nums}",
-    ".st-news{width:100%;border-collapse:collapse;font-size:13.5px}.st-news td{padding:5px 0;border-top:1px solid var(--line)}.st-news td:last-child{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}",
     ".st-order{display:flex;flex-direction:column;gap:8px}.st-ord{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:12px;background:var(--surface);border:1px solid var(--line);font-size:14.5px;line-height:1.45}",
     ".st-ord b{flex-shrink:0;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:var(--on-accent,#fff);font-size:12.5px}",
     ".st-ord.ok{border-color:var(--ok,#34c759);background:var(--ok-soft)}.st-ord.no{border-color:var(--bad,#ff3b30);background:var(--bad-soft)}",
@@ -477,31 +459,25 @@
         !done[0] ? h("button", { type: "button", className: "btn", disabled: num(val[0]) == null, onClick: check }, "Prüfen") : null),
       done[0] ? h("div", { className: "st-fb " + (done[0].ok ? "ok" : "no") }, h("b", null, done[0].ok ? "Richtig. " : "Nicht ganz. Richtig ist " + (c.vorzeichen && c.wert > 0 ? "+" : "") + String(c.wert).replace(".", ",") + " " + c.einheit + ". "), c.erkl) : null);
   }
+  /* Auffällige Messwerte farbig markieren (Orientierung, kein Score) */
+  function auff(v, copd) {
+    var af = num(v.af), sp = num(v.spo2), rr = num(String(v.rr || "").split("/")[0]), hf = num(v.hf), t = num(v.t);
+    return { rr: rr != null && (rr <= 100 || rr >= 200), hf: hf != null && (hf <= 50 || hf >= 111), af: af != null && (af <= 11 || af >= 21), spo2: sp != null && (copd ? sp < 88 : sp <= 93), t: t != null && (t <= 35 || t >= 39.1) };
+  }
   function Messen(p) {
-    var c = p.c, sc = p.sc, st = p.st, ps = uM(function () { return E.pat(sc, st, p.t.pat); }, []), v = ps.v || {}, phase = uS("mess"), nv = uS(""), newsRes = uS(null), copd = !!ps.copd;
-    var n2 = news2(v, copd);
+    var c = p.c, sc = p.sc, st = p.st, ps = uM(function () { return E.pat(sc, st, p.t.pat); }, []), v = ps.v || {}, phase = uS("mess"), copd = !!ps.copd;
+    var w = auff(v, copd);
     uE(function () { var t = setTimeout(function () { phase[1]("werte"); }, 1100); return function () { clearTimeout(t); }; }, []);
     var nur = c.nur;
-    var all = [["RR", v.rr, "mmHg", "rr", n2 && n2.p.rr >= 2], ["Puls", v.hf, "/min", "hf", n2 && n2.p.hf >= 2], ["AF", v.af, "/min", "af", n2 && n2.p.af >= 2], ["SpO₂", v.spo2, "%", "spo2", n2 && n2.p.spo2 >= 2], ["O₂", v.o2 || "keiner", "", "o2", false], ["Temp.", v.t != null ? de(v.t, 1) : null, "°C", "t", n2 && n2.p.t >= 2], ["Bewusstsein", v.bw ? BW[v.bw] : null, "", "bw", v.bw && v.bw !== "A"], ["BZ", v.bz, "mg/dl", "bz", v.bz != null && (v.bz < 70 || v.bz > 200)]];
+    var all = [["RR", v.rr, "mmHg", "rr", w.rr], ["Puls", v.hf, "/min", "hf", w.hf], ["AF", v.af, "/min", "af", w.af], ["SpO₂", v.spo2, "%", "spo2", w.spo2], ["O₂", v.o2 || "keiner", "", "o2", false], ["Temp.", v.t != null ? de(v.t, 1) : null, "°C", "t", w.t], ["Bewusstsein", v.bw ? BW[v.bw] : null, "", "bw", v.bw && v.bw !== "A"], ["BZ", v.bz, "mg/dl", "bz", v.bz != null && (v.bz < 70 || v.bz > 200)]];
     var show = all.filter(function (x) { return x[1] != null && (!nur || nur.indexOf(x[3]) >= 0); });
-    var scoreRef = uR({ news: null });
-    function checkNews() { var n = parseInt(nv[0], 10); if (isNaN(n)) return; var d = Math.abs(n - n2.sum); scoreRef.current.news = d === 0 ? 1 : d <= 1 ? 0.6 : d <= 2 ? 0.3 : 0; newsRes[1]({ n: n, d: d }); }
     return h(Fr, null,
       phase[0] === "mess" ? h("div", { className: "st-measure" }, h("span", { className: "st-spin" }), "Du misst bei " + info(sc, p.t.pat).anrede + " …") :
         h(Fr, null,
           h("div", { className: "st-vgrid" }, show.map(function (x, i) { return h("div", { key: x[0], className: "st-vt" + (x[4] ? " warn" : ""), style: { animationDelay: i * 90 + "ms" } }, h("small", null, x[0]), h("b", { style: x[3] === "bw" || x[3] === "o2" ? { fontSize: 15 } : null }, String(x[1])), x[2] && /^\d/.test(String(x[1])) ? h("i", null, x[2]) : null); })),
           ps.hinweis && !nur ? h("div", { className: "st-fb" }, h("b", null, "Du beobachtest: "), ps.hinweis) : null,
-          c.news && n2 && !newsRes[0] ? h("div", { className: "st-card", style: { padding: 14 } },
-            h("p", { className: "st-q", style: { fontSize: 15 } }, "Wie viele NEWS2-Punkte ergeben diese Werte?" + (copd ? " (SpO₂-Skala 2 bei Hyperkapnie)" : "")),
-            h("div", { className: "st-input", style: { marginTop: 8 } },
-              h("input", { type: "number", inputMode: "numeric", min: 0, max: 20, value: nv[0], "aria-label": "NEWS2-Punkte", onChange: function (e) { nv[1](e.target.value); }, onKeyDown: function (e) { if (e.key === "Enter") checkNews(); } }),
-              h("button", { type: "button", className: "btn", disabled: nv[0] === "", onClick: checkNews }, "Prüfen"))) : null,
-          newsRes[0] ? h("div", { className: "st-fb " + (newsRes[0].d === 0 ? "ok" : newsRes[0].d <= 1 ? "mid" : "no") },
-            h("b", null, newsRes[0].d === 0 ? "Richtig: NEWS2 " + n2.sum + ". " : "Du hattest " + newsRes[0].n + ", richtig ist " + n2.sum + ". "),
-            n2.stufe === "hoch" ? "Hohes Risiko: sofort ärztliche Beurteilung." : n2.stufe === "mittel" ? "Mittleres Risiko: zeitnah ärztlich beurteilen lassen, engmaschig messen." : "Niedriges Risiko: Pflegefachkraft informieren, Messintervall anpassen.",
-            h("table", { className: "st-news", style: { marginTop: 8 } }, h("tbody", null, [["Atemfrequenz", "af"], ["Sauerstoffsättigung", "spo2"], ["Sauerstoffgabe", "o2"], ["Blutdruck systolisch", "rr"], ["Puls", "hf"], ["Bewusstsein", "bw"], ["Temperatur", "t"]].map(function (r) { return h("tr", { key: r[1] }, h("td", null, r[0]), h("td", null, n2.p[r[1]])); })))) : null,
-          (!c.news || newsRes[0]) && c.frage ? h(Quiz, { c: c.frage, sc: sc, st: st, seed: p.t.id, onResult: function (r) { var s = scoreRef.current.news; p.onResult({ score: s == null ? r.score : r.score * 0.65 + s * 0.35, flags: r.flags, mess: v }); } }) : null,
-          (!c.news || newsRes[0]) && !c.frage ? h("div", { className: "st-row" }, h("button", { type: "button", className: "btn", onClick: function () { p.onResult({ score: scoreRef.current.news == null ? 1 : scoreRef.current.news, mess: v }); } }, "Messung dokumentieren")) : null));
+          c.frage ? h(Quiz, { c: c.frage, sc: sc, st: st, seed: p.t.id, onResult: function (r) { p.onResult({ score: r.score, flags: r.flags, mess: v }); } }) : null,
+          !c.frage ? h("div", { className: "st-row" }, h("button", { type: "button", className: "btn", onClick: function () { p.onResult({ score: 1, mess: v }); } }, "Messung dokumentieren")) : null));
   }
   function Befund(p) {
     var L = pexLive(p.c.fall, p.c.k);
@@ -891,5 +867,4 @@
   }
   window.FP_Station = Station;
   window.FP_STATION_ENGINE = E;
-  window.FP_NEWS2 = news2;
 })();

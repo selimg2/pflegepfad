@@ -221,7 +221,7 @@
         vit: {
           items: [
             { k: "bew", t: "Bewusstsein", kurz: "ACVPU", val: "C", einheit: "neu verwirrt", farbe: "bew", wie: "ansprechen", q: { text: "Sie wirkt verwirrt. Wie schätzt du das Bewusstsein ein?", opts: [
-              { t: "Nach ACVPU: Sie ist wach, aber neu verwirrt („Confusion“). Das zählt im NEWS2 3 Punkte und ist bei Infekt ein Delir-Warnzeichen", ok: true, fb: "Richtig. Neue Verwirrtheit ist ein eigenständiger Alarmparameter." },
+              { t: "Nach ACVPU: Sie ist wach, aber neu verwirrt („Confusion“). Das ist ein wichtiges Warnzeichen und bei Infekt ein Hinweis auf ein Delir", ok: true, fb: "Richtig. Neue Verwirrtheit ist ein eigenständiger Alarmparameter." },
               { t: "Sie ist wach, also „A“", fb: "Nein: Neue Verwirrtheit wird als „C“ gewertet, auch wenn die Augen offen sind." },
               { t: "Bei Parkinson ist Verwirrtheit normal, das werte ich nicht", fb: "Gefährlich. Gestern war sie orientiert: neu ist neu." }] } },
             { k: "temp", t: "Temperatur", kurz: "Temp", val: "38,3", einheit: "°C", farbe: "temp", wie: "Ohr" },
@@ -234,9 +234,8 @@
             { k: "spo2", t: "Sauerstoffsättigung", kurz: "SpO₂", val: "95", einheit: "% Raumluft", farbe: "spo2", wie: "Clip" }
           ],
           befund: "Rigor ausgeprägt, Sprache sehr leise, kann die Hand nicht zur Klingel führen. Urin trüb, übelriechend.",
-          news: { wert: 6, tol: 0, frage: "Berechne den NEWS2-Score (Skala 1).", erk: "AF 18 = 0 · SpO₂ 95 % = 1 · Raumluft = 0 · RR syst. 128 = 0 · Puls 96 = 1 · neue Verwirrtheit (C) = 3 · Temp 38,3 = 1. Summe 6: dringende ärztliche Beurteilung. Schon die neue Verwirrtheit allein (3 Punkte in einem Parameter) verlangt eine zeitnahe Reaktion." },
           act: { text: "Was tust du jetzt?", opts: [
-            { t: "Arzt dringend informieren (NEWS2 erhöht, neue Verwirrtheit, Fieber, versäumte L-Dopa-Dosis), engmaschig überwachen, Klingel in die Hand, Getränk erreichbar, Ferse freilagern", ok: true, fb: "Richtig. Ab NEWS2 5 ist eine dringende ärztliche Beurteilung nötig, und mehrere Probleme werden zugleich gelöst." },
+            { t: "Arzt dringend informieren (neue Verwirrtheit, Fieber, versäumte L-Dopa-Dosis), engmaschig überwachen, Klingel in die Hand, Getränk erreichbar, Ferse freilagern", ok: true, fb: "Richtig. Neue Verwirrtheit mit Fieber braucht eine dringende ärztliche Beurteilung, und mehrere Probleme werden zugleich gelöst." },
             { t: "Die 06-Uhr-Tablette jetzt einfach mit der 10-Uhr-Dosis zusammen geben", fb: "Doppelte Dosis ohne Rücksprache ist eigenmächtig und kann Überbewegungen und Verwirrtheit auslösen." },
             { t: "Ihr Ruhe lassen, die Verwirrtheit kommt vom Schlaf", fb: "Neue Verwirrtheit bei Fieber ist ein Delir-Warnzeichen." },
             { t: "MCP gegen die Übelkeit geben, damit sie die Tablette behält", fb: "MCP ist bei Parkinson kontraindiziert (Dopaminantagonist)." }] }
@@ -395,7 +394,7 @@
     },
     ueb: {
       auftrag: "13:30 Uhr. Übergib an den Spätdienst (Pflegefachkraft Aylin Kaya).",
-      muster: "Herr Pohl, 604: Mediainfarkt li. Tag 4, Dysphagie. Frühstück mit einmaligen Aspirationszeichen (Stimme nass), danach ohne. Mittag zusammen mit Ehefrau: Sie hat das Andicken der Suppe mit der Logopädin gelernt und gibt kein Wasser mehr. Trinkmenge bis 13 Uhr 650 ml angedickt, neue Geschmacksrichtung akzeptiert. Nach jeder Mahlzeit rechte Wangentasche kontrollieren. Kommunikation über Ja/Nein und Bildtafel, von rechts ansprechen.\n\nFrau Albers, 606: Parkinson, HWI, Fieber 38,3. Neu verwirrt, NEWS2 6, Arzt informiert, Delir-Screening angeordnet. 06-Uhr-L-Dopa war nicht eingenommen, um 06:40 nachgegeben, 10 Uhr pünktlich. Im Dispenser waren MCP (kontraindiziert), Cotrimoxazol (Sulfonamid-Allergie) und die Retardform statt der 08-Uhr-Medikation, alles entfernt und gemeldet. Pivmecillinam 08 Uhr gegeben. Ferse re. Kategorie 1, freigelagert, Bewegungsplan 2-stündlich. Nächste L-Dopa 14 Uhr und 18 Uhr pünktlich, nur unter Aufsicht einnehmen lassen.",
+      muster: "Herr Pohl, 604: Mediainfarkt li. Tag 4, Dysphagie. Frühstück mit einmaligen Aspirationszeichen (Stimme nass), danach ohne. Mittag zusammen mit Ehefrau: Sie hat das Andicken der Suppe mit der Logopädin gelernt und gibt kein Wasser mehr. Trinkmenge bis 13 Uhr 650 ml angedickt, neue Geschmacksrichtung akzeptiert. Nach jeder Mahlzeit rechte Wangentasche kontrollieren. Kommunikation über Ja/Nein und Bildtafel, von rechts ansprechen.\n\nFrau Albers, 606: Parkinson, HWI, Fieber 38,3. Neu verwirrt, Arzt informiert, Delir-Screening angeordnet. 06-Uhr-L-Dopa war nicht eingenommen, um 06:40 nachgegeben, 10 Uhr pünktlich. Im Dispenser waren MCP (kontraindiziert), Cotrimoxazol (Sulfonamid-Allergie) und die Retardform statt der 08-Uhr-Medikation, alles entfernt und gemeldet. Pivmecillinam 08 Uhr gegeben. Ferse re. Kategorie 1, freigelagert, Bewegungsplan 2-stündlich. Nächste L-Dopa 14 Uhr und 18 Uhr pünktlich, nur unter Aufsicht einnehmen lassen.",
       chk: [
         { t: "Beide Patienten mit aktuellem Zustand", kw: ["604", "606", "pohl", "albers"] },
         { t: "Offene Aufgaben mit Uhrzeit (L-Dopa 14/18 Uhr, Wangentasche, Bewegungsplan)", kw: ["14", "18", "wange", "bewegungsplan"] },

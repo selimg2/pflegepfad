@@ -11,16 +11,27 @@ Die App besteht nicht mehr aus einer einzigen `index.html`, sondern aus einzelne
 | `index.html` | Grundgerüst: lädt Stylesheets, Daten und Skripte der Reihe nach |
 | `css/` | Gestaltung in Ebenen: `01-basis`, `02-training`, `03-apple`, `04-pro`, `05-v5`, `06-feinschliff` (Bewegung, Fokus, Bedienungshilfen) |
 | `daten/basis.js`, `daten/abbildungen.js`, `daten/figuren.js` | Grunddaten und Zeichnungen |
-| `daten/module/jahr-1` bis `jahr-3` | je Lernmodul eine Datei (`fm1.js` bis `fm56.js`) |
+| `daten/module/jahr-1` bis `jahr-3` | je Lernmodul eine Datei (`fm1.js` bis `fm60.js`) |
 | `js/kern/` | Start: Konfiguration, Demo-Konto, Farbprofile, Modul-Loader, Offline-Anmeldung |
 | `js/training/` | je Training bzw. Prüfungsfall eine Datei (Examen, Kommunikation, Stationsalltag, Meine Sprache …) |
 | `js/app/01-app.bundle.js` | der gebaute Kern der App (Module, Praxis, Aufgaben, Fortschritt) |
-| `js/funktionen/` | Zusatzfunktionen: PharmakoLab, Training zum Modul, Medaillen, Ruhig bleiben, Datenauskunft |
+| `js/funktionen/` | Zusatzfunktionen: PharmakoLab, Training zum Modul, Medaillen, Ruhig bleiben, Datenauskunft, QR-Scanner (`06`), Assistent (`07`), App übersetzen (`08`) |
 | `vendor/` | Bibliotheken, liegen auf dem eigenen Server |
 | `sw.js` | Offline-Cache. Bei jeder Änderung an Dateien die Versionsnummer `fallpfad-v…` erhöhen |
 | `vercel.json`, `netlify.toml` | Sicherheits-Header (siehe unten) |
 
 Wichtig: Die Reihenfolge der `<script>`-Zeilen in `index.html` nicht ändern. Kommt eine neue Datei dazu, auch in die Liste `MODULE` in `sw.js` eintragen.
+
+## Neu in dieser Version
+
+- **Assistent** (Reiter links, mobil oben über das Funkeln-Symbol): plant Prüfungen, erstellt Testklausuren, erklärt und wiederholt. Er sucht die passenden Stellen zuerst auf dem Gerät in den Fallpfad-Modulen, Lernkarten und der Kitteltasche und schickt nur diese Auszüge an den Server. Die KI antwortet ausschließlich daraus, mit Quellenangabe. Fragen ohne passende Stelle beantwortet er nicht. 3 Nachrichten pro Tag (Secret `FALLPFAD_ASSISTENT_TAG`). Antwortet in der eingestellten Sprache.
+- **QR-Code scannen** (Knopf links neben der Suche): Live-Codes, Kurs-, Modul- und Stationslinks öffnen direkt. Fremde Links erst nach Rückfrage. Nutzt die Kamera des Geräts, Bilder werden nicht gespeichert. Bibliothek `vendor/jsqr.min.js` (jsQR, Apache-2.0) wird nur bei Bedarf geladen.
+- **App übersetzen:** Ist unter „Meine Sprache“ eine Sprache gewählt, erscheint oben ein Globus. Damit lassen sich alle Texte der aktuellen Seite übersetzen. In der Sprachauswahl und unter Einstellungen gibt es den Schalter „Ganze App übersetzen“. Bei „Einfaches Deutsch“ werden nur längere Texte vereinfacht. Übersetzt wird über die vorhandene Funktion `uebersetzen`, das Tageslimit `FALLPFAD_LS_ZEICHEN_TAG` (Standard 60 000 Zeichen) gilt auch hier.
+- **Albanisch** unter „Meine Sprache“, inklusive Grundwortschatz Pflege.
+- **Neue Module:** fm57 Delir (Jahr 2), fm58 Venenzugang und Infusion (Jahr 1), fm59 Multiple Sklerose (Jahr 3), fm60 Ulcus cruris (Jahr 2).
+- **NEWS2 entfernt:** Module, Simulationen, Prüfungsfälle, Lernkarten und Kitteltasche arbeiten jetzt mit dem Verlauf der Vitalwerte und klinischer Einschätzung statt mit einem Punktwert.
+
+Neue Module, die albanischen Übersetzungen im Grundwortschatz und die umgeschriebenen Stellen bitte vor dem Einsatz fachlich prüfen lassen.
 
 ## Sicherheit
 
@@ -37,8 +48,8 @@ Prüfen nach Änderungen: `node werkzeuge/pruefen.mjs .` lädt die App in Chrome
 - **Neue Simulation unter Training > Stationsalltag:** ein Frühdienst auf der Inneren Medizin, Station 5B, 06:30 bis 11:00 Uhr. Fünf Zimmer mit Betten, acht Patientinnen und Patienten und eine Neuaufnahme. Eine Simulationsuhr läuft im Zeitraffer (Pause, 1×, 2×, 4×), jede Aufgabe kostet Stationszeit.
 - **Stationsplan:** Zimmer mit Betten, Patientinnen und Patienten, Status (beobachten, kritisch) und offenen Aufgaben. Zimmer mit neuen Ereignissen oder überfälligen Aufgaben pulsieren dezent. Daneben stehen die anstehenden Aufgaben nach Fälligkeit und die aktuellen Ereignisse (Klingel, Labor, Telefon, Visite, Aufnahme, Alarm).
 - **Zimmer und Patienten:** Ein Tipp auf ein Zimmer zeigt die Personen mit Übergabe, letzten Messwerten, Hinweisen, Patientenakte und Aufgaben. Für Personen aus den Lernmodulen öffnet sich die vorhandene Patientenakte des Moduls (Herr Schulte, Frau Neumann, Frau Berger, Herr Seifert, Herr Engel), dazu der Sprung ins Fallmodul. Herr Brinkmann und Frau Kranz kommen aus der Praktischen Examen Übung mit Akte, Bildbefund und der Simulation Kurzinfusion.
-- **Neuer Fall Herr Brückner:** Harnwegsinfekt, der sich im Lauf der Schicht zur Sepsis entwickelt. Mit eigener Akte, Vitalverlauf, NEWS2, SBAR-Anruf, Blutkulturen, Penicillinallergie in der Akte, Antibiose, Infusion, Kontrolle, Bilanz und Pflegebericht. Wer zu spät reagiert oder die Allergie übersieht, erlebt die Folgen.
-- **Aufgabentypen:** Messen mit NEWS2-Berechnung, Entscheidungen, Mehrfachauswahl, Reihenfolgen, Rechenaufgaben, Bildbefunde und schrittweise Pflegehandlungen aus der Praktischen Examen Übung. Wo es passt, verlinkt die Aufgabe die passende Übung unter Simulationen.
+- **Neuer Fall Herr Brückner:** Harnwegsinfekt, der sich im Lauf der Schicht zur Sepsis entwickelt. Mit eigener Akte, Vitalverlauf, SBAR-Anruf, Blutkulturen, Penicillinallergie in der Akte, Antibiose, Infusion, Kontrolle, Bilanz und Pflegebericht. Wer zu spät reagiert oder die Allergie übersieht, erlebt die Folgen.
+- **Aufgabentypen:** Messen mit Einordnung auffälliger Werte, Entscheidungen, Mehrfachauswahl, Reihenfolgen, Rechenaufgaben, Bildbefunde und schrittweise Pflegehandlungen aus der Praktischen Examen Übung. Wo es passt, verlinkt die Aufgabe die passende Übung unter Simulationen.
 - **Auswertung:** Gesamtergebnis, Sicherheit, fachliches Handeln, Kommunikation und Dokumentation, Organisation, Pünktlichkeit, kritische Situationen, offene Aufgaben zur Übergabe und die ganze Schicht im Rückblick. Eine laufende Schicht wird gespeichert und lässt sich fortsetzen.
 - **Ohne KI:** Alles läuft nach festen Abläufen und Regeln. Neue Szenarien, Ereignisse und Aufgaben werden nur als Daten ergänzt (Datei `fx-station-data.js` im Quellpaket). Für den Stationsalltag ist nichts in Supabase einzurichten.
 
@@ -96,7 +107,7 @@ Wer die Funktion nicht anbieten möchte, stellt die beiden Funktionen einfach ni
 - **Live im Unterricht ohne Vitalzeichen:** Die Lehrkraft zeigt eine Live-Stunde, ein Fallbeispiel oder ein ganzes Modul an der Tafel. Ihr scannt den QR-Code, seht auf dem Handy genau den Schritt, der vorne gezeigt wird, und antwortet anonym: ankreuzen, schätzen, einordnen, Stichworte für die Wortwolke. Weiterklicken kann nur die Lehrkraft. Neu dabei: Sicherheit angeben („sicher“ oder „geraten“), Stellen auf einer Körperkarte antippen, Begriffe zuordnen, Fälle Hinweis für Hinweis lösen, aus einer zugelosten Rolle antworten und im Klassenentscheid abstimmen.
 - **Vier neue Fallmodule nach Curriculum:** Hygiene und Infektionsschutz (Jahr 1), Körperpflege, Haut und Mund (Jahr 1), Atmung unterstützen: Pneumonie und Sauerstoff (Jahr 2), Gesund bleiben im Beruf (Jahr 3). Damit sind es 41 Module.
 - **Viel mehr Lernkarten:** zu jedem Modul zehn zusätzliche Karten (rund 370 neue), auch für „Nach Hause: Entlassung“, das bisher keine hatte. Alle Begriffe stehen automatisch auch im Fachlexikon.
-- **Kitteltasche erweitert:** 15 neue Spickzettel, u. a. NEWS2, qSOFA, BE-FAST, Hypoglykämie, Flüssigkeitsbilanz, BMI, Elektrolyte, Infusions- und Dosisrechnung, Dekubitus-Kategorien, Vorgehen nach Sturz, Isolierung, Kinder-Reanimation, Pupillenkontrolle und das Telefonat mit der Ärztin.
+- **Kitteltasche erweitert:** 15 neue Spickzettel, u. a. qSOFA, BE-FAST, Hypoglykämie, Flüssigkeitsbilanz, BMI, Elektrolyte, Infusions- und Dosisrechnung, Dekubitus-Kategorien, Vorgehen nach Sturz, Isolierung, Kinder-Reanimation, Pupillenkontrolle und das Telefonat mit der Ärztin.
 - **Freischalten durch die Lehrkraft:** Module, die noch nicht dran sind, zeigen ein Schloss „Noch gesperrt“. Ausgeblendete Module erscheinen gar nicht.
 - **Home:** Die Kachel „Arbeitstag eintragen“ heißt jetzt **„Mein Praxiseinsatz“**. Sie zeigt, wie lange der Einsatz noch läuft, und führt direkt zu Nachweis, Anleitung und Unterschriften.
 - **Ruhigeres, moderneres Design:** feinere Schatten, klarere Kacheln, schlanke Scrollleisten.
@@ -187,8 +198,8 @@ Der Reiter Training zeigt alle Trainings als farbige Kacheln, gruppiert nach Pr�
 
 | Fall | Ort | Pflegehandlung als Simulation | Bildbefund, Vitalzeichen und Medikamente | Beratung |
 |---|---|---|---|---|
-| Akutgeriatrie | Station 4B | Blasenkatheter legen | Herr Kowalski: Zimmerbild, Puls 60 s mit Pulsdefizit, NEWS2 | Entscheidungsbaum |
-| Viszeralchirurgie | Station 3A | Stomaversorgung | Frau Hollweg (NEWS2) | Nüchternheit vor der OP |
+| Akutgeriatrie | Station 4B | Blasenkatheter legen | Herr Kowalski: Zimmerbild, Puls 60 s mit Pulsdefizit | Entscheidungsbaum |
+| Viszeralchirurgie | Station 3A | Stomaversorgung | Frau Hollweg (Vitalverlauf) | Nüchternheit vor der OP |
 | Innere Medizin | Station 5B | Infusion an Venenverweilkanüle mit Pflegefachperson | Frau Kranz (Herzinsuffizienz) | – |
 | Unfallchirurgie | Station 2C | Verbandswechsel Hüft-TEP | Herr Lange (Kompartment) | Entlassung |
 | Neurologie | Stroke Unit 6N | Dysphagie, Essen anreichen | Frau Albers | – |

@@ -697,7 +697,6 @@
       var vs = 0, vm = 0;
       if (V) {
         V.items.forEach(function (it) { if (it.q) { vm++; if (st.tq[it.k] != null && it.q.opts[st.tq[it.k]].ok) vs++; } });
-        if (V.news) { vm++; if (st.newsOk) vs++; }
         vm++; if (st.actOk) vs++;
       }
       var ms = 0, mm = 0;
@@ -732,14 +731,7 @@
           h(Single, { q: cur.q, val: st.tq[cur.k], seed: 31, onAnswer: function (i) { var t = Object.assign({}, st.tq); t[cur.k] = i; set({ tq: t }); } }),
           st.tq[cur.k] != null && h("div", { className: "row", style: { marginTop: 10 } }, h("button", { type: "button", className: "btn sm", onClick: pd(function () { var gg = Object.assign({}, st.got); gg[cur.k] = true; set({ got: gg, open: null }); }) }, "Messwert ablesen", h(Ico, { d: I.right })))),
         allGot && V.befund && h("div", { className: "pxvitals", style: { marginTop: 14 } }, h(Ico, { d: I.clock }), h("span", null, V.befund)),
-        allGot && V.news && h("div", { style: { marginTop: 14 } },
-          h("p", { className: "pxqt" }, V.news.frage || "Berechne den NEWS2-Score."),
-          h("div", { className: "row" },
-            h("input", { className: "input", type: "number", inputMode: "numeric", style: { maxWidth: 120 }, value: st.newsv || "", disabled: st.newsDone, onChange: function (e) { set({ newsv: e.target.value }); } }),
-            h("span", { className: "muted" }, "Punkte"),
-            !st.newsDone && h("button", { type: "button", className: "btn sm", disabled: st.newsv === "" || st.newsv == null, onClick: pd(function () { set({ newsDone: true, newsOk: Math.abs(Number(st.newsv) - V.news.wert) <= (V.news.tol || 1) }); }) }, "Prüfen")),
-          st.newsDone && h("div", { className: cx("fb", st.newsOk ? "okt" : "badt") }, (st.newsOk ? "Passt. " : "Richtig wäre " + V.news.wert + " Punkte. "), V.news.erk)),
-        allGot && (!V.news || st.newsDone) && h("div", { style: { marginTop: 16 } },
+        allGot && h("div", { style: { marginTop: 16 } },
           h(Single, { q: V.act, val: st.act, seed: 37, onAnswer: function (i, ok) { set({ act: i, actOk: ok, actDone: true }); } })),
         st.actDone != null && M && st.step === "vit" && h("div", { className: "row", style: { marginTop: 14 } }, h("button", { type: "button", className: "btn", onClick: pd(function () { set({ step: "med" }); }) }, "Weiter zu den Medikamenten", h(Ico, { d: I.right })))),
       M && (st.step === "med" || !V) && h("div", { className: "card" },

@@ -181,7 +181,7 @@
           S: "Frau Kranz, 81, Zimmer 514, Tag 3 bei dekompensierter Herzinsuffizienz. Gewicht +2,8 kg seit Montag, nachts Orthopnoe, Puls 54 unregelmäßig, Erbrechen, berichtet Gelbsehen.",
           B: "EF 30 %, Vorhofflimmern, CKD G3. Digitoxin, Bisoprolol, Torasemid, Spironolacton, Apixaban. Kalium gestern 3,1 mmol/l. Trinkmenge laut Arzt max. 1,5 l, sie trinkt 2 l.",
           A: "Zunehmende Stauung und Verdacht auf Digitalis-Überdosierung, begünstigt durch Hypokaliämie. Das ist dringend.",
-          R: "Vitalzeichen mit NEWS2 und 60-Sekunden-Puls, Arzt vor der 08-Uhr-Medikation informieren, Digitoxin und Bisoprolol erst nach Rücksprache; Trinkplan."
+          R: "Vitalzeichen im Verlauf und 60-Sekunden-Puls, Arzt vor der 08-Uhr-Medikation informieren, Digitoxin und Bisoprolol erst nach Rücksprache; Trinkplan."
         },
         chk: [
           { t: "S: Gewichtszunahme mit Zahlen", kw: ["76", "2,8", "kg", "gewicht"] },
@@ -193,7 +193,7 @@
       }
     },
     prio: [
-      { id: "k1", t: "Frau Kranz: Vitalzeichen mit NEWS2, Puls 60 Sekunden, Befinden und Gelbsehen abklären", zeit: "06:15", warum: "Bradykardie, Erbrechen und Gelbsehen: Verdacht auf Digitalis-Überdosierung. Potenziell lebensbedrohlich." },
+      { id: "k1", t: "Frau Kranz: Vitalzeichen im Verlauf, Puls 60 Sekunden, Befinden und Gelbsehen abklären", zeit: "06:15", warum: "Bradykardie, Erbrechen und Gelbsehen: Verdacht auf Digitalis-Überdosierung. Potenziell lebensbedrohlich." },
       { id: "b1", t: "Herr Brinkmann: Bewusstsein, SpO₂ und O₂-Einstellung kontrollieren", zeit: "06:30", warum: "Nach nächtlicher Hyperkapnie muss die Wachheit früh geprüft werden." },
       { id: "ar", t: "Arzt über Frau Kranz informieren (SBAR) – vor der Medikamentengabe", zeit: "06:40", warum: "Die 08-Uhr-Medikation hängt von der ärztlichen Entscheidung ab." },
       { id: "gw", t: "Frau Kranz: Ein- und Ausfuhr der Nacht bilanzieren, Trinkplan besprechen", zeit: "07:00", warum: "Bilanz und Gewicht sind die Grundlage für die Diuretika-Entscheidung." },
@@ -249,10 +249,9 @@
             { k: "bew", t: "Bewusstsein", kurz: "ACVPU", val: "A", einheit: "wach, orientiert", farbe: "bew", wie: "ansprechen" }
           ],
           befund: "Labor 07:00 Uhr (telefonisch): Kalium 3,0 mmol/l. Frau Kranz hat einmal erbrochen und beschreibt Gelbsehen.",
-          news: { wert: 7, tol: 0, frage: "Berechne den NEWS2-Score (Skala 1).", erk: "AF 26 = 3 · SpO₂ 90 % = 3 · Raumluft = 0 · RR syst. 104 = 1 · Puls 52 = 0 · wach = 0 · Temp 36,5 = 0. Summe 7: hohes Risiko, dringende ärztliche Beurteilung." },
           act: { text: "Was tust du jetzt?", opts: [
-            { t: "Oberkörper hoch, Beine tief (Herzbettlage), bei ihr bleiben bzw. Klingel geben, Arzt sofort mit SBAR informieren: NEWS2 7, Stauungszeichen, Bradykardie, Gelbsehen, Kalium 3,0", ok: true, fb: "Richtig. Lagerung entlastet das Herz, und der Verdacht auf Digitalis-Überdosierung muss ärztlich sofort bewertet werden." },
-            { t: "Sauerstoff hochdrehen und abwarten, ob es besser wird", fb: "Sauerstoff nur nach Anordnung. Und Abwarten ist bei NEWS2 7 keine Option." },
+            { t: "Oberkörper hoch, Beine tief (Herzbettlage), bei ihr bleiben bzw. Klingel geben, Arzt sofort mit SBAR informieren: AF 26/min und SpO₂ 90 %, Stauungszeichen, Bradykardie, Gelbsehen, Kalium 3,0", ok: true, fb: "Richtig. Lagerung entlastet das Herz, und der Verdacht auf Digitalis-Überdosierung muss ärztlich sofort bewertet werden." },
+            { t: "Sauerstoff hochdrehen und abwarten, ob es besser wird", fb: "Sauerstoff nur nach Anordnung. Und Abwarten ist bei dieser Verschlechterung keine Option." },
             { t: "Ein Glas Wasser gegen die Übelkeit geben", fb: "Mehr Flüssigkeit verstärkt die Stauung. Und Übelkeit ist hier ein Warnzeichen, kein Durst." },
             { t: "Beine hochlagern gegen die Ödeme", fb: "Beinhochlagerung erhöht den Rückstrom zum überlasteten Herzen und verschlechtert die Atemnot." }] }
         },
@@ -428,7 +427,7 @@
     },
     refl: [
       { q: "Warum hast du bei der Kurzinfusion zuerst eine Pflegefachperson dazugeholt, obwohl du die Handgriffe kennst?", muster: "Tätigkeiten an Infusionen und Gefäßzugängen führe ich als Auszubildende nur unter direkter Aufsicht einer Pflegefachperson aus. Das schützt Herrn Brinkmann und mich, weil Fehler direkt in die Blutbahn gehen. In der Situation hat sich das bewährt: Zu zweit haben wir die Phlebitis bewertet, den Zugang entfernt und auf den neuen Zugang gewartet, statt aus Zeitdruck den alten zu benutzen. Hilfe einzufordern zeigt Verantwortungsbewusstsein." },
-      { q: "Welche Hinweise hatten dich bei Frau Kranz an eine Digitalis-Überdosierung denken lassen, und was hast du konkret getan?", muster: "Übelkeit und Erbrechen, Gelbsehen, Bradykardie (52/min) und dazu ein niedriges Kalium, das die Digitaliswirkung verstärkt. Ich habe den Puls eine volle Minute getastet, NEWS2 berechnet, sie in Herzbettlage gebracht und den Arzt vor der Medikamentengabe informiert. Digitoxin und Bisoprolol habe ich erst nach Rücksprache zurückgehalten, den Dispenser gegen die neue Anordnung geprüft und die falsche Apixaban-Dosis gefunden." },
+      { q: "Welche Hinweise hatten dich bei Frau Kranz an eine Digitalis-Überdosierung denken lassen, und was hast du konkret getan?", muster: "Übelkeit und Erbrechen, Gelbsehen, Bradykardie (52/min) und dazu ein niedriges Kalium, das die Digitaliswirkung verstärkt. Ich habe den Puls eine volle Minute getastet, sie in Herzbettlage gebracht und den Arzt vor der Medikamentengabe informiert. Digitoxin und Bisoprolol habe ich erst nach Rücksprache zurückgehalten, den Dispenser gegen die neue Anordnung geprüft und die falsche Apixaban-Dosis gefunden." },
       { q: "Herr Brinkmann hatte sich selbst mehr Sauerstoff gegeben. Wie hast du ihn beraten?", muster: "Ich habe an sein Denken als Mathematiker angeknüpft: Sein Atemantrieb reagiert bei COPD auf andere Werte, deshalb ist sein Ziel 88–92 % und nicht 98 %. Zu viel Sauerstoff kann Kohlendioxid ansteigen lassen; das war die Müdigkeit in der Nacht. Ich habe ihm die Zielwerte aufgeschrieben, ihn gebeten, das in eigenen Worten zu erklären, und vereinbart, dass er bei Atemnot klingelt statt am Regler zu drehen." }
     ]
   };
