@@ -239,3 +239,15 @@ Das App-Symbol in der Seitenleiste ist im hellen Modus ein blauer Verlauf passen
 ## Aufgaben: Training, Team-Krankenhaus und Live-Fall
 
 Lehrkräfte können jetzt neben Modulen und eigenen Aufgaben auch ein Training (z. B. einen Fall der Praktischen Examen Übung), einen Team-Fall oder einen Live-Fall als Aufgabe stellen. In der App öffnet die Aufgabe das Training bzw. das Team-Krankenhaus mit einem Tipp; einen Live-Fall spielen die Lernenden allein durch. Abgegeben wird jeweils eine kurze Reflexion. Dafür einmal `supabase/lehrer_erweiterung.sql` im SQL-Editor ausführen (erweitert die erlaubten Aufgabenarten und legt den Lehrer-Stundenplan an).
+
+## Ausbau November 2026
+
+- **12 neue Fallmodule** (je 4 pro Ausbildungsjahr):
+  - Jahr 1: fm64 Injektionen und Blutzucker, fm65 Trinken im Alter, fm66 Sterben und Versorgung Verstorbener, fm67 Dokumentation und Übergabe mit SBAR.
+  - Jahr 2: fm68 Vorhofflimmern, fm69 Bluthochdruck, fm70 obere GI-Blutung, fm71 multiresistente Erreger.
+  - Jahr 3: fm72 Frühgeborene, fm73 Pseudokrupp und Fieberkrampf, fm74 Polypharmazie, fm75 Beraten und Anleiten bei Asthma.
+- **Fachlexikon** `daten/fachlexikon.js`: rund 430 zusätzliche Begriffe mit Kategorie. Sie erscheinen im Lexikon (mit Filter nach Kategorie), als Erklärung beim Antippen im Text und stehen dem Assistenten zur Verfügung.
+- **Training „Akutsituationen“** (`js/training/51-akutsimulationen.js`): 8 Notfälle mit Live-Monitor, bei denen sich die Vitalwerte je nach Entscheidung verändern. Am Ende gibt es Punkte und eine Musterlösung.
+- **Training „Bildbefunde“** (`js/training/50-bildbefunde.js`): 56 gezeichnete Befunde in 10 Kategorien, darunter Wunden, Dekubitus, Haut, Pupillen, Urin, Stuhl, Drainagen, Atemmuster, Kurven und EKG-Rhythmen zur Beobachtung. Es gibt einen Lernmodus und ein Quiz.
+- **Feedback geben** im Profilmenü.
+- **Anonyme Nutzungszählung** (`js/funktionen/10-feedback-nutzung.js`): nur Tageszähler pro Schule, ohne Personenbezug. Dafür muss `supabase/admin_statistik.sql` im Lehrer-Repo ausgeführt sein.
