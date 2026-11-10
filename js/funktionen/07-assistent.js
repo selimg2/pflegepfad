@@ -405,7 +405,11 @@
     { k: "plan", ic: "cal", c: "#0A84FF", t: "Prüfungsplan erstellen", d: "Lernplan bis zum Prüfungstag mit deinen Modulen" },
     { k: "klausur", ic: "exam", c: "#AF52DE", t: "Testklausur üben", d: "Fragen zu einem Thema mit Auswertung" },
     { k: "erklaer", ic: "bulb", c: "#FF9500", t: "Etwas erklären lassen", d: "z. B. „Was ist der Unterschied zwischen Typ 1 und 2?“" },
-    { k: "wdh", ic: "rep", c: "#34C759", t: "Was soll ich wiederholen?", d: "Vorschläge nach deinem Fortschritt" }
+    { k: "wdh", ic: "rep", c: "#34C759", t: "Was soll ich wiederholen?", d: "Vorschläge nach deinem Fortschritt" },
+    { k: "abfrage", ic: "chat", c: "#0D9488", t: "Frag mich ab", d: "Mündliche Abfrage, Frage für Frage" },
+    { k: "einfach", ic: "globe", c: "#FF2D55", t: "Einfach erklärt", d: "In einfacher Sprache, Fachwörter erklärt" },
+    { k: "merkhilfe", ic: "bulb", c: "#5856D6", t: "Merkhilfe bauen", d: "Eselsbrücke oder Merksatz zu einem Thema" },
+    { k: "praxisfrage", ic: "shield", c: "#B45309", t: "Praxis-Situation üben", d: "„Was tust du zuerst?“ – Schritt für Schritt" }
   ];
 
   function Assistent(p) {
@@ -458,6 +462,10 @@
     function startTool(k) {
       if (k === "erklaer") { tool[1](null); txt[1]("Erklär mir bitte "); setTimeout(function () { if (taRef.current) { taRef.current.focus(); taRef.current.setSelectionRange(99, 99); } }, 30); return; }
       if (k === "wdh") return send("Was sollte ich nach meinem Fortschritt als Nächstes wiederholen?", { wunsch: "wdh" });
+      if (k === "abfrage") { tool[1](null); txt[1]("Frag mich mündlich ab zum Thema "); setTimeout(function () { if (taRef.current) { taRef.current.focus(); taRef.current.setSelectionRange(999, 999); } }, 30); return; }
+      if (k === "einfach") { tool[1](null); txt[1]("Erklär mir in einfacher Sprache (B1), mit erklärten Fachwörtern: "); setTimeout(function () { if (taRef.current) { taRef.current.focus(); taRef.current.setSelectionRange(999, 999); } }, 30); return; }
+      if (k === "merkhilfe") { tool[1](null); txt[1]("Bau mir eine Merkhilfe (Eselsbrücke oder Merksatz) zu "); setTimeout(function () { if (taRef.current) { taRef.current.focus(); taRef.current.setSelectionRange(999, 999); } }, 30); return; }
+      if (k === "praxisfrage") { tool[1](null); txt[1]("Stell mir eine Praxis-Situation und frage mich Schritt für Schritt, was ich zuerst tue. Thema: "); setTimeout(function () { if (taRef.current) { taRef.current.focus(); taRef.current.setSelectionRange(999, 999); } }, 30); return; }
       tool[1](tool[0] === k ? null : k);
     }
     var leer = !msgs.length;
