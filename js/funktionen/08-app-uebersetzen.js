@@ -116,8 +116,8 @@
   function flush() {
     timer = null;
     if (!on || !window.FP_LS || !window.FP_LS.translate) return;
-    if (inflight >= 3) { schedule(); return; }
-    var keys = Array.from(queue.keys()).slice(0, 8);
+    if (inflight >= 4) { schedule(); return; }
+    var keys = Array.from(queue.keys()).slice(0, 25);
     if (!keys.length) return;
     var items = keys.map(function (k) { var v = queue.get(k); queue.delete(k); return [k, v]; });
     inflight++; pending += items.length; pill();

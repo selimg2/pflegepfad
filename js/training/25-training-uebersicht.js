@@ -42,6 +42,7 @@
     merk: "M6 3h12v18l-6-4-6 4z",
     deutsch: "M4 5h9M8.5 3v2M6 5c0 4 3 7 6 8M11 5c-1 4-4 7-7 8M13 21l4-9 4 9M14.5 18h5",
     station: "M3 18V7M3 13h18v5M21 18v-3M7 13v-2a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2M5.5 10.5h.01",
+    pflegeplanung: "M9 4h6v3H9zM7 5.5H5.5A1.5 1.5 0 0 0 4 7v12.5A1.5 1.5 0 0 0 5.5 21h13a1.5 1.5 0 0 0 1.5-1.5V7a1.5 1.5 0 0 0-1.5-1.5H17M8 12l2 2 4-4M8 17h8",
     ruhe: "M5 21c0-9 5-15 15-16-1 10-7 15-15 16zM5 21l7-7",
     kommunikation: "M4 5h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zM19 9h1a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1v3l-3.5-3H12"
   };
@@ -56,6 +57,7 @@
     { k: "pruefung", t: "Prüfung", d: "Prüfungsbögen deiner Schule und Selbsttests.", c: "#4F46E5", g: 1 },
     { k: "ruhe", t: "Ruhig bleiben: Stress & Prüfungsangst", d: "Was bei Stress und Prüfungsangst wirklich hilft: Atem-Coach, Gedanken-Check, Notfallplan für den Prüfungstag und Abschalten nach dem Dienst.", c: "#16A34A", g: 1 },
     { k: "station", t: "Stationsalltag", d: "Eine Schicht auf Station: Zimmer, Patientinnen und Patienten, Aufgaben und Ereignisse im Zeitraffer.", c: "#0D9488", g: 2, big: 1 },
+    { k: "pflegeplanung", t: "Pflegeplanung", d: "Pflegeplanung zu Patientenbeispielen schreiben und von der KI Rückmeldung bekommen: Probleme, Ziele, Maßnahmen.", c: "#5856D6", g: 2, big: 1 },
     { k: "kommunikation", t: "Kommunikation", d: "Gespräche mit KI-Gesprächspersonen üben: sprechen, zuhören, Rückmeldung bekommen.", c: "#0EA5E9", g: 2, big: 1 },
     { k: "sims", t: "Simulationen", d: "Realitätsnahe Abläufe aus dem Stationsalltag, beliebig oft.", c: "#7C3AED", g: 2 },
     { k: "team", t: "Team-Krankenhaus", d: "Gemeinsam mit deinem Kurs einen Fall lösen.", c: "#0891B2", g: 2 },
@@ -81,6 +83,7 @@
         return (window.PEX_CASES || []).length + " Prüfungsfälle";
       }
       if (k === "deutsch" && window.FP_LS) { var kn = 0; try { kn = Object.keys(JSON.parse(localStorage.getItem("fp-ls-known") || "{}")).length; } catch (e2) {} var lb = window.FP_LS.lang() ? window.FP_LS.label() : ""; return [kn ? kn + " Wörter sitzen" : "", lb].filter(Boolean).join(" · "); }
+      if (k === "pflegeplanung") { var ppn = (window.FP_PP_FAELLE || []).length; return ppn ? ppn + " Patientenbeispiele" : ""; }
       if (k === "station") { var sc = S && S.station; if (sc && sc.cur && !sc.cur.ended) return "Schicht läuft · " + (sc.cur.clockTxt || ""); if (sc && sc.hist && sc.hist[0]) return "Zuletzt " + sc.hist[0].pct + " %"; return "Frühdienst Innere 5B"; }
       if (k === "kommunikation") { var kb = S && S.komm && S.komm.best, kn2 = kb ? Object.keys(kb).length : 0, tot = window.FP_KOMM_DATA ? window.FP_KOMM_DATA.szenarien.length : 15; return kn2 ? kn2 + " von " + tot + " Gesprächen geübt" : (window.FP_KOMM_DATA ? window.FP_KOMM_DATA.kategorien.length : 6) + " Bereiche · " + tot + " Gespräche"; }
       if (k === "ruhe") { try { var rd = JSON.parse(localStorage.getItem("fp-stress:" + JSON.parse(localStorage.getItem("fallpfad-session") || '"gast"')) || "{}"), rn = Object.keys(rd.tools || {}).filter(function (x) { return x !== "check"; }).length; return rn ? rn + " von 8 Werkzeugen ausprobiert" : "8 Werkzeuge · Stress-Check"; } catch (e3) { return "8 Werkzeuge · Stress-Check"; } }
@@ -115,7 +118,7 @@
           h("div", { className: "trhrow" },
             h("span", { className: "trico sm" }, h(Ico, { d: I[t.k] || I.sims, w: 1.8 })),
             h("div", { style: { minWidth: 0 } }, h("div", { className: "eyebrow" }, "Training"), h("h1", null, t.t)))),
-        h("div", { className: "page-in", key: view, style: { marginTop: 16 } }, p.render(view)));
+        h("div", { className: "page-in", key: view, style: { marginTop: 16 } }, view === "pflegeplanung" && window.FP_Pflegeplanung ? h(window.FP_Pflegeplanung) : p.render(view)));
     }
     var feat = TILES.filter(function (x) { return x.feat; });
     return h("div", { className: "wrap" },

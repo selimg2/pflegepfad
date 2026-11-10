@@ -22,7 +22,20 @@ Die App besteht nicht mehr aus einer einzigen `index.html`, sondern aus einzelne
 
 Wichtig: Die Reihenfolge der `<script>`-Zeilen in `index.html` nicht ändern. Kommt eine neue Datei dazu, auch in die Liste `MODULE` in `sw.js` eintragen.
 
-## Neu in dieser Version
+## Neu in dieser Version (10.11.2026)
+
+- **Profilmenü im Stil der iOS-Einstellungen:** gruppierte Listen, farbige Symbol-Kacheln, flache Farbkreise mit Häkchen und Namen. Die Farbkreise bleiben auf dem Handy rund (vorher wurden sie durch die 44-px-Regel für Touch-Ziele oval). Gilt identisch im Lehrer-Portal.
+- **Symbole:** neues, sauberes Zahnrad für Einstellungen/Optionen (Seitenleiste, Tab-Leiste, Menü), Logo wieder hell auf Akzentfarbe (`css/07-politur.css`).
+- **App übersetzen repariert:** Die Edge Function `uebersetzen` nutzt jetzt strukturierte Ausgabe (JSON-Schema) und die gleichen Modell-Einstellungen wie die übrigen KI-Funktionen, mit automatischem Ausweichen bei einem Fehler 400. Größere Pakete (25 Texte je Anfrage), Tageslimit 250 000 Zeichen (Cache-Treffer zählen nicht).
+- **Neues Training „Pflegeplanung“** (`js/funktionen/09-pflegeplanung.js`, Fälle in `daten/pflegeplanung-faelle.js`): sieben Patientenbeispiele (Innere, Chirurgie, Langzeitpflege, Pädiatrie, ambulant, Psychiatrie, Stroke Unit). Pflegeplanung nach PESR mit Ressourcen, SMART-Zielen, Maßnahmen und Evaluation, Prioritäten per Pfeil. Die KI (Edge Function `pflegeplanung`) vergleicht mit dem Erwartungshorizont, der nur auf dem Server liegt, und gibt Punkte je Kriterium, Rückmeldung je Problem mit Formulierungsbeispiel, Denkanstöße und Sicherheitshinweise. Planung bleibt nur auf dem Gerät. Fälle ändern: `werkzeuge/pflegeplanung_faelle.py` im Lehrer-Portal-Paket, nicht die erzeugten Dateien.
+- **Assistent:** großzügiges Tageslimit (40 Nachrichten für Lernende, 80 für Lehrkräfte; Secrets `FALLPFAD_ASSISTENT_LIMIT`, `FALLPFAD_ASSISTENT_LIMIT_LEHRER`). Die App zeigt keine Zahl mehr an.
+- **Stationsalltag: zwei neue Stationen und eine Zufalls-Engine.**
+  - *Spätdienst Unfallchirurgie, Station 3A* (13:30 bis 18:00): Duokopfprothese, Marknagel, OP-Vorbereitung mit Sprachbarriere, Knie-TEP, LWK-Fraktur, Neuaufnahme aus dem Pflegeheim mit Marcumar und Demenz. Kritische Verläufe: Nachblutung, Kompartmentsyndrom, postoperatives Delir.
+  - *Frühdienst Seniorenzentrum Lindenhof, Wohnbereich 2* (06:00 bis 10:30): Parkinson-Medikamente, PEG, Dekubitus, Dysphagie, Fentanylpflaster, Einzug zur Kurzzeitpflege mit Medikationsabgleich. Kritische Verläufe: Sturz unter Apixaban, Fieber und Exsikkose, letzte Lebensphase.
+  - *Zufalls-Engine* (`js/training/45-stationsalltag-zufall.js`, gilt für alle Stationen inkl. Innere): je Schicht andere kritische Verläufe, andere Fassungen von Ereignissen, gestreute Uhrzeiten und 2 bis 4 zusätzliche Alltagsereignisse aus einem Pool (Schweigepflicht am Telefon, Apothekenlieferung, Nadelstich, Klingel, Pumpenalarm, Angehörigenbeschwerde, Hypoglykämie …), meist mit kleiner Aufgabe. Eine unterbrochene Schicht läuft mit derselben Zufallszahl genau so weiter.
+- **Datenschutz und Sicherheit:** Datenschutzerklärung ergänzt (Pflegeplanung, Stationsalltag, Zähler). Datenbank: Funktionen, die nur angemeldete Konten brauchen, sind nicht mehr ohne Anmeldung aufrufbar; Zähler-Tabellen ausdrücklich ohne App-Zugriff; automatische Löschfristen laufen jetzt über pg_cron (`supabase/pflegeplanung_sicherheit.sql` im Lehrer-Portal-Paket).
+
+## Aus der vorigen Version
 
 - **Assistent** (Reiter links, mobil oben über das Funkeln-Symbol): plant Prüfungen, erstellt Testklausuren, erklärt und wiederholt. Er sucht die passenden Stellen zuerst auf dem Gerät in den Fallpfad-Modulen, Lernkarten und der Kitteltasche und schickt nur diese Auszüge an den Server. Die KI antwortet ausschließlich daraus, mit Quellenangabe. Fragen ohne passende Stelle beantwortet er nicht. 3 Nachrichten pro Tag (Secret `FALLPFAD_ASSISTENT_TAG`). Antwortet in der eingestellten Sprache.
 - **QR-Code scannen** (Knopf links neben der Suche): Live-Codes, Kurs-, Modul- und Stationslinks öffnen direkt. Fremde Links erst nach Rückfrage. Nutzt die Kamera des Geräts, Bilder werden nicht gespeichert. Bibliothek `vendor/jsqr.min.js` (jsQR, Apache-2.0) wird nur bei Bedarf geladen.

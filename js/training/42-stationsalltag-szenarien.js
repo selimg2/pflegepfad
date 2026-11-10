@@ -24,6 +24,9 @@ window.FP_STATION_DATA = {
       kurz: "Acht Patientinnen und Patienten, eine Neuaufnahme und ein Mann, dem es von Stunde zu Stunde schlechter geht.",
       rolle: "Du bist im 3. Ausbildungsjahr und betreust heute mit Pflegefachfrau Sabine Hoffmann die Zimmer 510 bis 514. Sie ist am Stützpunkt erreichbar.",
       neuerFall: "brueckner",
+      setting: "krankenhaus",
+      /* Zufalls-Engine (45-stationsalltag-zufall.js): Zeitstreuung und 2 bis 4 zusätzliche Alltagsereignisse je Schicht */
+      variation: { streu: 7, zufall: [2, 4] },
       zimmer: [
         { nr: "510", betten: ["seifert", "engel"] },
         { nr: "511", betten: ["neumann", "berger"] },
@@ -33,28 +36,28 @@ window.FP_STATION_DATA = {
       ],
       patienten: {
         seifert: {
-          quelle: { typ: "modul", id: "fm40", ci: 99 }, flags: ["o2", "diabetes"],
+          quelle: { typ: "modul", id: "fm40", ci: 99 }, flags: ["o2", "diabetes"], zflags: ["med", "infusion"],
           uebergabe: "Pneumonie rechts, Tag 3. Nachts ruhig, O₂ 2 l über Nasenbrille, Ziel-SpO₂ 92 bis 96 %. Diabetes, BZ vor dem Frühstück.",
           verlauf: [{ ab: "06:30", status: "beobachten", v: { rr: "132/78", hf: 92, af: 20, spo2: 93, o2: "2 l/min", t: 37.8, bw: "A", bz: 248 } },
             { ab: "09:30", status: "stabil", v: { rr: "128/74", hf: 86, af: 18, spo2: 97, o2: "3 l/min", t: 37.4, bw: "A" } }]
         },
         engel: {
-          quelle: { typ: "modul", id: "fm20", ci: 0 }, flags: ["sturz"], kommt: "09:15",
+          quelle: { typ: "modul", id: "fm20", ci: 0 }, flags: ["sturz"], zflags: ["med", "mobil"], kommt: "09:15",
           uebergabe: "Neuaufnahme aus der Notaufnahme gegen 09:15 Uhr: Schwindel und Durchfall seit drei Tagen.",
           verlauf: [{ ab: "09:15", status: "beobachten", v: { rr: "102/60", hf: 58, af: 16, spo2: 96, t: 36.7, bw: "A" } }]
         },
         neumann: {
-          quelle: { typ: "modul", id: "fm12", ci: 3 }, flags: ["diabetes", "wunde"],
+          quelle: { typ: "modul", id: "fm12", ci: 3 }, flags: ["diabetes", "wunde"], zflags: ["med", "seh"],
           uebergabe: "Diabetes mit Insulin, Ulkus am rechten Großzehenballen. Vorgestern Hypoglykämie, als das Frühstück ausfiel. Verbandwechsel heute.",
           verlauf: [{ ab: "06:30", status: "stabil", v: { rr: "146/86", hf: 84, af: 16, spo2: 97, t: 36.9, bw: "A", bz: 186 } }]
         },
         berger: {
-          quelle: { typ: "modul", id: "fm39", ci: 99 }, flags: ["sturz", "demenz"],
+          quelle: { typ: "modul", id: "fm39", ci: 99 }, flags: ["sturz", "demenz"], zflags: ["mobil"],
           uebergabe: "Exsikkose und Harnwegsinfekt, beginnende Demenz. Nachts zweimal allein aufgestanden. Trinkt schlecht.",
           verlauf: [{ ab: "06:30", status: "beobachten", v: { rr: "118/64", hf: 88, af: 18, spo2: 95, t: 37.4, bw: "A" } }]
         },
         brinkmann: {
-          quelle: { typ: "pex", fall: "innere", key: "A" }, flags: ["o2", "allergie"],
+          quelle: { typ: "pex", fall: "innere", key: "A" }, flags: ["o2", "allergie"], zflags: ["infusion", "med"],
           uebergabe: "Pneumonie bei COPD, Tag 2. Ceftriaxon um 08 Uhr. Der Zugang am linken Arm brennt seit der Nacht. Hat den Sauerstoff selbst hochgedreht.",
           verlauf: [{ ab: "06:30", status: "beobachten", copd: true, v: { rr: "138/82", hf: 94, af: 22, spo2: 90, o2: "2 l/min", t: 37.9, bw: "A" } }]
         },
@@ -63,7 +66,7 @@ window.FP_STATION_DATA = {
           name: "Ewald Brückner", kurz: "Herr Brückner", alter: 79, geschlecht: "m",
           diagnose: "Harnwegsinfekt, seit gestern auf Station; Diabetes Typ 2, benigne Prostatahyperplasie",
           av: { hair: "HE", hairC: "#d9dbde", skin: "#f0c7a5", cloth: "#9cc3e6", deco: "gown", wrinkles: 1, glasses: 1, bg: "#ddeeff" },
-          flags: ["allergie", "diabetes"],
+          flags: ["allergie", "diabetes"], keinZufall: true,
           uebergabe: "Harnwegsinfekt, gestern aufgenommen, Ciprofloxacin oral. Nachts unruhig, einmal 38,1 °C. Hat wenig getrunken.",
           akte: {
             stamm: [
@@ -95,12 +98,12 @@ window.FP_STATION_DATA = {
           ]
         },
         schulte: {
-          quelle: { typ: "modul", id: "fm10", ci: 3 }, flags: ["sturz"],
+          quelle: { typ: "modul", id: "fm10", ci: 3 }, flags: ["sturz"], zflags: ["herz", "med"],
           uebergabe: "Herzinsuffizienz, Tag 4. Tägliches Wiegen, Bilanz. Furosemid i. v. um 08 Uhr. Nachts unsicher beim Toilettengang.",
           verlauf: [{ ab: "06:30", status: "stabil", v: { rr: "132/80", hf: "88 arrhythmisch", af: 18, spo2: 94, t: 36.6, bw: "A" } }]
         },
         kranz: {
-          quelle: { typ: "pex", fall: "innere", key: "B" }, flags: ["sturz"],
+          quelle: { typ: "pex", fall: "innere", key: "B" }, flags: ["sturz"], zflags: ["herz"],
           uebergabe: "Kardiale Dekompensation, Tag 3. Hat kaum geschlafen, sitzt aufrecht. Trinkmenge max. 1,5 l.",
           verlauf: [{ ab: "06:30", status: "beobachten", v: { rr: "152/94", hf: "104 arrhythmisch", af: 24, spo2: 91, t: 36.8, bw: "A" } }]
         }
@@ -273,9 +276,12 @@ window.FP_STATION_DATA = {
 
       ereignisse: [
         { id: "uebergabe", um: "06:30", art: "info", titel: "Schichtbeginn", text: "Übergabe ist gelaufen. Sabine Hoffmann: „Schau zuerst bei Herrn Brückner und Frau Kranz rein, die hatten eine unruhige Nacht.“" },
-        { id: "kranz-klingel", um: "06:52", art: "klingel", pat: "kranz", titel: "Klingel Zimmer 514", text: "Frau Kranz: „Ich krieg so schlecht Luft im Liegen. Können Sie das Kopfteil höher stellen?“", wichtig: 1 },
-        { id: "br-klingel", um: "07:25", art: "klingel", pat: "brueckner", titel: "Klingel Zimmer 512", text: "Herr Brinkmann ruft: „Kommen Sie mal, mein Nachbar zittert am ganzen Körper!“ Herr Brückner hat Schüttelfrost.", wichtig: 3 },
-        { id: "labor-schulte", um: "07:40", art: "labor", pat: "schulte", titel: "Laborwert Herr Schulte", text: "Das Labor meldet für Herrn Schulte Kalium 3,2 mmol/l von heute früh.", wichtig: 2 },
+        { id: "kranz-klingel", um: "06:52", art: "klingel", pat: "kranz", titel: "Klingel Zimmer 514", text: "Frau Kranz: „Ich krieg so schlecht Luft im Liegen. Können Sie das Kopfteil höher stellen?“", wichtig: 1,
+          varianten: [{ text: "Frau Kranz sitzt auf der Bettkante und atmet schnell: „Ich konnte die ganze Nacht nur im Sitzen schlafen. Liegen geht gar nicht.“" }, { um: "07:05", text: "Frau Kranz: „Meine Beine sind so dick geworden, und nachts musste ich dreimal raus. Ist das normal?“" }] },
+        { id: "br-klingel", um: "07:25", art: "klingel", pat: "brueckner", titel: "Klingel Zimmer 512", text: "Herr Brinkmann ruft: „Kommen Sie mal, mein Nachbar zittert am ganzen Körper!“ Herr Brückner hat Schüttelfrost.", wichtig: 3,
+          varianten: [{ titel: "Klingel Zimmer 512", text: "Herr Brückner hat geklingelt. Er ist kaltschweißig, atmet schnell und fragt dich, wo er hier eigentlich ist." }, { titel: "Hinweis vom Hol- und Bringdienst", art: "info", text: "Der Kollege vom Hol- und Bringdienst kommt aus Zimmer 512: „Der Herr am Fenster sieht aber gar nicht gut aus. Der zittert ja richtig.“" }] },
+        { id: "labor-schulte", um: "07:40", art: "labor", pat: "schulte", titel: "Laborwert Herr Schulte", text: "Das Labor meldet für Herrn Schulte Kalium 3,2 mmol/l von heute früh.", wichtig: 2,
+          varianten: [{ text: "Das Labor ruft an: Herr Schulte, Kalium 3,1 mmol/l von heute früh. Die MTL bittet um Weitergabe an die Stationsärztin." }] },
         { id: "br-spaet", um: "08:00", art: "klingel", pat: "brueckner", wenn: { nichtFlag: "br-auffaellig" }, setzt: ["br-auffaellig"], titel: "Herr Brückner wirkt verwirrt", text: "Herr Brückners Frau ruft auf Station an: Ihr Mann habe am Telefon wirres Zeug geredet. Bei ihm: zittert, Puls über 110.", wichtig: 3, malus: { kat: "sicherheit", pts: 10, t: "Die Verschlechterung von Herrn Brückner wurde erst durch einen Anruf der Ehefrau bemerkt." } },
         { id: "br-anordnung", wenn: { flag: "arzt-br" }, art: "telefon", pat: "brueckner", titel: "Ärztliche Anordnung", text: "Dr. Sommerfeld: „Ich komme. Bitte Blutkulturen zwei Sets, Laktat, 1 000 ml Vollelektrolyt über eine Stunde, danach Piperacillin/Tazobactam 4,5 g, Vitalzeichen alle 30 Minuten, Bilanz.“ Du wiederholst die Anordnung zur Sicherheit.", wichtig: 2 },
         { id: "br-ab-neu", wenn: { flag: "ab-umstellen" }, art: "telefon", pat: "brueckner", setzt: ["ab-neu"], titel: "Antibiose umgestellt", text: "Dr. Sommerfeld: „Danke, gut aufgepasst. Wir nehmen Meropenem 1 g i. v., ich trage es ein.“", wichtig: 1 },
@@ -284,8 +290,9 @@ window.FP_STATION_DATA = {
         { id: "engel-kommt", um: "09:15", art: "aufnahme", pat: "engel", titel: "Neuaufnahme Zimmer 510", text: "Herr Engel kommt aus der Notaufnahme: Schwindel und Durchfall seit drei Tagen, Kalium 5,6 mmol/l.", wichtig: 2 },
         { id: "bett-fehlt", um: "09:15", wenn: { nichtErledigt: "bett-510" }, art: "info", pat: "engel", titel: "Bett nicht vorbereitet", text: "Herr Engel wartet auf dem Flur, weil der Bettplatz noch nicht gerichtet ist.", wichtig: 1, malus: { kat: "organisation", pts: 4, t: "Der Bettplatz für die Neuaufnahme war nicht vorbereitet." } },
         { id: "visite", um: "09:45", art: "visite", titel: "Visite beginnt", text: "Dr. Sommerfeld kommt zur Visite und möchte von dir das Wichtigste hören.", wichtig: 2 },
-        { id: "berger-klingel", um: "10:20", art: "alarm", pat: "berger", titel: "Bettalarm Zimmer 511", text: "Der Sensor an Frau Bergers Bett meldet: Sie ist aufgestanden.", wichtig: 3 },
-        { id: "angehoerige", um: "10:35", art: "telefon", pat: "brueckner", titel: "Anruf von Frau Brückner", text: "Frau Brückner fragt, wie es ihrem Mann geht. Telefonisch darfst du ohne Einverständnis keine Auskünfte geben. Du bietest an, dass die Ärztin zurückruft, und sagst, dass sie gern vorbeikommen kann.", wichtig: 1 }
+        { id: "berger-klingel", um: "10:20", art: "alarm", pat: "berger", titel: "Bettalarm Zimmer 511", text: "Der Sensor an Frau Bergers Bett meldet: Sie ist aufgestanden.", wichtig: 3,
+          varianten: [{ titel: "Frau Berger auf dem Flur", art: "info", text: "Frau Berger steht barfuß im Flur und sucht „den Bus nach Hause“. Sie hält sich am Handlauf fest." }] },
+        { id: "angehoerige", um: "10:35", art: "telefon", pat: "brueckner", titel: "Anruf von Frau Brückner", text: "Frau Brückner fragt, wie es ihrem Mann geht. Telefonisch darfst du ohne Einverständnis keine Auskünfte geben. Du bietest an, dass die Ärztin zurückruft, und sagst, dass sie gern vorbeikommen kann.", wichtig: 1, chance: 0.8 }
       ]
     }
   ]

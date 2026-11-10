@@ -28,7 +28,7 @@
   /* ================= ENGINE ================= */
   var E = {};
   E.init = function (sc) {
-    return { v: 1, sid: sc.id, clock: tm(sc.start), started: false, speed: 1, done: {}, flags: {}, fired: {}, skipped: {}, seen: {}, seenTasks: {}, mess: {}, log: [], malus: [], ended: false };
+    return { v: 1, sid: sc.id, seed: sc._seed == null ? null : sc._seed, clock: tm(sc.start), started: false, speed: 1, done: {}, flags: {}, fired: {}, skipped: {}, seen: {}, seenTasks: {}, mess: {}, log: [], malus: [], ended: false };
   };
   E.cond = function (sc, st, c) {
     if (!c) return true;
@@ -141,7 +141,7 @@
   function avHtml(sp, mood) { return window.PXAV ? window.PXAV.svg(sp, mood || "neutral") : ""; }
   var INFO = {};
   function info(sc, pid) {
-    var key = sc.id + ":" + pid; if (INFO[key]) return INFO[key];
+    var key = (sc._key || sc.id) + ":" + pid; if (INFO[key]) return INFO[key];
     var p = sc.patienten[pid], q = p.quelle || { typ: "neu" }, o = { id: pid, typ: q.typ, flags: p.flags || [], uebergabe: p.uebergabe };
     if (q.typ === "modul") {
       var mo = modOf(q.id);
@@ -327,6 +327,8 @@
   /* ================= Symbole ================= */
   var ICO = {
     bed: '<path d="M3 18V7M3 13h18v5M21 18v-3M7 13v-2a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2"/>',
+    walk: '<circle cx="13" cy="4.5" r="2"/><path d="M10 21l2-6 3 3v3M9 12l2-4 4 1 2 3 3 1M11 8l-3 2-1 3"/>',
+    box: '<path d="M3 8l9-5 9 5v8l-9 5-9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/>',
     eye: '<path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="2.5"/>',
     scale: '<rect x="4" y="4" width="16" height="16" rx="4"/><path d="M9 9a4 4 0 0 1 6 0l-2 3"/>',
     drop: '<path d="M12 3c4 4.5 6.5 8 6.5 11a6.5 6.5 0 0 1-13 0C5.5 11 8 7.5 12 3z"/>',
@@ -682,22 +684,26 @@
         return h("div", { key: k, className: "st-kat" }, h("b", null, h("span", null, KAT[k] || k), h("span", null, pc + " %")), h("div", { className: "st-prog" }, h("i", { style: { width: pc + "%" } })));
       }).concat([h("div", { key: "p", className: "st-kat" }, h("b", null, h("span", null, "Pünktlichkeit"), h("span", null, s.puenktlich + " %")), h("div", { className: "st-prog" }, h("i", { style: { width: s.puenktlich + "%" } })))])),
       st.malus.length ? h("div", { className: "st-card" }, h("h3", { className: "st-h3" }, "Kritische Situationen"), st.malus.map(function (m) { return h("div", { key: m.id, className: "st-fb no", style: { marginTop: 6 } }, h("b", null, ft(m.at) + " · −" + m.pts + " Punkte: "), m.t); })) : null,
-      h("div", { className: "st-card" }, h("h3", { className: "st-h3" }, "Neuer Fall: " + info(sc, sc.neuerFall).name),
-        h("div", { className: "st-list" }, fall.map(function (t) { var d = st.done[t.id]; return h("div", { key: t.id, className: "st-donei" }, h(Ic, { k: d ? "chk" : "clock", s: 16 }), h("b", null, t.t), h("span", null, d ? de(d.pts) + "/" + d.max + (d.late > 10 ? " · " + d.late + " Min. spät" : "") : "offen")); }))),
+      fall.length ? h("div", { className: "st-card" }, h("h3", { className: "st-h3" }, sc.neuerFall && sc.patienten[sc.neuerFall] ? "Neuer Fall: " + info(sc, sc.neuerFall).name : "Die kritischen Verläufe dieser Schicht"),
+        sc._var && sc._var.dramen.length ? h("p", { className: "st-muted", style: { margin: "0 0 8px", fontSize: 13.5 } }, sc._var.dramen.join(" · ")) : null,
+        h("div", { className: "st-list" }, fall.map(function (t) { var d = st.done[t.id]; return h("div", { key: t.id, className: "st-donei" }, h(Ic, { k: d ? "chk" : "clock", s: 16 }), h("b", null, t.t), h("span", null, d ? de(d.pts) + "/" + d.max + (d.late > 10 ? " · " + d.late + " Min. spät" : "") : "offen")); }))) : null,
       open.length ? h("div", { className: "st-card" }, h("h3", { className: "st-h3" }, "Offen geblieben (zur Übergabe)"), h("div", { className: "st-list" }, open.map(function (t) { var I = t.pat ? info(sc, t.pat) : null; return h("div", { key: t.id, className: "st-donei" }, h(Ic, { k: "flag", s: 16 }), h("b", null, t.t), h("span", null, I ? I.anrede : "Zi. " + t.zimmer)); }))) : null,
       h("div", { className: "st-card" }, h("h3", { className: "st-h3" }, "Deine Schicht im Rückblick"), h("div", { className: "st-tl" }, st.log.map(function (x, i) { return h("div", { key: i }, h("time", null, ft(x.at)), h("span", null, h("b", null, x.t), " · ", h("span", { className: "st-muted" }, x.d))); }))),
       h("div", { className: "st-row" },
-        h("button", { type: "button", className: "btn", onClick: p.restart }, h(Ic, { k: "redo", s: 18 }), "Schicht neu starten"),
+        h("button", { type: "button", className: "btn", onClick: p.restart }, h(Ic, { k: "redo", s: 18 }), "Neue Schicht starten"),
         h("button", { type: "button", className: "btn ghost", onClick: p.home }, "Zur Übersicht")),
-      h("p", { className: "st-muted", style: { fontSize: 12.5, margin: 0 } }, "Alle Personen sind erfunden. Die Bewertung ist eine Lernhilfe und keine Prüfungsnote."));
+      h("p", { className: "st-muted", style: { fontSize: 12.5, margin: 0 } }, "Alle Personen sind erfunden. Jede neue Schicht verläuft etwas anders. Die Bewertung ist eine Lernhilfe und keine Prüfungsnote."));
   }
 
   /* ================= Hauptkomponente ================= */
   function Station(p) {
-    var sc0 = DATA.szenarien[0];
+    var sc0 = DATA.szenarien[0], VAR = window.FP_STATION_VAR;
+    function baseOf(id) { return DATA.szenarien.filter(function (x) { return x.id === id; })[0] || sc0; }
+    /* Zufalls-Engine: aus Szenario und gespeicherter Zufallszahl entsteht die konkrete, einmalige Schicht */
+    function concrete(id, seed) { var b = baseOf(id); return VAR && seed != null ? VAR.build(b, seed, info) : b; }
     var saved = p.S && p.S.station && p.S.station.cur;
     var stS = uS(function () { return saved && saved.sid && !saved.ended ? saved : null; });
-    var st = stS[0], sc = st ? DATA.szenarien.filter(function (x) { return x.id === st.sid; })[0] || sc0 : sc0;
+    var st = stS[0], sc = st ? concrete(st.sid, st.seed) : sc0;
     var view = uS(st ? (st.started ? "plan" : "uebergabe") : "start");
     var panel = uS(null), task = uS(null), toasts = uS([]), alert = uS(null), side = uS("aufgaben"), running = uS(false), ask = uS(false);
     var acc = uR(0), stRef = uR(st), lastSave = uR(0);
@@ -744,7 +750,7 @@
     uE(function () { function vis() { if (document.hidden) running[1](false); } document.addEventListener("visibilitychange", vis); return function () { document.removeEventListener("visibilitychange", vis); }; }, []);
     uE(function () { return function () { if (stRef.current && p.setS) { var ns = stRef.current; p.setS(function (s) { var o = Object.assign({ hist: [] }, s.station || {}); return Object.assign({}, s, { station: { cur: ns, hist: o.hist || [] } }); }); } }; }, []);
 
-    function start(scn) { var ns = E.init(scn); stRef.current = ns; stS[1](ns); view[1]("uebergabe"); persist(ns, true); top(); }
+    function start(scn) { var ns = E.init(concrete(scn.id, VAR ? VAR.seed() : null)); stRef.current = ns; stS[1](ns); view[1]("uebergabe"); persist(ns, true); top(); }
     function begin() { apply(function (ns) { ns.started = true; return E.advance(sc, ns, ns.clock); }); view[1]("plan"); running[1](true); top(); }
     function setSpeed(v) { if (v === 0) { running[1](false); persist(stRef.current, true); return; } apply(function (ns) { ns.speed = v; }); running[1](true); }
     function openRoom(nr) {
@@ -779,7 +785,7 @@
             h("div", { className: "eyebrow" }, scn.schicht + " · " + scn.station),
             h("h3", { style: { margin: "6px 0 6px", fontSize: 19, letterSpacing: "-.02em" } }, scn.titel),
             h("p", { style: { margin: 0, lineHeight: 1.55 } }, scn.kurz),
-            h("div", { className: "st-facts" }, h("span", { className: "st-fact" }, scn.start + " bis " + scn.ende + " Uhr"), h("span", { className: "st-fact" }, scn.zimmer.length + " Zimmer · " + n + " Personen"), h("span", { className: "st-fact" }, scn.aufgaben.length + " mögliche Aufgaben"), h("span", { className: "st-fact" }, "ca. 20 bis 30 Minuten")),
+            h("div", { className: "st-facts" }, h("span", { className: "st-fact" }, scn.start + " bis " + scn.ende + " Uhr"), h("span", { className: "st-fact" }, scn.zimmer.length + " Zimmer · " + n + " Personen"), h("span", { className: "st-fact" }, scn.aufgaben.length + " mögliche Aufgaben"), h("span", { className: "st-fact" }, "ca. 20 bis 30 Minuten"), VAR ? h("span", { className: "st-fact" }, "jede Schicht anders") : null),
             h("div", { className: "st-row" }, h("button", { type: "button", className: "btn", onClick: function () { start(scn); } }, h(Ic, { k: "play", s: 16 }), "Schicht beginnen")));
         }),
         h("div", { className: "st-card" }, h("h3", { className: "st-h3" }, "So funktioniert es"),
@@ -793,8 +799,8 @@
     if (view[0] === "uebergabe") {
       return h("div", { className: "st" },
         h("div", { className: "st-card" },
-          h("div", { className: "eyebrow" }, sc.schicht + " · " + sc.station + " · " + sc.start + " Uhr"),
-          h("h2", { style: { margin: "6px 0 8px", fontSize: 22, letterSpacing: "-.02em" } }, "Übergabe vom Nachtdienst"),
+          h("div", { className: "eyebrow" }, sc.schicht + " · " + sc.station + " · " + sc.start + " Uhr" + (sc._seed != null ? " · Schicht " + String(sc._seed % 9000 + 1000) : "")),
+          h("h2", { style: { margin: "6px 0 8px", fontSize: 22, letterSpacing: "-.02em" } }, "Übergabe vom " + (sc.uebergabeVon || ({ "Frühdienst": "Nachtdienst", "Spätdienst": "Frühdienst", "Nachtdienst": "Spätdienst" })[sc.schicht] || "Vordienst")),
           h("p", { style: { margin: 0, lineHeight: 1.55 } }, sc.rolle)),
         h("div", { className: "st-card" }, h("div", { className: "st-list" }, sc.zimmer.map(function (z) {
           return z.betten.map(function (pid, i) {
@@ -829,7 +835,7 @@
         h("div", { className: "st-card st-plan" },
           h("h3", { className: "st-h3" }, h("span", null, "Stationsplan"), h("span", { className: "st-legend" }, h("span", null, h("i", { style: { background: "var(--warn,#ff9500)" } }), "beobachten"), h("span", null, h("i", { style: { background: "var(--bad,#ff3b30)" } }), "kritisch"))),
           h("div", { className: "st-rooms" }, rows[0].map(function (z) { return h(Room, { key: z.nr, sc: sc, st: st, z: z, open: openRoom }); })),
-          h("div", { className: "st-corr" }, h("span", null, "Flur"), h("b", null, h(Ic, { k: "steth", s: 14 }), "Stützpunkt · Sabine Hoffmann"), h("span", null, "Arbeitsraum")),
+          h("div", { className: "st-corr" }, h("span", null, "Flur"), h("b", null, h(Ic, { k: "steth", s: 14 }), "Stützpunkt · " + (sc.stuetzpunkt || "Sabine Hoffmann")), h("span", null, "Arbeitsraum")),
           h("div", { className: "st-rooms" }, rows[1].map(function (z) { return h(Room, { key: z.nr, sc: sc, st: st, z: z, open: openRoom }); }).concat(rows[1].length < 3 ? [h("div", { key: "g", className: "st-room ghost", "aria-hidden": "true" }, h("span", { className: "st-rh" }, h("b", null, "Dienstzimmer")), h("span", { className: "st-muted", style: { fontSize: 12.5 } }, "Übergabe, Kurven, Telefon"))] : []))),
         h("div", { className: "st-side" },
           h("div", { className: "st-seg st-tabs", role: "tablist", "aria-label": "Ansicht" },
