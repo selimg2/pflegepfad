@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Fallpfad Styleguide</title>
+<link rel="stylesheet" href="css/08-system.css">
+<style>
+  :root{--bg:#f5f7fa;--surface:#fff;--fg:#0f172a;--muted:#5b6b82;--line:rgba(190,204,228,.65);--accent:#0062FF;--ok:#10B981;--warn:#F59E0B;--bad:#EF4444;color-scheme:light dark}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#05070b;--surface:#0e1219;--fg:#f2f4f8;--muted:#9aa6b8;--line:rgba(58,70,92,.7);--accent:#3B82F6}}
+  :root[data-theme="dark"]{--bg:#05070b;--surface:#0e1219;--fg:#f2f4f8;--muted:#9aa6b8;--line:rgba(58,70,92,.7);--accent:#3B82F6}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 -apple-system,BlinkMacSystemFont,"SF Pro Text","Inter","Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+  header,main{max-width:1080px;margin:0 auto;padding:0 16px}
+  header{padding-top:40px;padding-bottom:8px}
+  h1{font-size:34px;letter-spacing:-.02em;margin:0 0 6px}
+  h2{font-size:22px;letter-spacing:-.01em;margin:44px 0 6px}
+  h3{font-size:17px;margin:20px 0 6px}
+  p{margin:0 0 10px;max-width:68ch;color:var(--muted)}
+  .lead{font-size:17px}
+  .grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr))}
+  .grid.wide{grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr))}
+  .card{background:var(--surface);border-radius:16px;box-shadow:var(--elev-1);padding:14px;overflow:hidden}
+  .card small{display:block;color:var(--muted);font-size:13px;margin-top:6px}
+  .sw{height:56px;border-radius:10px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
+  .scene{border-radius:12px;overflow:hidden;background:#eef3f8}
+  .scene svg{display:block;width:100%;height:auto}
+  .faces{display:flex;flex-wrap:wrap;gap:12px}
+  .faces figure{margin:0;width:88px;text-align:center;font-size:12px;color:var(--muted)}
+  .faces svg{width:88px;height:88px}
+  .type div{padding:6px 0;border-bottom:1px solid var(--line)}
+  .rule{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .do,.dont{border-radius:12px;padding:12px 14px;font-size:14px}
+  .do{background:color-mix(in srgb,var(--ok) 12%,var(--surface))}
+  .dont{background:color-mix(in srgb,var(--bad) 10%,var(--surface))}
+  .do b,.dont b{display:block;margin-bottom:4px}
+  .motion{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .motion button{font:inherit;border:0;border-radius:12px;padding:10px 14px;background:var(--accent);color:#fff;cursor:pointer}
+  .ball{width:44px;height:44px;border-radius:12px;background:color-mix(in srgb,var(--accent) 20%,var(--surface));box-shadow:var(--elev-1)}
+  .ball.go{transform:translateX(160px)}
+  .t-fast{transition:transform var(--m-fast) var(--e-standard)}
+  .t-base{transition:transform var(--m-base) var(--e-standard)}
+  .t-slow{transition:transform var(--m-slow) var(--e-enter)}
+  code{font-size:13px;background:color-mix(in srgb,var(--fg) 6%,transparent);padding:1px 5px;border-radius:5px}
+  footer{max-width:1080px;margin:48px auto;padding:0 16px;color:var(--muted);font-size:13px}
+  @media (max-width:600px){.rule{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Fallpfad Styleguide</h1>
+  <p class="lead">Lebende Übersicht des Designsystems. Alle Bilder hier sind mit denselben Bausteinen gezeichnet wie in der App. Regeln und Begründungen stehen in <code>DESIGN_SYSTEM.md</code>.</p>
+</header>
+<main>
+  <h2>Grundsätze</h2>
+  <div class="grid">
+    <div class="card"><b>Die Gesichter führen</b><small>Die Patientengesichter sind der Qualitätsanker. Alles andere ist ruhiger als sie und lässt ihnen den Vortritt.</small></div>
+    <div class="card"><b>Eine Farbe, eine Bedeutung</b><small>Akzent für Bedienung, Grün/Gelb/Rot nur für Status. Bereichsfarben nur als zarte Tönung.</small></div>
+    <div class="card"><b>Bewegung erklärt</b><small>Bewegung antwortet auf eine Handlung oder zeigt eine Veränderung. Keine Dekoration, kein Überschwingen.</small></div>
+    <div class="card"><b>Ruhig vor laut</b><small>Wenige Flächen, eine Erhebung, klare Hierarchie über Größe und Gewicht, nicht über Farbe.</small></div>
+  </div>
+
+  <h2>Farben</h2>
+  <h3>Oberfläche</h3>
+  <div class="grid" id="ui-colors"></div>
+  <h3>Illustration (aus den Gesichtern abgeleitet)</h3>
+  <div class="grid" id="ill-colors"></div>
+
+  <h2>Typografie</h2>
+  <p>Systemschrift (SF Pro auf Apple-Geräten). Hierarchie über Größe und Gewicht. Überzeilen in normaler Schreibweise, keine Versalien.</p>
+  <div class="card type">
+    <div style="font-size:34px;font-weight:700;letter-spacing:-.02em">Large Title 34 · fett</div>
+    <div style="font-size:28px;font-weight:700;letter-spacing:-.02em">Title 1 · 28 · fett</div>
+    <div style="font-size:22px;font-weight:700">Title 2 · 22 · fett</div>
+    <div style="font-size:17px;font-weight:600">Headline · 17 · halbfett</div>
+    <div style="font-size:17px">Body · 17 · normal, Zeilenhöhe 1,5</div>
+    <div style="font-size:15px;color:var(--muted)">Subhead · 15 · gedämpft</div>
+    <div style="font-size:13px;font-weight:600;color:var(--muted)">Überzeile · 13 · halbfett, gedämpft, normale Schreibweise</div>
+  </div>
+
+  <h2>Flächen, Radien, Abstände</h2>
+  <div class="grid">
+    <div class="card"><b>Radius nach Ebene</b><small>6 Marke · 10 Eingabe · 12 Knopf/Symbolfeld · 16 Karte · 22 Blatt/Hero</small></div>
+    <div class="card"><b>Eine Erhebung</b><small><code>--elev-1</code> für alle Karten, <code>--elev-2</code> nur für schwebende Ebenen (Menüs, Hinweise).</small></div>
+    <div class="card"><b>4er-Raster</b><small>4 · 8 · 12 · 16 · 20 · 24 · 32 · 40. Seitenrand am Handy 16.</small></div>
+  </div>
+
+  <h2>Bewegung</h2>
+  <p>Drei Dauern, drei Kurven. Tippe auf die Knöpfe. Bei „Bewegung reduzieren“ springt alles ohne Animation.</p>
+  <div class="card">
+    <div class="motion"><button type="button" data-ball="b1">140 ms · Druck, Farbe</button><div class="ball t-fast" id="b1"></div></div>
+    <div class="motion" style="margin-top:10px"><button type="button" data-ball="b2">220 ms · Zustand</button><div class="ball t-base" id="b2"></div></div>
+    <div class="motion" style="margin-top:10px"><button type="button" data-ball="b3">360 ms · Erscheinen</button><div class="ball t-slow" id="b3"></div></div>
+    <small>Szenen: Atmen 4,8 s (1,8 %), Blinzeln alle 5,6 s, Rufanlage 2,4 s. Nie mehr als drei Wechsel pro Sekunde.</small>
+  </div>
+
+  <h2>Gesichter: der Stil-Anker</h2>
+  <p>Ovaler Kopf, Ohren als Kreise, Punktaugen, Brauen und Mund als einfache Linien, Kontur 3 von 120 Einheiten. Stimmung nur über Brauen, Augen und Mund.</p>
+  <div class="card"><div class="faces" id="faces"></div></div>
+
+  <h2>Figuren und Posen</h2>
+  <p>Gleiche Köpfe wie oben, Kopf etwa ein Fünftel der Körperhöhe, Hände als Fäustling mit Daumen, Hände reichen bis zur Oberschenkelmitte.</p>
+  <div class="grid wide" id="poses"></div>
+
+  <h2>Patient im Bett</h2>
+  <div class="grid wide" id="beds"></div>
+
+  <h2>Objekte</h2>
+  <div class="card scene" id="objects"></div>
+
+  <h2>Referenzszene: Stationsflur</h2>
+  <p>Erzählt den Kern der Stationsalltag-Simulation: Zimmer, Rufanlage, Übergabe, Stützpunkt, Uhrzeit. Bewegung: Atmen, Blinzeln, Rufanlage.</p>
+  <div class="card scene" id="ward"></div>
+
+  <h2>Regeln in Beispielen</h2>
+  <div class="rule">
+    <div class="do"><b>So</b>Navigation einfarbig, aktiver Bereich im Akzent.</div>
+    <div class="dont"><b>Nicht so</b>Neun verschiedene gesättigte Farbkreise in der Seitenleiste.</div>
+    <div class="do"><b>So</b>Überzeile „Simulation · ohne Vorbereitung“ in normaler Schreibweise.</div>
+    <div class="dont"><b>Nicht so</b>„SIMULATION · OHNE VORBEREITUNG“ in gesperrten Versalien über jeder Überschrift.</div>
+    <div class="do"><b>So</b>Bestätigung durch Farbe und Häkchen, 220 ms.</div>
+    <div class="dont"><b>Nicht so</b>Hüpfen auf 115 % beim Auswählen, Ring bei jedem Antippen.</div>
+    <div class="do"><b>So</b>Hand liegt auf der Decke, Unterarm leicht abgewinkelt.</div>
+    <div class="dont"><b>Nicht so</b>Arm schwebt als Röhre über dem Körper, Hand als Ellipse.</div>
+  </div>
+</main>
+<footer>Synthetische Personen, keine echten Patientendaten. Stand 11/2026.</footer>
+<script src="js/training/02-demo-schuelerkonto.js"></script>
+<script src="js/training/03-figuren-im-stil-der-module.js"></script>
+<script src="js/training/04-illustrationen-fuer-die-praktische.js"></script>
+<script src="js/training/05-figuren.js"></script>
+<script src="js/training/46-szenen-system.js"></script>
+<script src="js/styleguide.js"></script>
+</body>
+</html>

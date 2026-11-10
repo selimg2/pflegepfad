@@ -15,7 +15,15 @@
     return P(d, "none", 0, ' stroke="' + K + '" stroke-width="' + (w + 3.6) + '" stroke-linecap="round" stroke-linejoin="round"') +
       P(d, "none", 0, ' stroke="' + col + '" stroke-width="' + w + '" stroke-linecap="round" stroke-linejoin="round"');
   }
-  function hand(x, y, sk, r) { return '<ellipse cx="' + x + '" cy="' + y + '" rx="' + (r || 5.2) + '" ry="' + ((r || 5.2) * 1.15) + '" fill="' + sk + '" stroke="' + K + '" stroke-width="1.8"/>'; }
+  /* Hand: Fäustling mit Daumen, entlang des Unterarms ausgerichtet (ang in Grad, 90 = nach unten).
+     Ersetzt die früheren Ellipsen, damit Hände als Hände lesbar sind (Designsystem: Figurenregeln). */
+  function hand(x, y, sk, r, ang, side) {
+    r = r || 5.2; ang = ang == null ? 90 : ang; var w = r * 1.05, l = r * 1.55, t = side === "r" ? -1 : 1;
+    var d = "M" + (-w) + " " + (-l * 0.15) + "Q" + (-w) + " " + l + " 0 " + l + "Q" + w + " " + l + " " + w + " " + (-l * 0.15) + "Q" + w + " " + (-l * 0.55) + " 0 " + (-l * 0.55) + "Q" + (-w) + " " + (-l * 0.55) + " " + (-w) + " " + (-l * 0.15) + "Z";
+    var th = "M" + (t * w * 0.7) + " " + (-l * 0.05) + "Q" + (t * w * 1.75) + " " + (l * 0.05) + " " + (t * w * 1.25) + " " + (l * 0.55);
+    return '<g transform="translate(' + x + "," + y + ") rotate(" + (ang - 90) + ')"><path d="' + d + '" fill="' + sk + '" stroke="' + K + '" stroke-width="1.8" stroke-linejoin="round"/><path d="' + th + '" fill="none" stroke="' + K + '" stroke-width="1.6" stroke-linecap="round"/></g>';
+  }
+  function angOf(a, b) { return Math.atan2(b[1] - a[1], b[0] - a[0]) * 180 / Math.PI; }
   /* Hals: weich verjüngt, oben unter dem Kinn versteckt, unten unter dem Kragen */
   function neck(cx, top, base, wTop, wBase, sk) {
     var a = cx - wTop, b = cx + wTop, c = cx - wBase, d = cx + wBase, m = (top + base) / 2;
@@ -46,8 +54,8 @@
   F.stand = function (sp, x, y, o) {
     o = o || {};
     var kid = !!o.kid, sk = skinOf(sp), cl = sp.cloth || "#9cc3e6", pants = o.pants || (sp.deco === "scrubs" || sp.deco === "badge" ? dk(cl, 0.12) : "#5b6b80"), shoes = o.shoes || (sp.deco === "scrubs" || sp.deco === "badge" ? "#f8fafc" : "#334155");
-    var H = kid ? 134 : 184, sc = (o.h || (kid ? 124 : 184)) / H;
-    var s = "", hy = kid ? -108 : -160, hs = kid ? 68 : 70, nTop = kid ? -96 : -148, sh = kid ? -86 : -137, hip = kid ? -50 : -79, sw = kid ? 22 : 29;
+    var H = kid ? 140 : 194, sc = (o.h || (kid ? 124 : 184)) / H; /* o.h = Gesamthöhe inkl. Kopf */
+    var s = "", hy = kid ? -112 : -166, hs = kid ? 76 : 82, nTop = kid ? -96 : -148, sh = kid ? -86 : -137, hip = kid ? -50 : -79, sw = kid ? 22 : 29;
     /* Beine und Schuhe */
     if (o.skirt) s += P("M" + (-sw + 4) + " " + (hip - 2) + "L" + (-sw - 2) + " " + (hip + 40) + "Q0 " + (hip + 46) + " " + (sw + 2) + " " + (hip + 40) + "L" + (sw - 4) + " " + (hip - 2) + "Z", pants, 2) + limb([[-9, hip + 40], [-9, -8]], 7.5, sk) + limb([[9, hip + 40], [9, -8]], 7.5, sk);
     else s += P("M" + (-sw + 4) + " " + (hip - 1) + "H" + (sw - 4) + "L" + (sw - 6) + " -7Q" + (sw - 6) + " -4 " + (sw - 9) + " -4H4.5Q2 -4 2 -7L1 " + (hip + 18) + "Q0 " + (hip + 16) + " -1 " + (hip + 18) + "L-2 -7Q-2 -4 -4.5 -4H" + (-sw + 9) + "Q" + (-sw + 6) + " -4 " + (-sw + 6) + " -7Z", pants, 2) +
@@ -57,7 +65,7 @@
     s += neck(0, nTop, sh + 1, kid ? 5 : 5.6, kid ? 7 : 8.5, sk);
     var torso = "M-8 " + sh + "C" + (-sw + 8) + " " + sh + " " + (-sw + 1) + " " + (sh + 2) + " " + (-sw) + " " + (sh + 8) + "C" + (-sw - 1.5) + " " + (sh + 20) + " " + (-sw + 1) + " " + (hip - 16) + " " + (-sw + 3) + " " + (hip + 2) + "H" + (sw - 3) + "C" + (sw - 1) + " " + (hip - 16) + " " + (sw + 1.5) + " " + (sh + 20) + " " + sw + " " + (sh + 8) + "C" + (sw - 1) + " " + (sh + 2) + " " + (sw - 8) + " " + sh + " 8 " + sh + "Q0 " + (sh + 6) + " -8 " + sh + "Z";
     /* Arme hinter dem Rumpf (bei Posen nach vorn darüber) */
-    var la = [[-sw + 2, sh + 8], [-sw - 3, sh + 32], [-sw - 1, hip + 4]], ra = [[sw - 2, sh + 8], [sw + 3, sh + 32], [sw + 1, hip + 4]];
+    var la = [[-sw + 2, sh + 8], [-sw - 4, sh + 36], [-sw, hip + 24]], ra = [[sw - 2, sh + 8], [sw + 4, sh + 36], [sw, hip + 24]]; /* Hände auf Höhe der Oberschenkelmitte */
     var pose = o.pose || "down";
     if (pose === "assist") la = [[-sw + 2, sh + 8], [-sw - 12, sh + 28], [-sw - 30, sh + 30]];
     if (pose === "reach") ra = [[sw - 2, sh + 8], [sw + 14, sh + 24], [sw + 34, sh + 22]];
@@ -65,16 +73,20 @@
     if (pose === "wave") ra = [[sw - 2, sh + 8], [sw + 14, sh - 4], [sw + 12, sh - 28]];
     if (pose === "hips") { la = [[-sw + 2, sh + 8], [-sw - 12, sh + 28], [-sw + 2, hip - 4]]; ra = [[sw - 2, sh + 8], [sw + 12, sh + 28], [sw - 2, hip - 4]]; }
     if (pose === "hold") { la = [[-sw + 2, sh + 8], [-sw - 4, sh + 30], [-8, sh + 38]]; ra = [[sw - 2, sh + 8], [sw + 4, sh + 30], [8, sh + 38]]; }
+    /* neue Posen (Designsystem): Klemmbrett vor der Brust, erklärende Geste */
+    if (pose === "chart") { la = [[-sw + 2, sh + 8], [-sw - 3, sh + 34], [-6, sh + 30]]; ra = [[sw - 2, sh + 8], [sw + 3, sh + 34], [6, sh + 44]]; }
+    if (pose === "talk") { ra = [[sw - 2, sh + 8], [sw + 8, sh + 32], [sw + 20, sh + 20]]; }
     var armW = kid ? 7 : 8.6, sleeve = sp.deco === "scrubs" || sp.deco === "badge" || sp.short ? 0.42 : 0.62;
     function arm(a) {
       var m = [a[0][0] + (a[1][0] - a[0][0]) * sleeve * 1.6, a[0][1] + (a[1][1] - a[0][1]) * sleeve * 1.6];
       if (sleeve * 1.6 > 1) m = [a[1][0] + (a[2][0] - a[1][0]) * (sleeve * 1.6 - 1), a[1][1] + (a[2][1] - a[1][1]) * (sleeve * 1.6 - 1)];
       var skinPart = sleeve * 1.6 > 1 ? [m, a[2]] : [m, a[1], a[2]], clothPart = sleeve * 1.6 > 1 ? [a[0], a[1], m] : [a[0], m];
-      return limb(a, armW - 1.4, sk) + limb(clothPart, armW + 0.6, cl) + hand(a[2][0], a[2][1] + 3, sk, kid ? 4.4 : 5);
+      return limb(a, armW - 1.4, sk) + limb(clothPart, armW + 0.6, cl) + hand(a[2][0], a[2][1] + 2, sk, kid ? 4.4 : 5, angOf(a[1], a[2]), a[2][0] > 0 ? "r" : "l");
     }
-    var front = pose === "assist" || pose === "reach" || pose === "support" || pose === "hold" || pose === "wave";
+    var front = pose === "assist" || pose === "reach" || pose === "support" || pose === "hold" || pose === "wave" || pose === "chart" || pose === "talk";
     if (!front) s += arm(la) + arm(ra);
     s += P(torso, cl, 2.2) + P("M" + (-sw + 4) + " " + (hip - 6) + "H" + (sw - 4), "none", 0, ' stroke="' + dk(cl, 0.12) + '" stroke-width="1.2" opacity=".7"') + clothDeco(sp, 0, sh);
+    if (pose === "chart") s += '<g transform="translate(-14,' + (sh + 18) + ') rotate(-6)"><rect x="0" y="0" width="30" height="38" rx="4" fill="#c9a77c" stroke="' + K + '" stroke-width="1.8"/><rect x="4" y="6" width="22" height="28" rx="2" fill="#fff" stroke="' + K + '" stroke-width="1.3"/><path d="M8 14h14M8 20h14M8 26h9" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/><rect x="10" y="-3" width="10" height="6" rx="2" fill="#94a3b8" stroke="' + K + '" stroke-width="1.3"/></g>';
     if (front) s += arm(la) + arm(ra);
     /* Kopf */
     s += headAt(sp, o.mood || "neutral", 0, hy, hs, o.flip, o.tilt);
@@ -104,8 +116,8 @@
     up += P("M-12 4C-16 -16 -16 -40 -12 -54C-9 -60 -2 -62 4 -61C10 -62 16 -60 18 -53C21 -40 20 -16 16 4Z", cl, 2.2) + clothDeco(sp, 4, -60);
     var arms = o.arms || "lap", a = arms === "rest" ? [[6, -54], [2, -28], [18, -20]] : arms === "forward" ? [[6, -54], [20, -36], [40, -40]] : [[6, -54], [6, -28], [28, -12]];
     if (o.reach) { var rl = [(o.reach[0] - x) / sc * (o.flip ? -1 : 1), (o.reach[1] - y) / sc]; a = [[6, -54], [(6 + rl[0]) / 2 - 2, Math.max(-54, rl[1]) / 2 + Math.max(-54, rl[1]) / 2 + 18], [rl[0] - 2, rl[1]]]; if (a[1][1] < -30) a[1][1] = Math.min(-30, (rl[1] - 54) / 2 + 22); }
-    up += limb(a, 7.2, sk) + limb([a[0], [a[0][0] + (a[1][0] - a[0][0]) * 0.75, a[0][1] + (a[1][1] - a[0][1]) * 0.75]], 9.2, cl) + hand(a[2][0] + 2, a[2][1] + 1, sk);
-    up += headAt(sp, o.mood || "neutral", 6, -85, 66, o.flip, o.tilt);
+    up += limb(a, 7.2, sk) + limb([a[0], [a[0][0] + (a[1][0] - a[0][0]) * 0.75, a[0][1] + (a[1][1] - a[0][1]) * 0.75]], 9.2, cl) + hand(a[2][0] + 2, a[2][1] + 1, sk, 5, angOf(a[1], a[2]), "r");
+    up += headAt(sp, o.mood || "neutral", 6, -88, 74, o.flip, o.tilt);
     s += '<g transform="rotate(' + ang + ')">' + up + "</g>";
     var hp = [Math.sin(-ang * Math.PI / 180) * 85 + 6, -Math.cos(ang * Math.PI / 180) * 85];
     X._fig = { x: x, y: y, sc: sc, head: [x + (o.flip ? -1 : 1) * hp[0] * sc, y + hp[1] * sc], hand: [x + (o.flip ? -1 : 1) * (a[2][0] + 2) * sc, y + a[2][1] * sc], knee: [x + (o.flip ? -1 : 1) * knee[0] * sc, y + knee[1] * sc], foot: [x + (o.flip ? -1 : 1) * fx * sc, y + fy * sc] };
@@ -142,9 +154,9 @@
     /* Hals, Rumpf, Arme */
     s += neck(0, -76, -59, 5.8, 8.5, sk);
     s += P("M-8 -60C-18 -60 -24 -58 -26 -52C-28 -42 -27 -20 -25 -4H25C27 -20 28 -42 26 -52C24 -58 18 -60 8 -60Q0 -54 -8 -60Z", cl, 2.2) + clothDeco(sp, 0, -60);
-    s += limb([[-25, -50], [-31, -26], [-20, -8]], 7.2, sk) + limb([[-25, -50], [-29, -34]], 9.4, cl) + hand(-18, -6, sk);
-    s += limb([[25, -50], [31, -26], [20, -8]], 7.2, sk) + limb([[25, -50], [29, -34]], 9.4, cl) + hand(18, -6, sk);
-    s += headAt(sp, o.mood || "neutral", 0, -85, 66, false, o.tilt);
+    s += limb([[-25, -50], [-31, -26], [-20, -8]], 7.2, sk) + limb([[-25, -50], [-29, -34]], 9.4, cl) + hand(-19, -5, sk, 5, angOf([-31, -26], [-20, -8]), "l");
+    s += limb([[25, -50], [31, -26], [20, -8]], 7.2, sk) + limb([[25, -50], [29, -34]], 9.4, cl) + hand(19, -5, sk, 5, angOf([31, -26], [20, -8]), "r");
+    s += headAt(sp, o.mood || "neutral", 0, -88, 74, false, o.tilt);
     X._fig = { x: x, y: y, sc: sc, head: [x, y - 85 * sc], lap: [x, y], footR: [x + 12 * sc, y + 54 * sc], footL: [x - 12 * sc, y + 54 * sc] };
     return wrap(s, x, y, sc, false, o.cls);
   };
@@ -157,7 +169,7 @@
     /* Kissen */
     s += '<rect x="' + (x0 + 2) + '" y="' + (y - 16) + '" width="58" height="24" rx="11" fill="#ffffff" stroke="' + K + '" stroke-width="2"/>' + P("M" + (x0 + 12) + " " + (y - 2) + "q18 6 36 0", "none", 0, ' stroke="#e2e8f0" stroke-width="2"');
     /* Kopf leicht zur Seite geneigt auf dem Kissen */
-    s += headAt(sp, o.mood || "sleepy", x0 + 38, y - 24, 66, false, o.tilt == null ? -12 : o.tilt);
+    s += headAt(sp, o.mood || "sleepy", x0 + 38, y - 26, 72, false, o.tilt == null ? -12 : o.tilt);
     /* Decke mit Körperkontur */
     var x1 = x0 + len, kn = o.legs === "knee";
     var top = "M" + (x0 + 50) + " " + (y + 6) + "Q" + (x0 + 56) + " " + (y - 18) + " " + (x0 + 84) + " " + (y - 18) + "C" + (x0 + 120) + " " + (y - 20) + " " + (x0 + 140) + " " + (y - 12) + " " + (x0 + len * 0.55) + " " + (y - 12) +
@@ -167,7 +179,7 @@
     s += P(top, bl, 2.2);
     s += P("M" + (x0 + 58) + " " + (y - 8) + "Q" + (x0 + 62) + " " + (y - 16) + " " + (x0 + 84) + " " + (y - 16), "none", 0, ' stroke="#ffffff" stroke-width="5" stroke-linecap="round" opacity=".85"');
     s += P("M" + (x0 + 100) + " " + (y - 6) + "q8 14 2 28M" + (x0 + len * 0.62) + " " + (y - 8) + "q10 16 4 30", "none", 0, ' stroke="' + dk(bl, 0.14) + '" stroke-width="1.6"');
-    if (o.arm) s += limb([[x0 + 74, y - 8], [x0 + 118, y - 12]], 7.2, sk) + hand(x0 + 122, y - 11, sk);
+    if (o.arm) s += limb([[x0 + 74, y - 8], [x0 + 118, y - 12]], 7.2, sk) + hand(x0 + 123, y - 12, sk, 5, -5, "l");
     X._fig = { head: [x0 + 38, y - 24], chest: [x0 + 92, y - 14], hip: [x0 + len * 0.5, y - 12], feet: [x1 - 14, y - 12], knee: [x0 + len * 0.76, y - (kn ? 36 : 12)] };
     return s;
   };

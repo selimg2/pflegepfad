@@ -1,0 +1,165 @@
+/* =====================================================================
+   Fallpfad Designsystem – Ebene 08 (lädt als letzte CSS-Datei)
+   Regeln und Begründungen: DESIGN_SYSTEM.md · Live-Übersicht: styleguide.html
+   Grundsatz: ruhig, klinisch klar, menschlich warm. Eine Farbe bedeutet eine Sache.
+   Die Persönlichkeit liegt in den Figuren, nicht im Rahmen.
+   ===================================================================== */
+
+/* ---------- 1. Tokens ---------- */
+:root{
+  /* Illustration (aus den Patientengesichtern abgeleitet) */
+  --ill-ink:#1d1d1f;            /* Konturlinie aller Figuren und Objekte */
+  --ill-wall:#eef3f8;           /* Zimmerwand */
+  --ill-floor:#dbe5ef;          /* Boden */
+  --ill-linen:#e6eef8;          /* Bettwäsche, Decke */
+  --ill-gown:#9cc3e6;           /* Patientenhemd Standard */
+  --ill-scrubs:#2f4f7a;         /* Pflegekleidung Standard */
+  --ill-metal:#b6c3d3;          /* Bettgestell, Infusionsständer */
+  --ill-wood:#e9dcc7;           /* Nachttisch, Holz */
+  --ill-shadow:rgba(11,27,51,.10);
+
+  /* Abstände (4er-Raster) */
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:20px; --sp-6:24px; --sp-8:32px; --sp-10:40px;
+
+  /* Radien nach Hierarchie: je größer die Fläche, desto runder */
+  --r-xs:6px; --r-sm:10px; --r-md:12px; --r-lg:16px; --r-xl:22px; --r-pill:999px;
+
+  /* Eine Erhebung, nicht zehn */
+  --elev-1:0 1px 2px rgba(15,23,42,.05),0 0 0 1px rgba(15,23,42,.045);
+  --elev-2:0 10px 28px -12px rgba(15,23,42,.22),0 0 0 1px rgba(15,23,42,.05);
+
+  /* Bewegung: drei Dauern, drei Kurven, kein Überschwingen */
+  --m-fast:140ms; --m-base:220ms; --m-slow:360ms; --m-scene:600ms;
+  --e-standard:cubic-bezier(.2,0,0,1);
+  --e-enter:cubic-bezier(.05,.7,.1,1);
+  --e-exit:cubic-bezier(.3,0,.8,.15);
+  --ease:var(--e-standard);
+
+  /* Typografie-Skala (Systemschrift, an iOS angelehnt) */
+  --t-large:34px; --t-title1:28px; --t-title2:22px; --t-title3:20px; --t-body:17px; --t-callout:16px; --t-sub:15px; --t-foot:13px; --t-cap:12px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ill-shadow:rgba(0,0,0,.28);
+  --elev-1:0 0 0 1px rgba(255,255,255,.06);
+  --elev-2:0 16px 40px -14px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.07);
+}}
+:root[data-theme="dark"]{
+  --ill-shadow:rgba(0,0,0,.28);
+  --elev-1:0 0 0 1px rgba(255,255,255,.06);
+  --elev-2:0 16px 40px -14px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.07);
+}
+
+/* ---------- 2. Typografie: Überzeilen ohne Versalien ----------
+   Versalien mit Sperrung wirkten wie eine Vorlage und sind schwerer lesbar.
+   Überzeilen sind jetzt normale Schrift, halbfett, gedämpft. */
+html:root body section.trsec>h2.trsech,html:root body .eyebrow,html:root body main.main .hello .eyebrow,html:root body .fp-only-settings .card h3,html body .pxphase>span b,html body .pxtable th,html body .pxcaset small,html body .pxmonv small,html body .pxkurve th,html body .fxpm-sec>span,html body .ls-ph>span,html body .ls-words>small,html body .fxm-card small,html body .fxl-rolecard small,html body .rh-thought span,html body .rh-pmr-t span,html body .klabel,html body .tag,html body .dokuhead,html body .sg,html body .tkeyebrow,
+html body .tkrh,html body .tkmh,html body .trsech,html body .pxmonh,html body .fxp-eyebrow,html body .fxl-kicker,
+html body .p2lbl,html body .fpm-head,html body .fpm-tl,html body .fp-mk-k,html body .fps-h{
+  text-transform:none!important;letter-spacing:0!important;font-weight:600!important;
+}
+html:root body section.trsec>h2.trsech,html:root body .eyebrow,html body .trsech,html body .fps-h,html body .fpm-head,html body .sg{font-size:var(--t-foot)!important;color:var(--muted)!important}
+html body .fxp-eyebrow,html body .fxl-kicker{color:var(--muted)!important}
+/* kleine Statusmarken (WICHTIG, NUR AN DICH) bleiben kurz, aber ohne Schreien */
+html body .msg2tag,html body .tkkind,html body .fxl-new,html body .fpm-tier{text-transform:none!important;letter-spacing:0!important;font-weight:650!important}
+
+/* ---------- 3. Farbe: eine Farbe bedeutet eine Sache ----------
+   Vorher: neun gesättigte Farbkreise in der Navigation und auf der Startseite.
+   Jetzt: Navigation einfarbig, aktiv = Akzent. Bereichsfarben nur noch als zarte Tönung im Symbolfeld. */
+html body .side .tab.fx-nav svg,html body .side .tab svg{color:var(--muted)!important;stroke:currentColor!important;background:none!important;box-shadow:none!important;padding:3px!important}
+html body .side .tab.fx-nav svg path,html body .side .tab svg path{stroke:currentColor!important}
+html body .side .tab.fx-nav[aria-current=page],html body .side .tab.fx-nav.on{
+  background:color-mix(in srgb,var(--accent) 10%,transparent)!important;color:var(--fg)!important;box-shadow:none!important}
+html body .side .tab.fx-nav[aria-current=page] svg,html body .side .tab.fx-nav.on svg{color:var(--accent)!important}
+html body .side .tab.fx-nav:hover:not([aria-current=page]){background:color-mix(in srgb,var(--fg) 5%,transparent)!important}
+html body .side .tab.fx-nav:hover svg{transform:none!important}
+/* Seitenleiste: farbige Kreise hinter den Symbolen entfernen */
+html body .side .tab .fxs-ic,html body .side .tab>i,html body .side .tab .ic{background:none!important;color:inherit!important}
+
+/* Symbolfelder auf Kacheln: getönt statt voll gesättigt */
+html body .fx-ic,html body .trico{
+  background:color-mix(in srgb,var(--c,var(--accent)) 12%,var(--surface))!important;
+  color:color-mix(in srgb,var(--c,var(--accent)) 82%,var(--fg))!important;
+  border-radius:var(--r-md)!important;box-shadow:none!important;border:0!important}
+html body .fx-ic svg,html body .trico svg{color:inherit!important;stroke:currentColor!important}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body .fx-ic,:root:not([data-theme="light"]) body .trico{
+  background:color-mix(in srgb,var(--c,var(--accent)) 22%,var(--surface))!important;color:color-mix(in srgb,var(--c,var(--accent)) 55%,#fff)!important}}
+:root[data-theme="dark"] body .fx-ic,:root[data-theme="dark"] body .trico{
+  background:color-mix(in srgb,var(--c,var(--accent)) 22%,var(--surface))!important;color:color-mix(in srgb,var(--c,var(--accent)) 55%,#fff)!important}
+
+/* Trainingskacheln: dekorative Viertelkreise entfernt (trugen keine Information) */
+html:root body .trgrid .trtile,html:root body .trgrid .trtile.big,html:root body .trgrid .trtile.feat,html:root body .trgrid .trtile:hover{background:var(--surface)!important}
+
+/* ---------- 4. Flächen: ein Radius je Ebene, eine Erhebung ---------- */
+html body .card,html body .trtile,html body .fx-t,html body .simcard,html body .pxcase{box-shadow:var(--elev-1)!important}
+
+/* ---------- 5. Demo-Hinweis: verdeckt keine Inhalte mehr ----------
+   Vorher schwebte die Pille über Text und Knöpfen. Jetzt: auf dem Handy eine schmale Leiste direkt über der
+   Tab-Leiste (Teil der Bedienleiste, nicht des Inhalts), am Desktop klein unten rechts. */
+html body #fx-demo{left:0!important;right:0!important;bottom:calc(59px + env(safe-area-inset-bottom,0px))!important;top:auto!important;
+  justify-content:center;gap:10px!important;border-radius:0!important;padding:3px 10px!important;font-size:12px!important;
+  background:color-mix(in srgb,var(--surface) 86%,transparent)!important;color:var(--muted)!important;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 -1px 0 var(--line)!important}
+html body #fx-demo button{padding:3px 10px!important;font-size:12px!important;background:color-mix(in srgb,var(--accent) 12%,transparent)!important;color:var(--accent)!important;font-weight:600}
+html body main.main,html body main{padding-bottom:calc(96px + 26px)!important}
+@media (min-width:960px){
+  html body #fx-demo{left:auto!important;right:16px!important;bottom:16px!important;border-radius:999px!important;padding:4px 4px 4px 12px!important;box-shadow:var(--elev-2)!important}
+  html body main.main,html body main{padding-bottom:48px!important}
+}
+
+/* ---------- 6. Gesichter sind der Anker: genug Platz, keine Überlappung ---------- */
+html body .pxpat{padding-left:88px!important}
+html body .pxpatav{position:absolute!important;left:14px;top:50%;transform:translateY(-50%);width:58px!important;height:58px!important;margin:0!important}
+html body .pxpatav .pxavw{width:58px!important;height:58px!important}
+/* Gesprächsverläufe: Avatar oben am Beginn der Sprechblase ausrichten */
+html body .pxmsg,html body .pxchat .pxrow{align-items:flex-start!important}
+
+/* ---------- 7. Fokus und Bedienbarkeit ---------- */
+html body :focus-visible{outline:2.5px solid color-mix(in srgb,var(--accent) 70%,transparent)!important;outline-offset:2px!important}
+
+/* ---------- 8. Szenen (Illustrationen) ---------- */
+/* Grundsatz: Szenen erklären, Bewegung ist leise. Atmen, Blinzeln, Tropfen, nie Hüpfen. */
+.fp-breathe{transform-box:fill-box;transform-origin:50% 100%;animation:fp-breathe 4.8s var(--e-standard) infinite}
+.fp-blink{transform-box:fill-box;transform-origin:50% 50%;animation:fp-blink 5.6s linear infinite}
+.fp-sway{transform-box:fill-box;transform-origin:50% 0;animation:fp-sway 7s ease-in-out infinite}
+.fp-enter{animation:fp-enter var(--m-scene) var(--e-enter) both}
+.fp-fade{animation:fp-fade var(--m-slow) var(--e-standard) both}
+@keyframes fp-breathe{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.018)}}
+@keyframes fp-blink{0%,93%,100%{transform:scaleY(1)}95.5%{transform:scaleY(.08)}}
+@keyframes fp-sway{0%,100%{transform:skewX(0)}50%{transform:skewX(.8deg)}}
+@keyframes fp-enter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes fp-fade{from{opacity:0}to{opacity:1}}
+
+/* Alte Szenenanimationen auf die neuen Kurven und ohne Überschwingen bringen */
+html body .pa-pop{animation-timing-function:var(--e-enter)!important;animation-duration:var(--m-slow)!important}
+html body .pa-in,html body .pa-up,html body .pa-down,html body .pa-slide{animation-timing-function:var(--e-enter)!important}
+html body .pa-wiggle{animation-duration:1.6s!important}
+html body .pa-sway{animation-duration:7s!important}
+
+
+/* Händedesinfektion: Gegenbewegung beider Hände, gleichmäßig, wie beim echten Einreiben */
+.pa-rub{transform-box:fill-box;transform-origin:50% 100%;animation:fp-rub 1.5s cubic-bezier(.45,0,.55,1) infinite}
+.pa-rub-b{animation-name:fp-rub-b}
+@keyframes fp-rub{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(7px,-3px) rotate(3deg)}}
+@keyframes fp-rub-b{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(-7px,3px) rotate(-3deg)}}
+
+/* Überschwingende Keyframes ersetzt (gleicher Name, spätere Definition gewinnt) */
+@keyframes papop{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+@keyframes tkpop{50%{transform:scale(1.04)}}
+@keyframes pxbub{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes pain{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+@keyframes pxpopin{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes shake{25%,75%{transform:translateX(-3px)}50%{transform:translateX(3px)}}
+@keyframes stup{from{transform:translateY(16px);opacity:0}to{transform:none;opacity:1}}
+
+/* ---------- 9. Bewegung reduzieren ---------- */
+@media (prefers-reduced-motion:reduce){
+  html body *,html body *::before,html body *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+}
+
+/* Stationsflur-Illustration: Hintergrund läuft auf breiten Bildschirmen in Wand-, Handlauf- und Bodenfarbe weiter */
+html body .st-ward{background:linear-gradient(#e4ecf5 0 10%,#eef3f8 10% 54.5%,#e9dcc7 54.5% 57.3%,#eef3f8 57.3% 77.3%,#dfe8f2 77.3% 80%,#b3c3d6 80% 80.6%,#dbe5ef 80.6%)}
+
+/* Illustrationen im dunklen Modus: Farbwelt bleibt (wie ein Foto), nur etwas gedämpft */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body .st-ward svg,:root:not([data-theme="light"]) body .pxart2 svg{filter:brightness(.9) saturate(.95)}}
+:root[data-theme="dark"] body .st-ward svg,:root[data-theme="dark"] body .pxart2 svg{filter:brightness(.9) saturate(.95)}
