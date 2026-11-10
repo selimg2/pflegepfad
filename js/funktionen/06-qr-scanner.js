@@ -35,13 +35,17 @@
     ".qr-torch[aria-pressed=true]{background:#fff;color:#111}",
     ".qr-b{padding:14px 16px 18px;display:flex;flex-direction:column;gap:10px}",
     ".qr-hint{margin:0;color:var(--muted,#6b7280);font-size:13.5px;line-height:1.45}",
-    ".qr-code{display:flex;gap:8px}.qr-code input{flex:1;min-width:0;height:44px;border-radius:12px;border:1px solid var(--line,#e5e7eb);background:var(--surface2,#f6f7f9);color:var(--fg);padding:0 14px;font:inherit;font-size:17px;letter-spacing:.12em;text-transform:uppercase}",
+    ".qr-code{display:flex;gap:8px}.qr-code input{flex:1;min-width:0;height:44px;border-radius:12px;border:1px solid var(--line,#e5e7eb);background:var(--surface2,#f6f7f9);color:var(--fg);padding:0 14px;font:inherit;font-size:17px;letter-spacing:.12em;text-transform:uppercase}.qr-code input::placeholder{letter-spacing:0;text-transform:none;font-size:15px}",
     ".qr-res{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:14px;background:var(--surface2,#f2f2f7)}",
     ".qr-res .qr-ri{width:36px;height:36px;border-radius:10px;background:var(--accent,#0062FF);color:#fff;display:grid;place-items:center;flex:0 0 36px}",
     ".qr-res b{display:block;font-size:15px}.qr-res span{display:block;color:var(--muted);font-size:13.5px;word-break:break-all;margin-top:2px}",
     ".qr-row{display:flex;gap:8px;flex-wrap:wrap}.qr-row .btn{flex:1}",
     "@media (max-width:560px){.qr-bg{place-items:end stretch}.qr{width:100%;border-radius:24px 24px 0 0;padding-bottom:env(safe-area-inset-bottom,0px)}}",
-    ".iconbtn.fp-qrbtn svg{width:22px;height:22px}"
+    ".iconbtn.fp-qrbtn svg{width:22px;height:22px}",
+    // In einem geöffneten Modul ist die Kopfzeile auf Handy und iPad voll: QR und Assistent dort ausblenden, damit der Titel lesbar bleibt
+    // Schmale Handys: Symbole etwas enger, damit Titel und Ausbildungsjahr lesbar bleiben
+    "@media (max-width:430px){.topbar{gap:2px;padding-left:12px;padding-right:10px}.topbar .iconbtn{width:36px;height:36px}.topbar .t{margin-right:4px}}",
+    "@media (max-width:959px){.topbar:has(.iconbtn[aria-label=\"Stationen\"]) .fp-qrbtn,.topbar:has(.iconbtn[aria-label=\"Stationen\"]) .fp-ast-top{display:none!important}}"
   ].join("\n");
   var st = document.createElement("style"); st.id = "fp-qr-css"; st.textContent = CSS; (document.head || document.documentElement).appendChild(st);
 
