@@ -108,14 +108,14 @@
   function schichten(tiefe, extra) {
     var s = '<rect x="20" y="40" width="560" height="22" fill="#f6c9a8"/><rect x="20" y="62" width="560" height="38" fill="#eaa98a"/><rect x="20" y="100" width="560" height="44" fill="#fde68a"/><rect x="20" y="144" width="560" height="26" fill="#e07a6b"/><rect x="20" y="170" width="560" height="22" fill="#e5e7eb"/>';
     s += '<text x="586" y="56" font-size="11" fill="#475569" text-anchor="end">Oberhaut</text><text x="586" y="86" font-size="11" fill="#475569" text-anchor="end">Lederhaut</text><text x="586" y="126" font-size="11" fill="#475569" text-anchor="end">Unterhaut</text><text x="586" y="162" font-size="11" fill="#475569" text-anchor="end">Muskel</text><text x="586" y="186" font-size="11" fill="#475569" text-anchor="end">Knochen</text>';
-    if (tiefe > 0) { var ys = [0, 62, 100, 144, 196][tiefe]; s += '<path d="M 230 40 L 250 ' + ys + ' L 350 ' + ys + ' L 370 40 Z" fill="' + (tiefe >= 3 ? "#991b1b" : "#dc2626") + '"/>'; }
+    if (tiefe > 0) { var ys = [0, 84, 0, 134, 186][tiefe]; s += '<path d="M 230 40 L 250 ' + ys + ' L 350 ' + ys + ' L 370 40 Z" fill="' + (tiefe >= 3 ? "#991b1b" : "#dc2626") + '"/>'; }
     return frame(s + (extra || ""), "#fff");
   }
   var DEKU = {
-    k1: function () { return schichten(0, '<ellipse cx="300" cy="44" rx="90" ry="8" fill="#dc2626" opacity=".55"/><text x="300" y="28" font-size="13" fill="#7f1d1d" text-anchor="middle">nicht wegdrückbare Rötung, Haut intakt</text>'); },
-    k2: function () { return schichten(1, '<text x="300" y="28" font-size="13" fill="#7f1d1d" text-anchor="middle">flache, offene Wunde bis in die Lederhaut</text>'); },
-    k3: function () { return schichten(3, '<text x="300" y="28" font-size="13" fill="#7f1d1d" text-anchor="middle">Verlust aller Hautschichten bis ins Fettgewebe</text>'); },
-    k4: function () { return schichten(4, '<text x="300" y="28" font-size="13" fill="#7f1d1d" text-anchor="middle">bis auf Muskel oder Knochen</text>'); }
+    k1: function () { return schichten(0, '<ellipse cx="300" cy="44" rx="90" ry="8" fill="#dc2626" opacity=".55"/><text x="300" y="28" font-size="13" fill="#475569" text-anchor="middle">Querschnitt über dem Kreuzbein</text>'); },
+    k2: function () { return schichten(1, '<text x="300" y="28" font-size="13" fill="#475569" text-anchor="middle">Querschnitt über dem Kreuzbein</text>'); },
+    k3: function () { return schichten(3, '<text x="300" y="28" font-size="13" fill="#475569" text-anchor="middle">Querschnitt über dem Sitzbein</text>'); },
+    k4: function () { return schichten(4, '<text x="300" y="28" font-size="13" fill="#475569" text-anchor="middle">Querschnitt über der Ferse</text>'); }
   };
 
   /* ---- Haut und Gesicht ---- */
@@ -133,7 +133,7 @@
       for (var i = 0; i < 90; i++) d += '<circle cx="' + (80 + r() * 440) + '" cy="' + (30 + r() * 140) + '" r="' + (1.5 + r() * 1.6) + '" fill="#b91c1c"/>';
       return frame('<rect x="60" y="20" width="480" height="160" rx="60" fill="#f2c6a0"/>' + d, "#f1f5f9");
     },
-    oedem: function () { return frame('<path d="M 120 30 L 480 30 L 500 170 L 100 170 Z" fill="#f2c6a0"/><ellipse cx="300" cy="105" rx="28" ry="15" fill="#d9a77f"/><path d="M 272 105 q 28 18 56 0" stroke="#b07a52" stroke-width="2" fill="none"/><text x="300" y="196" font-size="12" text-anchor="middle" fill="#475569">Unterschenkel: Fingerdruck hinterlässt eine Delle</text>', "#f1f5f9"); },
+    oedem: function () { return frame('<path d="M 120 30 L 480 30 L 500 170 L 100 170 Z" fill="#f2c6a0"/><ellipse cx="300" cy="105" rx="28" ry="15" fill="#d9a77f"/><path d="M 272 105 q 28 18 56 0" stroke="#b07a52" stroke-width="2" fill="none"/><text x="300" y="196" font-size="12" text-anchor="middle" fill="#475569">Unterschenkel, einige Sekunden nach festem Fingerdruck</text>', "#f1f5f9"); },
     marmoriert: function () {
       var r = rnd(17), d = "";
       for (var i = 0; i < 26; i++) { var x = 90 + r() * 420, y = 40 + r() * 120; d += '<path d="M ' + x + " " + y + " q " + (20 + r() * 30) + " " + (-20 + r() * 40) + " " + (40 + r() * 40) + " " + (-10 + r() * 20) + '" stroke="#8b5cf6" stroke-width="3" fill="none" opacity=".6"/>'; }
@@ -182,7 +182,7 @@
   /* ---- Drainage ---- */
   function beutel(farbe, o) {
     o = o || {};
-    return frame('<path d="M 300 10 L 300 40" stroke="#94a3b8" stroke-width="5"/><rect x="230" y="40" width="140" height="150" rx="18" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2"/><rect x="236" y="' + (o.hoch ? 70 : 110) + '" width="128" height="' + (o.hoch ? 114 : 74) + '" rx="12" fill="' + farbe + '"/>' + (o.label ? '<text x="300" y="34" font-size="12" text-anchor="middle" fill="#475569">' + o.label + "</text>" : ""), "#f8fafc");
+    return frame('<path d="M 300 10 L 300 40" stroke="#94a3b8" stroke-width="5"/><rect x="230" y="40" width="140" height="150" rx="18" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2"/><rect x="236" y="' + (o.hoch ? 70 : 110) + '" width="128" height="' + (o.hoch ? 114 : 74) + '" rx="12" fill="' + farbe + '"/>' + (o.label ? '<text x="390" y="64" font-size="13" fill="#475569">' + o.label + "</text>" : ""), "#f8fafc");
   }
   var DRAIN = {
     seroes: function () { return beutel("#fde68a", { label: "Redon, 2. Tag" }); },
@@ -194,8 +194,8 @@
 
   /* ---- Atemmuster ---- */
   function welle(fn, label) {
-    var d = "M 20 100 ";
-    for (var x = 20; x <= 580; x += 3) d += "L " + x + " " + (100 - fn(x));
+    var d = "M 20 " + (100 - fn(20)) + " ";
+    for (var x = 23; x <= 580; x += 3) d += "L " + x + " " + (100 - fn(x));
     return frame('<line x1="20" y1="100" x2="580" y2="100" stroke="#e2e8f0"/>' + line(d, "#0ea5e9") + '<text x="20" y="190" font-size="12" fill="#475569">' + label + "</text>", "#f8fafc");
   }
   var ATEM = {
@@ -256,129 +256,131 @@
     B("deku", "k4", DEKU.k4, "Dekubitus Kategorie 4", "Welche Kategorie zeigt der Querschnitt?", ["Kategorie 4", "Kategorie 3", "Kategorie 2", "Kategorie 1"], 0, "Gewebeverlust bis auf Muskel, Sehne oder Knochen. Hohes Infektionsrisiko bis zur Knochenentzündung.", "Interprofessionelle Behandlung, häufig chirurgisch; Schmerz und Ernährung besonders beachten."),
 
     B("haut", "zya", HAUT.zyanose, "Zentrale Zyanose", "Was fällt an Lippen und Gesicht auf?", ["Zyanose", "Ikterus", "Normalbefund", "Anämie"], 0, "Bläuliche Verfärbung von Lippen und Schleimhäuten: Hinweis auf Sauerstoffmangel im Blut.", "Atmung, Sättigung und Bewusstsein prüfen, Oberkörper hoch, Sauerstoff nach Anordnung, ärztlich melden."),
-    B("haut", "ikt", HAUT.ikterus, "Ikterus", "Welche Veränderung siehst du?", ["Ikterus", "Zyanose", "Sonnenbräune", "Exanthem"], 0, "Gelbe Haut und vor allem gelbe Skleren: Bilirubinerhöhung, etwa bei Leber- oder Gallenwegserkrankung.", "Neu aufgetretenen Ikterus melden, auf dunklen Urin, hellen Stuhl und Juckreiz achten."),
-    B("haut", "bla", HAUT.blass, "Blässe", "Welche Ursache kommt bei dieser Blässe vor allem in Frage, wenn Puls 118/min und RR 92/55 mmHg sind?", ["Blutung oder Volumenmangel", "Sonnenmangel", "Gelbsucht", "Allergie"], 0, "Blasse Haut mit schnellem Puls und niedrigem Blutdruck: Schockzeichen, etwa durch Blutung.", "Flach lagern, Beine hoch, Vitalzeichen engmaschig, nach Blutungsquelle suchen, sofort ärztlich melden."),
-    B("haut", "pet", HAUT.petechien, "Petechien", "Was sind die stecknadelkopfgroßen roten Punkte, die sich nicht wegdrücken lassen?", ["Petechien", "Mückenstiche", "Akne", "Sommersprossen"], 0, "Punktförmige Einblutungen in die Haut, etwa bei Thrombozytenmangel. Mit Fieber und schlechtem Allgemeinzustand Verdacht auf Meningokokkensepsis.", "Glasprobe: Punkte verschwinden nicht. Ärztlich melden, bei Fieber sofort. Blutungszeichen beobachten."),
+    B("haut", "ikt", HAUT.ikterus, "Ikterus", "Welche Veränderung siehst du?", ["Ikterus", "Zyanose", "Karotinämie (Skleren bleiben weiß)", "Exanthem"], 0, "Gelbe Haut und vor allem gelbe Skleren: Bilirubinerhöhung, etwa bei Leber- oder Gallenwegserkrankung.", "Neu aufgetretenen Ikterus melden, auf dunklen Urin, hellen Stuhl und Juckreiz achten."),
+    B("haut", "bla", HAUT.blass, "Blässe", "Welche Ursache kommt bei dieser Blässe vor allem in Frage, wenn Puls 118/min und RR 92/55 mmHg sind?", ["Blutung oder Volumenmangel", "Hypertensive Krise", "Fieberanstieg", "Allergische Hautreaktion"], 0, "Blasse Haut mit schnellem Puls und niedrigem Blutdruck: Schockzeichen, etwa durch Blutung.", "Flach lagern, Beine hoch, Vitalzeichen engmaschig, nach Blutungsquelle suchen, sofort ärztlich melden."),
+    B("haut", "pet", HAUT.petechien, "Petechien", "Was sind die stecknadelkopfgroßen roten Punkte, die sich nicht wegdrücken lassen?", ["Petechien", "Hämatome", "Allergisches Exanthem (wegdrückbar)", "Teleangiektasien"], 0, "Punktförmige Einblutungen in die Haut, etwa bei Thrombozytenmangel. Mit Fieber und schlechtem Allgemeinzustand Verdacht auf Meningokokkensepsis.", "Glasprobe: Punkte verschwinden nicht. Ärztlich melden, bei Fieber sofort. Blutungszeichen beobachten."),
     B("haut", "oed", HAUT.oedem, "Eindrückbares Ödem", "Was zeigt der Befund am Unterschenkel?", ["Eindrückbares Ödem", "Thrombose sicher", "Dekubitus", "Normalbefund"], 0, "Nach Fingerdruck bleibt eine Delle: Wassereinlagerung im Gewebe, etwa bei Herzinsuffizienz.", "Beidseitig oder einseitig? Einseitiges, warmes, schmerzhaftes Ödem kann eine Thrombose sein. Gewicht und Bilanz kontrollieren."),
     B("haut", "mar", HAUT.marmoriert, "Marmorierte Haut", "Ein septischer Patient hat diese Hautzeichnung an den Knien. Was bedeutet sie?", ["Mikrozirkulationsstörung", "harmlose Kältereaktion", "Allergie", "Venenentzündung"], 0, "Netzartige bläulich-violette Zeichnung: Zeichen schlechter Durchblutung der kleinen Gefäße, bei Sepsis ein Alarmzeichen.", "Vitalzeichen, Bewusstsein, Urinmenge, Rekapillarisierung prüfen, sofort ärztlich melden."),
 
     B("pupille", "norm", PUP.normal, "Normale Pupillen", "Wie beschreibst du die Pupillen?", ["mittelweit, seitengleich", "eng", "weit", "seitenungleich"], 0, "Mittelweite, runde, seitengleiche Pupillen.", "Lichtreaktion prüfen: Beide Pupillen sollten sich bei Licht verengen (direkt und indirekt)."),
     B("pupille", "mio", PUP.miosis, "Miosis", "Eine schläfrige Person erhielt Morphin. Welcher Pupillenbefund passt?", ["Miosis (stecknadelkopfeng)", "Mydriasis", "Anisokorie", "Normalbefund"], 0, "Sehr enge Pupillen: typisch für Opioide. Zusammen mit flacher, langsamer Atmung ein Alarmzeichen.", "Atemfrequenz und Sättigung messen, wecken, ansprechen. Bei Atemdepression Notfall: Naloxon nach Anordnung, beatmen."),
     B("pupille", "myd", PUP.mydriasis, "Mydriasis", "Welche Ursache passt zu weiten Pupillen?", ["Angst, Sympathikusaktivierung oder bestimmte Medikamente", "Opioide", "tiefer Schlaf", "Ikterus"], 0, "Weite Pupillen, etwa durch Angst, Schmerz, Atropin, Drogen oder schwere Hirnschädigung (dann meist lichtstarr).", "Immer im Zusammenhang beurteilen: Bewusstsein, Lichtreaktion, Medikamente."),
-    B("pupille", "aniso", PUP.aniso, "Anisokorie", "Eine Person nach Sturz unter Antikoagulation wird zunehmend schläfrig. Die rechte Pupille ist weit. Was bedeutet das?", ["Notfall: Hinweis auf steigenden Hirndruck", "harmlos, kommt oft vor", "Opioidwirkung", "Augentropfen"], 0, "Neu aufgetretene einseitig weite Pupille bei Bewusstseinsstörung: Verdacht auf Hirnblutung mit Einklemmung.", "Sofort ärztlich alarmieren, GCS und Vitalzeichen, Oberkörper 30 Grad, CT wird meist sofort veranlasst."),
+    B("pupille", "aniso", PUP.aniso, "Anisokorie", "Eine Person nach Sturz unter Antikoagulation wird zunehmend schläfrig. Die rechte Pupille ist weit. Was bedeutet das?", ["Notfall: Hinweis auf steigenden Hirndruck", "Häufige harmlose Normvariante", "Typische Opioidwirkung", "Folge von Augentropfen, beobachten reicht"], 0, "Neu aufgetretene einseitig weite Pupille bei Bewusstseinsstörung: Verdacht auf Hirnblutung mit Einklemmung.", "Sofort ärztlich alarmieren, GCS und Vitalzeichen, Oberkörper 30 Grad, CT wird meist sofort veranlasst."),
 
     B("urin", "norm", URIN.normal, "Normaler Urin", "Wie beurteilst du diesen Urin?", ["hellgelb und klar, unauffällig", "konzentriert", "Hämaturie", "trüb"], 0, "Hellgelb und klar: ausreichende Trinkmenge.", "Menge und Häufigkeit gehören ebenfalls zur Beobachtung."),
     B("urin", "konz", URIN.konzentriert, "Konzentrierter Urin", "Ein 86-jähriger Bewohner trinkt kaum. Was zeigt der Urin?", ["Konzentrierter Urin bei zu wenig Flüssigkeit", "Blut im Urin", "Bilirubin", "Normalbefund"], 0, "Dunkelgelb bis bernsteinfarben: konzentrierter Urin, Hinweis auf Flüssigkeitsmangel.", "Trinkmenge erfassen und aktiv anbieten, auf Verwirrtheit und Kreislauf achten, Ein- und Ausfuhr dokumentieren."),
     B("urin", "haem", URIN.haematurie, "Hämaturie", "Was zeigt der Urin nach Blasenkatheter-Wechsel bei einer Person unter Antikoagulation?", ["Hämaturie", "Rote-Bete-Verfärbung sicher", "Bilirubinurie", "Normalbefund"], 0, "Rote Verfärbung durch Blut. Ursachen: Verletzung, Infektion, Steine, Tumor, Antikoagulation.", "Menge, Gerinnsel und Kreislauf beobachten, ärztlich melden. Nahrungsmittel wie Rote Bete können ähnlich färben, darum nachfragen."),
-    B("urin", "braun", URIN.bierbraun, "Bierbrauner Urin", "Welche Ursache passt zu bierbraunem, schäumendem Urin mit gelben Skleren?", ["Bilirubin im Urin bei Gallestau oder Leberschaden", "zu viel getrunken", "Blasenentzündung", "Vitamin C"], 0, "Bierbraun mit gelbem Schaum: Bilirubin wird über die Niere ausgeschieden.", "Mit Stuhlfarbe (hell?) und Hautfarbe gemeinsam beobachten und melden."),
-    B("urin", "trueb", URIN.trueb, "Trüber Urin", "Eine Person mit Dauerkatheter hat trüben, flockigen Urin und Fieber. Woran denkst du?", ["Harnwegsinfektion", "normale Ernährung", "Hämaturie", "Bilirubinurie"], 0, "Trüb und flockig, oft übelriechend: Hinweis auf Harnwegsinfektion; mit Fieber Gefahr einer Urosepsis.", "Vitalzeichen, Sepsis-Zeichen prüfen, ärztlich melden, Urinprobe nur aus der Entnahmestelle des Systems nach Anordnung."),
+    B("urin", "braun", URIN.bierbraun, "Bierbrauner Urin", "Welche Ursache passt zu bierbraunem, schäumendem Urin mit gelben Skleren?", ["Bilirubin im Urin bei Gallestau oder Leberschaden", "Hämaturie", "Konzentrierter Urin bei Flüssigkeitsmangel", "Harnwegsinfektion"], 0, "Bierbraun mit gelbem Schaum: Bilirubin wird über die Niere ausgeschieden.", "Mit Stuhlfarbe (hell?) und Hautfarbe gemeinsam beobachten und melden."),
+    B("urin", "trueb", URIN.trueb, "Trüber Urin", "Eine Person mit Dauerkatheter hat trüben, flockigen Urin und Fieber. Woran denkst du?", ["Harnwegsinfektion", "Konzentrierter Urin", "Hämaturie", "Bilirubinurie"], 0, "Trüb und flockig, oft übelriechend: Hinweis auf Harnwegsinfektion; mit Fieber Gefahr einer Urosepsis.", "Vitalzeichen, Sepsis-Zeichen prüfen, ärztlich melden, Urinprobe nur aus der Entnahmestelle des Systems nach Anordnung."),
 
     B("stuhl", "b1", STUHL.b1, "Bristol Typ 1", "Welcher Bristol-Typ liegt vor?", ["Typ 1: harte Kügelchen", "Typ 4: weich, wurstförmig", "Typ 7: flüssig", "Teerstuhl"], 0, "Einzelne harte Klumpen, schwer auszuscheiden: Obstipation.", "Trinkmenge, Bewegung, Ballaststoffe, Medikamente (Opioide) prüfen, Laxans nach Anordnung."),
     B("stuhl", "b4", STUHL.b4, "Bristol Typ 4", "Welcher Bristol-Typ liegt vor?", ["Typ 4: glatt, weich, wurstförmig", "Typ 1", "Typ 7", "acholischer Stuhl"], 0, "Ideale Konsistenz.", "Normalbefund."),
     B("stuhl", "b7", STUHL.b7, "Bristol Typ 7", "Was liegt vor?", ["Typ 7: wässriger Durchfall", "Typ 4", "Teerstuhl", "Typ 1"], 0, "Flüssiger Stuhl ohne feste Bestandteile: Durchfall.", "Häufigkeit dokumentieren, Flüssigkeitsverlust ausgleichen, Haut schützen, bei Verdacht auf Noro- oder Clostridioides-Infektion Kontaktisolierung und Händewaschen."),
-    B("stuhl", "teer", STUHL.teer, "Teerstuhl", "Schwarzer, glänzender, klebriger Stuhl bei einer Person, die Ibuprofen und ASS einnimmt. Was bedeutet das?", ["Hinweis auf obere Magen-Darm-Blutung", "Eisentabletten, immer harmlos", "Verstopfung", "normale Farbe"], 0, "Teerstuhl entsteht, wenn Blut aus Magen oder Zwölffingerdarm verdaut wird. Eisen färbt Stuhl auch schwarz, aber nicht klebrig glänzend.", "Kreislauf prüfen (Puls, RR, Blässe), ärztlich sofort melden, Probe aufheben, nüchtern lassen bis zur Klärung."),
+    B("stuhl", "teer", STUHL.teer, "Teerstuhl", "Schwarzer, glänzender, klebriger Stuhl bei einer Person, die Ibuprofen und ASS einnimmt. Was bedeutet das?", ["Hinweis auf obere Magen-Darm-Blutung", "Typische Verfärbung durch Eisentabletten", "Obstipation", "Acholischer Stuhl"], 0, "Teerstuhl entsteht, wenn Blut aus Magen oder Zwölffingerdarm verdaut wird. Eisen färbt Stuhl auch schwarz, aber nicht klebrig glänzend.", "Kreislauf prüfen (Puls, RR, Blässe), ärztlich sofort melden, Probe aufheben, nüchtern lassen bis zur Klärung."),
     B("stuhl", "blut", STUHL.blut, "Frisches Blut am Stuhl", "Was zeigt der Befund?", ["Frische Blutauflagerung, Blutung aus dem unteren Darmabschnitt", "Teerstuhl", "acholischer Stuhl", "Normalbefund"], 0, "Hellrotes Blut, etwa bei Hämorrhoiden, Fissuren, Divertikeln oder Tumoren.", "Menge und Häufigkeit dokumentieren, Kreislauf prüfen, ärztlich abklären lassen."),
-    B("stuhl", "ach", STUHL.acholisch, "Acholischer Stuhl", "Ein lehmfarbener Stuhl fällt auf. Woran denkst du?", ["Gallestau: keine Galle im Darm", "zu viel Milch", "Darmblutung", "Durchfall"], 0, "Fehlt Gallenfarbstoff im Darm, wird der Stuhl hell bis lehmfarben, oft zusammen mit dunklem Urin und Ikterus.", "Mit Urinfarbe und Haut beobachten und melden."),
+    B("stuhl", "ach", STUHL.acholisch, "Acholischer Stuhl", "Ein lehmfarbener Stuhl fällt auf. Woran denkst du?", ["Gallestau: keine Galle im Darm", "Teerstuhl", "Blutung aus dem unteren Darm", "Durchfall bei Infektion"], 0, "Fehlt Gallenfarbstoff im Darm, wird der Stuhl hell bis lehmfarben, oft zusammen mit dunklem Urin und Ikterus.", "Mit Urinfarbe und Haut beobachten und melden."),
 
     B("drain", "seroes", DRAIN.seroes, "Seröses Sekret", "Wie beurteilst du das Sekret am 2. Tag nach OP?", ["serös, unauffällig", "frische Blutung", "eitrig", "gallig"], 0, "Klare, hellgelbe Flüssigkeit: normale Wundsekretion.", "Menge dokumentieren; wenn sie stark abnimmt, wird die Drainage oft entfernt."),
     B("drain", "serosang", DRAIN.serosang, "Serös-sanguinöses Sekret", "Wie beurteilst du das Sekret am 1. Tag nach OP?", ["serös-sanguinös, erwartbar", "eitrig", "gallig", "Notfall"], 0, "Rötlich-wässrig: Mischung aus Wundsekret und wenig Blut, am ersten Tag normal.", "Menge und Farbverlauf dokumentieren."),
-    B("drain", "blutig", DRAIN.blutig, "Nachblutung", "Eine Stunde nach OP sind 400 ml dunkelrotes Blut in der Drainage, der Puls steigt. Was tust du?", ["Nachblutung: sofort ärztlich melden, Vitalzeichen engmaschig", "abwarten bis zur nächsten Runde", "Drainage abklemmen und gehen", "Beutel leeren und nicht dokumentieren"], 0, "Große Mengen rein blutigen Sekrets in kurzer Zeit sprechen für eine Nachblutung.", "Sofort melden, Puls, RR, Bewusstsein, Verband prüfen, Zugang, Kreuzblut nach Anordnung, nüchtern lassen."),
+    B("drain", "blutig", DRAIN.blutig, "Nachblutung", "Eine Stunde nach OP sind 400 ml dunkelrotes Blut in der Drainage, der Puls steigt. Was tust du?", ["Nachblutung: sofort ärztlich melden, Vitalzeichen engmaschig", "Erwartbar am OP-Tag: bei der nächsten Runde erneut ansehen", "Sog erhöhen, damit die Drainage besser fördert", "Drainage abklemmen, um den Blutverlust zu stoppen"], 0, "Große Mengen rein blutigen Sekrets in kurzer Zeit sprechen für eine Nachblutung.", "Sofort melden, Puls, RR, Bewusstsein, Verband prüfen, Zugang, Kreuzblut nach Anordnung, nüchtern lassen."),
     B("drain", "eitrig", DRAIN.eitrig, "Eitriges Sekret", "Am 5. Tag ist das Sekret trüb und riecht. Was bedeutet das?", ["Hinweis auf Infektion", "normale Wundheilung", "Galle", "frische Blutung"], 0, "Trübes, gelblich-grünliches, übelriechendes Sekret spricht für eine Infektion oder einen Abszess.", "Temperatur, Entzündungszeichen, Schmerzen erfassen und melden."),
     B("drain", "gallig", DRAIN.gallig, "Galliges Sekret", "Grünliches Sekret aus einer Drainage im Oberbauch. Woran denkst du?", ["Gallenleck", "normale Wundsekretion", "Blutung", "Urin"], 0, "Grün-braunes Sekret deutet auf Galle hin, etwa durch ein Leck nach Gallen- oder Leberoperation.", "Menge und Farbe dokumentieren und ärztlich melden."),
 
     B("atem", "normal", ATEM.normal, "Normale Atmung", "Wie beschreibst du das Atemmuster?", ["regelmäßig, normale Tiefe (Eupnoe)", "Kußmaul-Atmung", "Cheyne-Stokes-Atmung", "Schnappatmung"], 0, "Gleichmäßige, ruhige Atmung mit etwa 12 bis 18 Zügen pro Minute.", "Normalbefund."),
     B("atem", "kuss", ATEM.kussmaul, "Kußmaul-Atmung", "Ein Jugendlicher mit Typ-1-Diabetes atmet so, der Atem riecht obstartig. Was liegt vor?", ["Kußmaul-Atmung bei Ketoazidose", "Cheyne-Stokes-Atmung", "Hyperventilation bei Angst sicher", "Schnappatmung"], 0, "Sehr tiefe, regelmäßige Atemzüge: Der Körper atmet Säure als CO₂ ab, typisch bei diabetischer Ketoazidose.", "Blutzucker und Ketone messen, Bewusstsein prüfen, sofort ärztlich melden."),
     B("atem", "cheyne", ATEM.cheyne, "Cheyne-Stokes-Atmung", "Welches Atemmuster zeigt die Kurve?", ["Cheyne-Stokes-Atmung", "Kußmaul-Atmung", "Biot-Atmung", "Eupnoe"], 0, "Die Atemtiefe nimmt periodisch zu und ab, dazwischen Pausen. Vorkommen bei schwerer Herzinsuffizienz, Hirnschädigung und in der Sterbephase.", "Im Kontext beurteilen; am Lebensende Angehörige vorbereiten und erklären, dass dies zum Sterbeprozess gehören kann."),
-    B("atem", "schnapp", ATEM.schnapp, "Schnappatmung", "Eine bewusstlose Person macht nur noch vereinzelte, schnappende Atemzüge. Was bedeutet das?", ["Kreislaufstillstand: keine normale Atmung, Reanimation beginnen", "Schlaf mit Atempausen", "Hyperventilation", "Normalbefund"], 0, "Schnappatmung ist keine normale Atmung und ein Zeichen des Kreislaufstillstands.", "Hilfe rufen, sofort Herzdruckmassage, AED holen lassen."),
+    B("atem", "schnapp", ATEM.schnapp, "Schnappatmung", "Eine bewusstlose Person macht nur noch vereinzelte, schnappende Atemzüge. Was bedeutet das?", ["Kreislaufstillstand: Reanimation beginnen", "Schlafapnoe: beobachten und wecken", "Hyperventilation", "Cheyne-Stokes-Atmung"], 0, "Schnappatmung ist keine normale Atmung und ein Zeichen des Kreislaufstillstands.", "Hilfe rufen, sofort Herzdruckmassage, AED holen lassen."),
     B("atem", "tachy", ATEM.tachypnoe, "Tachypnoe", "Die Atemfrequenz liegt bei 32/min, die Atmung ist flach. Was beschreibt der Befund?", ["Tachypnoe", "Bradypnoe", "Kußmaul-Atmung", "Eupnoe"], 0, "Beschleunigte Atmung über 20/min. Oft das früheste Zeichen einer Verschlechterung, etwa bei Pneumonie oder Sepsis.", "Sättigung, Puls, Blutdruck, Temperatur und Bewusstsein erfassen, Oberkörper hoch, ärztlich melden."),
 
     B("kurve", "cont", KURVE.continua, "Febris continua", "Welcher Fiebertyp liegt vor?", ["Kontinuierliches Fieber (Schwankung unter 1 °C)", "Intermittierendes Fieber", "Rekurrierendes Fieber", "Normaltemperatur"], 0, "Gleichbleibend hohes Fieber mit Tagesschwankungen unter 1 °C, etwa bei Pneumonie.", "Flüssigkeit, Wärmeregulation je nach Fieberphase, Ursache abklären lassen."),
     B("kurve", "inter", KURVE.intermittens, "Intermittierendes Fieber", "Welcher Fiebertyp liegt vor?", ["Intermittierendes (septisches) Fieber", "Kontinuierliches Fieber", "Untertemperatur", "Messfehler"], 0, "Hohe Fieberspitzen mit Abfall auf Normalwerte innerhalb eines Tages, oft mit Schüttelfrost, etwa bei Sepsis oder Abszess.", "Im Fieberanstieg Blutkulturen nach Anordnung, Sepsiszeichen beobachten."),
-    B("kurve", "schock", KURVE.schock, "Kreuzende Kurven", "Puls steigt, Blutdruck fällt, die Kurven kreuzen sich. Was bedeutet das?", ["Schockindex über 1: drohender Schock", "normaler Tagesverlauf", "Messfehler", "Fieberabfall"], 0, "Wenn der Puls den systolischen Blutdruck übersteigt, liegt der Schockindex über 1.", "Sofort ärztlich melden, Ursache suchen (Blutung, Sepsis, Volumenmangel), Schocklage nach Anordnung, engmaschig messen."),
-    B("kurve", "hypo", KURVE.hypo, "Fallender Blutzucker", "Was ist die richtige Einschätzung des letzten Werts?", ["Hypoglykämie: sofort handeln", "erwünscht, Ziel erreicht", "Messfehler, nichts tun", "Hyperglykämie"], 0, "Ein Wert von 52 mg/dl ist eine Unterzuckerung, auch wenn die Person noch keine Beschwerden hat.", "Bei wacher Person schnell wirksame Kohlenhydrate geben (z. B. Traubenzucker), nach 15 Minuten nachmessen, ärztlich informieren, Ursache (ausgelassene Mahlzeit) dokumentieren.")
+    B("kurve", "schock", KURVE.schock, "Kreuzende Kurven", "Puls steigt, Blutdruck fällt, die Kurven kreuzen sich. Was bedeutet das?", ["Schockindex über 1: drohender Schock", "Normaler Tagesverlauf", "Messfehler durch die Manschette", "Typischer Fieberverlauf"], 0, "Wenn der Puls den systolischen Blutdruck übersteigt, liegt der Schockindex über 1.", "Sofort ärztlich melden, Ursache suchen (Blutung, Sepsis, Volumenmangel), Schocklage nach Anordnung, engmaschig messen."),
+    B("kurve", "hypo", KURVE.hypo, "Fallender Blutzucker", "Was ist die richtige Einschätzung des letzten Werts?", ["Hypoglykämie: sofort handeln", "Erwünscht, Zielbereich erreicht", "Wahrscheinlich Messfehler", "Hyperglykämie"], 0, "Ein Wert von 52 mg/dl ist eine Unterzuckerung, auch wenn die Person noch keine Beschwerden hat.", "Bei wacher Person schnell wirksame Kohlenhydrate geben (z. B. Traubenzucker), nach 15 Minuten nachmessen, ärztlich informieren, Ursache (ausgelassene Mahlzeit) dokumentieren.")
   ];
   window.FP_BEFUNDE = BEF;
 
-  /* ================= Oberfläche ================= */
+
+  /* ================= Einbindung in „Interaktives Üben“ =================
+     Die Befunde erscheinen unter Training > Interaktives Üben (Filter „Bildbefunde“). Jede Frage nutzt
+     dieselbe Aufgaben-Komponente wie die Lernmodule (window.FP_TaskUI aus dem App-Kern): gleiche Optik,
+     gleiche Animationen beim Ankreuzen, gleiche Rückmeldung mit Punkten. */
+  var KATNAME = {};
+  KATS.forEach(function (k) { KATNAME[k[0]] = k[1]; });
+  BEF.forEach(function (b) { b.katName = KATNAME[b.kat] || "Bildbefund"; });
+  window.FP_BEFUNDE_KATS = KATS;
+
   var LS = "fp-befunde";
   function ladeStand() { try { return JSON.parse(localStorage.getItem(LS) || "{}"); } catch (e) { return {}; } }
-  function speichere(s) { try { localStorage.setItem(LS, JSON.stringify(s)); } catch (e) {} }
-  function mische(a) { var b = a.slice(); for (var i = b.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = b[i]; b[i] = b[j]; b[j] = t; } return b; }
-  function Bild(p) { return h("div", { className: "bf-img", role: "img", "aria-label": p.alt, dangerouslySetInnerHTML: { __html: '<svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">' + p.b.svg() + "</svg>" } }); }
+  function merke(id, ok) { try { var s = ladeStand(); s[id] = ok ? 1 : 0; localStorage.setItem(LS, JSON.stringify(s)); } catch (e) {} }
+  window.FP_BEFUND_STAND = ladeStand;
+  function esc(t) { return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+  function mische(a, seed) { var b = a.slice(), s = seed || 1; for (var i = b.length - 1; i > 0; i--) { s = (s * 9301 + 49297) % 233280; var j = Math.floor(s / 233280 * (i + 1)); var t = b[i]; b[i] = b[j]; b[j] = t; } return b; }
+  function seedVon(id) { var x = 7; for (var i = 0; i < id.length; i++) x = (x * 31 + id.charCodeAt(i)) % 233280; return x || 1; }
 
-  var CSS = ".bf-kats{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;margin:12px 0}.bf-kat{all:unset;cursor:pointer;box-sizing:border-box;padding:14px;border-radius:16px;background:var(--surface,#fff);box-shadow:0 0 0 1px var(--line,#e5e7eb);border-left:5px solid var(--c)}.bf-kat b{display:block}.bf-kat small{color:var(--muted,#64748b)}" +
-    ".bf-img{border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px var(--line,#e5e7eb)}.bf-img svg{display:block;width:100%;height:auto}" +
-    ".bf-opts{display:grid;gap:8px;margin:14px 0}.bf-opt{all:unset;cursor:pointer;box-sizing:border-box;padding:12px 14px;border-radius:12px;background:var(--fill,#f1f5f9);font-weight:500}.bf-opt.ok{background:#dcfce7;color:#14532d}.bf-opt.no{background:#fee2e2;color:#7f1d1d}" +
-    ".bf-erk{border-radius:14px;padding:14px;background:var(--surface,#fff);box-shadow:0 0 0 1px var(--line,#e5e7eb);line-height:1.55}.bf-erk h4{margin:0 0 6px}.bf-erk .hd{margin-top:10px;padding:10px 12px;border-radius:10px;background:rgba(0,98,255,.07)}" +
-    ".bf-top{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px}.bf-prog{height:6px;border-radius:6px;background:var(--fill,#eef2f7);overflow:hidden;margin-bottom:12px}.bf-prog i{display:block;height:100%;background:var(--accent,#0062FF)}";
+  function Bild(p) {
+    return h("div", { className: "bf-img", role: "img", "aria-label": p.alt || "Bildbefund (Schema)", dangerouslySetInnerHTML: { __html: '<svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' + p.b.svg() + "</svg>" } });
+  }
+  window.FP_BefundBild = Bild;
+
+  var CSS = ".bf-img{border-radius:18px;overflow:hidden;border:1px solid var(--line,#e5e7eb);background:#fff;margin:0 0 14px}.bf-img svg{display:block;width:100%;height:auto}" +
+    ".bf-kats{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}@media (max-width:640px){.bf-kats{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}.bf-kats::-webkit-scrollbar{display:none}.bf-kats>button{flex:0 0 auto;white-space:nowrap}}" +
+    ".bf-learn .bf-item{padding:14px 0;border-top:1px solid var(--line,#e5e7eb)}.bf-learn .bf-item:first-of-type{border-top:0}.bf-learn h4{margin:0 0 4px}.bf-learn p{margin:0 0 6px;line-height:1.5}" +
+    ".bf-learn .bf-img{margin-bottom:10px}.bf-sheethead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}" +
+    ".bf-ok{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;font-weight:600;color:var(--ok,#16a34a)}";
   function useCss() { R.useEffect(function () { if (document.getElementById("bf-css")) return; var s = document.createElement("style"); s.id = "bf-css"; s.textContent = CSS; document.head.appendChild(s); }, []); }
 
-  function Frage(p) {
-    var b = p.b, w = useState(null), wahl = w[0], setWahl = w[1];
-    var ord = useMemo(function () { return mische(b.opts.map(function (t, i) { return { t: t, i: i }; })); }, [b.id]);
-    var fertig = wahl !== null;
-    return h("div", null,
-      h(Bild, { b: b, alt: "Bildbefund" }),
-      h("h3", { style: { margin: "14px 0 0" } }, b.frage),
-      h("div", { className: "bf-opts" }, ord.map(function (o) {
-        var cls = fertig ? (o.i === b.a ? "ok" : o.i === wahl ? "no" : "") : "";
-        return h("button", { key: o.i, type: "button", className: "bf-opt " + cls, disabled: fertig, onClick: function () { setWahl(o.i); if (p.onAnswer) p.onAnswer(o.i === b.a); } }, o.t);
-      })),
-      fertig && h("div", { className: "bf-erk" }, h("h4", null, (wahl === b.a ? "Richtig: " : "Lösung: ") + b.titel), h("div", null, b.erkl), h("div", { className: "hd" }, h("b", null, "So handelst du: "), b.handeln)),
-      fertig && p.weiter && h("div", { style: { marginTop: 12, display: "flex", justifyContent: "flex-end" } }, h("button", { type: "button", className: "btn", onClick: function () { setWahl(null); p.weiter(); } }, p.letzte ? "Auswertung" : "Weiter")));
-  }
-
-  function Befunde() {
+  // Eine Befundfrage im Aufbau einer Modulaufgabe (Einzelauswahl)
+  function BefundUebung(p) {
     useCss();
-    var m = useState(null), modus = m[0], setModus = m[1];
-    var st = useState(ladeStand), stand = st[0], setStand = st[1];
-    var q = useState(null), quiz = q[0], setQuiz = q[1];
-    var antwort = function (b, ok) {
-      var s = Object.assign({}, stand); s[b.id] = ok ? 1 : 0; speichere(s); setStand(s);
-      try { if (window.FP_ZAEHLE) window.FP_ZAEHLE("bildbefund", b.kat); } catch (e) {}
-    };
-    var start = function (kat) {
-      var pool = BEF.filter(function (b) { return !kat || b.kat === kat; });
-      var falsch = pool.filter(function (b) { return stand[b.id] === 0; });
-      var liste = mische(falsch).concat(mische(pool.filter(function (b) { return stand[b.id] !== 0; }))).slice(0, kat ? pool.length : 12);
-      setQuiz({ kat: kat, liste: mische(liste), i: 0, ok: 0 });
-      setModus("quiz");
-    };
-    if (modus === "quiz" && quiz) {
-      var b = quiz.liste[quiz.i];
-      if (!b) {
-        var pct = Math.round(100 * quiz.ok / quiz.liste.length);
-        return h("div", { className: "card" }, h("h2", null, "Auswertung"), h("p", null, quiz.ok + " von " + quiz.liste.length + " Befunden richtig (" + pct + " %)."),
-          h("p", { className: "muted" }, pct >= 80 ? "Stark. Du erkennst die Befunde sicher und weißt, was zu tun ist." : "Schau dir die Erklärungen zu den falschen Befunden noch einmal an. Beim nächsten Quiz kommen sie zuerst."),
-          h("div", { className: "row", style: { gap: 8 } }, h("button", { type: "button", className: "btn", onClick: function () { start(quiz.kat); } }, "Noch einmal"), h("button", { type: "button", className: "btn ghost", onClick: function () { setModus(null); } }, "Zur Übersicht")));
-      }
-      return h("div", null,
-        h("div", { className: "bf-top" }, h("button", { type: "button", className: "skip", onClick: function () { setModus(null); } }, "← Übersicht"), h("span", { className: "muted" }, "Befund " + (quiz.i + 1) + " von " + quiz.liste.length + " · " + quiz.ok + " richtig")),
-        h("div", { className: "bf-prog" }, h("i", { style: { width: (100 * quiz.i / quiz.liste.length) + "%" } })),
-        h("div", { className: "card", key: b.id }, h(Frage, { b: b, onAnswer: function (ok) { antwort(b, ok); if (ok) setQuiz(Object.assign({}, quiz, { ok: quiz.ok + 1 })); }, weiter: function () { setQuiz(function (x) { return Object.assign({}, x, { i: x.i + 1 }); }); }, letzte: quiz.i + 1 === quiz.liste.length })));
-    }
-    if (modus && modus.indexOf("lern:") === 0) {
-      var kat = modus.slice(5), K = KATS.filter(function (k) { return k[0] === kat; })[0];
-      return h("div", null,
-        h("div", { className: "bf-top" }, h("button", { type: "button", className: "skip", onClick: function () { setModus(null); } }, "← Übersicht"), h("button", { type: "button", className: "btn sm", onClick: function () { start(kat); } }, "Diesen Bereich als Quiz")),
-        h("h2", null, K ? K[1] : "Befunde"),
-        BEF.filter(function (b) { return b.kat === kat; }).map(function (b) {
-          return h("div", { key: b.id, className: "card", style: { marginBottom: 12 } }, h(Bild, { b: b, alt: b.titel }), h("h3", { style: { margin: "12px 0 4px" } }, b.titel), h("p", { style: { margin: "0 0 6px" } }, b.erkl), h("p", { className: "muted", style: { margin: 0 } }, h("b", null, "Handeln: "), b.handeln));
-        }));
-    }
-    var gesamt = BEF.length, richtig = BEF.filter(function (b) { return stand[b.id] === 1; }).length;
-    return h("div", null,
-      h("div", { className: "card" },
-        h("h2", { style: { marginTop: 0 } }, "Bildbefunde trainieren"),
-        h("p", { className: "muted" }, gesamt + " gezeichnete Befunde aus " + KATS.length + " Bereichen: erkennen, benennen und wissen, was zu tun ist. Die Bilder sind Schemata zum Lernen, keine echten Patientenbilder."),
-        h("div", { className: "bf-prog" }, h("i", { style: { width: (100 * richtig / gesamt) + "%" } })),
-        h("p", { className: "muted", style: { marginTop: -4 } }, richtig + " von " + gesamt + " zuletzt richtig erkannt"),
-        h("button", { type: "button", className: "btn", onClick: function () { start(null); } }, "Gemischtes Quiz (12 Befunde)")),
-      h("div", { className: "bf-kats" }, KATS.map(function (k) {
-        var n = BEF.filter(function (b) { return b.kat === k[0]; }), ok = n.filter(function (b) { return stand[b.id] === 1; }).length;
-        return h("button", { key: k[0], type: "button", className: "bf-kat", style: { "--c": k[2] }, onClick: function () { setModus("lern:" + k[0]); } }, h("b", null, k[1]), h("small", null, n.length + " Befunde · " + ok + " sicher"));
-      })));
+    var b = p.b, Task = window.FP_TaskUI;
+    var t = useMemo(function () {
+      var ord = mische(b.opts.map(function (x, i) { return i; }), seedVon(b.id));
+      return {
+        kind: "choice", points: 2,
+        question: esc(b.frage),
+        options: ord.map(function (i) { return { text: esc(b.opts[i]), correct: i === b.a, feedback: i === b.a ? "<b>" + esc(b.titel) + ":</b> " + esc(b.erkl) : "" }; })
+      };
+    }, [b.id]);
+    var fertig = !!p.saved;
+    return h("div", { className: "bf-uebung" },
+      h(Bild, { b: b }),
+      Task ? h(Task, { t: t, uid: "bf." + b.id, saved: p.saved, finish: function (x) { merke(b.id, x.e === x.m); try { if (window.FP_ZAEHLE) window.FP_ZAEHLE("bildbefund", b.kat); } catch (e) {} if (p.finish) p.finish(x); } }) : null,
+      fertig && h("div", { className: "merke block", style: { marginTop: 14 } }, h("h3", null, "So handelst du"), h("p", { style: { margin: 0 } }, b.handeln)));
   }
-  window.FP_TRAINING_VIEWS = window.FP_TRAINING_VIEWS || {};
-  window.FP_TRAINING_VIEWS.befunde = Befunde;
+  window.FP_BefundUebung = BefundUebung;
+
+  function portal(el) { return window.ReactDOM && window.ReactDOM.createPortal ? window.ReactDOM.createPortal(el, document.body) : el; }
+  // Bereichs-Filter und Lernübersicht, erscheint in „Interaktives Üben“ beim Filter „Bildbefunde“
+  function BefundLeiste(p) {
+    useCss();
+    var o = useState(false), offen = o[0], setOffen = o[1];
+    var stand = ladeStand();
+    var liste = BEF.filter(function (b) { return !p.kat || b.kat === p.kat; });
+    var sicher = liste.filter(function (b) { return stand[b.id] === 1; }).length;
+    R.useEffect(function () {
+      if (!offen) return;
+      var esc2 = function (e) { if (e.key === "Escape") setOffen(false); };
+      document.addEventListener("keydown", esc2); document.body.style.overflow = "hidden";
+      return function () { document.removeEventListener("keydown", esc2); document.body.style.overflow = ""; };
+    }, [offen]);
+    var K = KATS.filter(function (k) { return k[0] === p.kat; })[0];
+    return h("div", null,
+      h("div", { className: "bf-kats", role: "group", "aria-label": "Bereich der Bildbefunde" },
+        [["", "Alle Bereiche"]].concat(KATS).map(function (k) {
+          return h("button", { key: k[0] || "alle", type: "button", className: "chip" + ((p.kat || "") === k[0] ? " blue" : ""), "aria-pressed": (p.kat || "") === k[0], onClick: function () { p.setKat(k[0] || null); } }, k[1]);
+        })),
+      h("div", { className: "row", style: { marginTop: 10, gap: 10, alignItems: "center" } },
+        h("button", { type: "button", className: "btn ghost sm", onClick: function () { setOffen(true); } }, "Zum Nachlesen öffnen"),
+        h("span", { className: "muted", style: { fontSize: 14 } }, sicher + " von " + liste.length + " Befunden zuletzt richtig")),
+      offen && portal(h("div", { className: "plmodal", style: { zIndex: 1000 }, role: "dialog", "aria-modal": "true", "aria-label": "Bildbefunde zum Nachlesen", onClick: function (e) { if (e.target === e.currentTarget) setOffen(false); } },
+        h("div", { className: "card bf-learn", style: { width: "min(720px,100%)" } },
+          h("div", { className: "bf-sheethead" }, h("h3", { style: { margin: 0 } }, K ? K[1] : "Alle Bildbefunde"), h("button", { type: "button", className: "btn ghost sm", onClick: function () { setOffen(false); } }, "Schließen")),
+          h("p", { className: "muted", style: { marginTop: 0 } }, "Gezeichnete Schemata zum Lernen, keine echten Patientenbilder."),
+          liste.map(function (b) {
+            return h("div", { key: b.id, className: "bf-item" }, h(Bild, { b: b, alt: b.titel }),
+              h("h4", null, b.titel, stand[b.id] === 1 ? h("span", { className: "bf-ok", style: { marginLeft: 8 } }, "✓ sicher") : null),
+              h("p", null, b.erkl), h("p", { className: "muted" }, h("b", null, "Handeln: "), b.handeln));
+          })))));
+  }
+  window.FP_BefundLeiste = BefundLeiste;
 })();

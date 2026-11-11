@@ -15,14 +15,24 @@ Die App besteht nicht mehr aus einer einzigen `index.html`, sondern aus einzelne
 | `js/kern/` | Start: Konfiguration, Demo-Konto, Farbprofile, Modul-Loader, Offline-Anmeldung |
 | `js/training/` | je Training bzw. Prüfungsfall eine Datei (Examen, Kommunikation, Stationsalltag, Meine Sprache …) |
 | `js/app/01-app.bundle.js` | der gebaute Kern der App (Module, Praxis, Aufgaben, Fortschritt) |
-| `js/funktionen/` | Zusatzfunktionen: PharmakoLab, Training zum Modul, Medaillen, Ruhig bleiben, Datenauskunft, QR-Scanner (`06`), Assistent (`07`), App übersetzen (`08`) |
+| `js/funktionen/` | Zusatzfunktionen: PharmakoLab, Training zum Modul, Medaillen, Ruhig bleiben, Datenauskunft, QR-Scanner (`06`), Assistent (`07`), App übersetzen (`08`), Pflegeplanung (`09`), Feedback (`10`), Fachlexikon (`11`) |
 | `vendor/` | Bibliotheken, liegen auf dem eigenen Server |
 | `sw.js` | Offline-Cache. Bei jeder Änderung an Dateien die Versionsnummer `fallpfad-v…` erhöhen |
 | `vercel.json`, `netlify.toml` | Sicherheits-Header (siehe unten) |
 
 Wichtig: Die Reihenfolge der `<script>`-Zeilen in `index.html` nicht ändern. Kommt eine neue Datei dazu, auch in die Liste `MODULE` in `sw.js` eintragen.
 
-## Neu in dieser Version (10.11.2026)
+## Neu in dieser Version (11.11.2026)
+
+- **Akutsimulationen entfernt.** Das Training und alle Verweise darauf sind gelöscht (`js/training/51-akutsimulationen.js`, Kachel, Offline-Cache, Statistik im Admin-Bereich).
+- **Bildbefunde jetzt unter Training > Interaktives Üben.** Die eigene Kachel „Bildbefunde“ gibt es nicht mehr. Im Filter „Bildbefunde“ stehen die Bildaufgaben aus den Modulen und die 56 gezeichneten Befunde (EKG, Wunden, Dekubitus, Haut, Pupillen, Urin, Stuhl, Drainagen, Atemmuster, Kurven) mit Bereichsfilter, Lernansicht „Zum Nachlesen öffnen“ und Markierung „zuletzt richtig“. Jede Befundfrage nutzt dieselbe Aufgaben-Komponente wie die Lernmodule: gleiche Optik, gleiche Animationen beim Ankreuzen (Häkchen, Wackeln bei falscher Antwort), gleiche Punkte-Rückmeldung, danach „So handelst du“. Fachlich überarbeitet: keine Lösungen mehr in den Bildbeschriftungen (Dekubitus, Ödem), Drainage-Beschriftung überlappt nicht mehr, Tiefen der Dekubitus-Kategorien korrigiert, schwache Antwortoptionen durch fachlich plausible ersetzt.
+- **Module fm61 bis fm75 auf den Aufbau der übrigen Module gebracht.** Sie hatten nur 3 bis 4 Stationen und kaum Aufgabentypen. Jetzt hat jedes Modul 6 bis 8 Stationen wie die anderen: Fallsituation mit Befunden, eine zusätzliche Fachstation (z. B. Hilfsmittel und Rückengesundheit, Atemtherapie mit Thoraxdrainage, Spastik/Thrombose/Atmung bei Querschnitt, Hypoglykämie, subkutane Infusion, Trauerbegleitung, Fehlerkultur und CIRS, BE-FAST, Blutdruck-Selbstmessung, Transfusion, Besuch und Verlegung bei MRE, Sondenernährung Frühgeborener, Fieber beim Kleinkind, Sturzprophylaxe und Entlassung, motivierende Gesprächsführung), Praxisauftrag, eigene Station „Zusammenfassen“ (Lernkarten, Quiz, Reflexion) und eine Dokumentationsaufgabe. Falsche Sprechernamen korrigiert (z. B. stand bei Herrn Albrecht „Herr Aydın“, bei Frau Hartmann „Frau Haddad“). Bitte vor dem Einsatz fachlich gegenlesen lassen.
+- **Assistent: Fehler 400 behoben.** Ursache war der JSON-Modus der OpenAI-Anfrage. Die Funktion nutzt jetzt strukturierte Ausgabe und weicht bei einem Fehler 400 automatisch auf einfachere Fassungen aus (neue Datei `supabase/functions/_shared/openai.ts` im Lehrer-Portal-Paket). Dasselbe gilt jetzt für Folien-Import, Pflegeplanung und Gesprächsauswertung. **Wichtig:** die vier Funktionen neu bereitstellen: `supabase functions deploy assistent folien-import pflegeplanung gespraech-auswertung`.
+- **Fachlexikon stark erweitert:** rund 710 neue Begriffe (insgesamt über 1 800 im Lexikon), neue Bereiche Medizinische Fachsprache (Lagebezeichnungen, Vor- und Nachsilben), Prophylaxen und Assessments, Wunde und Haut, Palliativ und Schmerz, Psychiatrie, Ernährung und Ausscheidung, dazu viele Abkürzungen aus dem Stationsalltag. Neue Lexikon-Ansicht: Suche ohne Rücksicht auf Umlaute und Schreibweise (z. B. „iv“ findet „i. v.“), Treffer im Begriff zuerst, Filter nach Bereich und Anfangsbuchstabe, „Begriff des Tages“, „Zufälliger Begriff“, flüssig auch auf dem Handy. Im Text der Module werden höchstens acht Begriffe pro Abschnitt unterstrichen, Alltagswörter gar nicht.
+- **Kleinere Verbesserungen:** Ankreuzen im Stationsalltag mit derselben Rückmeldung wie in den Modulen, Prüfungskarte auf Home bricht auf dem Handy sauber um, Assistent zeigt keine bedeutungslosen Punkte mehr unter dem Eingabefeld, doppelte Quellen in der Demo-Antwort entfernt.
+- Offline-Cache auf `fallpfad-v49` erhöht.
+
+## Vorige Version (10.11.2026)
 
 - **Profilmenü im Stil der iOS-Einstellungen:** gruppierte Listen, farbige Symbol-Kacheln, flache Farbkreise mit Häkchen und Namen. Die Farbkreise bleiben auf dem Handy rund (vorher wurden sie durch die 44-px-Regel für Touch-Ziele oval). Gilt identisch im Lehrer-Portal.
 - **Symbole:** neues, sauberes Zahnrad für Einstellungen/Optionen (Seitenleiste, Tab-Leiste, Menü), Logo wieder hell auf Akzentfarbe (`css/07-politur.css`).
@@ -247,7 +257,6 @@ Lehrkräfte können jetzt neben Modulen und eigenen Aufgaben auch ein Training (
   - Jahr 2: fm68 Vorhofflimmern, fm69 Bluthochdruck, fm70 obere GI-Blutung, fm71 multiresistente Erreger.
   - Jahr 3: fm72 Frühgeborene, fm73 Pseudokrupp und Fieberkrampf, fm74 Polypharmazie, fm75 Beraten und Anleiten bei Asthma.
 - **Fachlexikon** `daten/fachlexikon.js`: rund 430 zusätzliche Begriffe mit Kategorie. Sie erscheinen im Lexikon (mit Filter nach Kategorie), als Erklärung beim Antippen im Text und stehen dem Assistenten zur Verfügung.
-- **Training „Akutsituationen“** (`js/training/51-akutsimulationen.js`): 8 Notfälle mit Live-Monitor, bei denen sich die Vitalwerte je nach Entscheidung verändern. Am Ende gibt es Punkte und eine Musterlösung.
-- **Training „Bildbefunde“** (`js/training/50-bildbefunde.js`): 56 gezeichnete Befunde in 10 Kategorien, darunter Wunden, Dekubitus, Haut, Pupillen, Urin, Stuhl, Drainagen, Atemmuster, Kurven und EKG-Rhythmen zur Beobachtung. Es gibt einen Lernmodus und ein Quiz.
+- **Bildbefunde** (`js/training/50-bildbefunde.js`): 56 gezeichnete Befunde in 10 Kategorien, seit 11.11.2026 unter Training > Interaktives Üben.
 - **Feedback geben** im Profilmenü.
 - **Anonyme Nutzungszählung** (`js/funktionen/10-feedback-nutzung.js`): nur Tageszähler pro Schule, ohne Personenbezug. Dafür muss `supabase/admin_statistik.sql` im Lehrer-Repo ausgeführt sein.

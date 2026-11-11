@@ -56,7 +56,7 @@
   function render(d) {
     var ex = lsGet();
     if (!ex) {
-      d.innerHTML = '<div class="fpx-row"><div class="fpx-t" style="flex:1"><b>Wann ist deine Prüfung?</b><small>Trag den Tag ein – die App zählt für dich mit. Bleibt auf diesem Gerät.</small></div><button type="button" class="fpx-b" data-a="neu">Prüfungstag eintragen</button></div>';
+      d.innerHTML = '<div class="fpx-row"><div class="fpx-t" style="flex:1 1 220px"><b>Wann ist deine Prüfung?</b><small>Trag den Tag ein – die App zählt für dich mit. Bleibt auf diesem Gerät.</small></div><button type="button" class="fpx-b" data-a="neu">Prüfungstag eintragen</button></div>';
     } else {
       var t = tage(ex.datum);
       var txt = t > 1 ? "Noch <b>" + t + " Tage</b>" : t === 1 ? "<b>Morgen</b> ist es so weit" : t === 0 ? "<b>Heute</b> ist dein Tag" : "Die Prüfung war am " + fmt(ex.datum);
@@ -64,7 +64,7 @@
       d.className = "fpx-card" + (t >= 0 && t <= 14 ? " fpx-warn" : "");
       d.innerHTML = '<div class="fpx-row">' +
         '<div class="fpx-n">' + (t >= 0 ? t : "✓") + "<small>" + (t >= 0 ? "Tage" : "vorbei") + "</small></div>" +
-        '<div class="fpx-t" style="flex:1"><b>' + (ex.art ? ex.art.charAt(0).toUpperCase() + ex.art.slice(1) + "e Prüfung" : "Prüfung") + " am " + fmt(ex.datum) + '</b><small>' + txt.replace(/<\/?b>/g, "") + wochen + (t > 0 && wochenziel(t) ? "<br>" + esc(wochenziel(t)) : t > 0 ? " · der Assistent macht dir daraus einen Lernplan" : "") + "</small></div>" +
+        '<div class="fpx-t" style="flex:1 1 220px"><b>' + (ex.art ? ex.art.charAt(0).toUpperCase() + ex.art.slice(1) + "e Prüfung" : "Prüfung") + " am " + fmt(ex.datum) + '</b><small>' + txt.replace(/<\/?b>/g, "") + wochen + (t > 0 && wochenziel(t) ? "<br>" + esc(wochenziel(t)) : t > 0 ? " · der Assistent macht dir daraus einen Lernplan" : "") + "</small></div>" +
         '<button type="button" class="fpx-b q" data-a="neu">Ändern</button>' +
         (t < 0 ? '<button type="button" class="fpx-b q" data-a="weg">Entfernen</button>' : "") +
         "</div>";

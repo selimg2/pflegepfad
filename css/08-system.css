@@ -160,3 +160,9 @@ html body .pa-sway{animation-duration:7s!important}
 /* Illustrationen im dunklen Modus: Farbwelt bleibt (wie ein Foto), nur etwas gedämpft */
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body .pxart2 svg{filter:brightness(.9) saturate(.95)}}
 :root[data-theme="dark"] body .pxart2 svg{filter:brightness(.9) saturate(.95)}
+
+/* Ankreuzen im Stationsalltag: gleiche Rückmeldung wie in den Lernmodulen (Wackeln bei falscher Antwort, leichtes Eindrücken) */
+.st-opt{transition:border-color .2s,background .2s,transform .2s var(--ease,ease)}
+.st-opt:active:not([disabled]){transform:scale(.99)}
+.st-opt.no{animation:shake .4s}
+@media (prefers-reduced-motion:reduce){.st-opt.no{animation:none}}
