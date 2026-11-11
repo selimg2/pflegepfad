@@ -65,15 +65,14 @@
     { k: "pharmako", t: "PharmakoLab", d: "Medikamente richten, rechnen, Wechselwirkungen erkennen.", c: "#DB2777", g: 2 },
     { k: "vorbereitung", t: "Praxisvorbereitung", d: "Was dich im nächsten Einsatz erwartet.", c: "#059669", g: 2 },
     { k: "interaktiv", t: "Interaktives Üben", d: "Bildbefunde (EKG, Wunden, Haut, Pupillen …), Zuordnen, Reihenfolgen und alle Aufgaben aus den Modulen.", c: "#2563EB", g: 3 },
-    { k: "karten", t: "Lernkarten", d: "Wiederholen mit Karteikarten.", c: "#CA8A04", g: 3 },
+    { k: "karten", t: "Lernkarten", d: "Fachbegriffe und Inhalte mit Karteikarten lernen.", c: "#CA8A04", g: 3 },
     { k: "blitz", t: "Blitzrunde", d: "Schnelle Fragen gegen die Uhr.", c: "#F59E0B", g: 3 },
-    { k: "fehler", t: "Fehlertraining", d: "Was du falsch hattest, kommt wieder.", c: "#E11D48", g: 3 },
     { k: "lexikon", t: "Lexikon", d: "Fachbegriffe kurz erklärt.", c: "#0D9488", g: 4 },
     { k: "deutsch", t: "Fachsprache Deutsch", d: "Wichtige Wörter mit Artikel, Aussprache und Sätze für den Dienst, auf Wunsch mit deiner Sprache.", c: "#0284C7", g: 4 },
     { k: "portfolio", t: "Portfolio", d: "Deine Arbeiten und Reflexionen.", c: "#64748B", g: 4 },
     { k: "merk", t: "Merkliste", d: "Was du dir gemerkt hast.", c: "#9333EA", g: 4 }
   ];
-  var GROUPS = [[2, "Simulieren & Handeln"], [1, "Prüfung & Examen"], [3, "Üben & Wiederholen"], [4, "Nachschlagen & Sammeln"]];
+  var GROUPS = [[2, "Simulieren & Handeln"], [1, "Prüfung & Examen"], [3, "Üben & Festigen"], [4, "Nachschlagen & Sammeln"]];
 
   function tileMeta(k, S) {
     try {
@@ -125,7 +124,7 @@
     var feat = TILES.filter(function (x) { return x.feat; });
     return h("div", { className: "wrap" },
       h("div", { className: "hello" },
-        h("div", { className: "eyebrow" }, "Wiederholen und vertiefen"),
+        h("div", { className: "eyebrow" }, "Üben und vertiefen"),
         h("h1", { style: { marginTop: 8 } }, "Training"),
         h("p", null, "Wähle aus, was du heute üben willst.")),
       GROUPS.map(function (g) {

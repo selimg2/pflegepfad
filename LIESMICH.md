@@ -22,6 +22,21 @@ Die App besteht nicht mehr aus einer einzigen `index.html`, sondern aus einzelne
 
 Wichtig: Die Reihenfolge der `<script>`-Zeilen in `index.html` nicht ändern. Kommt eine neue Datei dazu, auch in die Liste `MODULE` in `sw.js` eintragen.
 
+## Neu in dieser Version (11.11.2026, Nachtrag 2)
+
+- Lernmodule: „Prüfung“ und „Wiederholen“ sind jetzt zwei kleine Kacheln nebeneinander, damit die Module sofort sichtbar bleiben.
+- Ein Tipp auf „Wiederholen“ öffnet ein Fenster mit den fälligen Fragen und den wackeligsten Themen. Ein Tipp auf „Prüfung“ klappt den Lernplaner auf.
+- Service-Worker-Cache: fallpfad-v51.
+
+## Neu in dieser Version (11.11.2026, Nachtrag)
+
+- **Prüfung und Wiederholen sind jetzt unter „Lernmodule“** (Abschnitt „Prüfung und Wiederholen“ ganz oben, Datei `js/training/48-lernplanung.js`). Dort trägt man den Prüfungstermin und die Art der Prüfung ein (schriftlich, praktisch, mündlich). Fallpfad verteilt die offenen Module auf die Wochen bis dahin, mit Kalender-Export. Daneben der Karteikasten „Wiederholen“ mit den wackeligsten Themen. Die Wiederholungsfragen nutzen dieselbe Aufgaben-Komponente wie die Module.
+- **Startseite aufgeräumt:** keine Aufforderung „Wann ist deine Prüfung?“ und kein Wiederholen-Kasten mehr. Ist ein Prüfungstermin eingetragen, steht oben nur der Countdown mit den Modulen dieser Woche, sonst nichts. Neue Reihenfolge: Nachrichten und Aufgaben, Stundenplan, Weiterlernen, Tagesaufträge, Praxiseinsatz, „Als Nächstes in deinem Jahr“ (3 Module statt aller Module des Jahres). Die Blätter-Leiste „Vorheriges/Nächstes Modul“ ist entfernt.
+- **Ein Lernplaner statt zwei:** Bisher gab es den Prüfungstag auf der Startseite (nur auf dem Gerät) und einen zweiten Lernplaner unter Fortschritt. Jetzt gibt es nur noch den Lernplaner unter Lernmodule, gespeichert im Konto. Ein früher eingetragener Prüfungstag wird automatisch übernommen.
+- **Training:** Kein Wiederholen mehr, die doppelte Kachel „Fehlertraining“ ist entfernt (das macht jetzt der Karteikasten unter Lernmodule). Gruppe heißt „Üben & Festigen“.
+- **Fehler behoben:** Im Stundenplan war der heutige Tag unsichtbar (weiße Schrift auf weißem Grund).
+- Offline-Cache auf `fallpfad-v50` erhöht. `js/training/49-wiederholen.js` und `48-pruefungsplaner.js` sind entfernt.
+
 ## Neu in dieser Version (11.11.2026)
 
 - **Akutsimulationen entfernt.** Das Training und alle Verweise darauf sind gelöscht (`js/training/51-akutsimulationen.js`, Kachel, Offline-Cache, Statistik im Admin-Bereich).
