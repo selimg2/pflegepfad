@@ -174,3 +174,9 @@ html body .ttdays button.on small{color:rgba(255,255,255,.85)!important}
 
 /* Schwebende Leiste „Einträge warten auf Bestätigung“: deckend, damit darunterliegende Karten nicht durchscheinen */
 html body .nwdetail .nwsticky{background:color-mix(in srgb,var(--accent) 12%,var(--surface,#fff))!important;backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px)}
+
+/* PharmakoLab: runde Icon-Knöpfe (nie oval) und Steuerzeile in einer Reihe */
+html body .p2 .p2icon{--p2i:36px;width:var(--p2i)!important;height:var(--p2i)!important;min-width:var(--p2i)!important;min-height:var(--p2i)!important;max-width:var(--p2i)!important;max-height:var(--p2i)!important;padding:0!important;margin:0;aspect-ratio:1/1;border-radius:50%!important;flex:0 0 var(--p2i)!important;align-self:center;box-sizing:border-box;line-height:0}
+html body .p2 .p2step .p2icon{--p2i:38px}
+html body .p2 .p2ctl{gap:6px}
+@media (max-width:420px){html body .p2 .p2seg button{padding:5px 9px}}
