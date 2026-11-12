@@ -48,8 +48,9 @@
     var c = curCard();
     if (!c) { var add = btnByText(/^\+ Einsatz$|^Einsatz anlegen$/); if (add) add.click(); return; }
     c.click();
-    var b = await waitFor(function () { return btnByText(label, document.querySelector(".nwadd") || document); });
-    if (b) b.click();
+    /* Erst warten, bis die Einsatz-Ansicht da ist; sonst wird die Kachel auf der Übersicht erneut getroffen. */
+    var b = await waitFor(function () { var d = document.querySelector(".nwdetail"); return d ? btnByText(label, d) : null; }, 4000);
+    if (b) { b.click(); setTimeout(function () { var f = document.querySelector("[role=dialog], .modal"); if (!f && b.scrollIntoView) b.scrollIntoView({ block: "center", behavior: "smooth" }); }, 300); }
   }
   async function sign() {
     var b = btnByText(/^Jetzt bestätigen lassen$/);

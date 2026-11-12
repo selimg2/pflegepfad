@@ -171,3 +171,6 @@ html body .pa-sway{animation-duration:7s!important}
 html body .ttdays button.today{background:var(--surface)!important;box-shadow:none}
 html body .ttdays button.on,html body .ttdays button.on.today{background:var(--accent)!important;border-color:var(--accent)!important;color:#fff!important}
 html body .ttdays button.on small{color:rgba(255,255,255,.85)!important}
+
+/* Schwebende Leiste „Einträge warten auf Bestätigung“: deckend, damit darunterliegende Karten nicht durchscheinen */
+html body .nwdetail .nwsticky{background:color-mix(in srgb,var(--accent) 12%,var(--surface,#fff))!important;backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px)}

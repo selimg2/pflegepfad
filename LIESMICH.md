@@ -275,3 +275,37 @@ Lehrkräfte können jetzt neben Modulen und eigenen Aufgaben auch ein Training (
 - **Bildbefunde** (`js/training/50-bildbefunde.js`): 56 gezeichnete Befunde in 10 Kategorien, seit 11.11.2026 unter Training > Interaktives Üben.
 - **Feedback geben** im Profilmenü.
 - **Anonyme Nutzungszählung** (`js/funktionen/10-feedback-nutzung.js`): nur Tageszähler pro Schule, ohne Personenbezug. Dafür muss `supabase/admin_statistik.sql` im Lehrer-Repo ausgeführt sein.
+
+## Nachtrag 4 – Prüfung und Fehlerbehebung (12.11.2026)
+
+Beide Apps wurden komplett durchgeklickt (alle Bereiche, hell und dunkel, Tablet und Handy) und alle Exporte heruntergeladen und geprüft.
+
+**Behoben im Lehrer-Portal**
+- **Schulname fehlte in allen PDFs.** Ausbildungsnachweise, Sammel-Export, ZIP, Prüfungsbögen, Auditbericht und Datenschutz-Übersicht hatten keinen Schulnamen, weil er intern nie gesetzt wurde. Jetzt wird der Name der Schule aus dem Konto übernommen.
+- **PflAPrV-Auditbericht ließ sich nicht erstellen**, solange das Pflichtfeld „Name der Pflegeschule“ leer war. Das Feld ist jetzt vorausgefüllt.
+- **Datenschutz-Übersicht (PDF) war inhaltlich falsch:** Region „Frankfurt“ statt Zürich, OpenAI und Vercel fehlten als Dienstleister. Korrigiert.
+- **Unnötige Fehler im Hintergrund:** Das Portal rief bei jedem Laden zwei Aufräum-Funktionen auf, die nur der Datenbank-Zeitplan darf (403 in den Logs). Entfernt, der Zeitplan erledigt das weiterhin nachts.
+- Riesiges Pfeil-Symbol bei „‹ Optionen“ im Auditbericht.
+
+**Behoben in der Schüler-App**
+- **Schnellaktionen im Praxis-Bereich öffneten das Formular nicht** („Arbeitstag eintragen“, „Praxisanleitung eintragen“, „Fehlzeit melden“, „Gespräch festhalten“). Man landete nur im Einsatz. Jetzt öffnet sich direkt das richtige Formular.
+- **Profil speichern scheiterte für Lernende in einem Kurs** („Bitte den Kurscode deiner Lehrkraft eingeben.“). Die App speichert das Profil jetzt per Update statt Upsert. Zusätzlich SQL-Korrektur (siehe unten).
+- Leiste „Einträge warten auf Bestätigung“ war durchsichtig und überlagerte Karten. Jetzt deckend.
+- Cache-Version `fallpfad-v52`.
+
+**Rechtstexte**
+- `datenschutz.html` (beide Apps): Datenbank in **Zürich, Schweiz** statt Frankfurt; Vercel als Hosting-Anbieter eingetragen. Offene Platzhalter (Name, Anschrift, Datum, Fristen, E-Mail-Versand) bitte noch selbst ausfüllen.
+
+**Einmal in Supabase ausführen:** `supabase/nachtrag_2026_11_12.sql` im SQL Editor. Korrigiert die Kurswechsel-Sperre (blockierte normales Profil-Speichern) und legt die fehlende Tabelle `fp_einstellungen` an (404 in den Logs).
+
+**Empfohlen im Supabase-Dashboard:** Authentication → Passwortschutz „Leaked password protection“ einschalten (falls im Tarif verfügbar).
+
+## Nachtrag 5 – PharmakoLab erweitert (12.11.2026)
+
+**14 neue Wirkstoffe** (jetzt 31): Tramadol, Piritramid, Oxycodon retard, Butylscopolamin, Urapidil, Adrenalin i.m., Insulin glargin, Glukagon i.m., Ipratropium, Prednisolon, Ondansetron, Dimenhydrinat, Dimetinden, Melperon. Jeder mit Wirkprinzip, Praxistipp und eigenen Prüfhinweisen vor der Gabe.
+
+**9 neue Fälle** (jetzt 20): Allergischer Schock, Blutdruckentgleisung (mit Abbruch bei zu schneller Senkung), Schmerz nach Bauch-OP, Durchbruchschmerz unter Retard-Opioid, Atemnot bei COPD, Blutzucker unter Kortison, Unterzucker ohne Zugang, Gallenkolik, Übelkeit nach Chemo. Alle Fälle wurden mit dem Rechenmodell durchgespielt und sind mit den angeordneten Mitteln lösbar.
+
+**Modell:** Naloxon wirkt jetzt gegen alle Opioide, nicht nur Morphin. Neue Wechselwirkungshinweise: mehrere müde machende Mittel, Kortison und Blutzucker, Betablocker schwächt Adrenalin, Ondansetron und Tramadol, zwei Antiemetika, Basal- plus Normalinsulin. Urapidil zählt zu den blutdrucksenkenden Mitteln. Kategorien heißen jetzt „Gerinnung, Schlaf & Allergie“ und „Gegenmittel & Notfall“.
+
+Cache-Version `fallpfad-v53`.

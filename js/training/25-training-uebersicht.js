@@ -62,7 +62,7 @@
     { k: "kommunikation", t: "Kommunikation", d: "Gespräche mit KI-Gesprächspersonen üben: sprechen, zuhören, Rückmeldung bekommen.", c: "#0EA5E9", g: 2, big: 1 },
     { k: "sims", t: "Simulationen", d: "Realitätsnahe Abläufe aus dem Stationsalltag, beliebig oft.", c: "#7C3AED", g: 2 },
     { k: "team", t: "Team-Krankenhaus", d: "Gemeinsam mit deinem Kurs einen Fall lösen.", c: "#0891B2", g: 2 },
-    { k: "pharmako", t: "PharmakoLab", d: "Medikamente richten, rechnen, Wechselwirkungen erkennen.", c: "#DB2777", g: 2 },
+    { k: "pharmako", t: "PharmakoLab", d: "31 Wirkstoffe, 20 Fälle: Wirkung beobachten, Wechselwirkungen erkennen.", c: "#DB2777", g: 2 },
     { k: "vorbereitung", t: "Praxisvorbereitung", d: "Was dich im nächsten Einsatz erwartet.", c: "#059669", g: 2 },
     { k: "interaktiv", t: "Interaktives Üben", d: "Bildbefunde (EKG, Wunden, Haut, Pupillen …), Zuordnen, Reihenfolgen und alle Aufgaben aus den Modulen.", c: "#2563EB", g: 3 },
     { k: "karten", t: "Lernkarten", d: "Fachbegriffe und Inhalte mit Karteikarten lernen.", c: "#CA8A04", g: 3 },
