@@ -309,3 +309,17 @@ Beide Apps wurden komplett durchgeklickt (alle Bereiche, hell und dunkel, Tablet
 **Modell:** Naloxon wirkt jetzt gegen alle Opioide, nicht nur Morphin. Neue Wechselwirkungshinweise: mehrere müde machende Mittel, Kortison und Blutzucker, Betablocker schwächt Adrenalin, Ondansetron und Tramadol, zwei Antiemetika, Basal- plus Normalinsulin. Urapidil zählt zu den blutdrucksenkenden Mitteln. Kategorien heißen jetzt „Gerinnung, Schlaf & Allergie“ und „Gegenmittel & Notfall“.
 
 Cache-Version `fallpfad-v53`.
+
+## Nachtrag 6 – Handy- und Tablet-Ansicht (12.11.2026)
+
+**PharmakoLab**
+- Handy: Die wichtigsten Vitalwerte (Puls, RR, AF, SpO₂, BZ, Schmerz) stehen in einer Leiste, die beim Scrollen oben bleibt. Auffällige Werte sind orange, kritische rot markiert. Darunter vier Tabs: Medikamente, Werte, Körper, Wissen. So muss man nicht mehr durch eine sehr lange Seite scrollen. Nach dem Antippen eines Medikaments rückt die Dosierung automatisch ins Bild.
+- Tablet (iPad hoch und quer): gleiche Werte-Leiste, links Medikamente mit begrenzt hoher Liste und Dosierung, rechts Vitalwerte und Körper, darunter Wissen und Verlauf.
+- Laptop ab 1200 px unverändert.
+
+**Handy allgemein**
+- Lernmodule: kompakte Modulkarten (ohne Figuren, Fallteaser einzeilig), Seite etwa 45 % kürzer.
+- Training: einspaltige Liste statt enger Zweierkacheln, Beschreibungen nicht mehr abgeschnitten.
+- Fortschritt: Medaillen dreispaltig, Modulliste kompakt, Seite etwa 25 % kürzer.
+
+Cache-Version `fallpfad-v54`.
