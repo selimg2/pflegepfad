@@ -9,7 +9,7 @@
    - Patient.quelle: { typ: "modul", id: "fm10", ci: 3 } nutzt die Patientenakte aus dem Lernmodul (ci = bis zu welchem Kapitel),
      { typ: "pex", fall: "innere", key: "A" } nutzt Akte, Bild und Simulationen aus der Praktischen Examen Übung, { typ: "neu" } eigene Akte.
    - Patient.verlauf: Liste von Zuständen { ab | flag+nach, wenn, v: Vitalwerte, status }. Es gilt der letzte passende Eintrag.
-   - Aufgabe.inhalt.typ: messen | quiz | reihe | zahl | befund (PEX-Bildbefund) | pflege (PEX-Simulation).
+   - Aufgabe.inhalt.typ: messen | quiz | reihe | zahl | befund (PEX-Beobachtung) | pflege (PEX-Simulation).
    - Antwortoptionen: { t, ok: true | false | Bedingung, teil: true (halbe Punkte), fb, setzt: [flags] }.
    - Ereignis: { um | wenn, art: klingel | telefon | alarm | visite | aufnahme | info | labor, setzt, malus: { kat, pts, t }, pause }. */
 window.FP_STATION_DATA = {

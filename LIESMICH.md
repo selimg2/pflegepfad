@@ -22,6 +22,19 @@ Die App besteht nicht mehr aus einer einzigen `index.html`, sondern aus einzelne
 
 Wichtig: Die Reihenfolge der `<script>`-Zeilen in `index.html` nicht ändern. Kommt eine neue Datei dazu, auch in die Liste `MODULE` in `sw.js` eintragen.
 
+## Neu in dieser Version (20.11.2026): Rückmeldungen aus der Pflegeschule umgesetzt
+
+Grundlage ist der Kommentar eines Pflegelehrers. Analyse, Begründungen und offene Punkte stehen in `FEEDBACK_PRAXISLEHRKRAFT.md`.
+
+- **Theoriephase statt starrem Jahresraster:** Lehrkräfte markieren je Kurs die Module des aktuellen Theorieblocks. Sie erscheinen ganz oben unter „Lernmodule“ und auf der Startseite. Das Ausbildungsjahr ist nur noch eine Empfehlung. Loader: `js/kern/06-modul-loader.js`, Anzeige im App-Bundle.
+- **Lerncoach:** Der Kurs kann eine Ansprechperson hinterlegen. Sie erscheint unter „Wiederholen“ (`js/training/48-lernplanung.js`).
+- **Transferaufgabe statt Praxisauftrag:** vorab mit der Praxisanleitung klären, unter Anleitung durchführen, strukturiert reflektieren, mit Rückmeldung der Praxisanleitung.
+- **„Prüfungswissen-Training“ statt „Examenssimulator“:** 60/30/15 Fragen, kein „Echtbedingungen“, kein „IMPP“, Hinweis auf den echten Aufbau der Aufsichtsarbeiten (§ 14 PflAPrV: drei Arbeiten zu je 120 Minuten, fallbezogen).
+- **Begriffe:** „Bildbefund“ wurde zu „Beobachtung“, PES und PESR sind überall „PESR“.
+- **Abbildungen überarbeitet:** Fieberphasen, Schock-Diagramm, Pulsorte, Blutdruck-Haltung (`daten/abbildungen.js`).
+- **Training:** Die Seite erklärt, dass die Fallmodule den Kern bilden. Gruppe „Prüfungsvorbereitung“.
+- **Einrichten:** `supabase/theoriephase_lerncoach.sql` einmal ausführen. Offline-Cache: `fallpfad-v55`.
+
 ## Neu in dieser Version (11.11.2026, Nachtrag 2)
 
 - Lernmodule: „Prüfung“ und „Wiederholen“ sind jetzt zwei kleine Kacheln nebeneinander, damit die Module sofort sichtbar bleiben.

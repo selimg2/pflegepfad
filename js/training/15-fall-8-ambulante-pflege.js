@@ -90,7 +90,7 @@
     merke: "Fuß 90°, Ferse drin, Druck nimmt nach oben ab, Zehen frei und rosig. Kompression wirkt nur mit Bewegung."
   };
 
-  /* ---------- Bildbefund Herr Ritter zu Hause ---------- */
+  /* ---------- Beobachtung Herr Ritter zu Hause ---------- */
   var sp8 = {};
   function ritterScene() {
     var s = X.defs() + '<rect width="400" height="280" fill="#f6efe4"/>' + '<rect y="206" width="400" height="74" fill="#d9c7ae"/>' + X.l(0, 206, 400, 206, "#c2ad8f", 2);
@@ -119,7 +119,7 @@
     return s + X.vignette();
   }
   var ritterBild = {
-    k: "ritterbild", typ: "hotspot", pat: "B", t: "Herr Ritter · Bildbefund", kurzname: "Bildbefund in der Wohnung", clock: "08:40", max: 8,
+    k: "ritterbild", typ: "hotspot", pat: "B", t: "Herr Ritter · Beobachtung", kurzname: "Beobachtung in der Wohnung", clock: "08:40", max: 8,
     titel: "Hausbesuch bei Herrn Ritter",
     banner: { name: "Hans-Peter Ritter", sub: "74 J. · lebt allein · Diabetes Typ 2 mit Insulin, Herzinsuffizienz", chips: [["BZ gestern Abend 312 mg/dl", "red"], ["Pflegegrad 2", ""]] },
     intro: "08:40 Uhr. Herr Ritter öffnet barfuß und lässt dich in die Wohnung. „Kommen Se rein. Der Zucker spinnt seit Tagen, ich spritz doch wie immer.“ Du schaust dich im Wohnzimmer um.",
@@ -242,7 +242,7 @@
         ]
       },
       B: {
-        key: "B", name: "Hans-Peter Ritter", kurz: "Herr Ritter", alter: 74, zimmer: "Hausbesuch 2", modus: "Bildbefund · Vitalzeichen · Medikamente", farbe: "#EA580C", av: RITT,
+        key: "B", name: "Hans-Peter Ritter", kurz: "Herr Ritter", alter: 74, zimmer: "Hausbesuch 2", modus: "Beobachtung · Vitalzeichen · Medikamente", farbe: "#EA580C", av: RITT,
         typ: "Ehemaliger Elektriker, wortkarg und stolz, lebt seit dem Tod seiner Frau allein, will „niemandem zur Last fallen“.",
         diagnose: "Diabetes mellitus Typ 2 mit Basalinsulin, Herzinsuffizienz NYHA II, beginnende Retinopathie; Pflegegrad 2.",
         daten: [

@@ -1,4 +1,4 @@
-/* ===== Fall 3 (Innere Medizin): Figuren, Bildbefund, Infusions-Simulation ===== */
+/* ===== Fall 3 (Innere Medizin): Figuren, Beobachtung, Infusions-Simulation ===== */
 (function () {
   var X = window.PXB, C = (window.PEX_CASES || []).filter(function (c) { return c.id === "innere"; })[0];
   if (!X || !C) return;
@@ -12,7 +12,7 @@
     arzt: { name: "Dr. Meier", match: "dr\\.? meier|ärzt", av: { hair: "TI", hairC: "#3a2a22", skin: "#f0c7a5", cloth: "#ffffff", deco: "coat", bg: "#ddeeff" } }
   };
 
-  /* ---------- Bildbefund Frau Kranz ---------- */
+  /* ---------- Beobachtung Frau Kranz ---------- */
   var kr = Object.assign({}, P.B.av, { cyan: 1 });
   var spotP = {};
   function kranzScene() {

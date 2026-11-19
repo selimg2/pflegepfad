@@ -1,4 +1,4 @@
-/* Fallpfad Training „Bildbefunde“: Befunde sehen, benennen und richtig handeln.
+/* Fallpfad Training „Beobachtungsbilder“: Befunde sehen, benennen und richtig handeln.
    Alle Bilder sind gezeichnete Schemata (SVG), keine Fotos echter Personen.
    Bereiche: EKG-Rhythmen, Wunden, Dekubitus, Haut, Pupillen, Urin, Stuhl, Drainagen, Atemmuster, Kurven.
    Modi: Lernen (alle Befunde durchblättern) und Quiz (zufällige Auswahl mit Punkten). Fortschritt nur auf dem Gerät. */
@@ -240,7 +240,7 @@
     B("ekg", "vt", EKG.vt, "Ventrikuläre Tachykardie", "Welcher Rhythmus liegt vor?", ["Ventrikuläre Tachykardie", "Sinustachykardie", "Vorhofflimmern", "Asystolie"], 0, "Schnelle, regelmäßige, breite und gleichförmige Kammerkomplexe ohne P-Wellen. Kann jederzeit in Kammerflimmern übergehen.", "Sofort prüfen, ob die Person ansprechbar ist und einen Puls hat. Ohne Puls: Reanimation und Defibrillation. Mit Puls: Notfallteam rufen, Monitor, Zugang, Defibrillator bereit."),
     B("ekg", "tachy", EKG.tachy, "Sinustachykardie", "Welcher Rhythmus liegt vor?", ["Sinustachykardie", "Ventrikuläre Tachykardie", "Vorhofflimmern", "Sinusbradykardie"], 0, "Regelmäßig, P-Wellen vor jedem schmalen QRS, Frequenz etwa 120/min. Die Ursache liegt meist außerhalb des Herzens.", "Nach der Ursache suchen: Schmerz, Fieber, Angst, Volumenmangel, Blutung, Sepsis, Hypoxie. Die Tachykardie ist ein Warnzeichen, keine Diagnose."),
     B("ekg", "brady", EKG.brady, "Sinusbradykardie", "Eine Person erhält seit gestern einen Betablocker. Was zeigt der Streifen?", ["Sinusbradykardie", "AV-Block III. Grades", "Asystolie", "Sinusrhythmus"], 0, "Regelmäßig, P vor jedem QRS, Frequenz etwa 45/min.", "Befinden, Blutdruck und Schwindel prüfen. Vor der nächsten Betablocker-Gabe ärztlich Rücksprache halten."),
-    B("ekg", "stemi", EKG.stemi, "ST-Hebung", "Eine Person klagt seit 20 Minuten über Druck auf der Brust. Was fällt im EKG auf?", ["ST-Hebung", "Normaler Befund", "Vorhofflimmern", "Asystolie"], 0, "Die Strecke nach dem QRS-Komplex verläuft deutlich erhöht: Hinweis auf einen akuten Herzinfarkt mit ST-Hebung (STEMI).", "Notfall: ärztlich sofort informieren, 12-Kanal-EKG, Oberkörper hoch, nicht aufstehen lassen, Vitalzeichen, Zugang. Zeit ist Herzmuskel."),
+    B("ekg", "stemi", EKG.stemi, "ST-Hebung", "Eine Person klagt seit 20 Minuten über Druck auf der Brust. Was fällt im EKG auf?", ["ST-Hebung", "Unauffällig", "Vorhofflimmern", "Asystolie"], 0, "Die Strecke nach dem QRS-Komplex verläuft deutlich erhöht: Hinweis auf einen akuten Herzinfarkt mit ST-Hebung (STEMI).", "Notfall: ärztlich sofort informieren, 12-Kanal-EKG, Oberkörper hoch, nicht aufstehen lassen, Vitalzeichen, Zugang. Zeit ist Herzmuskel."),
     B("ekg", "ves", EKG.ves, "Ventrikuläre Extrasystole", "Was ist das breite, vorzeitige Ereignis im Streifen?", ["Ventrikuläre Extrasystole", "Kammerflimmern", "Artefakt", "P-Welle"], 0, "Ein vorzeitiger, breiter, deformierter Komplex ohne P-Welle mit anschließender Pause. Einzelne Extrasystolen sind häufig und oft harmlos.", "Häufung, Paare oder Salven melden. Kalium und Magnesium werden oft kontrolliert."),
 
     B("wunde", "gran", WUNDE.granulation, "Granulationsgewebe", "Wie beschreibst du den Wundgrund?", ["Granulationsgewebe", "Nekrose", "Fibrinbelag", "Mazeration"], 0, "Feuchtes, hellrotes, körniges Gewebe: gut durchblutetes Granulationsgewebe, die Wunde heilt.", "Schützen statt reinigen: feuchtes Wundmilieu erhalten, nicht austrocknen lassen, beim Verbandwechsel nicht verletzen."),
@@ -255,21 +255,21 @@
     B("deku", "k3", DEKU.k3, "Dekubitus Kategorie 3", "Welche Kategorie zeigt der Querschnitt?", ["Kategorie 3", "Kategorie 2", "Kategorie 4", "Kategorie 1"], 0, "Vollständiger Hautverlust bis ins Unterhautfettgewebe, Muskel und Knochen liegen nicht frei.", "Ärztliche und wundexpertliche Versorgung, Ernährung prüfen, konsequente Entlastung."),
     B("deku", "k4", DEKU.k4, "Dekubitus Kategorie 4", "Welche Kategorie zeigt der Querschnitt?", ["Kategorie 4", "Kategorie 3", "Kategorie 2", "Kategorie 1"], 0, "Gewebeverlust bis auf Muskel, Sehne oder Knochen. Hohes Infektionsrisiko bis zur Knochenentzündung.", "Interprofessionelle Behandlung, häufig chirurgisch; Schmerz und Ernährung besonders beachten."),
 
-    B("haut", "zya", HAUT.zyanose, "Zentrale Zyanose", "Was fällt an Lippen und Gesicht auf?", ["Zyanose", "Ikterus", "Normalbefund", "Anämie"], 0, "Bläuliche Verfärbung von Lippen und Schleimhäuten: Hinweis auf Sauerstoffmangel im Blut.", "Atmung, Sättigung und Bewusstsein prüfen, Oberkörper hoch, Sauerstoff nach Anordnung, ärztlich melden."),
+    B("haut", "zya", HAUT.zyanose, "Zentrale Zyanose", "Was fällt an Lippen und Gesicht auf?", ["Zyanose", "Ikterus", "Unauffällig", "Anämie"], 0, "Bläuliche Verfärbung von Lippen und Schleimhäuten: Hinweis auf Sauerstoffmangel im Blut.", "Atmung, Sättigung und Bewusstsein prüfen, Oberkörper hoch, Sauerstoff nach Anordnung, ärztlich melden."),
     B("haut", "ikt", HAUT.ikterus, "Ikterus", "Welche Veränderung siehst du?", ["Ikterus", "Zyanose", "Karotinämie (Skleren bleiben weiß)", "Exanthem"], 0, "Gelbe Haut und vor allem gelbe Skleren: Bilirubinerhöhung, etwa bei Leber- oder Gallenwegserkrankung.", "Neu aufgetretenen Ikterus melden, auf dunklen Urin, hellen Stuhl und Juckreiz achten."),
     B("haut", "bla", HAUT.blass, "Blässe", "Welche Ursache kommt bei dieser Blässe vor allem in Frage, wenn Puls 118/min und RR 92/55 mmHg sind?", ["Blutung oder Volumenmangel", "Hypertensive Krise", "Fieberanstieg", "Allergische Hautreaktion"], 0, "Blasse Haut mit schnellem Puls und niedrigem Blutdruck: Schockzeichen, etwa durch Blutung.", "Flach lagern, Beine hoch, Vitalzeichen engmaschig, nach Blutungsquelle suchen, sofort ärztlich melden."),
     B("haut", "pet", HAUT.petechien, "Petechien", "Was sind die stecknadelkopfgroßen roten Punkte, die sich nicht wegdrücken lassen?", ["Petechien", "Hämatome", "Allergisches Exanthem (wegdrückbar)", "Teleangiektasien"], 0, "Punktförmige Einblutungen in die Haut, etwa bei Thrombozytenmangel. Mit Fieber und schlechtem Allgemeinzustand Verdacht auf Meningokokkensepsis.", "Glasprobe: Punkte verschwinden nicht. Ärztlich melden, bei Fieber sofort. Blutungszeichen beobachten."),
-    B("haut", "oed", HAUT.oedem, "Eindrückbares Ödem", "Was zeigt der Befund am Unterschenkel?", ["Eindrückbares Ödem", "Thrombose sicher", "Dekubitus", "Normalbefund"], 0, "Nach Fingerdruck bleibt eine Delle: Wassereinlagerung im Gewebe, etwa bei Herzinsuffizienz.", "Beidseitig oder einseitig? Einseitiges, warmes, schmerzhaftes Ödem kann eine Thrombose sein. Gewicht und Bilanz kontrollieren."),
+    B("haut", "oed", HAUT.oedem, "Eindrückbares Ödem", "Was zeigt die Beobachtung am Unterschenkel?", ["Eindrückbares Ödem", "Thrombose sicher", "Dekubitus", "Unauffällig"], 0, "Nach Fingerdruck bleibt eine Delle: Wassereinlagerung im Gewebe, etwa bei Herzinsuffizienz.", "Beidseitig oder einseitig? Einseitiges, warmes, schmerzhaftes Ödem kann eine Thrombose sein. Gewicht und Bilanz kontrollieren."),
     B("haut", "mar", HAUT.marmoriert, "Marmorierte Haut", "Ein septischer Patient hat diese Hautzeichnung an den Knien. Was bedeutet sie?", ["Mikrozirkulationsstörung", "harmlose Kältereaktion", "Allergie", "Venenentzündung"], 0, "Netzartige bläulich-violette Zeichnung: Zeichen schlechter Durchblutung der kleinen Gefäße, bei Sepsis ein Alarmzeichen.", "Vitalzeichen, Bewusstsein, Urinmenge, Rekapillarisierung prüfen, sofort ärztlich melden."),
 
     B("pupille", "norm", PUP.normal, "Normale Pupillen", "Wie beschreibst du die Pupillen?", ["mittelweit, seitengleich", "eng", "weit", "seitenungleich"], 0, "Mittelweite, runde, seitengleiche Pupillen.", "Lichtreaktion prüfen: Beide Pupillen sollten sich bei Licht verengen (direkt und indirekt)."),
-    B("pupille", "mio", PUP.miosis, "Miosis", "Eine schläfrige Person erhielt Morphin. Welcher Pupillenbefund passt?", ["Miosis (stecknadelkopfeng)", "Mydriasis", "Anisokorie", "Normalbefund"], 0, "Sehr enge Pupillen: typisch für Opioide. Zusammen mit flacher, langsamer Atmung ein Alarmzeichen.", "Atemfrequenz und Sättigung messen, wecken, ansprechen. Bei Atemdepression Notfall: Naloxon nach Anordnung, beatmen."),
+    B("pupille", "mio", PUP.miosis, "Miosis", "Eine schläfrige Person erhielt Morphin. Welcher Pupillenbefund passt?", ["Miosis (stecknadelkopfeng)", "Mydriasis", "Anisokorie", "Unauffällig"], 0, "Sehr enge Pupillen: typisch für Opioide. Zusammen mit flacher, langsamer Atmung ein Alarmzeichen.", "Atemfrequenz und Sättigung messen, wecken, ansprechen. Bei Atemdepression Notfall: Naloxon nach Anordnung, beatmen."),
     B("pupille", "myd", PUP.mydriasis, "Mydriasis", "Welche Ursache passt zu weiten Pupillen?", ["Angst, Sympathikusaktivierung oder bestimmte Medikamente", "Opioide", "tiefer Schlaf", "Ikterus"], 0, "Weite Pupillen, etwa durch Angst, Schmerz, Atropin, Drogen oder schwere Hirnschädigung (dann meist lichtstarr).", "Immer im Zusammenhang beurteilen: Bewusstsein, Lichtreaktion, Medikamente."),
     B("pupille", "aniso", PUP.aniso, "Anisokorie", "Eine Person nach Sturz unter Antikoagulation wird zunehmend schläfrig. Die rechte Pupille ist weit. Was bedeutet das?", ["Notfall: Hinweis auf steigenden Hirndruck", "Häufige harmlose Normvariante", "Typische Opioidwirkung", "Folge von Augentropfen, beobachten reicht"], 0, "Neu aufgetretene einseitig weite Pupille bei Bewusstseinsstörung: Verdacht auf Hirnblutung mit Einklemmung.", "Sofort ärztlich alarmieren, GCS und Vitalzeichen, Oberkörper 30 Grad, CT wird meist sofort veranlasst."),
 
     B("urin", "norm", URIN.normal, "Normaler Urin", "Wie beurteilst du diesen Urin?", ["hellgelb und klar, unauffällig", "konzentriert", "Hämaturie", "trüb"], 0, "Hellgelb und klar: ausreichende Trinkmenge.", "Menge und Häufigkeit gehören ebenfalls zur Beobachtung."),
-    B("urin", "konz", URIN.konzentriert, "Konzentrierter Urin", "Ein 86-jähriger Bewohner trinkt kaum. Was zeigt der Urin?", ["Konzentrierter Urin bei zu wenig Flüssigkeit", "Blut im Urin", "Bilirubin", "Normalbefund"], 0, "Dunkelgelb bis bernsteinfarben: konzentrierter Urin, Hinweis auf Flüssigkeitsmangel.", "Trinkmenge erfassen und aktiv anbieten, auf Verwirrtheit und Kreislauf achten, Ein- und Ausfuhr dokumentieren."),
-    B("urin", "haem", URIN.haematurie, "Hämaturie", "Was zeigt der Urin nach Blasenkatheter-Wechsel bei einer Person unter Antikoagulation?", ["Hämaturie", "Rote-Bete-Verfärbung sicher", "Bilirubinurie", "Normalbefund"], 0, "Rote Verfärbung durch Blut. Ursachen: Verletzung, Infektion, Steine, Tumor, Antikoagulation.", "Menge, Gerinnsel und Kreislauf beobachten, ärztlich melden. Nahrungsmittel wie Rote Bete können ähnlich färben, darum nachfragen."),
+    B("urin", "konz", URIN.konzentriert, "Konzentrierter Urin", "Ein 86-jähriger Bewohner trinkt kaum. Was zeigt der Urin?", ["Konzentrierter Urin bei zu wenig Flüssigkeit", "Blut im Urin", "Bilirubin", "Unauffällig"], 0, "Dunkelgelb bis bernsteinfarben: konzentrierter Urin, Hinweis auf Flüssigkeitsmangel.", "Trinkmenge erfassen und aktiv anbieten, auf Verwirrtheit und Kreislauf achten, Ein- und Ausfuhr dokumentieren."),
+    B("urin", "haem", URIN.haematurie, "Hämaturie", "Was zeigt der Urin nach Blasenkatheter-Wechsel bei einer Person unter Antikoagulation?", ["Hämaturie", "Rote-Bete-Verfärbung sicher", "Bilirubinurie", "Unauffällig"], 0, "Rote Verfärbung durch Blut. Ursachen: Verletzung, Infektion, Steine, Tumor, Antikoagulation.", "Menge, Gerinnsel und Kreislauf beobachten, ärztlich melden. Nahrungsmittel wie Rote Bete können ähnlich färben, darum nachfragen."),
     B("urin", "braun", URIN.bierbraun, "Bierbrauner Urin", "Welche Ursache passt zu bierbraunem, schäumendem Urin mit gelben Skleren?", ["Bilirubin im Urin bei Gallestau oder Leberschaden", "Hämaturie", "Konzentrierter Urin bei Flüssigkeitsmangel", "Harnwegsinfektion"], 0, "Bierbraun mit gelbem Schaum: Bilirubin wird über die Niere ausgeschieden.", "Mit Stuhlfarbe (hell?) und Hautfarbe gemeinsam beobachten und melden."),
     B("urin", "trueb", URIN.trueb, "Trüber Urin", "Eine Person mit Dauerkatheter hat trüben, flockigen Urin und Fieber. Woran denkst du?", ["Harnwegsinfektion", "Konzentrierter Urin", "Hämaturie", "Bilirubinurie"], 0, "Trüb und flockig, oft übelriechend: Hinweis auf Harnwegsinfektion; mit Fieber Gefahr einer Urosepsis.", "Vitalzeichen, Sepsis-Zeichen prüfen, ärztlich melden, Urinprobe nur aus der Entnahmestelle des Systems nach Anordnung."),
 
@@ -277,7 +277,7 @@
     B("stuhl", "b4", STUHL.b4, "Bristol Typ 4", "Welcher Bristol-Typ liegt vor?", ["Typ 4: glatt, weich, wurstförmig", "Typ 1", "Typ 7", "acholischer Stuhl"], 0, "Ideale Konsistenz.", "Normalbefund."),
     B("stuhl", "b7", STUHL.b7, "Bristol Typ 7", "Was liegt vor?", ["Typ 7: wässriger Durchfall", "Typ 4", "Teerstuhl", "Typ 1"], 0, "Flüssiger Stuhl ohne feste Bestandteile: Durchfall.", "Häufigkeit dokumentieren, Flüssigkeitsverlust ausgleichen, Haut schützen, bei Verdacht auf Noro- oder Clostridioides-Infektion Kontaktisolierung und Händewaschen."),
     B("stuhl", "teer", STUHL.teer, "Teerstuhl", "Schwarzer, glänzender, klebriger Stuhl bei einer Person, die Ibuprofen und ASS einnimmt. Was bedeutet das?", ["Hinweis auf obere Magen-Darm-Blutung", "Typische Verfärbung durch Eisentabletten", "Obstipation", "Acholischer Stuhl"], 0, "Teerstuhl entsteht, wenn Blut aus Magen oder Zwölffingerdarm verdaut wird. Eisen färbt Stuhl auch schwarz, aber nicht klebrig glänzend.", "Kreislauf prüfen (Puls, RR, Blässe), ärztlich sofort melden, Probe aufheben, nüchtern lassen bis zur Klärung."),
-    B("stuhl", "blut", STUHL.blut, "Frisches Blut am Stuhl", "Was zeigt der Befund?", ["Frische Blutauflagerung, Blutung aus dem unteren Darmabschnitt", "Teerstuhl", "acholischer Stuhl", "Normalbefund"], 0, "Hellrotes Blut, etwa bei Hämorrhoiden, Fissuren, Divertikeln oder Tumoren.", "Menge und Häufigkeit dokumentieren, Kreislauf prüfen, ärztlich abklären lassen."),
+    B("stuhl", "blut", STUHL.blut, "Frisches Blut am Stuhl", "Was zeigt die Beobachtung?", ["Frische Blutauflagerung, Blutung aus dem unteren Darmabschnitt", "Teerstuhl", "acholischer Stuhl", "Unauffällig"], 0, "Hellrotes Blut, etwa bei Hämorrhoiden, Fissuren, Divertikeln oder Tumoren.", "Menge und Häufigkeit dokumentieren, Kreislauf prüfen, ärztlich abklären lassen."),
     B("stuhl", "ach", STUHL.acholisch, "Acholischer Stuhl", "Ein lehmfarbener Stuhl fällt auf. Woran denkst du?", ["Gallestau: keine Galle im Darm", "Teerstuhl", "Blutung aus dem unteren Darm", "Durchfall bei Infektion"], 0, "Fehlt Gallenfarbstoff im Darm, wird der Stuhl hell bis lehmfarben, oft zusammen mit dunklem Urin und Ikterus.", "Mit Urinfarbe und Haut beobachten und melden."),
 
     B("drain", "seroes", DRAIN.seroes, "Seröses Sekret", "Wie beurteilst du das Sekret am 2. Tag nach OP?", ["serös, unauffällig", "frische Blutung", "eitrig", "gallig"], 0, "Klare, hellgelbe Flüssigkeit: normale Wundsekretion.", "Menge dokumentieren; wenn sie stark abnimmt, wird die Drainage oft entfernt."),
@@ -290,7 +290,7 @@
     B("atem", "kuss", ATEM.kussmaul, "Kußmaul-Atmung", "Ein Jugendlicher mit Typ-1-Diabetes atmet so, der Atem riecht obstartig. Was liegt vor?", ["Kußmaul-Atmung bei Ketoazidose", "Cheyne-Stokes-Atmung", "Hyperventilation bei Angst sicher", "Schnappatmung"], 0, "Sehr tiefe, regelmäßige Atemzüge: Der Körper atmet Säure als CO₂ ab, typisch bei diabetischer Ketoazidose.", "Blutzucker und Ketone messen, Bewusstsein prüfen, sofort ärztlich melden."),
     B("atem", "cheyne", ATEM.cheyne, "Cheyne-Stokes-Atmung", "Welches Atemmuster zeigt die Kurve?", ["Cheyne-Stokes-Atmung", "Kußmaul-Atmung", "Biot-Atmung", "Eupnoe"], 0, "Die Atemtiefe nimmt periodisch zu und ab, dazwischen Pausen. Vorkommen bei schwerer Herzinsuffizienz, Hirnschädigung und in der Sterbephase.", "Im Kontext beurteilen; am Lebensende Angehörige vorbereiten und erklären, dass dies zum Sterbeprozess gehören kann."),
     B("atem", "schnapp", ATEM.schnapp, "Schnappatmung", "Eine bewusstlose Person macht nur noch vereinzelte, schnappende Atemzüge. Was bedeutet das?", ["Kreislaufstillstand: Reanimation beginnen", "Schlafapnoe: beobachten und wecken", "Hyperventilation", "Cheyne-Stokes-Atmung"], 0, "Schnappatmung ist keine normale Atmung und ein Zeichen des Kreislaufstillstands.", "Hilfe rufen, sofort Herzdruckmassage, AED holen lassen."),
-    B("atem", "tachy", ATEM.tachypnoe, "Tachypnoe", "Die Atemfrequenz liegt bei 32/min, die Atmung ist flach. Was beschreibt der Befund?", ["Tachypnoe", "Bradypnoe", "Kußmaul-Atmung", "Eupnoe"], 0, "Beschleunigte Atmung über 20/min. Oft das früheste Zeichen einer Verschlechterung, etwa bei Pneumonie oder Sepsis.", "Sättigung, Puls, Blutdruck, Temperatur und Bewusstsein erfassen, Oberkörper hoch, ärztlich melden."),
+    B("atem", "tachy", ATEM.tachypnoe, "Tachypnoe", "Die Atemfrequenz liegt bei 32/min, die Atmung ist flach. Was beschreibt die Beobachtung?", ["Tachypnoe", "Bradypnoe", "Kußmaul-Atmung", "Eupnoe"], 0, "Beschleunigte Atmung über 20/min. Oft das früheste Zeichen einer Verschlechterung, etwa bei Pneumonie oder Sepsis.", "Sättigung, Puls, Blutdruck, Temperatur und Bewusstsein erfassen, Oberkörper hoch, ärztlich melden."),
 
     B("kurve", "cont", KURVE.continua, "Febris continua", "Welcher Fiebertyp liegt vor?", ["Kontinuierliches Fieber (Schwankung unter 1 °C)", "Intermittierendes Fieber", "Rekurrierendes Fieber", "Normaltemperatur"], 0, "Gleichbleibend hohes Fieber mit Tagesschwankungen unter 1 °C, etwa bei Pneumonie.", "Flüssigkeit, Wärmeregulation je nach Fieberphase, Ursache abklären lassen."),
     B("kurve", "inter", KURVE.intermittens, "Intermittierendes Fieber", "Welcher Fiebertyp liegt vor?", ["Intermittierendes (septisches) Fieber", "Kontinuierliches Fieber", "Untertemperatur", "Messfehler"], 0, "Hohe Fieberspitzen mit Abfall auf Normalwerte innerhalb eines Tages, oft mit Schüttelfrost, etwa bei Sepsis oder Abszess.", "Im Fieberanstieg Blutkulturen nach Anordnung, Sepsiszeichen beobachten."),
@@ -301,12 +301,12 @@
 
 
   /* ================= Einbindung in „Interaktives Üben“ =================
-     Die Befunde erscheinen unter Training > Interaktives Üben (Filter „Bildbefunde“). Jede Frage nutzt
+     Die Befunde erscheinen unter Training > Interaktives Üben (Filter „Beobachtungsbilder“). Jede Frage nutzt
      dieselbe Aufgaben-Komponente wie die Lernmodule (window.FP_TaskUI aus dem App-Kern): gleiche Optik,
      gleiche Animationen beim Ankreuzen, gleiche Rückmeldung mit Punkten. */
   var KATNAME = {};
   KATS.forEach(function (k) { KATNAME[k[0]] = k[1]; });
-  BEF.forEach(function (b) { b.katName = KATNAME[b.kat] || "Bildbefund"; });
+  BEF.forEach(function (b) { b.katName = KATNAME[b.kat] || "Beobachtung"; });
   window.FP_BEFUNDE_KATS = KATS;
 
   var LS = "fp-befunde";
@@ -318,7 +318,7 @@
   function seedVon(id) { var x = 7; for (var i = 0; i < id.length; i++) x = (x * 31 + id.charCodeAt(i)) % 233280; return x || 1; }
 
   function Bild(p) {
-    return h("div", { className: "bf-img", role: "img", "aria-label": p.alt || "Bildbefund (Schema)", dangerouslySetInnerHTML: { __html: '<svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' + p.b.svg() + "</svg>" } });
+    return h("div", { className: "bf-img", role: "img", "aria-label": p.alt || "Beobachtungsbild (Schema)", dangerouslySetInnerHTML: { __html: '<svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' + p.b.svg() + "</svg>" } });
   }
   window.FP_BefundBild = Bild;
 
@@ -350,7 +350,7 @@
   window.FP_BefundUebung = BefundUebung;
 
   function portal(el) { return window.ReactDOM && window.ReactDOM.createPortal ? window.ReactDOM.createPortal(el, document.body) : el; }
-  // Bereichs-Filter und Lernübersicht, erscheint in „Interaktives Üben“ beim Filter „Bildbefunde“
+  // Bereichs-Filter und Lernübersicht, erscheint in „Interaktives Üben“ beim Filter „Beobachtungsbilder“
   function BefundLeiste(p) {
     useCss();
     var o = useState(false), offen = o[0], setOffen = o[1];
@@ -365,16 +365,16 @@
     }, [offen]);
     var K = KATS.filter(function (k) { return k[0] === p.kat; })[0];
     return h("div", null,
-      h("div", { className: "bf-kats", role: "group", "aria-label": "Bereich der Bildbefunde" },
+      h("div", { className: "bf-kats", role: "group", "aria-label": "Bereich der Beobachtungsbilder" },
         [["", "Alle Bereiche"]].concat(KATS).map(function (k) {
           return h("button", { key: k[0] || "alle", type: "button", className: "chip" + ((p.kat || "") === k[0] ? " blue" : ""), "aria-pressed": (p.kat || "") === k[0], onClick: function () { p.setKat(k[0] || null); } }, k[1]);
         })),
       h("div", { className: "row", style: { marginTop: 10, gap: 10, alignItems: "center" } },
         h("button", { type: "button", className: "btn ghost sm", onClick: function () { setOffen(true); } }, "Zum Nachlesen öffnen"),
         h("span", { className: "muted", style: { fontSize: 14 } }, sicher + " von " + liste.length + " Befunden zuletzt richtig")),
-      offen && portal(h("div", { className: "plmodal", style: { zIndex: 1000 }, role: "dialog", "aria-modal": "true", "aria-label": "Bildbefunde zum Nachlesen", onClick: function (e) { if (e.target === e.currentTarget) setOffen(false); } },
+      offen && portal(h("div", { className: "plmodal", style: { zIndex: 1000 }, role: "dialog", "aria-modal": "true", "aria-label": "Beobachtungsbilder zum Nachlesen", onClick: function (e) { if (e.target === e.currentTarget) setOffen(false); } },
         h("div", { className: "card bf-learn", style: { width: "min(720px,100%)" } },
-          h("div", { className: "bf-sheethead" }, h("h3", { style: { margin: 0 } }, K ? K[1] : "Alle Bildbefunde"), h("button", { type: "button", className: "btn ghost sm", onClick: function () { setOffen(false); } }, "Schließen")),
+          h("div", { className: "bf-sheethead" }, h("h3", { style: { margin: 0 } }, K ? K[1] : "Alle Beobachtungsbilder"), h("button", { type: "button", className: "btn ghost sm", onClick: function () { setOffen(false); } }, "Schließen")),
           h("p", { className: "muted", style: { marginTop: 0 } }, "Gezeichnete Schemata zum Lernen, keine echten Patientenbilder."),
           liste.map(function (b) {
             return h("div", { key: b.id, className: "bf-item" }, h(Bild, { b: b, alt: b.titel }),

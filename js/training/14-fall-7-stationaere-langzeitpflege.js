@@ -97,7 +97,7 @@
     merke: "Bremsen, Winkel, Schuhe, Pause im Sitzen. Und: Hilf über Becken und Schulter, nie unter den Achseln."
   };
 
-  /* ---------- Bildbefund Herr Stenzel im Sessel ---------- */
+  /* ---------- Beobachtung Herr Stenzel im Sessel ---------- */
   var sp7 = {};
   function stenzScene() {
     var s = X.defs() + X.room({ disp: 0, rail: false, winX: 260 });
@@ -124,7 +124,7 @@
     return s + X.vignette();
   }
   var stenzBild = {
-    k: "stenzbild", typ: "hotspot", pat: "B", t: "Herr Stenzel · Bildbefund", kurzname: "Bildbefund im Zimmer", clock: "08:30", max: 8,
+    k: "stenzbild", typ: "hotspot", pat: "B", t: "Herr Stenzel · Beobachtung", kurzname: "Beobachtung im Zimmer", clock: "08:30", max: 8,
     titel: "Herr Stenzel nach dem Frühstück",
     banner: { name: "Friedrich Stenzel", sub: "84 J. · Zimmer 217 · Herzinsuffizienz, Diabetes Typ 2", chips: [["Gewicht +1,9 kg seit Montag", "red"], ["Sturz im Juni", ""]] },
     intro: "08:30 Uhr. Herr Stenzel sitzt im Sessel. Er brummt: „Lassen Sie mich, mir geht's prima. Nur die Füße drücken so.“ Bevor du die Vitalzeichen misst, schaust du dich um.",
@@ -292,7 +292,7 @@
         ]
       },
       B: {
-        key: "B", name: "Friedrich Stenzel", kurz: "Herr Stenzel", alter: 84, zimmer: "217", modus: "Bildbefund · Vitalzeichen · Medikamente", farbe: "#0891B2", av: STENZ,
+        key: "B", name: "Friedrich Stenzel", kurz: "Herr Stenzel", alter: 84, zimmer: "217", modus: "Beobachtung · Vitalzeichen · Medikamente", farbe: "#0891B2", av: STENZ,
         typ: "Ehemaliger Busfahrer, brummig und wortkarg, hasst es, bevormundet zu werden, liebt seinen Schrebergarten.",
         diagnose: "Chronische Herzinsuffizienz NYHA III (HFrEF), Diabetes mellitus Typ 2, chronische Niereninsuffizienz G3a; im Wohnbereich seit 2 Jahren.",
         daten: [

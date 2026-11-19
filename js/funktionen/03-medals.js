@@ -65,7 +65,7 @@
     { id: "sbar", t: "SBAR-Profi", ic: "swap", c: "#D97706", v: function (s) { return s.sbar; }, tiers: [2, 3, 4], d: "SBAR-Bausteine in einer Übergabe vollständig", u: "von 4" },
     { id: "schicht", t: "Stationsalltag", ic: "bed", c: "#0D9488", v: function (s) { return s.schicht; }, tiers: [50, 75, 90], d: "bestes Schichtergebnis", u: "%" },
     { id: "pex", t: "Praktisches Examen", ic: "trophy", c: "#0062FF", v: function (s) { return s.pex; }, tiers: [50, 70, 85], d: "bestes Ergebnis in der Examensübung", u: "%" },
-    { id: "examen", t: "Schriftliche Prüfung", ic: "exam", c: "#DC2626", v: function (s) { return s.examen; }, tiers: [50, 70, 85], d: "bestes Ergebnis im Examenssimulator", u: "%" },
+    { id: "examen", t: "Prüfungswissen", ic: "exam", c: "#DC2626", v: function (s) { return s.examen; }, tiers: [50, 70, 85], d: "bestes Ergebnis im Prüfungswissen-Training", u: "%" },
     { id: "karten", t: "Kartenprofi", ic: "cards", c: "#CA8A04", v: function (s) { return s.karten; }, tiers: [25, 100, 300], d: "Lernkarten gewusst", u: "Karten" },
     { id: "blitz", t: "Blitzmerker", ic: "bolt", c: "#F59E0B", v: function (s) { return s.blitz; }, tiers: [8, 15, 25], d: "Rekord in der Blitzrunde", u: "richtige" },
     { id: "ruhe", t: "Ruhepol", ic: "leaf", c: "#16A34A", v: function (s) { return s.stress; }, tiers: [1, 4, 8], d: "Werkzeuge aus „Ruhig bleiben“ ausprobiert", u: "Werkzeuge" }
@@ -80,7 +80,7 @@
     { id: "c7", t: "Erste Schicht", d: "Eine Schicht im Stationsalltag beendet", ok: function (s) { return s.schicht > 0; }, p: function (s) { return [s.schicht > 0 ? 1 : 0, 1]; } },
     { id: "c8", t: "1. Jahr geschafft", d: "Alle Module des 1. Ausbildungsjahres", ok: function (s) { return yearFrac(s, 1) >= 1; }, p: function (s) { var a = s.byYear[1] || [0, 1]; return [a[0], a[1]]; } },
     { id: "c9", t: "15 Module", d: "Fünfzehn Fallmodule komplett", ok: function (s) { return s.fin >= 15; }, p: function (s) { return [s.fin, 15]; } },
-    { id: "c10", t: "Prüfungsluft", d: "Examenssimulator oder Praktisches Examen absolviert", ok: function (s) { return s.examen > 0 || s.pex > 0; }, p: function (s) { return [s.examen > 0 || s.pex > 0 ? 1 : 0, 1]; } },
+    { id: "c10", t: "Prüfungsluft", d: "Prüfungswissen-Training oder Praktisches Examen absolviert", ok: function (s) { return s.examen > 0 || s.pex > 0; }, p: function (s) { return [s.examen > 0 || s.pex > 0 ? 1 : 0, 1]; } },
     { id: "c11", t: "2. Jahr geschafft", d: "Alle Module des 2. Ausbildungsjahres", ok: function (s) { return yearFrac(s, 2) >= 1; }, p: function (s) { var a = s.byYear[2] || [0, 1]; return [a[0], a[1]]; } },
     { id: "c12", t: "30 Module", d: "Dreißig Fallmodule komplett", ok: function (s) { return s.fin >= 30; }, p: function (s) { return [s.fin, 30]; } },
     { id: "c13", t: "3. Jahr geschafft", d: "Alle Module des 3. Ausbildungsjahres", ok: function (s) { return yearFrac(s, 3) >= 1; }, p: function (s) { var a = s.byYear[3] || [0, 1]; return [a[0], a[1]]; } },

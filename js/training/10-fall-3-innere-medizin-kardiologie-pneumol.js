@@ -90,7 +90,7 @@
         ]
       },
       B: {
-        key: "B", name: "Edith Kranz", kurz: "Frau Kranz", alter: 81, zimmer: "514", modus: "Bildbefund · Vitalzeichen · Medikamente", farbe: "#DB2777",
+        key: "B", name: "Edith Kranz", kurz: "Frau Kranz", alter: 81, zimmer: "514", modus: "Beobachtung · Vitalzeichen · Medikamente", farbe: "#DB2777",
         typ: "Ehemalige Schneidermeisterin, eigensinnig und humorvoll. Hält an ihren Gewohnheiten fest („zwei Liter Wasser für die Nieren“).",
         diagnose: "Kardiale Dekompensation bei Herzinsuffizienz mit reduzierter Pumpfunktion (EF 30 %), Vorhofflimmern, chronische Niereninsuffizienz G3; Tag 3.",
         daten: [
@@ -206,7 +206,7 @@
     ],
     live: [
       {
-        k: "kranzbild", typ: "hotspot", pat: "B", t: "Frau Kranz · Bildbefund", kurzname: "Bildbefund Stauungszeichen", clock: "06:15", max: 10,
+        k: "kranzbild", typ: "hotspot", pat: "B", t: "Frau Kranz · Beobachtung", kurzname: "Beobachtung Stauungszeichen", clock: "06:15", max: 10,
         titel: "Frau Kranz am Morgen",
         intro: "06:15 Uhr. Frau Kranz sitzt aufrecht im Bett, sie hat wieder kaum geschlafen. Bevor du misst, schaust du genau hin.",
         q: "Welche Zeichen einer kardialen Dekompensation und welche Risikofaktoren findest du?",

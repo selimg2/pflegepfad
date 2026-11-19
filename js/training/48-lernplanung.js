@@ -1,4 +1,4 @@
-/* Schüler-App: Lernplanung unter „Lernmodule“ – Prüfungstermin und Wiederholen an einem Ort.
+/* Lernenden-App: Lernplanung unter „Lernmodule“ – Prüfungstermin und Wiederholen an einem Ort.
    - Prüfung: nutzt den Lernplaner des App-Kerns (window.FP_PLANNER, gespeichert im Konto unter S.plan).
      Auf der Startseite erscheint nur noch der Countdown, wenn ein Termin eingetragen ist.
    - Wiederholen: falsch beantwortete Fragen aus allen Modulen kommen in einen Karteikasten und werden nach
@@ -167,6 +167,24 @@
   }
 
   /* ---------- Wiederholen: kleine Kachel, Inhalt erst nach Antippen ---------- */
+  /* ---------- Lerncoach der Schule: Kontakt bei Lernschwierigkeiten (vom Kurs im Lehrer-Portal hinterlegt) ---------- */
+  function kl(x, n) { return String(x == null ? "" : x).replace(/[<>]/g, "").trim().slice(0, n || 120); }
+  function CoachKarte() {
+    var cs = useState(window.FP_COACH || null), c = cs[0], setC = cs[1];
+    useEffect(function () { if (!c && window.FP_COACH_LADEN) window.FP_COACH_LADEN().then(function (x) { if (x) setC(x); }).catch(function () {}); }, []);
+    if (!c) return null;
+    var name = kl(c.name, 80), rolle = kl(c.rolle, 80), mail = kl(c.email, 120), tel = kl(c.telefon, 30), zeit = kl(c.zeiten, 140);
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) mail = "";
+    if (!/^[0-9+()\/\-\s]{5,30}$/.test(tel)) tel = "";
+    if (!name && !mail && !tel) return null;
+    return h("div", { className: "lp-coach", style: { marginTop: 14, paddingTop: 12, borderTop: "1px solid var(--line, rgba(128,128,128,.25))" } },
+      h("small", { className: "eyebrow" }, "Wenn dir das Lernen schwerfällt"),
+      h("p", { style: { margin: "6px 0 8px", fontSize: 14.5 } }, "Sprich früh mit " + (name || "deiner Schule") + (rolle ? " (" + rolle + ")" : "") + ". Du musst nicht warten, bis es eng wird."),
+      h("div", { className: "lp-chips" },
+        mail && h("a", { className: "chip blue", href: "mailto:" + mail }, "E-Mail schreiben"),
+        tel && h("a", { className: "chip blue", href: "tel:" + tel.replace(/[^0-9+]/g, "") }, "Anrufen: " + tel)),
+      zeit && h("p", { className: "muted", style: { fontSize: 13.5, margin: "8px 0 0" } }, zeit));
+  }
   function WiederholenBlatt(p) {
     var S = p.S, alle = p.alle, due = p.due, sw = schwaechen(S);
     useEffect(function () {
@@ -188,7 +206,8 @@
           sw.map(function (x) {
             return h("div", { key: x.fm, className: "lp-sw" }, h("b", null, x.name), h("i", null, x.pct + " %"),
               h("button", { type: "button", className: "btn ghost sm", onClick: function () { var d = karten(S).filter(function (c) { return c.fm === x.fm; }); if (d.length) p.start(d, "Schwerpunkt: " + x.name); else openMod(x.fm); } }, "Üben"));
-          })))));
+          })),
+        h(CoachKarte, null))));
   }
   function WiederholenKachel(p) {
     var S = p.S;

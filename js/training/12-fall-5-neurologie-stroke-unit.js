@@ -78,7 +78,7 @@
         ]
       },
       B: {
-        key: "B", name: "Renate Albers", kurz: "Frau Albers", alter: 71, zimmer: "606", modus: "Bildbefund · Vitalzeichen · Medikamente", farbe: "#0D9488",
+        key: "B", name: "Renate Albers", kurz: "Frau Albers", alter: 71, zimmer: "606", modus: "Beobachtung · Vitalzeichen · Medikamente", farbe: "#0D9488",
         typ: "Ehemalige Buchhändlerin, leise und höflich, sehr pünktlich mit ihren Tabletten, Angst davor, „einzufrieren“.",
         diagnose: "Idiopathisches Parkinson-Syndrom seit 9 Jahren, akinetische Verschlechterung bei Harnwegsinfekt; Tag 2.",
         daten: [
@@ -195,7 +195,7 @@
     ],
     live: [
       {
-        k: "albersbild", typ: "hotspot", pat: "B", t: "Frau Albers · Bildbefund", kurzname: "Bildbefund Haut und Umgebung", clock: "06:15", max: 10,
+        k: "albersbild", typ: "hotspot", pat: "B", t: "Frau Albers · Beobachtung", kurzname: "Beobachtung Haut und Umgebung", clock: "06:15", max: 10,
         titel: "Frau Albers am frühen Morgen",
         intro: "06:15 Uhr. Frau Albers liegt steif auf dem Rücken, die Augen offen, die Stimme kaum hörbar: „Bitte … die Tablette.“",
         q: "Was fällt dir an Frau Albers und an ihrer Umgebung auf?",

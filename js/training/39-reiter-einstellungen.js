@@ -1,4 +1,4 @@
-/* Fallpfad Schüler-App: Reiter "Einstellungen".
+/* Fallpfad Lernenden-App: Reiter "Einstellungen".
    Nutzt die vorhandenen Bausteine der Fortschrittsseite (Konto, Darstellung, Kurs, Bezugslehrkraft, Zurücksetzen)
    und ergänzt Farbe, Meine Sprache, Tutorial, Kontakt und Rechtliches. Reihenfolge wie in iOS-Einstellungen. */
 (function () {

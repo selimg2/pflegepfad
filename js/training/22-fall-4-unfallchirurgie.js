@@ -1,4 +1,4 @@
-/* ===== Fall 4 (Unfallchirurgie): Figuren, Bildbefund, Verbandwechsel-Simulation ===== */
+/* ===== Fall 4 (Unfallchirurgie): Figuren, Beobachtung, Verbandwechsel-Simulation ===== */
 (function () {
   var X = window.PXB, C = (window.PEX_CASES || []).filter(function (c) { return c.id === "unfall"; })[0];
   if (!X || !C) return;
@@ -12,7 +12,7 @@
     nacht: { name: "Svenja Albrecht", role: "Nachtdienst", av: { hair: "LI", hairC: "#7a5233", skin: "#f6d2b3", cloth: "#2f4f7a", deco: "scrubs", bg: "#e6edf5" } }
   };
 
-  /* ---------- Bildbefund Herr Lange ---------- */
+  /* ---------- Beobachtung Herr Lange ---------- */
   var lan = P.B.av, sp4 = {};
   function langeScene() {
     return X.bedScene(lan, {

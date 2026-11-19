@@ -52,8 +52,8 @@
      TRAINING-ÜBERSICHT
      ================================================================ */
   var TILES = [
-    { k: "praxexamen", t: "Praktisches Examen Übung", d: "Komplette Prüfungstage auf Station: Planung, Übergabe, Pflegehandlung, Bildbefund, Medikamente, Beratung.", c: "#0062FF", g: 1 },
-    { k: "examen", t: "Examenssimulator", d: "Schriftliche Prüfung unter Zeitdruck mit Auswertung.", c: "#DC2626", g: 1 },
+    { k: "praxexamen", t: "Praktisches Examen Übung", d: "Komplette Prüfungstage auf Station: Planung, Übergabe, Pflegehandlung, Beobachtung, Medikamente, Beratung.", c: "#0062FF", g: 1 },
+    { k: "examen", t: "Prüfungswissen-Training", d: "Wissensfragen im Single-Choice-Format mit Zeitlimit. Übt Faktenwissen, ersetzt aber nicht die Fallklausur.", c: "#DC2626", g: 1 },
     { k: "muendlich", t: "Mündliche Prüfung", d: "Fallgespräche und Prüferfragen zum Laut-Antworten.", c: "#EA580C", g: 1 },
     { k: "pruefung", t: "Prüfung", d: "Prüfungsbögen deiner Schule und Selbsttests.", c: "#4F46E5", g: 1 },
     { k: "ruhe", t: "Ruhig bleiben: Stress & Prüfungsangst", d: "Was bei Stress und Prüfungsangst wirklich hilft: Atem-Coach, Gedanken-Check, Notfallplan für den Prüfungstag und Abschalten nach dem Dienst.", c: "#16A34A", g: 1 },
@@ -64,7 +64,7 @@
     { k: "team", t: "Team-Krankenhaus", d: "Gemeinsam mit deinem Kurs einen Fall lösen.", c: "#0891B2", g: 2 },
     { k: "pharmako", t: "PharmakoLab", d: "31 Wirkstoffe, 20 Fälle: Wirkung beobachten, Wechselwirkungen erkennen.", c: "#DB2777", g: 2 },
     { k: "vorbereitung", t: "Praxisvorbereitung", d: "Was dich im nächsten Einsatz erwartet.", c: "#059669", g: 2 },
-    { k: "interaktiv", t: "Interaktives Üben", d: "Bildbefunde (EKG, Wunden, Haut, Pupillen …), Zuordnen, Reihenfolgen und alle Aufgaben aus den Modulen.", c: "#2563EB", g: 3 },
+    { k: "interaktiv", t: "Interaktives Üben", d: "Beobachtungsbilder (EKG, Wunden, Haut, Pupillen …), Zuordnen, Reihenfolgen und alle Aufgaben aus den Modulen.", c: "#2563EB", g: 3 },
     { k: "karten", t: "Lernkarten", d: "Fachbegriffe und Inhalte mit Karteikarten lernen.", c: "#CA8A04", g: 3 },
     { k: "blitz", t: "Blitzrunde", d: "Schnelle Fragen gegen die Uhr.", c: "#F59E0B", g: 3 },
     { k: "lexikon", t: "Lexikon", d: "Fachbegriffe kurz erklärt.", c: "#0D9488", g: 4 },
@@ -72,7 +72,7 @@
     { k: "portfolio", t: "Portfolio", d: "Deine Arbeiten und Reflexionen.", c: "#64748B", g: 4 },
     { k: "merk", t: "Merkliste", d: "Was du dir gemerkt hast.", c: "#9333EA", g: 4 }
   ];
-  var GROUPS = [[2, "Simulieren & Handeln"], [1, "Prüfung & Examen"], [3, "Üben & Festigen"], [4, "Nachschlagen & Sammeln"]];
+  var GROUPS = [[2, "Simulieren & Handeln"], [1, "Prüfungsvorbereitung"], [3, "Üben & Festigen"], [4, "Nachschlagen & Sammeln"]];
 
   function tileMeta(k, S) {
     try {
@@ -83,7 +83,7 @@
         return (window.PEX_CASES || []).length + " Prüfungsfälle";
       }
       if (k === "deutsch" && window.FP_LS) { var kn = 0; try { kn = Object.keys(JSON.parse(localStorage.getItem("fp-ls-known") || "{}")).length; } catch (e2) {} var lb = window.FP_LS.lang() ? window.FP_LS.label() : ""; return [kn ? kn + " Wörter sitzen" : "", lb].filter(Boolean).join(" · "); }
-      if (k === "interaktiv") { var bfn = (window.FP_BEFUNDE || []).length; return bfn ? bfn + " Bildbefunde zum Üben" : ""; }
+      if (k === "interaktiv") { var bfn = (window.FP_BEFUNDE || []).length; return bfn ? bfn + " Beobachtungsbilder zum Üben" : ""; }
       if (k === "pflegeplanung") { var ppn = (window.FP_PP_FAELLE || []).length; return ppn ? ppn + " Patientenbeispiele" : ""; }
       if (k === "station") { var sc = S && S.station; if (sc && sc.cur && !sc.cur.ended) return "Schicht läuft · " + (sc.cur.clockTxt || ""); if (sc && sc.hist && sc.hist[0]) return "Zuletzt " + sc.hist[0].pct + " %"; return "Frühdienst Innere 5B"; }
       if (k === "kommunikation") { var kb = S && S.komm && S.komm.best, kn2 = kb ? Object.keys(kb).length : 0, tot = window.FP_KOMM_DATA ? window.FP_KOMM_DATA.szenarien.length : 15; return kn2 ? kn2 + " von " + tot + " Gesprächen geübt" : (window.FP_KOMM_DATA ? window.FP_KOMM_DATA.kategorien.length : 6) + " Bereiche · " + tot + " Gespräche"; }
@@ -126,7 +126,7 @@
       h("div", { className: "hello" },
         h("div", { className: "eyebrow" }, "Üben und vertiefen"),
         h("h1", { style: { marginTop: 8 } }, "Training"),
-        h("p", null, "Wähle aus, was du heute üben willst.")),
+        h("p", null, "Das Herz von Fallpfad sind die Fallmodule unter „Lernmodule“. Hier ergänzt du sie: handelnd üben, Prüfungen vorbereiten und nachschlagen.")),
       GROUPS.map(function (g) {
         return h("section", { key: g[0], className: "trsec" },
           h("h2", { className: "trsech" }, g[1]),
@@ -146,7 +146,7 @@
     ["Freitext und Selbsteinschätzung", "Du schreibst zuerst frei. Danach deckst du den Erwartungshorizont auf und hakst ehrlich ab, was du wirklich hattest. Begriffe aus deinem Text sind schon vorgemerkt, prüfe sie trotzdem."]
   ];
   var PHASES = ["Vorbereitungstag", "Schichtbeginn", "Live-Handlungen", "Schichtende & Reflexion"];
-  var TYPNAME = { ekg: "Bildbefund", hotspot: "Bildbefund", steps: "Pflegehandlung", tree: "Gespräch", beratung: "Beratung", vitmed: "Vitalzeichen & Medikamente", med: "Medikamente" };
+  var TYPNAME = { ekg: "Beobachtung", hotspot: "Beobachtung", steps: "Pflegehandlung", tree: "Gespräch", beratung: "Beratung", vitmed: "Vitalzeichen & Medikamente", med: "Medikamente" };
   var KBMAP = { akten: "I", plan: "I", prio: "I", sbar: "III", st: "III", doku: "IV", ueb: "II", refl: "V" };
   var KBT = [
     ["I", "Pflegeprozess verantwortlich planen, organisieren, gestalten, durchführen, steuern und bewerten"],
@@ -478,12 +478,12 @@
     return h(Fr, null,
       h("div", { className: "card" },
         h("h3", null, "[PFLEGEPLANUNG] Vorbereitungsteil"),
-        h("p", { className: "muted" }, "Formuliere je Person eine Pflegediagnose im PES-Format (Problem, Ursache b/d, Kennzeichen a/d) nach NANDA-I, ENP oder POP, ein überprüfbares Ziel und die geplanten Maßnahmen. Denke an die Expertenstandards des DNQP."),
+        h("p", { className: "muted" }, "Formuliere je Person eine Pflegediagnose im PESR-Format (Problem, Ursache = b/d, Symptome = a/d, dazu mindestens eine Ressource) nach NANDA-I, ENP oder POP, ein überprüfbares Ziel und die geplanten Maßnahmen. Denke an die Expertenstandards des DNQP."),
         h(PatTabs, { cur: tab, set: function (k) { set({ tab: k }); }, mark: function (k) { return eh[k] && eh[k].done; } })),
       h("div", { className: "card", style: { "--c": pt.farbe } },
         h("div", { className: "pxaktehead" }, h(AvImg, { who: tab, className: "pxheadav" }), h("div", null, h("h3", null, pt.name), h("span", { className: "muted" }, pt.diagnose))),
         notes && h("details", { className: "pxdet" }, h("summary", null, "Deine Notizen aus der Akte"), h("p", { style: { whiteSpace: "pre-wrap", marginTop: 8 } }, notes)),
-        h(TextArea, { label: "Pflegediagnose (PES)", value: tx.d, locked: locked, small: true, onChange: function (v) { setTx("d", v); } }),
+        h(TextArea, { label: "Pflegediagnose (PESR)", value: tx.d, locked: locked, small: true, onChange: function (v) { setTx("d", v); } }),
         h(TextArea, { label: "Pflegeziel (überprüfbar)", value: tx.z, locked: locked, small: true, onChange: function (v) { setTx("z", v); } }),
         h(TextArea, { label: "Geplante Maßnahmen", value: tx.m, locked: locked, onChange: function (v) { setTx("m", v); } }),
         h(SelfCheck, {
@@ -549,7 +549,7 @@
     useEffect(function () { if (fin && !run.done[k]) { var q = st.p || {}; p.finish(k, p.sec.max * ((q.q1 || 0) + (q.q2 || 0) + (q.fq || 0) + (q.pd || 0) + (q.q3 || 0) + (q.q5 || 0)) / 12); } }, [fin]);
     return h(Fr, null,
       h("div", { className: "card" },
-        h(SimHead, { icon: I.pulse, eyebrow: "Bildbefund · Monitor-EKG", title: L.titel }),
+        h(SimHead, { icon: I.pulse, eyebrow: "Beobachtung · Monitor-EKG", title: L.titel }),
         h("p", { style: { marginTop: 12 } }, L.situation),
         h(Strip, { kind: "sinus", title: "Streifen 1 · Aufnahmetag, 14:10 Uhr", sub: "zum Vergleich" }),
         h(Strip, { kind: "af", title: "Streifen 2 · Heute, 06:12 Uhr", sub: "Telemetrie-Alarm „ARRHYTHMIE“" }),
@@ -586,7 +586,7 @@
       p.children);
   }
 
-  /* --- Bildbefund mit Anklicken (Hotspots) --- */
+  /* --- Beobachtung mit Anklicken (Hotspots) --- */
   function SecHot(p) {
     var run = p.run, up = p.up, L = p.sec.live, k = p.sec.k;
     var st = run[k] || { pins: [], miss: 0, done: false };
@@ -619,7 +619,7 @@
     }
     return h(Fr, null,
       h("div", { className: "card" },
-        h(SimHead, { icon: I.eye, eyebrow: "Bildbefund · Antippen und benennen", title: L.titel }),
+        h(SimHead, { icon: I.eye, eyebrow: "Beobachtung · Antippen und benennen", title: L.titel }),
         L.banner && h(PatBanner, { pt: L.banner, who: p.sec.pat, c: (D.pat[p.sec.pat] || {}).farbe }),
         h(Narr, { text: L.intro, who: p.sec.pat, mood: L.mood }),
         h("div", { className: "pxhotq" }, h("b", null, L.q), h("span", null, "Tippe auf jede Auffälligkeit im Bild. Danach benennst du sie unten. Gesucht: ", h("b", null, N), " Befunde.")),
@@ -1202,7 +1202,7 @@
     return h(Fr, null,
       h("div", { className: "card pxpickhead" },
         h("h3", null, "Wähle deinen Prüfungsfall"),
-        h("p", { className: "muted", style: { margin: "6px 0 0" } }, "Jeder Fall spielt auf einer Station mit zwei oder drei Menschen, die dort typischerweise liegen. Immer dabei: eine Pflegehandlung als Simulation, ein Bildbefund zum Anklicken, Vitalzeichen und Medikamente zum Prüfen und bei drei Personen ein Beratungsgespräch.")),
+        h("p", { className: "muted", style: { margin: "6px 0 0" } }, "Jeder Fall spielt auf einer Station mit zwei oder drei Menschen, die dort typischerweise liegen. Immer dabei: eine Pflegehandlung als Simulation, ein Beobachtung zum Anklicken, Vitalzeichen und Medikamente zum Prüfen und bei drei Personen ein Beratungsgespräch.")),
       h("div", { className: "pxcases" }, CASES.map(function (c) {
         var last = hist.filter(function (x) { return (x.cs || "geriatrie") === c.id; })[0];
         var open = cur && (cur.cs || "geriatrie") === c.id;

@@ -87,7 +87,7 @@
         ]
       },
       B: {
-        key: "B", name: "Ingrid Hollweg", kurz: "Frau Hollweg", alter: 71, zimmer: "306", modus: "Bildbefund · Vitalzeichen · Medikamente", farbe: "#DB2777",
+        key: "B", name: "Ingrid Hollweg", kurz: "Frau Hollweg", alter: 71, zimmer: "306", modus: "Beobachtung · Vitalzeichen · Medikamente", farbe: "#DB2777",
         typ: "Freundlich, bescheiden, ehemalige Bankkauffrau. Will niemandem zur Last fallen und klingelt deshalb kaum.",
         diagnose: "Laparoskopische Sigmaresektion bei rezidivierender Divertikulitis; Tag 1. Easyflow-Drainage links, Blasenkatheter.",
         daten: [
@@ -348,7 +348,7 @@
         art: st
       },
       {
-        k: "hzimmer", typ: "hotspot", pat: "B", t: "Frau Hollweg · Bildbefund", kurzname: "Bildbefund Patientenzimmer", clock: "07:40", max: 8,
+        k: "hzimmer", typ: "hotspot", pat: "B", t: "Frau Hollweg · Beobachtung", kurzname: "Beobachtung Patientenzimmer", clock: "07:40", max: 8,
         titel: "Erster Blick ins Zimmer 306",
         intro: "07:40 Uhr. Frau Hollweg hat nicht geklingelt. Du betrittst das Zimmer für die Vitalzeichenkontrolle. Bevor du misst, nimmst du die Situation mit einem Blick auf.",
         q: "Was fällt dir an Frau Hollweg und an ihrer Umgebung auf?",

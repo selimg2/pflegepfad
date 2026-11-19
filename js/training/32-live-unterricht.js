@@ -1,4 +1,4 @@
-/* Schüler-App: Live-Unterricht. Zeigt immer nur den Schritt, den die Lehrkraft vorne freigibt.
+/* Lernenden-App: Live-Unterricht. Zeigt immer nur den Schritt, den die Lehrkraft vorne freigibt.
    Lernende können antworten, aber nicht selbst weiterblättern. */
 (function () {
   var R = window.React;

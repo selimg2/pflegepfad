@@ -65,7 +65,7 @@
     merke: "Ohne Sog rein, mit Sog drehend raus, höchstens 15 Sekunden. Jeder Gang mit neuem sterilen Katheter, Schutzbrille immer."
   };
 
-  /* ---------- Bildbefund Frau Winkler, COPD ---------- */
+  /* ---------- Beobachtung Frau Winkler, COPD ---------- */
   var win = Object.assign({}, WIN, { pale: 1 });
   function winScene() {
     var s = X.defs() + X.room({ disp: 198, railX: 12, railW: 170, winX: 262 });
@@ -90,7 +90,7 @@
     return s;
   }
   var winBild = {
-    k: "winbild", typ: "hotspot", pat: "B", t: "Frau Winkler · Bildbefund", kurzname: "Bildbefund bei COPD", clock: "07:20", max: 8,
+    k: "winbild", typ: "hotspot", pat: "B", t: "Frau Winkler · Beobachtung", kurzname: "Beobachtung bei COPD", clock: "07:20", max: 8,
     titel: "Frau Winkler wirkt müde",
     banner: { name: "Renate Winkler", sub: "74 J. · Zimmer 822 · akute Verschlechterung einer COPD, Pneumonie", chips: [["Zielsättigung laut AO 88 bis 92 %", "warn"], ["Allergie: Penicillin", "red"]] },
     intro: "07:20 Uhr. Frau Winkler war in der Nacht unruhig. Jetzt schläft sie halb, sie reagiert erst, als du sie laut ansprichst. „Ach, Sie sind's. Ich bin so müde, der Kopf brummt.“",
@@ -224,7 +224,7 @@
         ]
       },
       B: {
-        key: "B", name: "Renate Winkler", kurz: "Frau Winkler", alter: 74, zimmer: "822", modus: "Bildbefund · Vitalzeichen · Medikamente", farbe: "#0D9488", av: WIN,
+        key: "B", name: "Renate Winkler", kurz: "Frau Winkler", alter: 74, zimmer: "822", modus: "Beobachtung · Vitalzeichen · Medikamente", farbe: "#0D9488", av: WIN,
         typ: "Ehemalige Busfahrerin, direkt und humorvoll, raucht seit 55 Jahren, lebt allein mit ihrer Katze, Sohn wohnt in der Nähe.",
         diagnose: "Akute Exazerbation einer COPD GOLD 3 bei Pneumonie rechts; Sauerstoffgabe nach Zielsättigung 88 bis 92 %.",
         daten: [

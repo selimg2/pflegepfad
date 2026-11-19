@@ -292,7 +292,7 @@
         h("p", null, "Für eine Prüfung ist das zunächst nützlich. Problematisch wird es, wenn Sorgengedanken dazukommen: Sie belegen Arbeitsgedächtnis, das dann für die Aufgabe fehlt. Deshalb setzen die Werkzeuge hier an zwei Stellen an: am Körper (Atmung, Muskeln) und an den Gedanken (Bewertung, Schreiben, Pläne)."),
         h("div", { className: "rh-two" },
           h("div", null, h("b", null, "Kurzfristig: Akuthilfe"), h("ul", null, h("li", null, "Atmung verlangsamen, länger ausatmen"), h("li", null, "Aufregung als Energie deuten"), h("li", null, "Sinne nutzen: 5-4-3-2-1"), h("li", null, "Mit ‚du‘ zu dir selbst sprechen"))),
-          h("div", null, h("b", null, "Langfristig: Vorbeugen"), h("ul", null, h("li", null, "Verteilt lernen und dich selbst abfragen"), h("li", null, "Prüfungssituationen üben, etwa im Examenssimulator"), h("li", null, "Schlaf, Bewegung, feste Pausen"), h("li", null, "Wenn-dann-Pläne und Unterstützung im Kurs")))),
+          h("div", null, h("b", null, "Langfristig: Vorbeugen"), h("ul", null, h("li", null, "Verteilt lernen und dich selbst abfragen"), h("li", null, "Prüfungssituationen üben, etwa im Prüfungswissen-Training"), h("li", null, "Schlaf, Bewegung, feste Pausen"), h("li", null, "Wenn-dann-Pläne und Unterstützung im Kurs")))),
         h(Src, { t: "Lazarus, R. S. & Folkman, S. (1984). Stress, Appraisal, and Coping. Springer; von der Embse, N. et al. (2018). Test anxiety effects, predictors, and correlates: A 30-year meta-analytic review. Journal of Affective Disorders 227, 483–493; Roediger, H. L. & Karpicke, J. D. (2006). Psychological Science 17, 249–255; Smith, A. M. et al. (2016). Retrieval practice protects memory against acute stress. Science 354, 1046–1048; Cepeda, N. J. et al. (2006). Psychological Bulletin 132, 354–380; Ranehill, E. et al. (2015). Psychological Science 26, 653–656; Singh, B. et al. (2023). British Journal of Sports Medicine 57, 1203–1209." })),
       h("div", { className: "card rh-learn" },
         h("h3", null, "Mythos oder Fakt?"),
@@ -307,7 +307,7 @@
         h("h3", null, "Countdown bis zur Prüfung"),
         h("div", { className: "rh-cd" },
           [["6 bis 4 Wochen", "Lernplan mit festen Zeiten. Themen auf mehrere Wochen verteilen, jedes Thema mehrmals wiederholen. Jede Lerneinheit mit Selbstabfrage beenden, etwa mit Lernkarten oder Quiz."],
-            ["3 bis 2 Wochen", "Prüfungssituation simulieren: Examenssimulator unter Zeitdruck, mündliche Fälle laut beantworten, Praktisches Examen durchspielen. So kennt dein Gehirn die Situation schon."],
+            ["3 bis 2 Wochen", "Prüfungssituation simulieren: Prüfungswissen-Training unter Zeitdruck, mündliche Fälle laut beantworten, Praktisches Examen durchspielen. So kennt dein Gehirn die Situation schon."],
             ["Letzte Woche", "Wiederholen statt Neues. Schlafrhythmus stabil halten. Wenn-dann-Plan schreiben. Anfahrt, Unterlagen und Kleidung klären."],
             ["Der Abend vorher", "Nur noch leichte Wiederholung. Etwas Schönes vornehmen, Bewegung, normale Schlafenszeit. Sorgen aufschreiben, dann Zettel weg."],
             ["Prüfungstag", "Normales Frühstück, Wasser dabei. Nicht mit anderen ‚Was kommt dran?‘ durchgehen. Zwei Seufzer vor dem Start. Erst die Aufgaben überfliegen, mit Bekanntem beginnen."]].map(function (x, i) { return h("div", { key: i, className: "rh-cdi" }, h("i", null), h("b", null, x[0]), h("p", null, x[1])); }))));

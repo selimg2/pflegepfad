@@ -1,4 +1,4 @@
-/* ===== Fall 1 (Akutgeriatrie): Figuren, Bildbefund statt EKG, Katheter-Simulation ===== */
+/* ===== Fall 1 (Akutgeriatrie): Figuren, Beobachtung statt EKG, Katheter-Simulation ===== */
 (function () {
   var X = window.PXB, C = (window.PEX_CASES || []).filter(function (c) { return c.id === "geriatrie"; })[0];
   if (!X || !C) return;
@@ -6,7 +6,7 @@
   P.A.av = { hair: "HK", hairC: "#c9ccd1", skin: "#f6d2b3", cloth: "#9cc3e6", deco: "gown", bg: "#ddeeff", wrinkles: 1 };
   P.B.av = { hair: "GH", hairC: "#e9eaec", skin: "#f6d2b3", cloth: "#d9b8e8", deco: "gown", dot: "#a77bc4", bg: "#efe7fb", wrinkles: 1, glasses: 1 };
   P.C.av = { hair: "MK", hairC: "#b8bcc2", skin: "#f0c7a5", cloth: "#b7cdb8", deco: "gown", dot: "#6f9a72", bg: "#e7f4e4", wrinkles: 1 };
-  P.A.modus = "Bildbefund · Vitalzeichen · Medikamente";
+  P.A.modus = "Beobachtung · Vitalzeichen · Medikamente";
   C.people = {
     anleitung: { name: "Jana Kemper", av: { hair: "LE", hairC: "#d9a441", skin: "#f6d2b3", cloth: "#2f4f7a", deco: "badge", bg: "#fff1d6" } },
     pruefer: { name: "Herr Hollmann", av: { hair: "HS", hairC: "#9a8f86", skin: "#f0c7a5", cloth: "#5b6b7a", deco: "collar", bg: "#e6edf5", glasses: 1 } },
@@ -16,7 +16,7 @@
   };
   C.st.who = "brandt";
 
-  /* ---------- Bildbefund Herr Kowalski, 06:16 Uhr ---------- */
+  /* ---------- Beobachtung Herr Kowalski, 06:16 Uhr ---------- */
   var kow = Object.assign({}, P.A.av, { pale: 1, sweat: 1 });
   function kowScene() {
     var s = X.defs() + X.room({ disp: 198, railX: 12, railW: 150, winX: 262 });
@@ -39,7 +39,7 @@
     return s;
   }
   var kowbild = {
-    k: "kowbild", typ: "hotspot", pat: "A", t: "Herr Kowalski · Bildbefund", kurzname: "Bildbefund am Bett", clock: "06:16", max: 8,
+    k: "kowbild", typ: "hotspot", pat: "A", t: "Herr Kowalski · Beobachtung", kurzname: "Beobachtung am Bett", clock: "06:16", max: 8,
     titel: "Herr Kowalski nach dem Monitoralarm",
     banner: { name: "Werner Kowalski", sub: "82 J. · Zimmer 412 · Pneumonie, Exsikkose, Synkope in der Vorgeschichte", chips: [["Telemetrie-Alarm 06:12", "red"], ["schwerhörig re.", ""]] },
     intro: "06:16 Uhr. Die Monitorzentrale hat „Arrhythmie“ gemeldet, der Nachtdienst hält es für Artefakte. Du gehst sofort ans Bett. Herr Kowalski sagt: „Mir ist so schwummrig, und das Flattern ist wieder da.“ Bevor du misst, schaust du genau hin.",

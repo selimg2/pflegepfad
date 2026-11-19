@@ -1,5 +1,5 @@
 /* ===== Fallpfad · Praktisches Examen Übung · Inhalte =====
-   Akutgeriatrie, Station 4B. Drei Prüfungspatienten (A Bildbefund, B Gespräch, C Pflegehandlung),
+   Akutgeriatrie, Station 4B. Drei Prüfungspatienten (A Beobachtung, B Gespräch, C Pflegehandlung),
    Störfall mit Patient D. Alle Personen sind frei erfunden. */
 window.PEX = {
   station: "Akutgeriatrie · Station 4B",
@@ -23,7 +23,7 @@ window.PEX = {
   /* ---------- Patienten ---------- */
   pat: {
     A: {
-      key: "A", name: "Werner Kowalski", kurz: "Herr Kowalski", alter: 82, zimmer: "412", modus: "Bildbefund",
+      key: "A", name: "Werner Kowalski", kurz: "Herr Kowalski", alter: 82, zimmer: "412", modus: "Beobachtung",
       farbe: "#0062FF",
       diagnose: "Ambulant erworbene Pneumonie rechts basal, Exsikkose; Tag 3 nach Aufnahme. Aufnahme nach Sturz zu Hause mit kurzer Bewusstlosigkeit, Telemetrie zur Synkopenabklärung.",
       daten: [
@@ -232,7 +232,7 @@ window.PEX = {
     { id: "do", t: "Dokumentation abschließen, Übergabe an den Spätdienst vorbereiten", zeit: "13:00", warum: "Dokumentiert wird fortlaufend und zeitnah. Hier wird es vervollständigt und die Übergabe strukturiert." }
   ],
 
-  /* ---------- Phase 3.1 Patient A: Bildbefund ---------- */
+  /* ---------- Phase 3.1 Patient A: Beobachtung ---------- */
   a: {
     situation: "06:12 Uhr. Noch während der Übergabe piept die Monitorzentrale: „Zi. 412 · ARRHYTHMIE“. Die Kollegin aus dem Nachtdienst winkt ab: „Das ist der Kowalski, der nestelt wieder.“ Du druckst den aktuellen Streifen aus und legst ihn neben den Streifen vom Aufnahmetag.",
     vitals: "06:16 Uhr am Patienten: Herr Kowalski ist wach, etwas blass, sagt: „Mir ist so schwummrig, und das Flattern ist wieder da.“ Kein Brustschmerz. RR 108/64 mmHg · SpO₂ 93 % bei Raumluft · AF 22/min · Haut kühl, trocken. Du tastest den Radialispuls 60 Sekunden lang: 104/min, unregelmäßig. Der Monitor zeigt im selben Zeitraum eine Herzfrequenz von 132/min.",

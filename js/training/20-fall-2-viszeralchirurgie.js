@@ -1,4 +1,4 @@
-/* ===== Fall 2 (Viszeralchirurgie): Figuren, Bildbefund, Stoma-Simulation ===== */
+/* ===== Fall 2 (Viszeralchirurgie): Figuren, Beobachtung, Stoma-Simulation ===== */
 (function () {
   var X = window.PXB, C = (window.PEX_CASES || []).filter(function (c) { return c.id === "viszeral"; })[0];
   if (!X || !C) return;
@@ -12,7 +12,7 @@
     nacht: { name: "Katrin Wolff", role: "Nachtdienst", av: { hair: "BR", hairC: "#7a5233", skin: "#f6d2b3", cloth: "#2f4f7a", deco: "scrubs", bg: "#e6edf5" } }
   };
 
-  /* ---------- Bildbefund Frau Hollweg ---------- */
+  /* ---------- Beobachtung Frau Hollweg ---------- */
   var hol = Object.assign({}, P.B.av, { pale: 1, sweat: 1 });
   var spotsHead = [0, 0];
   function hollScene() {

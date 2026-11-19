@@ -2,7 +2,7 @@
    Aufgaben und Ereignissen. Vollständig regelbasiert (ohne KI). Inhalte stehen in fx-station-data.js.
    Aufbau:
    - ENGINE: reine Funktionen auf einem serialisierbaren Zustand (Uhr, erledigte Aufgaben, Flags, Ereignisse, Messungen, Protokoll).
-   - QUELLEN: verbindet Patientinnen und Patienten mit Lernmodulen (Patientenakte), der Praktischen Examen Übung (Akte, Bildbefunde,
+   - QUELLEN: verbindet Patientinnen und Patienten mit Lernmodulen (Patientenakte), der Praktischen Examen Übung (Akte, Beobachtungsbilder,
      Simulationen) oder eigenen Akten.
    - OBERFLÄCHE: Start, Übergabe, Stationsplan, Zimmer, Aufgaben, Ereignisse, Aufgaben-Durchführung, Auswertung. */
 (function () {
@@ -484,7 +484,7 @@
   function Befund(p) {
     var L = pexLive(p.c.fall, p.c.k);
     var hits = uS([]), miss = uS([]), done = uS(false), ref = uR(null);
-    if (!L) return h("p", { className: "st-muted" }, "Dieser Bildbefund ist nicht verfügbar.");
+    if (!L) return h("p", { className: "st-muted" }, "Diese Beobachtungsaufgabe ist nicht verfügbar.");
     var art = typeof L.art === "function" ? L.art() : L.art, spots = L.spots || [];
     function tap(e) {
       if (done[0]) return;
@@ -497,7 +497,7 @@
     return h(Fr, null,
       h("p", { className: "st-q" }, L.q || "Was fällt dir auf?"),
       L.intro ? h("p", { className: "st-muted", style: { margin: "-6px 0 0", fontSize: 14, lineHeight: 1.5 } }, L.intro) : null,
-      h("div", { className: "st-art", ref: ref, onClick: tap, role: "img", "aria-label": "Bildbefund: tippe auf Auffälligkeiten" },
+      h("div", { className: "st-art", ref: ref, onClick: tap, role: "img", "aria-label": "Beobachtung: tippe auf Auffälligkeiten" },
         h("svg", { viewBox: "0 0 400 280", className: String(art || "").indexOf("<defs>") === 0 ? "pxart2" : "hart pxart", dangerouslySetInnerHTML: { __html: art } }),
         spots.map(function (s, i) { var on = hits[0].indexOf(i) >= 0; if (!on && !done[0]) return null; var c = s.c[0]; return h("span", { key: i, className: "st-hit" + (on ? "" : " miss"), style: { left: pct(c[0], 400), top: pct(c[1], 280), width: pct(c[2] * 2, 400), height: pct(c[2] * 2, 280) } }); }),
         miss[0].map(function (m) { return h("span", { key: m.k, className: "st-hit x", style: { left: pct(m.x, 400), top: pct(m.y, 280) } }); })),

@@ -1,4 +1,4 @@
-/* ===== Fall 6 (Pädiatrie): Figuren, Bildbefund, Inhalations-Simulation ===== */
+/* ===== Fall 6 (Pädiatrie): Figuren, Beobachtung, Inhalations-Simulation ===== */
 (function () {
   var X = window.PXB, AV = window.PXAV, C = (window.PEX_CASES || []).filter(function (c) { return c.id === "paediatrie"; })[0];
   if (!X || !C) return;
@@ -16,7 +16,7 @@
     vater: { name: "Herr Schröder", match: "vater|schröder", av: { hair: "KA", hairC: "#2b2b33", skin: "#c98d64", cloth: "#5b6b7a", deco: "shirt", bg: "#e6edf5", mustache: 1, beardC: "#2b2b33" } }
   };
 
-  /* ---------- Bildbefund Emil (frontal, groß) ---------- */
+  /* ---------- Beobachtung Emil (frontal, groß) ---------- */
   var em = Object.assign({}, P.B.av, { blush: 0 });
   var HX = 136, HY = 70, HS = 168, sc = HS / 120;
   function F(fx, fy) { return [Math.round(HX + (fx - 60) * sc), Math.round(HY + (fy - 56) * sc)]; }

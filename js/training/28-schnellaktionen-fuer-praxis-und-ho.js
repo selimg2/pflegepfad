@@ -1,4 +1,4 @@
-/* Schüler-App: Schnellaktionen für Praxis und Home. Nutzt die vorhandenen Knöpfe der App,
+/* Lernenden-App: Schnellaktionen für Praxis und Home. Nutzt die vorhandenen Knöpfe der App,
    damit alle Prüfungen, Formulare und Unterschriften genau wie bisher laufen. */
 (function () {
   var X = window.FX, C = X.C;

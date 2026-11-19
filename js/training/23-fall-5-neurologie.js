@@ -1,4 +1,4 @@
-/* ===== Fall 5 (Neurologie): Figuren, Bildbefund, Dysphagie-Simulation ===== */
+/* ===== Fall 5 (Neurologie): Figuren, Beobachtung, Dysphagie-Simulation ===== */
 (function () {
   var X = window.PXB, AV = window.PXAV, C = (window.PEX_CASES || []).filter(function (c) { return c.id === "neuro"; })[0];
   if (!X || !C) return;
@@ -13,7 +13,7 @@
     ilse: { name: "Ilse Pohl", match: "ilse|ehefrau", av: { hair: "GL", hairC: "#d8d9dc", skin: "#f6d2b3", cloth: "#b7cdb8", bg: "#e7f4e4", wrinkles: 1, glasses: 1 } }
   };
 
-  /* ---------- Bildbefund Frau Albers ---------- */
+  /* ---------- Beobachtung Frau Albers ---------- */
   var alb = P.B.av, s5 = {};
   function albersScene() {
     return X.bedScene(alb, {

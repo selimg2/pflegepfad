@@ -80,7 +80,7 @@
         ]
       },
       B: {
-        key: "B", name: "Emil Hartwig", kurz: "Emil", alter: 3, zimmer: "K2-05", modus: "Bildbefund · Vitalzeichen · Medikamente", farbe: "#EA580C",
+        key: "B", name: "Emil Hartwig", kurz: "Emil", alter: 3, zimmer: "K2-05", modus: "Beobachtung · Vitalzeichen · Medikamente", farbe: "#EA580C",
         typ: "Sonst fröhlich und laut, jetzt quengelig und schlapp, lässt sich nur von Mama halten.",
         diagnose: "Ambulant erworbene Pneumonie rechts mit Fieber; leichte bis mittelschwere Dehydratation; Tag 1.",
         daten: [
@@ -255,7 +255,7 @@
     ],
     live: [
       {
-        k: "emilbild", typ: "hotspot", pat: "B", t: "Emil · Bildbefund", kurzname: "Bildbefund kleines Kind", clock: "06:30", max: 8,
+        k: "emilbild", typ: "hotspot", pat: "B", t: "Emil · Beobachtung", kurzname: "Beobachtung kleines Kind", clock: "06:30", max: 8,
         titel: "Emil im Gitterbett",
         intro: "06:30 Uhr. Emil liegt im Gitterbett, die Mutter sitzt daneben und döst. Er weint nicht, er wimmert nur leise.",
         q: "Welche Zeichen und Risiken erkennst du bei Emil?",

@@ -80,7 +80,7 @@
         ]
       },
       B: {
-        key: "B", name: "Mirko Lange", kurz: "Herr Lange", alter: 34, zimmer: "212", modus: "Bildbefund · Vitalzeichen · Medikamente", farbe: "#DC2626",
+        key: "B", name: "Mirko Lange", kurz: "Herr Lange", alter: 34, zimmer: "212", modus: "Beobachtung · Vitalzeichen · Medikamente", farbe: "#DC2626",
         typ: "Dachdecker, flapsig und cool, will keine Schwäche zeigen, spielt nachts am Handy, raucht.",
         diagnose: "Geschlossene Tibiaschaftfraktur links nach Sturz vom Gerüst; Plattenosteosynthese gestern 14 Uhr, dorsale Unterschenkelschiene; Tag 1.",
         daten: [
@@ -253,7 +253,7 @@
     ],
     live: [
       {
-        k: "langebild", typ: "hotspot", pat: "B", t: "Herr Lange · Bildbefund", kurzname: "Bildbefund Bein in der Schiene", clock: "06:15", max: 8,
+        k: "langebild", typ: "hotspot", pat: "B", t: "Herr Lange · Beobachtung", kurzname: "Beobachtung Bein in der Schiene", clock: "06:15", max: 8,
         titel: "Herr Lange und sein Bein",
         intro: "06:15 Uhr. Herr Lange spielt am Handy, das Gesicht ist angespannt. „Alles easy“, sagt er.",
         q: "Was fällt dir am Bein und in der Umgebung auf?",

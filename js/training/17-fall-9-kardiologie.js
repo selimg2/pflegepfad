@@ -58,7 +58,7 @@
     merke: "Ampel an den Extremitäten (rot, gelb, grün, schwarz ab rechtem Arm), Rippen zählen ab Angulus sterni, bei Brustschmerz in 10 Minuten zur Ärztin."
   };
 
-  /* ---------- Bildbefund Frau Wolters nach Herzkatheter ---------- */
+  /* ---------- Beobachtung Frau Wolters nach Herzkatheter ---------- */
   var wol = Object.assign({}, WOL, { pale: 1, sweat: 1 });
   function wolScene() {
     var s = X.defs() + X.room({ disp: 198, railX: 12, railW: 150, winX: 262 });
@@ -83,7 +83,7 @@
     return s;
   }
   var wolBild = {
-    k: "wolbild", typ: "hotspot", pat: "B", t: "Frau Wolters · Bildbefund", kurzname: "Bildbefund nach Herzkatheter", clock: "06:15", max: 8,
+    k: "wolbild", typ: "hotspot", pat: "B", t: "Frau Wolters · Beobachtung", kurzname: "Beobachtung nach Herzkatheter", clock: "06:15", max: 8,
     titel: "Frau Wolters am Morgen nach dem Herzkatheter",
     banner: { name: "Ingrid Wolters", sub: "71 J. · Zimmer 414 · gestern 16 Uhr Koronarangiografie mit Stent, Zugang A. femoralis rechts", chips: [["Druckverband rechte Leiste bis 10 Uhr", "warn"], ["ASS + Ticagrelor", "warn"]] },
     intro: "06:15 Uhr. Frau Wolters sitzt aufrecht im Bett und hat die Beine angezogen. „Ich konnte so nicht liegen, mir tut der Rücken weh. Und mir ist ein bisschen komisch.“ Bevor du misst, schaust du genau hin.",
@@ -225,7 +225,7 @@
         ]
       },
       B: {
-        key: "B", name: "Ingrid Wolters", kurz: "Frau Wolters", alter: 71, zimmer: "414", modus: "Bildbefund · Vitalzeichen · Medikamente", farbe: "#7C3AED", av: WOL,
+        key: "B", name: "Ingrid Wolters", kurz: "Frau Wolters", alter: 71, zimmer: "414", modus: "Beobachtung · Vitalzeichen · Medikamente", farbe: "#7C3AED", av: WOL,
         typ: "Pensionierte Grundschullehrerin, aufmerksam und freundlich, möchte niemandem Umstände machen, liest viel.",
         diagnose: "Koronare Herzkrankheit; gestern Koronarangiografie mit Stent im RIVA über die A. femoralis rechts, Druckverband bis heute 10 Uhr; Diabetes mellitus Typ 2.",
         daten: [
