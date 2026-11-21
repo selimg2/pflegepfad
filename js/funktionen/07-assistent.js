@@ -113,6 +113,10 @@
       var part = all.slice(i, i + 8);
       docs.push({ id: "lx:" + (i / 8), gruppe: "lx", titel: "Fachlexikon · " + (part[0][2] || "Begriffe"), text: part.map(function (c) { return c[0] + ": " + c[1]; }).join(" | ") });
     });
+    /* Wissen über die App selbst (Bedienung, Werkzeuge, Dokumente). Nur in der Lernenden-App. */
+    if (window.FP_APP_KIND !== "lehrer") (window.FP_APPWISSEN || []).forEach(function (x) {
+      docs.push({ id: x[0], gruppe: "app", titel: "App · " + x[1], text: x[2], boost: 1.3, tab: x[3], tile: x[4] });
+    });
     (window.FP_POCKET || []).forEach(function (p) {
       if (!Array.isArray(p)) return;
       docs.push({ id: "kt:" + p[0], gruppe: "kt", titel: "Kitteltasche · " + p[1], text: (p[3] || []).map(function (r) { return Array.isArray(r) ? r.join(": ") : String(r); }).join(" | ") });
@@ -129,7 +133,23 @@
       return { id: m.id, titel: modTitle(m), jahr: m.year || 0, pct: st.length ? Math.round(100 * d / st.length) : 0, stationen: (m.chapters || []).length, i: i };
     });
   }
+  /* Eintrag aus dem App-Wissen: passenden Reiter öffnen und, falls angegeben, die Kachel im Training antippen */
+  function openApp(id) {
+    var d = index().docs.filter(function (x) { return x.id === id; })[0];
+    if (!d || !d.tab) return false;
+    var tab = Array.prototype.find.call(document.querySelectorAll(".tab"), function (x) { return x.offsetParent !== null && (x.textContent || "").replace(/\d+$/, "").trim() === d.tab; });
+    if (!tab) return false;
+    tab.click();
+    if (d.tile) {
+      var n = 0, t = setInterval(function () {
+        var el = Array.prototype.find.call(document.querySelectorAll("main button, main a, main [role=button]"), function (x) { return (x.textContent || "").indexOf(d.tile) >= 0 && x.offsetParent !== null; });
+        if (el) { clearInterval(t); el.click(); } else if (++n > 20) clearInterval(t);
+      }, 120);
+    }
+    return true;
+  }
   function openQuelle(id) {
+    if (String(id).indexOf("app:") === 0) return openApp(id);
     var p = String(id).split(":"), mid = p[0] === "lk" ? p[1] : p[0], ci = p[0] === "lk" || p[1] === "i" ? -1 : Number(p[1]);
     var list = window.FP_MODS || [], mi = -1;
     for (var i = 0; i < list.length; i++) if (list[i].id === mid) { mi = i; break; }
@@ -257,7 +277,7 @@
             return h("label", { key: j, className: cls }, h("input", { type: "radio", name: p.id + "-" + i, checked: A[i] === j, disabled: done[0], onChange: function () { var x = Object.assign({}, A); x[i] = j; ans[1](x); } }), h("span", null, o));
           }),
           done[0] ? h("div", { className: "ast-exp" + (A[i] === f.richtig ? " ok" : "") }, h("b", null, A[i] === f.richtig ? "Richtig. " : "Nicht ganz. "), f.erklaerung) : null,
-          done[0] && p.quellen ? h(p.quellen, { ids: [f.quelle] }) : null);
+          done[0] && p.quellen ? h(p.quellen, { ids: [f.quelle], label: "Zum Nachlesen" }) : null);
       }),
       h("div", { className: "ast-row" },
         !done[0] ? h("button", { type: "button", className: "btn", disabled: Object.keys(A).length < k.fragen.length, onClick: function () { done[1](true); } }, "Auswerten")
@@ -443,7 +463,7 @@
       if (extra.wunsch === "plan") {
         var mine = mods.filter(function (m) { return m.jahr && m.jahr <= jahr; }).sort(function (a, b) { return a.pct - b.pct; }).slice(0, 10).map(function (m) { return m.id + ":i"; });
         quellen = I.docs.filter(function (d) { return mine.indexOf(d.id) >= 0; });
-      } else quellen = I.search(q, extra.wunsch === "klausur" ? 10 : 8, { proGruppe: extra.wunsch === "klausur" ? 4 : 3 });
+      } else quellen = I.search(q, extra.wunsch === "klausur" ? 10 : 8, { proGruppe: extra.wunsch === "klausur" ? 4 : 3, filter: extra.wunsch === "klausur" ? function (d) { return d.gruppe !== "app"; } : null });
       var verlauf = msgs.slice(-6).map(function (m) { return { r: m.r, t: m.r === "ki" ? (m.a && m.a.text) || "" : m.t }; });
       var mine2 = msgs.concat([{ r: "du", t: text, at: Date.now() }]);
       set(mine2); txt[1](""); busy[1](true); tool[1](null);
