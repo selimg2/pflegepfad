@@ -151,6 +151,12 @@
    "titel": "fm4 Schmerzmanagement (groß)",
    "status": "technisch_geprueft",
    "fachliche_freigabe": "expert_review_pending"
+  },
+  {
+   "id": "P1-02a",
+   "titel": "Jahr 2: fm10, fm13, fm14, fm22, fm24, fm25",
+   "status": "technisch_geprueft",
+   "fachliche_freigabe": "expert_review_pending"
   }
  ],
  "naechste_pakete": [
@@ -205,18 +211,18 @@
    "fm61",
    "fm65",
    "fm66",
-   "fm4"
-  ],
-  "teilweise": [],
-  "offen": [
+   "fm4",
    "fm10",
    "fm13",
    "fm14",
-   "fm15",
-   "fm17",
    "fm22",
    "fm24",
-   "fm25",
+   "fm25"
+  ],
+  "teilweise": [],
+  "offen": [
+   "fm15",
+   "fm17",
    "fm28",
    "fm29",
    "fm30",

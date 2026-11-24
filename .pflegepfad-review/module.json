@@ -776,6 +776,105 @@
    ],
    "sha256": "6d9c7a290942e5cd",
    "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm10": {
+   "paket": "P1-02a",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Fehlersuche: Gewichte (86,4/85,1 kg) an die Fallarbeit angeglichen (81,8/80,6 kg)",
+    "EF-Einteilung um HFmrEF ergänzt"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Links-/Rechtsherzinsuffizienz, Orthopnoe, Nykturie",
+    "Frank-Starling, Vor-/Nachlast, RAAS, Remodeling",
+    "Basistherapie (ACE-Hemmer/ARNI, Betablocker, MRA, SGLT2-Hemmer)",
+    "NYHA I–IV, Gewichtskontrolle, NVL-Schwellen >1 kg/Nacht, >2 kg/3 Tage, >2,5 kg/Woche",
+    "Selbstmanagement nach Riegel, Teach-back",
+    "12-Kanal-EKG innerhalb 10 Minuten bei Infarktverdacht",
+    "Bilanzrechnung nachgerechnet"
+   ],
+   "sha256": "f587da75867ff3ee",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm13": {
+   "paket": "P1-02a",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Fehlersuche: ‚Hemiparese links‘ und ‚gelähmte linke Seite‘ widersprachen dem Fall (Infarkt links, Hemiparese rechts); korrigiert, ‚positiv‘ zu ‚auffällig‘"
+   ],
+   "geprueft_ohne_aenderung": [
+    "BE-FAST, Zeitfenster Lyse 4,5 h, Thrombektomie, last seen well",
+    "ischämisch/hämorrhagisch, Penumbra, Aphasie/Neglect-Lateralisation",
+    "Dysphagie, stille Aspiration, Schluckscreening (GUSS), IDDSI",
+    "frühe Mobilisation (keine sehr frühe Hochdosis-Mobilisation <24 h)",
+    "Sekundärprävention, Post-Stroke-Depression"
+   ],
+   "sha256": "c822d45805bc511e",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm14": {
+   "paket": "P1-02a",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Lerntext und Fehlersuche sprachen von ‚Kindern‘ statt von der Mutter; an den Fall angeglichen (Biografie Schneiderin, Feierabend)",
+    "FEM-Rechtslage präzisiert: bei fehlender Einwilligungsfähigkeit Einwilligung der Vertretung UND gerichtliche Genehmigung (§ 1831 BGB) in Fallarbeit, Lernkarte und Quiz"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Demenz/Delir/Depression",
+    "NDB-Modell, Kitwood, maligne Sozialpsychologie",
+    "Expertenstandard Beziehungsgestaltung, Validation nach Feil/Richard",
+    "S3-Leitlinie Demenzen: nicht-medikamentös zuerst, Antipsychotika-Risiken",
+    "§ 132g SGB V, Entlastungsangebote"
+   ],
+   "sha256": "79c45d7b259ec016",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm22": {
+   "paket": "P1-02a",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [],
+   "geprueft_ohne_aenderung": [
+    "Distress-Thermometer, Schwelle ab 5",
+    "Wirkprinzip Zytostatika, Nadir 7–14 Tage, schwere Neutropenie <0,5/nl",
+    "TRGS 525, Schutzmaßnahmen, Ausscheidungen, Mutterschutz",
+    "Paravasat: stoppen, Nadel liegen lassen, aspirieren, substanzspezifisch",
+    "neutropenes Fieber: Notfall, Blutkulturen, Antibiose innerhalb 60 min, keine rektale Messung",
+    "Mukositis, Übelkeit, Fatigue, Alopezie, Hamburger Modell § 74 SGB V"
+   ],
+   "sha256": "ca96ff488005f89e",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm24": {
+   "paket": "P1-02a",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Hitzeerschöpfung: ‚wenig konzentrierter Urin‘ war fachlich falsch, jetzt wenig, dunkler, konzentrierter Urin"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Begutachtungsinstrument: 6 Module, Gewichtung 10/15/40/20/15 %, Schwellen 12,5/27/47,5/70/90",
+    "Leistungsarten SGB XI, häusliche Krankenpflege SGB V",
+    "Strukturmodell/SIS ambulant",
+    "Pflegeberatung § 7a SGB XI, Entlastungsangebote",
+    "Hitzeschutz, Hitzschlag >40 °C"
+   ],
+   "sha256": "36e31d402f9ac2a0",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm25": {
+   "paket": "P1-02a",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Schätzaufgabe zur Ultrafiltration als nächste reguläre Dialyse gekennzeichnet (Widerspruch 2,1 l vs. 4,1 kg Zunahme im Notfall)"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Nierenfunktionen, KDIGO-Stadien G1–G5, Albuminurie",
+    "Hyperkaliämie mit Bradykardie, Notfalldialyse",
+    "Shuntschutz, Schwirren, Verschluss als Notfall",
+    "Hämo- vs. Peritonealdialyse, Peritonitis",
+    "Trinkmenge Restausscheidung + ca. 500 ml, Kalium-/Phosphatquellen"
+   ],
+   "sha256": "a923dd5f9c4fb51d",
+   "fachliche_freigabe": "expert_review_pending"
   }
  }
 }

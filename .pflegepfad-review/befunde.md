@@ -121,3 +121,11 @@ Weitere Querschnittskorrekturen: Kitteltasche „Isolierung“ (Noro/Rota-Desinf
 - **Brüche in der Fallreihe:** Am zweiten Tag wurde eine Unterschenkelvenenthrombose bestätigt. fm6 bis fm8 kennen aber nur die Prophylaxe und entlassen Herrn Brenner mit prophylaktischem Heparin. Jetzt wird der Verdacht abgeklärt und ausgeschlossen. Die Lernhandlung (Ursache suchen, nicht massieren, ärztlich melden) bleibt gleich.
 - **Uneinheitliche Definitionen:** Chronischer Schmerz hieß einmal „mindestens drei Monate“, einmal „drei bis sechs Monate“; jetzt überall länger als drei Monate. Das Screening umfasste in der Aufgabe drei Fragen, im Quiz dagegen die Intensität; das Quiz ist angeglichen.
 - Pharmakologie, POSS, BESD und KUSS sind geprüft und stimmen. Offen bleibt der Verweis auf einen Moodle-Kurs im Abschlusstext.
+
+
+## P1-02a Jahr 2 (fm10, fm13, fm14, fm22, fm24, fm25)
+
+- **Fachlich falsch:** fm24 nannte bei Hitzeerschöpfung „wenig konzentrierten Urin“. Richtig ist wenig, dunkler, konzentrierter Urin.
+- **Widersprüche zum Fall:** In der Fehlersuche von fm13 hatte Herr Wagner eine Lähmung links, im Fall rechts. In fm14 war im Lerntext und in der Fehlersuche von Frau Hoffmanns „Kindern“ die Rede, im Fall sucht sie ihre Mutter. In fm10 standen in der Fehlersuche andere Gewichte als in der Fallarbeit. In fm25 passte die Schätzaufgabe (2,1 l Entzug) nicht zur Notfalldialyse mit 4,1 kg Zunahme.
+- **Rechtliche Präzisierung (fm14):** Bei fehlender Einwilligungsfähigkeit braucht ein Bettgitter die Einwilligung der Betreuung oder Bevollmächtigten **und** die gerichtliche Genehmigung, nicht eines von beiden.
+- fm22 ist ohne Änderungsbedarf geprüft.
