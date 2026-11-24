@@ -1,0 +1,113 @@
+{
+  "hinweis": "Quellenregister der Inhaltsredaktion. evidence: verified = Originaldokument bzw. Primärquelle gelesen; unverified = nur genannt; conflict = widersprüchlich. rights: citation_only = nur bibliografische Nennung und eigene Formulierung, keine Übernahme von Text, Tabellen oder Abbildungen. Freigabe medizinisch: keine; alle Einträge draft bzw. expert_review_pending.",
+  "quellen": [
+    {
+      "source_id": "ERC2025-BLS",
+      "titel": "European Resuscitation Council Guidelines 2025: Adult Basic Life Support",
+      "institution": "European Resuscitation Council (Smyth MA, van Goor S, Hansen CM et al.)",
+      "fundstelle": "Resuscitation 2025;215 (Suppl 1):110771",
+      "url": "https://doi.org/10.1016/j.resuscitation.2025.110771",
+      "version": "2025, veröffentlicht 22.10.2025",
+      "abruf": "2026-11-24",
+      "belegstelle": "Tabelle 1 (Änderungen ggü. 2021: Notruf bei jeder nicht reagierenden Person, Atmung prüfen während der Alarmierung; 'panting' als abnorme Atmung); Abschnitt Thoraxkompressionen (untere Hälfte des Sternums, 5–6 cm, 100–120/min, vollständige Entlastung); Rescue breaths (Unterbrechung für 2 Beatmungen max. 10 s); HCP im Krankenhaus (feste Unterlage, CPR-Modus der Matratze, nicht auf den Boden umlagern, kein Backboard); Krampfähnliche Aktivität zu Beginn",
+      "betroffene_ids": [
+        "fm9.chapters[2].blocks[1]",
+        "fm9.chapters[2].blocks[2] (n9c_p1)",
+        "fm9.chapters[2].blocks[3] (n9c_q)",
+        "fm9.sources[0]",
+        "fm5.chapters[4].blocks[1]",
+        "fm5.chapters[4].blocks[2] (c5_order)",
+        "fm5.chapters[4].blocks[5]",
+        "fm5.sources[8]",
+        "Kitteltasche rea",
+        "Lehrer 06 Live-Stunde Reanimation-Reihe"
+      ],
+      "evidence": "verified",
+      "gelesen_ueber": "Volltext-Kopie (certifico.com-Download) des Elsevier-Artikels, Abgleich mit GRC-Kurzfassung",
+      "rights": "citation_only",
+      "lizenz": "© 2025 European Resuscitation Council, Elsevier; keine Übernahme von Algorithmen-Grafiken oder Textpassagen",
+      "attribution": "Bibliografische Angabe in sources",
+      "freigabe": "expert_review_pending",
+      "naechste_pruefung": "bei nächster ERC-Aktualisierung (regulär 2030) bzw. Errata"
+    },
+    {
+      "source_id": "GRC2025-KOMPAKT",
+      "titel": "Reanimation 2025 – Leitlinien kompakt (deutsche Kurzfassung der ERC-Leitlinien 2025)",
+      "institution": "Deutscher Rat für Wiederbelebung – German Resuscitation Council e.V. (GRC)",
+      "fundstelle": "1. Auflage 2025, ISBN 978-3-00-084579-6",
+      "url": "https://www.grc-org.de/files/Contentpages/document/LeitlinienKompakt2025_22.10.2025.pdf",
+      "version": "22.10.2025",
+      "abruf": "2026-11-24",
+      "belegstelle": "S. 54–56 BLS Erwachsene (Notruf sofort, Schnappatmung, Kompression 5–6 cm, 100–120/min, 30:2); S. 67, 70, 73 ALS (Adrenalin 1 mg, Amiodaron 300/150 mg); S. 84 Anaphylaxie Erwachsene 0,5 mg i.m.; S. 167–171 PBLS (5 initiale Beatmungen, 15:2 für PBLS-Geschulte sonst 30:2, Tiefe mind. 1/3 des Thoraxdurchmessers, nie > 6 cm, Säugling Zwei-Daumen-Technik, allein ohne Telefon 1 min CPR); S. 185–186 Anaphylaxie Kinder 10 µg/kg i.m., max. 0,5 mg",
+      "betroffene_ids": [
+        "Kitteltasche kinder-rea",
+        "fm9.sources[1]",
+        "fm56 (Anaphylaxie 0,5 mg i.m., geprüft, unverändert)"
+      ],
+      "evidence": "verified",
+      "rights": "citation_only",
+      "lizenz": "© 2025 GRC; Algorithmus-Grafiken nicht übernehmen",
+      "freigabe": "expert_review_pending",
+      "naechste_pruefung": "2027-11 (Korrekturauflagen prüfen)"
+    },
+    {
+      "source_id": "AWMF-020-021",
+      "titel": "S3-Leitlinie Sauerstoff in der Akuttherapie beim Erwachsenen",
+      "institution": "AWMF / DGP u. a. (Gottlieb J et al.)",
+      "fundstelle": "AWMF-Registernummer 020-021, Langversion 1.0 Juni 2021; Pneumologie 2022;76:159–216",
+      "url": "https://register.awmf.org/assets/guidelines/020-021l_S3_Sauerstoff-in-der-Akuttherapie-beim-Erwachsenen_2021-06-abgelaufen.pdf",
+      "version": "06/2021, gültig bis 30.06.2024 – im AWMF-Register als abgelaufen gekennzeichnet",
+      "abruf": "2026-11-24",
+      "belegstelle": "Zielbereiche: spontan atmend ohne Hyperkapnierisiko SpO2 92–96 %, mit Hyperkapnierisiko 88–92 %; Median-SpO2 Gesunder 98 % (18–64 J.), 96 % (Ältere)",
+      "betroffene_ids": [
+        "fm3.chapters[2].blocks[2]",
+        "fm3.sources[4]",
+        "fm11.chapters[5].blocks[5].questions[0]",
+        "Kitteltasche vit/Sauerstoffsättigung",
+        "fm11, fm40 (bereits 92–96 %, unverändert)"
+      ],
+      "evidence": "conflict",
+      "konflikt": "Leitlinie formal abgelaufen; BTS 2017 nennt 94–98 %. Entscheidung: deutsche S3-Zielbereiche als Orientierung, immer mit 'nach ärztlicher Anordnung'. Prüfen, ob Aktualisierung angemeldet/erschienen ist.",
+      "rights": "citation_only",
+      "freigabe": "expert_review_pending",
+      "naechste_pruefung": "2027-03 oder bei Erscheinen der Aktualisierung"
+    },
+    {
+      "source_id": "SSC2021",
+      "titel": "Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock 2021",
+      "institution": "SCCM/ESICM (Evans L et al.)",
+      "fundstelle": "Crit Care Med 2021;49(11):e1063–e1143; Intensive Care Med 2021;47:1181–1247",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8486643/",
+      "version": "10/2021",
+      "abruf": "2026-11-24",
+      "belegstelle": "Empfehlung 2 (Screening, starke Empfehlung, moderate Evidenz): qSOFA soll nicht als alleiniges Screeninginstrument anstelle von SIRS, NEWS oder MEWS eingesetzt werden",
+      "betroffene_ids": [
+        "Kitteltasche qsofa",
+        "Lernkarte fm21 qSOFA",
+        "fm21.chapters[2].blocks[1]",
+        "fm21.chapters[2].blocks[0] (bereits korrekt)"
+      ],
+      "evidence": "verified",
+      "rights": "citation_only",
+      "freigabe": "expert_review_pending",
+      "offen": "Deutsche S3-Leitlinie Sepsis (AWMF 079-001) auf aktuelle Fassung prüfen und ggf. ergänzen",
+      "naechste_pruefung": "2027-01"
+    },
+    {
+      "source_id": "SEPSIS3",
+      "titel": "The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3)",
+      "institution": "Singer M et al.",
+      "fundstelle": "JAMA 2016;315(8):801–810",
+      "url": "https://doi.org/10.1001/jama.2016.0287",
+      "abruf": "nicht erneut geöffnet",
+      "belegstelle": "qSOFA-Kriterien AF ≥ 22/min, veränderte Bewusstseinslage, RR sys ≤ 100 mmHg (inhaltlich durch SSC 2021 bestätigt)",
+      "betroffene_ids": [
+        "Kitteltasche qsofa",
+        "Lernkarte fm21 qSOFA"
+      ],
+      "evidence": "unverified",
+      "rights": "citation_only",
+      "freigabe": "expert_review_pending"
+    }
+  ]
+}

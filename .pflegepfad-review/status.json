@@ -1,0 +1,59 @@
+{
+  "bearbeitung": "inhaltsredaktion-2026-11",
+  "stand": "2026-11-24",
+  "kanonische_quellen": {
+    "module": "Schüler-App daten/module/jahr-*/fmN.js → Lehrer content.json:mods per werkzeuge/inhalt_sync.py (nie in content.json direkt redigieren)",
+    "fachlexikon": "Schüler-App daten/fachlexikon.js → Lehrer js/kern/06-fachlexikon.js (byte-identisch, per inhalt_sync.py)",
+    "kitteltasche": "Schüler-App js/app/01-app.bundle.js (Hauptliste, Strings mit \\x-Escapes) + js/training/34-zusaetzliche-kitteltasche-eintraeg.js; im Lehrerportal nicht vorhanden",
+    "lernkarten": "Schüler-App js/training/33-zusaetzliche-lernkarten-je-modul.js",
+    "assistent": "Keine eigene Wissensbasis: Edge Function assistent erhält nur auf dem Gerät gesuchte Auszüge aus Modulen, Lexikon, Kitteltasche, Lernkarten. Korrekturen dort wirken automatisch.",
+    "pflegeplanung_faelle": "Lehrer werkzeuge/pflegeplanung_faelle.py erzeugt die Dateien (nicht die erzeugten Dateien redigieren)",
+    "avatare": "daten/figuren.js, .avatar-svg, PXAV, content.json:chars – geschützt, Hash in struktur_basis.json"
+  },
+  "tests": {
+    "struktur": "python3 -I werkzeuge/inhalt_pruefen.py <schueler-repo>",
+    "sync_pruefen": "python3 -I werkzeuge/inhalt_sync.py <schueler-repo> <lehrer-repo> --pruefen",
+    "rauch": "NODE_PATH=<playwright> node werkzeuge/tests/rauchtest.mjs <repo>  (beide Repos)",
+    "konsole": "CHROME=<chrome> node werkzeuge/pruefen.mjs <repo> --js ...",
+    "stationsalltag": "node werkzeuge/tests/stationsalltag-test.js"
+  },
+  "pakete": [
+    {
+      "id": "P0-01",
+      "titel": "Reanimation und Notfallkarten: ERC 2025, Sauerstoffzielbereich, Sepsis- und Schlaganfallkarte",
+      "status": "technisch_geprueft",
+      "fachliche_freigabe": "expert_review_pending",
+      "dateien": {
+        "schueler": {
+          "daten/module/jahr-3/fm9.js": "2312fc8716c39767",
+          "daten/module/jahr-2/fm5.js": "32c2aa075b445057",
+          "daten/module/jahr-1/fm3.js": "e181fadd313ab2f1",
+          "daten/module/jahr-2/fm11.js": "723b7554610680d7",
+          "daten/module/jahr-2/fm21.js": "327d177f59acf66e",
+          "js/training/33-zusaetzliche-lernkarten-je-modul.js": "da173b9f28fc3b2b",
+          "js/training/34-zusaetzliche-kitteltasche-eintraeg.js": "a49158826d4c0da5",
+          "js/app/01-app.bundle.js": "e45bddec75fbd63b",
+          "sw.js": "Cache fallpfad-v54 → v55"
+        },
+        "lehrer": ["content.json (Sync fm3, fm5, fm9, fm11, fm21)", "js/erweiterungen/06-fertige-live-stunden-und-fallbeisp.js"]
+      },
+      "quellen": ["ERC2025-BLS", "GRC2025-KOMPAKT", "AWMF-020-021", "SSC2021"],
+      "tests": {
+        "inhalt_pruefen": "OK – 75 Module, Struktur/Antwortschlüssel/Avatare unverändert, 4 Regeln",
+        "inhalt_sync --pruefen": "OK – 0 Abweichungen",
+        "rauchtest schueler": "0 Probleme (3 Ansichten × hell/dunkel, 9 Bereiche)",
+        "rauchtest lehrer": "0 Probleme (3 Ansichten × hell/dunkel, 13 Bereiche)",
+        "pruefen.mjs schueler": "nur blockierter Supabase-Netzaufruf (erwartet); Daten geladen: Kitteltasche kinder-rea = Zwei-Daumen-Technik, fm9.sources[0] = ERC 2025",
+        "pruefen.mjs lehrer": "OK",
+        "stationsalltag": "problems 0",
+        "node --check": "Bundle, 33, 34, Lehrer 06 OK"
+      }
+    }
+  ],
+  "naechste_pakete": [
+    {"id": "P0-02", "titel": "Arzneimittel Kinder und Fieber/Krampf: fm73 (Paracetamol/Ibuprofen-Dosierungsangaben, Midazolam, Pseudokrupp), fm16, fm37, fm72 Rechenaufgaben; GRC PBLS/Anaphylaxie-Quelle wiederverwenden; Fachinformationen prüfen"},
+    {"id": "P0-03", "titel": "Arzneimittel Erwachsene: fm20, fm64 (Insulin, Injektion), fm74, fm67, PharmakoLab js/funktionen/01-pharmako2.js – Wirkstoffangaben gegen Fachinformation, Rechenwerte deterministisch testen"},
+    {"id": "P0-04", "titel": "Hygiene: fm38, fm71, Kitteltasche isolation/haende – KRINKO/RKI"},
+    {"id": "P1-01", "titel": "Quizqualität Pilot: offenkundig absurde Distraktoren (z. B. fm9 n9b_m1 'Die Lieblingsfernsehsendung') automatisiert finden und ersetzen"}
+  ]
+}
