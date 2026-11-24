@@ -52,4 +52,4 @@ Weitere Querschnittskorrekturen: Kitteltasche „Isolierung“ (Noro/Rota-Desinf
 
 ## Stand und ehrliche Einordnung
 
-8 von 75 Modulen sind vollständig gelesen und redigiert, 5 weitere teilweise (nur Notfallkapitel aus P0-01). 62 Module sind noch nicht vollständig bearbeitet. Liste: `.pflegepfad-review/status.json` → `fortschritt`. Pro Modul: `.pflegepfad-review/module.json`.
+8 von 75 Modulen sind vollständig gelesen und redigiert, 5 weitere teilweise (nur Notfallkapitel aus P0-01). Damit sind 67 Module noch nicht vollständig redigiert, 62 davon noch gar nicht. Liste: `.pflegepfad-review/status.json` → `fortschritt`. Pro Modul: `.pflegepfad-review/module.json`.
