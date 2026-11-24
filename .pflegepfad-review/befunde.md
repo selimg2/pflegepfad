@@ -104,3 +104,12 @@ Weitere Querschnittskorrekturen: Kitteltasche „Isolierung“ (Noro/Rota-Desinf
 - **Wunddokumentation (fm7)** an die Falldaten von Tag 4 angeglichen: 2 cm Rötung und 37,9 °C.
 - **Rasur (fm2):** Die Erklärung in der Fehlersuche passt jetzt zur KRINKO-Aussage im Lerntext.
 - Medizinisches und rechtliches Grundwissen der fünf Module ist geprüft und stimmt (siehe module.json).
+
+
+## P1-01b Jahr 1 Rest (fm18, fm23, fm35, fm39, fm42–fm46, fm61, fm65, fm66)
+
+- **Quellen im Lerntext (fm45):** Zwei Absätze nannten Herausgeber als Quellen (Schwerhörigenbund, biha, DBSV, DOG). Sie sind entfernt und im Quellenregister den Textstellen zugeordnet. Eine neue Prüfregel verhindert solche Zeilen künftig; sie schlägt am alten Stand an.
+- **Widersprüche im Modul:** fm61 nannte zwei verschiedene Gewichtsgrenzen (25 kg und 15–20 kg). fm43 verlangte pauschal stündliche Sitzentlastung, obwohl der Lerntext feste Intervalle ablehnt. fm39 ließ den Hautfaltentest am Handrücken zuordnen, der Lerntext empfiehlt das Brustbein. fm18 datierte das Pflegeberufegesetz einmal auf 2017, einmal auf 2020.
+- **Patientensicherheit:** In fm23 fehlte beim Fasten mit Diabetes die Anpassung von Insulin und Tabletten (Unterzuckerung). In fm35 fehlte bei Herzinsuffizienz der Hinweis auf die ärztlich festgelegte Trinkmenge.
+- **Fehlersuche fm61:** Die als korrekt geltende Zeile „Bett ganz nach unten, damit er leicht aufstehen kann“ war fachlich falsch. Sie beschreibt jetzt die richtige Betthöhe; der Bewertungsschlüssel bleibt gleich.
+- fm42, fm44, fm46 und fm65 sind ohne Änderungsbedarf geprüft. Offene Punkte: der Begriff Remonstration in fm18 und der doppelte Name „Frau Lorenz“ in fm44 und fm66.

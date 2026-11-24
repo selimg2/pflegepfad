@@ -139,12 +139,18 @@
    "titel": "Brenner-Fallreihe Jahr 1: fm1, fm2, fm6, fm7, fm8",
    "status": "technisch_geprueft",
    "fachliche_freigabe": "expert_review_pending"
+  },
+  {
+   "id": "P1-01b",
+   "titel": "Jahr 1 Rest: fm18, fm23, fm35, fm39, fm42–fm46, fm61, fm65, fm66",
+   "status": "technisch_geprueft",
+   "fachliche_freigabe": "expert_review_pending"
   }
  ],
  "naechste_pakete": [
   {
-   "id": "P1-01",
-   "titel": "Jahr 1 Rest: fm4 (groß), fm18, fm23, fm35, fm39, fm42–fm46, fm61, fm65, fm66"
+   "id": "P1-01c",
+   "titel": "Jahr 1: fm4 (groß, eigenes Paket)"
   },
   {
    "id": "P1-02",
@@ -184,7 +190,19 @@
    "fm2",
    "fm6",
    "fm7",
-   "fm8"
+   "fm8",
+   "fm18",
+   "fm23",
+   "fm35",
+   "fm39",
+   "fm42",
+   "fm43",
+   "fm44",
+   "fm45",
+   "fm46",
+   "fm61",
+   "fm65",
+   "fm66"
   ],
   "teilweise": [],
   "offen": [
@@ -194,9 +212,7 @@
    "fm14",
    "fm15",
    "fm17",
-   "fm18",
    "fm22",
-   "fm23",
    "fm24",
    "fm25",
    "fm28",
@@ -205,15 +221,8 @@
    "fm31",
    "fm32",
    "fm34",
-   "fm35",
-   "fm39",
    "fm40",
    "fm41",
-   "fm42",
-   "fm43",
-   "fm44",
-   "fm45",
-   "fm46",
    "fm47",
    "fm48",
    "fm49",
@@ -226,11 +235,8 @@
    "fm57",
    "fm59",
    "fm60",
-   "fm61",
    "fm62",
    "fm63",
-   "fm65",
-   "fm66",
    "fm68",
    "fm69",
    "fm70",

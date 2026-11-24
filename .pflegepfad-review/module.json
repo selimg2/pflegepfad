@@ -559,6 +559,196 @@
    "offen": [],
    "sha256": "48b0ce457732741b",
    "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm18": {
+   "paket": "P1-01b",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Pflegeberufegesetz einheitlich: beschlossen 2017, seit 2020 in Kraft (vorher widersprüchlich 2017/2020)"
+   ],
+   "geprueft_ohne_aenderung": [
+    "§ 4 PflBG vorbehaltene Tätigkeiten, § 6 Praxisanleitung mindestens 10 %",
+    "§ 203 StGB inkl. Auszubildende, Schweigepflicht über den Tod hinaus",
+    "Art. 9 DSGVO, § 630d/§ 630f BGB (Aufbewahrung 10 Jahre)",
+    "Delegation: Anordnungs-, Übernahme-, Durchführungsverantwortung",
+    "Prinzipienethik nach Beauchamp/Childress, Nimwegener Methode, moralischer Stress nach Jameton",
+    "ICN-Ethikkodex"
+   ],
+   "offen": [
+    "Begriff Remonstration wird auch für Ablehnung wegen fehlender Qualifikation genutzt; fachdidaktisch prüfen, ob Trennung von Übernahmeverweigerung gewünscht ist"
+   ],
+   "sha256": "afabc41a4dbb9c4d",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm23": {
+   "paket": "P1-01b",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Fehlersuche Fasten: Blutzuckerkontrollen und Anpassung von Insulin/Tabletten durch das Diabetesteam ergänzt (Hypoglykämierisiko)"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Professionelles Dolmetschen, keine Kinder als Dolmetscher, Teach-back",
+    "Leininger Sunrise-Modell, Domenig transkulturelle Kompetenz, Kulturalisierung",
+    "Fastenbefreiung für Kranke, Entscheidung bei der Person",
+    "Schmerzerfassung ohne Vorurteile, Faces Pain Scale – Revised",
+    "Einwilligung nur bei Verständnis"
+   ],
+   "sha256": "52651e9b38434171",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm35": {
+   "paket": "P1-01b",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Fehlersuche Trinkmenge: Hinweis auf ärztlich festgelegte Trinkmenge bei Herzinsuffizienz ergänzt"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Strukturmodell/SIS mit sechs Themenfeldern und Risikomatrix",
+    "DNQP Sturzprophylaxe: Einschätzung ohne Skala, nach jedem Sturz",
+    "Sturz unter Apixaban: Hirnblutungsrisiko, ärztliche Abklärung",
+    "FEM: § 1831 BGB, Werdenfelser Weg, Alternativen",
+    "§ 43b SGB XI Betreuungskräfte, Qualitätsprüfung mit Ergebnisindikatoren seit 2019"
+   ],
+   "sha256": "05b124f22df7622a",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm39": {
+   "paket": "P1-01b",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Zuordnungsaufgabe: Hautfaltentest über dem Brustbein statt am Handrücken, passend zum Lerntext"
+   ],
+   "geprueft_ohne_aenderung": [
+    "IAD vs. Dekubitus, Fingertest, keine Massage",
+    "W/O-Emulsion bei Altershaut, kein Puder",
+    "Mundinspektion, Soor, Xerostomie, keine Zitronenglycerinstäbchen",
+    "Prothesenlagerung feucht, Augenpflege außen nach innen",
+    "Podologie bei Diabetes/pAVK"
+   ],
+   "sha256": "5b0e47dec4dc8522",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm42": {
+   "paket": "P1-01b",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [],
+   "geprueft_ohne_aenderung": [
+    "DNQP Sturzprophylaxe 2. Aktualisierung 2022: zweistufige Einschätzung, keine Skala",
+    "Kraft- und Balancetraining als wirksamste Maßnahme",
+    "sturzfördernde Medikamente, Medikationsüberprüfung",
+    "FEM: § 1831 BGB, Notfall, Werdenfelser Weg",
+    "Vorgehen nach Sturz, sachliches Sturzprotokoll"
+   ],
+   "sha256": "dd25f3911626f6ec",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm43": {
+   "paket": "P1-01b",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Sitzentlastung im Rollstuhl individualisiert statt pauschal stündlich (Widerspruch zu ‚keine festen Intervalle‘)"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Dekubitusentstehung: Druck, Zeit, Scherkräfte",
+    "Kategorien 1–4, nicht klassifizierbar, tiefe Gewebeschädigung",
+    "Fingertest, Förderung der Eigenbewegung, individuelle Intervalle",
+    "30-Grad-Position, Fersenfreilage, keine Ringe/Felle",
+    "Abgrenzung IAD"
+   ],
+   "sha256": "f735a6e497cb3aeb",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm44": {
+   "paket": "P1-01b",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [],
+   "geprueft_ohne_aenderung": [
+    "Schlafzyklen, REM/Tiefschlaf, Melatonin, Schlaf im Alter",
+    "nicht-medikamentöse Schlafförderung zuerst, Maßnahmen bündeln",
+    "Z-Substanzen auf PRISCUS-Liste",
+    "Delir: akut, fluktuierend, hypoaktiv/hyperaktiv, 4AT, keine Fixierung"
+   ],
+   "sha256": "9efbba051d7ab47a",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm45": {
+   "paket": "P1-01b",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Zwei Herausgeber-Quellenzeilen aus dem Lerntext entfernt (Schwerhörigenbund, biha, DBSV, DOG) und im Quellenregister den Textstellen zugeordnet",
+    "Neue Prüfregel Q-01: Herausgeber-Quellenzeilen im Lerntext"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Presbyakusis, Katarakt, AMD, Glaukom",
+    "Schwerhörigkeit als beeinflussbarer Demenzrisikofaktor (Lancet Commission 2024)",
+    "Hörgerätepflege, Pfeifen durch Sitz des Ohrpassstücks",
+    "Kommunikationsregeln, offene Fragen zum Verstehen",
+    "Uhrzeiger-Methode, Begleiten"
+   ],
+   "sha256": "74fd8dbf7786e6fb",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm46": {
+   "paket": "P1-01b",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [],
+   "geprueft_ohne_aenderung": [
+    "Thermoregulation, Orientierungswerte, Hypothermie unter 36 °C",
+    "perioperatives Wärmemanagement (Prewarming, angewärmte Infusionen)",
+    "Messorte und Dokumentation mit Messort",
+    "Fieberphasen und phasengerechte Pflege, Blutkulturen bei Schüttelfrost",
+    "Fallzeiten und Werte konsistent"
+   ],
+   "sha256": "73068793b707497d",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm61": {
+   "paket": "P1-01b",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Widersprüchliche Gewichtsgrenzen (25 kg vs. 15–20 kg) aufgelöst",
+    "Fehlersuche: Bett ‚ganz nach unten‘ für das Aufstehen fachlich falsch, Zeile als korrekte Einstellung neu formuliert (Bewertungsschlüssel unverändert)",
+    "Doppelte Lernkarte ‚Rückengerechtes Arbeiten‘ durch ‚Aufstehhilfe (Stehlifter)‘ ersetzt"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Kraftverlust bei Bettruhe, orthostatische Dysregulation",
+    "Transfervorbereitung, Stuhlposition 45° zur stärkeren Seite",
+    "Kinästhetik: Aufsetzen über die Seite, kein Zug am Arm",
+    "Hilfsmittelwahl Gleitmatte, Rutschbrett, Stehlifter, Passivlifter"
+   ],
+   "sha256": "1e97a2087740b03e",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm65": {
+   "paket": "P1-01b",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [],
+   "geprueft_ohne_aenderung": [
+    "Dehydratationszeichen im Alter, Hautfalte wenig aussagekräftig",
+    "Faustregel 30 ml/kg, Fieberzuschlag, Rechenaufgaben nachgerechnet",
+    "subkutane Infusion: isotone Lösungen, Einstichstellen, Beobachtung",
+    "Trinkförderung biografisch, ohne Druck"
+   ],
+   "sha256": "82808181eda99c85",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm66": {
+   "paket": "P1-01b",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Fallakte: Tochter ergänzt, damit Sohn (Nacht) und Tochter (Sterbezeitpunkt) konsistent sind"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Zeichen der Sterbephase, Rasselatmung, kein tiefes Absaugen",
+    "unsichere/sichere Todeszeichen und Zeitangaben",
+    "Versorgung Verstorbener, Wertsachen, Prothese, Leichenschau",
+    "Trauerbegleitung, Selbstfürsorge"
+   ],
+   "offen": [
+    "Name ‚Frau Lorenz‘ auch in fm44 (andere Person, 86 J.); Figuren bleiben unverändert, ggf. redaktionell entscheiden"
+   ],
+   "sha256": "f8efe77ab12981bd",
+   "fachliche_freigabe": "expert_review_pending"
   }
  }
 }
