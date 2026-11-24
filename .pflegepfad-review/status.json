@@ -163,13 +163,15 @@
    "titel": "Jahr 2: fm31, fm34, fm40, fm47, fm48, fm49",
    "status": "technisch_geprueft",
    "fachliche_freigabe": "expert_review_pending"
+  },
+  {
+   "id": "P1-02c",
+   "titel": "Jahr 2: fm50, fm51, fm57, fm60, fm62, fm68, fm69, fm70",
+   "status": "technisch_geprueft",
+   "fachliche_freigabe": "expert_review_pending"
   }
  ],
  "naechste_pakete": [
-  {
-   "id": "P1-02",
-   "titel": "Jahr 2 Rest: fm10, fm13, fm14, fm22, fm24, fm25, fm31, fm34, fm40, fm47–fm51, fm57, fm60, fm62, fm68–fm70"
-  },
   {
    "id": "P1-03",
    "titel": "Jahr 3 Rest: fm15, fm17, fm28–fm30, fm32, fm41, fm52–fm55, fm59, fm63, fm75"
@@ -229,7 +231,15 @@
    "fm40",
    "fm47",
    "fm48",
-   "fm49"
+   "fm49",
+   "fm50",
+   "fm51",
+   "fm57",
+   "fm60",
+   "fm62",
+   "fm68",
+   "fm69",
+   "fm70"
   ],
   "teilweise": [],
   "offen": [
@@ -240,20 +250,12 @@
    "fm30",
    "fm32",
    "fm41",
-   "fm50",
-   "fm51",
    "fm52",
    "fm53",
    "fm54",
    "fm55",
-   "fm57",
    "fm59",
-   "fm60",
-   "fm62",
    "fm63",
-   "fm68",
-   "fm69",
-   "fm70",
    "fm75"
   ],
   "anzahl": {

@@ -138,3 +138,12 @@ Weitere Querschnittskorrekturen: Kitteltasche „Isolierung“ (Noro/Rota-Desinf
 - **Fallkonsistenz (fm47):** Herr Vogt hat eine Radiusfraktur rechts, die Zuordnungsaufgabe beschrieb aber Zittern und langsames Zuknöpfen mit der rechten Hand.
 - **Distraktoren (fm49):** „Viel Schlaf“ und „Zu viel Gemüse“ sind ersetzt durch plausible Irrtümer (eiweißreiche Ernährung, Verfärbung durch rote Bete).
 - fm48 ist ohne Änderungsbedarf geprüft.
+
+
+## P1-02c Jahr 2 (fm50, fm51, fm57, fm60, fm62, fm68, fm69, fm70)
+
+- **Veraltete Empfehlung (fm62):** Nach einem Spontanpneumothorax sollte man nur „in den ersten Wochen“ nicht tauchen. Die BTS-Leitlinie 2023 rät ohne operative Rezidivprophylaxe dauerhaft vom Gerätetauchen ab. Abgeglichen über eine Zusammenfassung; die Leitlinie selbst ist mit PubMed-Daten im Register.
+- **Aktualisierung (fm68):** Die ESC-Leitlinie 2024 empfiehlt den CHA₂DS₂-VA-Score ohne Geschlechtskriterium. Das ist ergänzt; Herrn Jansens Score bleibt 4.
+- **Widersprüche:** fm69 nannte für die hypertensive Krise 180/120 und an anderer Stelle 180/110 mmHg. In fm57 hätte „wach, aber unruhig“ im 4AT als übererregt 4 Punkte ergeben, die Musterlösung rechnete 0.
+- **Rechtliche Präzisierung:** Die Formulierung „Einwilligung oder richterliche Genehmigung“ bei freiheitsentziehenden Maßnahmen ist in fm57 und im Fachlexikon präzisiert.
+- fm60 und fm70 sind ohne Änderungsbedarf geprüft. Mehrere schwache Distraktoren in fm50, fm51 und fm68 sind ersetzt.

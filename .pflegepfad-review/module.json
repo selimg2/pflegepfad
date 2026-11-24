@@ -975,6 +975,134 @@
    ],
    "sha256": "c5957421977c059d",
    "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm50": {
+   "paket": "P1-02c",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Zwei schwache Distraktoren ersetzt (‚großes Schnitzel‘, Ausstrahlung ‚in die Füße‘); Feedback erklärt Abgrenzung Gallenkolik/Herzinfarkt"
+   ],
+   "geprueft_ohne_aenderung": [
+    "akutes Abdomen, frühe Analgesie",
+    "Pankreatitis: Ursachen, Lipase, Flüssigkeit, frühe orale Kost",
+    "Urin ≥0,5 ml/kg/h (Rechnung geprüft)",
+    "AUDIT-C, Alkoholentzug 6–24 h, CIWA-Ar, Thiamin vor Glukose",
+    "mechanischer vs. paralytischer Ileus, Ablaufsonde"
+   ],
+   "sha256": "962fa09b2d2419ec",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm51": {
+   "paket": "P1-02c",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Quiz: ‚Sonnenbrand/Heiserkeit‘ durch gleichartige Distraktoren ersetzt, Feedback zu Delirauslösern ergänzt"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Frakturzeichen, OP innerhalb 24 h (G-BA-Richtlinie), Fascia-iliaca-Block",
+    "Komplikationsprophylaxe, Frühmobilisation",
+    "Luxationsprophylaxe nach dorsalem Zugang, Dreipunktgang, Treppe",
+    "Osteoporose-Diagnostik nach DVO, geriatrische Reha"
+   ],
+   "sha256": "61fc285fa9da0287",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm57": {
+   "paket": "P1-02c",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "4AT-Fall: ‚wach, aber unruhig‘ hätte als übererregt 4 Punkte ergeben können; Beschreibung passt jetzt zur Musterlösung (Wachheit 0, Summe 7)",
+    "FEM-Rechtslage in Lerntext und Lernkarte präzisiert (Einwilligung der Vertretung und gerichtliche Genehmigung)",
+    "Fachlexikon ‚Freiheitsentziehende Maßnahmen‘ entsprechend präzisiert"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Delir: vier Merkmale, Subtypen, Folgen",
+    "4AT-Items und Schwellen",
+    "Auslöser, anticholinerge Medikamente",
+    "Multikomponenten-Prävention",
+    "Angehörigenberatung"
+   ],
+   "sha256": "247eee981dfe0d62",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm60": {
+   "paket": "P1-02c",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [],
+   "geprueft_ohne_aenderung": [
+    "CVI und venöses Ulcus, chronische Wunde",
+    "venös vs. arteriell, ABI vor Kompression",
+    "Wundeinschätzung nach Expertenstandard, feuchte Wundheilung",
+    "Kompressionsverband, Warnzeichen, Bewegung"
+   ],
+   "sha256": "9b11c649a6e3d767",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm62": {
+   "paket": "P1-02c",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Tauchempfehlung korrigiert: statt ‚in den ersten Wochen‘ ohne operative Rezidivprophylaxe meist dauerhaft abgeraten (BTS 2023, über Sekundärquelle abgeglichen); Lerntext und Quiz",
+    "BTS-Leitlinie 2023 mit PubMed-Daten im Register ergänzt"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Pneumothorax, Spannungspneumothorax",
+    "Wasserschloss, Sog, Pendeln, Fisteln, Fördermenge",
+    "Diskonnektion, Drainage-Rundgang, Hautemphysem",
+    "Entfernung, Rauchstopp, Flugreisen nach Freigabe"
+   ],
+   "sha256": "15c511769c4d1ba5",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm68": {
+   "paket": "P1-02c",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "ESC-Leitlinie 2024: CHA₂DS₂-VA ohne Geschlechtskriterium ergänzt (Fallrechnung unverändert 4 Punkte)",
+    "Distraktor ‚Fieber‘ ersetzt",
+    "ESC 2024 mit PubMed-Daten im Register ergänzt"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Pathophysiologie VHF, Schlaganfallrisiko",
+    "Pulsdefizit (Rechnung geprüft), 60-Sekunden-Zählung",
+    "DOAK vs. VKA, INR 2–3, Apixaban 5 mg 2× täglich passend zu Alter/eGFR",
+    "NSAR meiden, keine Doppelantikoagulation, BE-FAST"
+   ],
+   "sha256": "6b1e4786a9a4e284",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm69": {
+   "paket": "P1-02c",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Grenze der hypertensiven Krise vereinheitlicht (vorher 180/120 und 180/110 im selben Modul): etwa 180/110 mmHg, je nach Leitlinie 180/120"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Messtechnik und Fehlerquellen",
+    "Entgleisung vs. Notfall, langsame Senkung",
+    "Zielwerte <140/90 bzw. <130/80",
+    "Selbstmessung, Grenzwert 135/85, Mittelwert nachgerechnet",
+    "Lebensstil, Salz <5 g"
+   ],
+   "offen": [
+    "Name ‚Frau Wendt‘ auch in fm43 (andere Person)"
+   ],
+   "sha256": "ef56de3b9c90a893",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm70": {
+   "paket": "P1-02c",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [],
+   "geprueft_ohne_aenderung": [
+    "obere GI-Blutung, Teerstuhl, Hämatemesis",
+    "Schockzeichen, Schockindex (Rechnung geprüft)",
+    "Gastroskopie, PPI, Nachsorge",
+    "Transfusion: Identität, Bedside-Test ärztlich, erste 15 Minuten, Vorgehen bei Reaktion",
+    "NSAR-Risiken, Alternativen"
+   ],
+   "sha256": "97dcc37177d37fa4",
+   "fachliche_freigabe": "expert_review_pending"
   }
  }
 }
