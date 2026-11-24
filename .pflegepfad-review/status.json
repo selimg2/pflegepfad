@@ -169,12 +169,22 @@
    "titel": "Jahr 2: fm50, fm51, fm57, fm60, fm62, fm68, fm69, fm70",
    "status": "technisch_geprueft",
    "fachliche_freigabe": "expert_review_pending"
+  },
+  {
+   "id": "P1-03",
+   "titel": "Jahr 3: fm15, fm17, fm28–fm30, fm32, fm41, fm52–fm55, fm59, fm63, fm75",
+   "status": "technisch_geprueft",
+   "fachliche_freigabe": "expert_review_pending"
   }
  ],
  "naechste_pakete": [
   {
-   "id": "P1-03",
-   "titel": "Jahr 3 Rest: fm15, fm17, fm28–fm30, fm32, fm41, fm52–fm55, fm59, fm63, fm75"
+   "id": "P2-01",
+   "titel": "Modulübergreifend: doppelte Patientennamen klären (Redaktionsentscheidung), Sprache/Redundanz, Lexikon und Lernkarten-Konsistenz"
+  },
+  {
+   "id": "Q-02",
+   "titel": "Quellenregister: 87 formal ungeprüfte und 229 formal geprüfte Einträge weiter anreichern"
   }
  ],
  "fortschritt": {
@@ -239,10 +249,7 @@
    "fm62",
    "fm68",
    "fm69",
-   "fm70"
-  ],
-  "teilweise": [],
-  "offen": [
+   "fm70",
    "fm15",
    "fm17",
    "fm28",
@@ -258,6 +265,8 @@
    "fm63",
    "fm75"
   ],
+  "teilweise": [],
+  "offen": [],
   "anzahl": {
    "fertig": 28,
    "teilweise": 0,
@@ -266,6 +275,8 @@
  },
  "offene_punkte": [
   "Quellenregister liegt als statische JSON-Datei im Lehrerportal und ist über die URL abrufbar (kein Personenbezug). Für echten Zugriffsschutz in Supabase-Tabelle mit Admin-RLS verschieben (braucht Freigabe, Produktivdatenbank).",
-  "87 Quellen ohne prüfbare Angaben (Webseiten ohne URL, Broschüren, Fachinformationen): manuell vervollständigen; 229 formal aufbereitete Bücher/Leitlinien am Original gegenprüfen."
+  "87 Quellen ohne prüfbare Angaben (Webseiten ohne URL, Broschüren, Fachinformationen): manuell vervollständigen; 229 formal aufbereitete Bücher/Leitlinien am Original gegenprüfen.",
+  "Organspende (fm55): Gesetzgebungsstand vor Veröffentlichung erneut prüfen",
+  "Doppelte Patientennamen in verschiedenen Modulen: Vogt, Wendt, Lange, Lorenz, Jansen, Schuster, Moor, Roth"
  ]
 }

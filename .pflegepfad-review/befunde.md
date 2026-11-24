@@ -147,3 +147,13 @@ Weitere Querschnittskorrekturen: Kitteltasche „Isolierung“ (Noro/Rota-Desinf
 - **Widersprüche:** fm69 nannte für die hypertensive Krise 180/120 und an anderer Stelle 180/110 mmHg. In fm57 hätte „wach, aber unruhig“ im 4AT als übererregt 4 Punkte ergeben, die Musterlösung rechnete 0.
 - **Rechtliche Präzisierung:** Die Formulierung „Einwilligung oder richterliche Genehmigung“ bei freiheitsentziehenden Maßnahmen ist in fm57 und im Fachlexikon präzisiert.
 - fm60 und fm70 sind ohne Änderungsbedarf geprüft. Mehrere schwache Distraktoren in fm50, fm51 und fm68 sind ersetzt.
+
+
+## P1-03 Jahr 3 (fm15, fm17, fm28–fm30, fm32, fm41, fm52–fm55, fm59, fm63, fm75)
+
+- **Fallkonsistenz (fm63):** Die Dysreflexie-Aufgabe nannte einen „leeren Urinbeutel“. Frau Hartmann katheterisiert sich aber selbst und hat keinen Dauerkatheter. Auslöser ist jetzt ein ausgelassener Katheterismus, die richtige Handlung lautet „Blase sofort katheterisieren“.
+- **Begriffe:** fm54 nannte eine Insulingabe mit behandelter Unterzuckerung „Beinahe-Fehler“. Ist ein Schaden eingetreten, handelt es sich um einen Medikationsfehler. In fm30 hieß das Recht, eine Aufgabe abzulehnen, „Durchführungsverantwortung“. Gemeint ist die Übernahmeverantwortung, wie in fm18.
+- **Rechtsstand (fm55):** Die Entscheidungslösung bei der Organspende gilt weiter. Der Bundestag berät aber über eine Widerspruchslösung (1. Lesung am 24.09.2026, Anhörung am 05.11.2026). Der Text weist darauf hin; vor einer Veröffentlichung muss der Stand erneut geprüft werden.
+- **Namen und Setting (fm29):** „Herr Webers Sohn“ statt Frau Webers Sohn; die Fehlersuche spielte bei einem Hausbesuch, obwohl Frau Weber im Pflegeheim lebt.
+- **Selbstbestimmung (fm17):** Lehnt Herr Fischer die Mundpflege ab, wird das jetzt respektiert und es werden Alternativen angeboten.
+- fm28, fm32, fm41, fm52 und fm53 sind ohne Änderungsbedarf geprüft.

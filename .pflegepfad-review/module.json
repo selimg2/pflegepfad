@@ -1103,6 +1103,223 @@
    ],
    "sha256": "97dcc37177d37fa4",
    "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm15": {
+   "paket": "P1-03",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "ICD-11: international gültig seit 2022, in Deutschland Verschlüsselung weiter nach ICD-10-GM"
+   ],
+   "geprueft_ohne_aenderung": [
+    "ICD-10-Kriterien und Schweregrade (NVL)",
+    "kognitive Triade, Verhaltensaktivierung, Peplau, Gezeitenmodell",
+    "Suizidalität direkt ansprechen, keine Geheimhaltung",
+    "Antidepressiva-Wirkeintritt, Krisenplan, PHQ-9 max. 27"
+   ],
+   "sha256": "a6d32dbc879a2d36",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm17": {
+   "paket": "P1-03",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Fehlersuche: abgelehnte Mundpflege – Ablehnung respektieren und Alternativen anbieten (vorher nur ‚nicht abbrechen‘)"
+   ],
+   "geprueft_ohne_aenderung": [
+    "WHO-Definition Palliative Care, Total Pain",
+    "Atemnot: Ventilator, kein Routine-O2 ohne Hypoxämie, Opioide; Laxans mit Opioid",
+    "SPIKES, Sterbephase, keine routinemäßige Flüssigkeit, kein tiefes Absaugen",
+    "§ 1827, § 1358 BGB, SAPV § 37b, Hospiz § 39a SGB V, Worden"
+   ],
+   "sha256": "4ffcd9402b29d53e",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm28": {
+   "paket": "P1-03",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [],
+   "geprueft_ohne_aenderung": [
+    "ICD-10-Abhängigkeitskriterien",
+    "Entzugsverlauf, Delirium tremens, CIWA-Ar, Thiamin",
+    "GGT/MCV, Elektrolyte",
+    "Transtheoretisches Modell, motivierende Gesprächsführung, Suchthilfesystem",
+    "AUDIT-C max. 12"
+   ],
+   "sha256": "fcd2e934d735adeb",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm29": {
+   "paket": "P1-03",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "‚Herr Webers Sohn‘ zu ‚Frau Webers Sohn‘ korrigiert",
+    "Fehlersuche spielte bei einem ‚Hausbesuch‘, Frau Weber lebt im Pflegeheim; Setting angepasst",
+    "TEN-4-Angabe präzisiert (Rumpf, Ohren, Hals; Gesäß/Genital getrennt genannt)"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Gewaltformen, Risikofaktoren, sachliche Dokumentation",
+    "§ 4 KKG, insoweit erfahrene Fachkraft, Kinderschutzgruppe",
+    "Deeskalation, Arbeitsunfall",
+    "WHO: etwa 1 von 6 Menschen ab 60 Jahren"
+   ],
+   "sha256": "77c4b7c4b6795716",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm30": {
+   "paket": "P1-03",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Ablehnungsrecht als Übernahmeverantwortung benannt (vorher Durchführungsverantwortung), passend zu fm18"
+   ],
+   "geprueft_ohne_aenderung": [
+    "EBN nach Behrens/Langer, PICO, Evidenzhierarchie",
+    "AWMF-Stufen S1–S3, DNQP",
+    "Vorbehaltsaufgaben, Pflegesysteme",
+    "Donabedian, PDCA, CIRS, Sturzrate (Rechnung geprüft)"
+   ],
+   "sha256": "191615fba7e893ce",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm32": {
+   "paket": "P1-03",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [],
+   "geprueft_ohne_aenderung": [
+    "Positiv-/Negativsymptome, Prodrom, Cannabis",
+    "Haltung bei Wahn/Stimmen, imperative Stimmen",
+    "Deeskalation, PsychKG, BVerfG 2018 (5-/7-Punkt-Fixierung), 1:1-Betreuung",
+    "EPS, Akathisie, malignes neuroleptisches Syndrom, Recovery, Psychoedukation"
+   ],
+   "sha256": "191b1e2f256c1f4e",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm41": {
+   "paket": "P1-03",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [],
+   "geprueft_ohne_aenderung": [
+    "Belastungen, Schichtarbeit, Burnout nach Maslach",
+    "rückengerechtes Arbeiten, Rutschbretttransfer",
+    "Lazarus, Coping, Resilienz, Salutogenese",
+    "Arbeitszeitgesetz 11 h, Rechte Auszubildender, CIRS"
+   ],
+   "sha256": "0f4d3b41d3763988",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm52": {
+   "paket": "P1-03",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [],
+   "geprueft_ohne_aenderung": [
+    "Beatmungsgrundlagen, lungenprotektiv 6 ml/kg Idealgewicht (Rechnung geprüft)",
+    "VAP-Bündel, Cuffdruck 20–30 cmH2O",
+    "S3 Analgesie/Sedierung/Delir: BPS, RASS-Stufen, CAM-ICU/ICDSC",
+    "Frühmobilisation, PICS, Intensivtagebuch"
+   ],
+   "offen": [
+    "Name ‚Herr Jansen‘ auch in fm68 (andere Person)"
+   ],
+   "sha256": "f169e69c20084327",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm53": {
+   "paket": "P1-03",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [],
+   "geprueft_ohne_aenderung": [
+    "Risikofaktoren, Warnzeichen, präsuizidales Syndrom",
+    "direktes Fragen erhöht das Risiko nicht",
+    "Sicherheit herstellen, Dokumentation",
+    "TelefonSeelsorge-Nummern"
+   ],
+   "offen": [
+    "Name ‚Herr Schuster‘ (71) auch in fm70 mit anderer Diagnose"
+   ],
+   "sha256": "784338e47849c418",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm54": {
+   "paket": "P1-03",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Insulingabe mit behandelter Hypoglykämie war als ‚Beinahe-Fehler‘ bezeichnet; ein eingetretener Schaden ist ein Medikationsfehler (Intro, Kapitel, Musterlösung)"
+   ],
+   "geprueft_ohne_aenderung": [
+    "ABCDE, Eisenhower, Priorisierung",
+    "§ 4 PflBG, Anordnungs-/Übernahme-/Durchführungsverantwortung",
+    "Closed Loop, Read-back, SBAR",
+    "Reason-Modell, Just Culture, CIRS, Second Victim"
+   ],
+   "sha256": "0bf4947a61f4c139",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm55": {
+   "paket": "P1-03",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Organspende: Hinweis auf laufendes Gesetzgebungsverfahren zur Widerspruchslösung (1. Lesung 24.09.2026, Anhörung 05.11.2026); Entscheidungslösung gilt bis zu einer Änderung; Quelle im Register"
+   ],
+   "geprueft_ohne_aenderung": [
+    "§ 1827, § 1358 BGB, mutmaßlicher Wille, Indikation",
+    "Therapiezieländerung, § 216 StGB, BVerfG 2020, BGH 2010",
+    "Nimwegener Methode, vier Prinzipien",
+    "Hirntodfeststellung, Organspende-Register seit 2024"
+   ],
+   "offen": [
+    "Vor Veröffentlichung prüfen, ob der Bundestag über die Widerspruchslösung entschieden hat",
+    "Sohn ‚Michael Roth‘ heißt wie der Patient in fm28"
+   ],
+   "sha256": "a553c2d21390ed2f",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm59": {
+   "paket": "P1-03",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Quiz: unplausible Distraktoren (‚Körpergröße‘, ‚keine Nebenwirkungen‘) ersetzt"
+   ],
+   "geprueft_ohne_aenderung": [
+    "MS-Pathophysiologie, Schubdefinition ≥24 h",
+    "Kortison-Stoßtherapie und Nebenwirkungen",
+    "Fatigue, Blasenstörung, Uhthoff, Spastik",
+    "Sturzprophylaxe, psychosoziale Begleitung"
+   ],
+   "sha256": "0a5aa30a60925ee9",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm63": {
+   "paket": "P1-03",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Dysreflexie-Aufgabe nannte einen ‚leeren Urinbeutel‘, Frau Hartmann katheterisiert sich aber intermittierend selbst; Auslöser jetzt ausgelassener Katheterismus, Handlung ‚Blase sofort katheterisieren‘"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Lähmungshöhe Th6, AIS A",
+    "Dekubitusprophylaxe ohne Sensibilität, Entlastung alle 15–30 min",
+    "ISK 4–6× täglich, Darmprogramm",
+    "autonome Dysreflexie ab Th6: Sofortmaßnahmen",
+    "Spastik, Thrombose, assistiertes Husten, ICF"
+   ],
+   "sha256": "262e5c32643f9ba5",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm75": {
+   "paket": "P1-03",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Doppelte Lernkarte (Ampelplan/Ampel) zusammengeführt, Karte ‚Spacer‘ ergänzt"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Edukationsformen, Beratungsstruktur",
+    "Auslöser, motivierendes Gespräch",
+    "Dosieraerosol-Technik, Mundspülung nach ICS",
+    "Peak-Flow-Ampel, Bedarfsspray >2×/Woche = nicht kontrolliert, Rechnung 260 l/min"
+   ],
+   "offen": [
+    "Name ‚Herr Moor‘ auch in fm49 (andere Person)"
+   ],
+   "sha256": "954f93bd79301d2d",
+   "fachliche_freigabe": "expert_review_pending"
   }
  }
 }
