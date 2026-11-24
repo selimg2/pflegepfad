@@ -749,6 +749,33 @@
    ],
    "sha256": "f8efe77ab12981bd",
    "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm4": {
+   "paket": "P1-01c",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Drei Autor-Jahr-Zitate aus dem Lerntext entfernt (DNQP 2020 ×2, WHO 2019/Leitlinienprogramm Onkologie 2020) und im Register den Textstellen zugeordnet",
+    "Chronischer Schmerz einheitlich: länger als drei Monate (vorher teils ‚drei bis sechs Monate‘)",
+    "Quiz zum Screening an die drei Screeningfragen der Lernaufgabe angeglichen (Intensität gehört ins Assessment)",
+    "Schmerzkrise Tag 2: Thromboseverdacht wird abgeklärt und ausgeschlossen, damit der Fall zur Brenner-Reihe passt (fm6–fm8: nur Prophylaxe); ‚Bettruhe bis zur Klärung‘ ersetzt durch ‚Mobilisation erst nach ärztlicher Entscheidung‘",
+    "Interventionsgrenze >5 unter Belastung als Orientierung gekennzeichnet, individuelle Akzeptanz maßgeblich",
+    "Neue Prüfregel Q-01: Klammerzitate mit Herausgeber und Jahr"
+   ],
+   "geprueft_ohne_aenderung": [
+    "IASP-Definition 2020, McCaffery, biopsychosoziales Modell",
+    "stabile/instabile Schmerzsituation, Ebenen 1–5 des Expertenstandards",
+    "Transduktion, Transmission, Perzeption, Modulation; Gate-Control",
+    "POSS-Stufen, Sedierung vor Atemdepression, SpO2 unter O2 maskiert Hypoventilation",
+    "Metamizol (Agranulozytose), NSAR, Paracetamol, Opioide, Naloxon-Wirkdauer",
+    "BESD als deutsche PAINAD-Fassung, KUSS bis 4 Jahre mit Schwelle 4, Itembeschreibungen",
+    "periphere/zentrale Sensibilisierung, Wind-up, NMDA",
+    "Teach-back, Total Pain"
+   ],
+   "offen": [
+    "Outro verweist auf einen Moodle-Kurs; prüfen, ob dieser Verweis für alle Schulen stimmt"
+   ],
+   "sha256": "6d9c7a290942e5cd",
+   "fachliche_freigabe": "expert_review_pending"
   }
  }
 }

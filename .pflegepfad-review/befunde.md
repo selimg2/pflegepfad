@@ -113,3 +113,11 @@ Weitere Querschnittskorrekturen: Kitteltasche „Isolierung“ (Noro/Rota-Desinf
 - **Patientensicherheit:** In fm23 fehlte beim Fasten mit Diabetes die Anpassung von Insulin und Tabletten (Unterzuckerung). In fm35 fehlte bei Herzinsuffizienz der Hinweis auf die ärztlich festgelegte Trinkmenge.
 - **Fehlersuche fm61:** Die als korrekt geltende Zeile „Bett ganz nach unten, damit er leicht aufstehen kann“ war fachlich falsch. Sie beschreibt jetzt die richtige Betthöhe; der Bewertungsschlüssel bleibt gleich.
 - fm42, fm44, fm46 und fm65 sind ohne Änderungsbedarf geprüft. Offene Punkte: der Begriff Remonstration in fm18 und der doppelte Name „Frau Lorenz“ in fm44 und fm66.
+
+
+## P1-01c fm4 Schmerzmanagement
+
+- **Zitate im Lerntext:** Drei Klammerzitate mit Herausgeber und Jahr standen noch im Text (DNQP 2020 zweimal, WHO 2019 mit Leitlinienprogramm Onkologie 2020). Sie sind entfernt und im Register verortet. Die alte Regel erkannte nur Klammerzitate mit einem einzelnen Namen; die neue Regel erkennt auch Herausgeber und Mehrfachzitate.
+- **Brüche in der Fallreihe:** Am zweiten Tag wurde eine Unterschenkelvenenthrombose bestätigt. fm6 bis fm8 kennen aber nur die Prophylaxe und entlassen Herrn Brenner mit prophylaktischem Heparin. Jetzt wird der Verdacht abgeklärt und ausgeschlossen. Die Lernhandlung (Ursache suchen, nicht massieren, ärztlich melden) bleibt gleich.
+- **Uneinheitliche Definitionen:** Chronischer Schmerz hieß einmal „mindestens drei Monate“, einmal „drei bis sechs Monate“; jetzt überall länger als drei Monate. Das Screening umfasste in der Aufgabe drei Fragen, im Quiz dagegen die Intensität; das Quiz ist angeglichen.
+- Pharmakologie, POSS, BESD und KUSS sind geprüft und stimmen. Offen bleibt der Verweis auf einen Moodle-Kurs im Abschlusstext.

@@ -96,6 +96,7 @@ REGELN = [
     ("Q-01", LERN, r"Quellen?: [A-ZÄÖÜ][^<\"]{0,80}\(\d{4}|class=\\?\"src\\?\"", "keine Literaturangaben im Lerntext"),
     ("Q-01", LERN, r"\bet al\.|doi\.org/|https?://(?:www\.)?awmf|\bAWMF-Register", "keine Autor-Jahr-Zitate, DOIs oder Registerverweise im Lerntext"),
     ("Q-01", LERN, r"<p>[A-ZÄÖÜ][^<]{2,90}(?:e\. ?V\.|\([A-Z]{2,6}\)|Gesellschaft|Bundesverband|Bundesinnung|Schwerhörigenbund)[^<]{0,40}: (?:Informationen|Pflegehinweise|Empfehlungen|Hinweise)[^<]*</p>", "keine Herausgeber-Quellenzeilen im Lerntext"),
+    ("Q-01", LERN, r"\([A-ZÄÖÜ][^()<>\"]{1,80}, (?:19|20)\d{2}[a-z]?(?:[;,][^()<>\"]{0,120})?\)", "keine Klammerzitate (Herausgeber, Jahr)"),
     ("Q-01", LERN, r"\((?!NRS\b)[A-ZÄÖÜ][A-Za-zäöüß\-]+(?: (?:&|und) [A-ZÄÖÜ][A-Za-zäöüß\-]+)?,? (?:19|20)\d{2}[a-z]?\)", "keine Klammerzitate (Autor Jahr)"),
 ]
 for pid, paths, pat, msg in REGELN:

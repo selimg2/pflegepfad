@@ -145,13 +145,15 @@
    "titel": "Jahr 1 Rest: fm18, fm23, fm35, fm39, fm42–fm46, fm61, fm65, fm66",
    "status": "technisch_geprueft",
    "fachliche_freigabe": "expert_review_pending"
+  },
+  {
+   "id": "P1-01c",
+   "titel": "fm4 Schmerzmanagement (groß)",
+   "status": "technisch_geprueft",
+   "fachliche_freigabe": "expert_review_pending"
   }
  ],
  "naechste_pakete": [
-  {
-   "id": "P1-01c",
-   "titel": "Jahr 1: fm4 (groß, eigenes Paket)"
-  },
   {
    "id": "P1-02",
    "titel": "Jahr 2 Rest: fm10, fm13, fm14, fm22, fm24, fm25, fm31, fm34, fm40, fm47–fm51, fm57, fm60, fm62, fm68–fm70"
@@ -202,11 +204,11 @@
    "fm46",
    "fm61",
    "fm65",
-   "fm66"
+   "fm66",
+   "fm4"
   ],
   "teilweise": [],
   "offen": [
-   "fm4",
    "fm10",
    "fm13",
    "fm14",
