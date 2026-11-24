@@ -108,6 +108,151 @@
       "evidence": "unverified",
       "rights": "citation_only",
       "freigabe": "expert_review_pending"
+    },
+    {
+      "source_id": "AWMF-027-074",
+      "titel": "S3-Leitlinie Fiebermanagement bei Kindern und Jugendlichen",
+      "institution": "DGKJ u. a. (u. a. DG Pflegewissenschaft, BEKD)",
+      "fundstelle": "AWMF-Register 027-074, Version 1.0, 2025",
+      "url": "https://register.awmf.org/assets/guidelines/027-074l_S3_Fiebermanagement-Kinder-Jugendliche_2025-07.pdf",
+      "version": "07/2025",
+      "abruf": "2026-11-24",
+      "belegstelle": "Kap. 1 Fieberdefinition (≥ 38,5 °C; < 3 Monate ≥ 38,0 °C); Kap. 2 Messmethoden (rektal Säuglinge, Ohr ab 1 J., axillär ungeeignet); Kap. 4.2 Antipyretika nur bei Beeinträchtigung; Kap. 5.4 keine Fieberkrampfprophylaxe; Kap. 5.7 Paracetamol 10–15 mg/kg, Ibuprofen 7–10 mg/kg ab 3 Monaten; Kap. 5.6 Alternieren nur nach ärztlicher Konsultation; Kap. 4.3 Wadenwickel körperwarm, Entkleiden nicht empfohlen; Kap. 3.1 Tabelle 1 Warnzeichen",
+      "betroffene_ids": [
+        "fm73 Kap. 2",
+        "Fachlexikon Wadenwickel"
+      ],
+      "evidence": "verified",
+      "gelesen_ueber": "WebFetch-Auszug des Volltexts (Zeichen 0–100.000); Gültigkeitskapitel nicht gelesen",
+      "rights": "citation_only",
+      "freigabe": "expert_review_pending",
+      "naechste_pruefung": "Gültigkeitsdatum im Register nachtragen"
+    },
+    {
+      "source_id": "AWMF-022-005",
+      "titel": "S1-Leitlinie Fieberkrämpfe im Kindesalter",
+      "institution": "Gesellschaft für Neuropädiatrie (Kurlemann G, Muhle H)",
+      "fundstelle": "AWMF 022-005, 09/2021",
+      "url": "https://register.awmf.org/assets/guidelines/022-005l_S1_Fieberkraempfe-im-Kindesalter_2021-09-abgelaufen.pdf",
+      "version": "2021, im Register als abgelaufen/in Überarbeitung",
+      "abruf": "2026-11-24",
+      "belegstelle": "nur Gliederung und Status gesehen (Suchergebnis); inhaltliche Aussagen nicht aus dieser Quelle übernommen",
+      "betroffene_ids": [
+        "fm73.sources[2]"
+      ],
+      "evidence": "unverified",
+      "rights": "citation_only",
+      "freigabe": "expert_review_pending"
+    },
+    {
+      "source_id": "COCHRANE-CROUP-GC",
+      "titel": "Glucocorticoids for croup in children",
+      "institution": "Cochrane (Aregbesola A et al.)",
+      "fundstelle": "CD001955.pub5, 2023 (Vorversion Gates et al. 2018, pub4)",
+      "url": "https://doi.org/10.1002/14651858.CD001955.pub5",
+      "abruf": "2026-11-24",
+      "belegstelle": "Abstract pub4: Symptombesserung nach 2 h, weniger Wiedervorstellungen (RR 0,52)",
+      "betroffene_ids": [
+        "fm73 fm73_mu1 Option 3",
+        "fm73.sources[0]"
+      ],
+      "evidence": "verified",
+      "rights": "citation_only",
+      "freigabe": "expert_review_pending"
+    },
+    {
+      "source_id": "COCHRANE-CROUP-AIR",
+      "titel": "Humidified air inhalation for treating croup",
+      "institution": "Cochrane (Moore M, Little P)",
+      "fundstelle": "CD002870.pub2, 2006",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16855994/",
+      "abruf": "2026-11-24",
+      "belegstelle": "Schlussfolgerung: Croup-Score bei leichter bis mittelschwerer Erkrankung bessert sich durch befeuchtete Luft wahrscheinlich kaum",
+      "betroffene_ids": [
+        "fm73 fm73_mu1 Option 1"
+      ],
+      "evidence": "verified",
+      "rights": "citation_only",
+      "freigabe": "expert_review_pending"
+    },
+    {
+      "source_id": "NICE-NG9",
+      "titel": "Bronchiolitis in children: diagnosis and management",
+      "institution": "NICE",
+      "fundstelle": "NG9, 2015, Update 2021",
+      "url": "https://www.nice.org.uk/guidance/ng9",
+      "abruf": "2026-11-24",
+      "belegstelle": "Überweisung bei SpO2 dauerhaft < 92 % bei Raumluft; Aufnahme/Management/Entlassung 90 % ab 6 Wochen, 92 % für < 6 Wochen oder Vorerkrankte; schwere Atemnot u. a. AF > 70/min, Stöhnen, starke Einziehungen",
+      "betroffene_ids": [
+        "fm37 Kap. 0 und 1",
+        "fm37.sources[0]"
+      ],
+      "evidence": "verified",
+      "gelesen_ueber": "NICE-Seiten Recommendations / Rationale (Suchauszüge), Hauptseite nicht abrufbar",
+      "rights": "citation_only",
+      "freigabe": "expert_review_pending"
+    },
+    {
+      "source_id": "RKI-EPIBULL-2017-VIRUZID",
+      "titel": "Händedesinfektionsmittel: Welche Bedeutung und Konsequenzen hat der neue Wirkbereich „begrenzt viruzid PLUS“?",
+      "institution": "RKI (Schwebke I, Eggers M, Gebel J)",
+      "fundstelle": "Epidemiologisches Bulletin 18/19, 2017, S. 171",
+      "url": "https://edoc.rki.de/bitstream/176904/2634/1/25qGm86kdc9s.pdf",
+      "abruf": "2026-11-24",
+      "belegstelle": "Definition der Wirkbereiche begrenzt viruzid / begrenzt viruzid PLUS (zusätzlich Adeno-, Noro-, Rotaviren) / viruzid",
+      "betroffene_ids": [
+        "fm16 Kap. 4",
+        "Kitteltasche isolation"
+      ],
+      "evidence": "verified",
+      "rights": "citation_only",
+      "freigabe": "expert_review_pending"
+    },
+    {
+      "source_id": "STIKO-ROTA-2013",
+      "titel": "Empfehlung und wissenschaftliche Begründung der Empfehlung zur Rotavirus-Standardimpfung von Säuglingen",
+      "institution": "STIKO/RKI",
+      "fundstelle": "Epidemiologisches Bulletin 35/2013",
+      "url": "https://edoc.rki.de/bitstream/176904/340/1/24ypvjsau8UbU.pdf",
+      "abruf": "2026-11-24",
+      "belegstelle": "Beginn mit 6–12 Wochen, Abschluss spätestens 24. (Rotarix) bzw. 32. Lebenswoche (RotaTeq)",
+      "betroffene_ids": [
+        "fm16 Kap. 5"
+      ],
+      "evidence": "verified",
+      "rights": "citation_only",
+      "freigabe": "expert_review_pending",
+      "offen": "aktuelle STIKO-Empfehlungen 2026 auf Änderungen prüfen"
+    },
+    {
+      "source_id": "FITTER-2016",
+      "titel": "New Insulin Delivery Recommendations",
+      "institution": "Frid AH et al.",
+      "fundstelle": "Mayo Clin Proc 2016;91(9):1231–1255",
+      "url": "https://doi.org/10.1016/j.mayocp.2016.06.010",
+      "abruf": "nicht geöffnet",
+      "belegstelle": "4-mm-Nadeln meist ohne Hautfalte (aus Fachwissen, nicht am Original geprüft)",
+      "betroffene_ids": [
+        "fm64 Kap. 1"
+      ],
+      "evidence": "unverified",
+      "rights": "citation_only",
+      "freigabe": "expert_review_pending"
+    },
+    {
+      "source_id": "ILAE2015",
+      "titel": "A definition and classification of status epilepticus",
+      "institution": "ILAE (Trinka E et al.)",
+      "fundstelle": "Epilepsia 2015;56(10):1515–1523",
+      "url": "https://doi.org/10.1111/epi.13121",
+      "abruf": "nicht geöffnet",
+      "belegstelle": "t1 = 5 min für tonisch-klonische Anfälle (aus Fachwissen, nicht am Original geprüft)",
+      "betroffene_ids": [
+        "fm73 Kap. 1"
+      ],
+      "evidence": "unverified",
+      "rights": "citation_only",
+      "freigabe": "expert_review_pending"
     }
   ]
 }

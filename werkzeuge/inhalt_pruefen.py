@@ -17,7 +17,7 @@ import sys, json, glob, os, re, hashlib
 
 root = sys.argv[1]
 BASIS = os.path.join(root, ".pflegepfad-review/struktur_basis.json")
-KEYS = ("a", "ok", "correct", "answer", "points", "kind", "type", "id", "prio")
+KEYS = ("a", "ok", "correct", "answer", "ans", "tol", "min", "max", "step", "points", "kind", "type", "id", "prio", "cat")
 
 def load_mods():
     mods = {}
@@ -26,10 +26,12 @@ def load_mods():
         mods[os.path.basename(f)[:-3]] = json.loads(t[t.index("{"): t.rindex("}") + 1])
     return mods
 
+TEXTLISTEN = ("sources", "outcomes")  # reine Textlisten: Länge darf sich redaktionell ändern
+
 def skeleton(o):
     """Struktur ohne Fließtext: Schlüssel, Listenlängen, Antwort- und Steuerfelder."""
     if isinstance(o, dict):
-        return {k: (v if k in KEYS and not isinstance(v, (dict, list)) else skeleton(v)) for k, v in sorted(o.items())}
+        return {k: ("·" if k in TEXTLISTEN else v if k in KEYS and not isinstance(v, (dict, list)) else skeleton(v)) for k, v in sorted(o.items())}
     if isinstance(o, list):
         return [skeleton(v) for v in o]
     if isinstance(o, bool) or isinstance(o, (int, float)):
@@ -84,6 +86,10 @@ REGELN = [
     ("P0-01", ["daten/module/*/fm5.js", "daten/module/*/fm9.js"], r"Olasveengen", "BLS-Quelle auf ERC 2025 aktualisiert"),
     ("P0-01", ["daten/module/*/fm*.js", "js/training/3[34]-*.js"], r"qSOFA[^\]]{0,200}unter 100 mmHg", "qSOFA: systolisch ≤ 100 mmHg"),
     ("P0-01", ["daten/module/*/fm3.js"], r"Zielbereich von 94 bis 98", "SpO2-Ziel nach deutscher S3-Leitlinie"),
+    ("P0-02", ["daten/module/*/fm73.js"], r"Kühle Luft kann die Schwellung lindern|Ab 3–5 Minuten|über 3–5 Minuten", "Pseudokrupp/Fieberkrampf: keine unbelegte Kaltluft-Wirkung, Notfallmedikation ab > 5 min"),
+    ("P0-02", ["daten/module/*/fm73.js"], r"Paracetamol meist etwa 15 mg", "Antipyretika-Dosierung nach S3 Fiebermanagement (10–15 bzw. 7–10 mg/kg)"),
+    ("P0-02", ["daten/module/*/fm16.js"], r"Rotavirus-Impfung der Schwester, sofern noch nicht erfolgt", "Rotavirus-Impfung: Beginn spätestens 12. Woche"),
+    ("P0-03", ["daten/module/*/fm64.js"], r"bei Schock \(schlechte Durchblutung\) und", "i. m. bei Schock: Ausnahme Adrenalin bei Anaphylaxie"),
 ]
 for pid, paths, pat, msg in REGELN:
     for f, t in text_of(paths):

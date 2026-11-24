@@ -15,7 +15,8 @@
     "sync_pruefen": "python3 -I werkzeuge/inhalt_sync.py <schueler-repo> <lehrer-repo> --pruefen",
     "rauch": "NODE_PATH=<playwright> node werkzeuge/tests/rauchtest.mjs <repo>  (beide Repos)",
     "konsole": "CHROME=<chrome> node werkzeuge/pruefen.mjs <repo> --js ...",
-    "stationsalltag": "node werkzeuge/tests/stationsalltag-test.js"
+    "stationsalltag": "node werkzeuge/tests/stationsalltag-test.js",
+    "letzter_lauf": "2026-11-24: inhalt_pruefen OK (8 Regeln), inhalt_sync --pruefen 0 Abweichungen, rauchtest schueler 0, rauchtest lehrer 0, stationsalltag 0, node --check OK"
   },
   "pakete": [
     {
@@ -35,9 +36,17 @@
           "js/app/01-app.bundle.js": "e45bddec75fbd63b",
           "sw.js": "Cache fallpfad-v54 → v55"
         },
-        "lehrer": ["content.json (Sync fm3, fm5, fm9, fm11, fm21)", "js/erweiterungen/06-fertige-live-stunden-und-fallbeisp.js"]
+        "lehrer": [
+          "content.json (Sync fm3, fm5, fm9, fm11, fm21)",
+          "js/erweiterungen/06-fertige-live-stunden-und-fallbeisp.js"
+        ]
       },
-      "quellen": ["ERC2025-BLS", "GRC2025-KOMPAKT", "AWMF-020-021", "SSC2021"],
+      "quellen": [
+        "ERC2025-BLS",
+        "GRC2025-KOMPAKT",
+        "AWMF-020-021",
+        "SSC2021"
+      ],
       "tests": {
         "inhalt_pruefen": "OK – 75 Module, Struktur/Antwortschlüssel/Avatare unverändert, 4 Regeln",
         "inhalt_sync --pruefen": "OK – 0 Abweichungen",
@@ -48,12 +57,137 @@
         "stationsalltag": "problems 0",
         "node --check": "Bundle, 33, 34, Lehrer 06 OK"
       }
+    },
+    {
+      "id": "P0-02",
+      "titel": "Kinder und Familie: Kindernotfälle, Fieber, Gastroenteritis, Bronchiolitis, Frühgeborene, Wochenbett, Typ-1-Diabetes",
+      "module": [
+        "fm73",
+        "fm16",
+        "fm37",
+        "fm72",
+        "fm26",
+        "fm27"
+      ],
+      "status": "technisch_geprueft",
+      "fachliche_freigabe": "expert_review_pending"
+    },
+    {
+      "id": "P0-03",
+      "titel": "Arzneimittel I: Injektionen/Blutzucker, Arzneimittelmanagement",
+      "module": [
+        "fm64",
+        "fm20"
+      ],
+      "status": "technisch_geprueft",
+      "fachliche_freigabe": "expert_review_pending"
     }
   ],
   "naechste_pakete": [
-    {"id": "P0-02", "titel": "Arzneimittel Kinder und Fieber/Krampf: fm73 (Paracetamol/Ibuprofen-Dosierungsangaben, Midazolam, Pseudokrupp), fm16, fm37, fm72 Rechenaufgaben; GRC PBLS/Anaphylaxie-Quelle wiederverwenden; Fachinformationen prüfen"},
-    {"id": "P0-03", "titel": "Arzneimittel Erwachsene: fm20, fm64 (Insulin, Injektion), fm74, fm67, PharmakoLab js/funktionen/01-pharmako2.js – Wirkstoffangaben gegen Fachinformation, Rechenwerte deterministisch testen"},
-    {"id": "P0-04", "titel": "Hygiene: fm38, fm71, Kitteltasche isolation/haende – KRINKO/RKI"},
-    {"id": "P1-01", "titel": "Quizqualität Pilot: offenkundig absurde Distraktoren (z. B. fm9 n9b_m1 'Die Lieblingsfernsehsendung') automatisiert finden und ersetzen"}
-  ]
+    {
+      "id": "P0-04",
+      "titel": "Arzneimittel II und Notfälle: fm74, fm67, fm12, fm56, fm36, fm9 (Rest), fm5 (Rest), fm21 (Rest); PharmakoLab js/funktionen/01-pharmako2.js"
+    },
+    {
+      "id": "P0-05",
+      "titel": "Hygiene und Zugänge: fm38, fm71, fm58, fm19, fm33"
+    },
+    {
+      "id": "P1-xx",
+      "titel": "übrige Module nach Jahrgang, je 4–5 Module; Simulationen (sim2/labsim-Code) und Training js/training/06–24 gesondert"
+    }
+  ],
+  "fortschritt": {
+    "vollstaendig_redigiert": [
+      "fm16",
+      "fm20",
+      "fm26",
+      "fm27",
+      "fm37",
+      "fm64",
+      "fm72",
+      "fm73"
+    ],
+    "teilweise": [
+      "fm3",
+      "fm5",
+      "fm9",
+      "fm11",
+      "fm21"
+    ],
+    "offen": [
+      "fm1",
+      "fm2",
+      "fm3",
+      "fm4",
+      "fm5",
+      "fm6",
+      "fm7",
+      "fm8",
+      "fm9",
+      "fm10",
+      "fm11",
+      "fm12",
+      "fm13",
+      "fm14",
+      "fm15",
+      "fm17",
+      "fm18",
+      "fm19",
+      "fm21",
+      "fm22",
+      "fm23",
+      "fm24",
+      "fm25",
+      "fm28",
+      "fm29",
+      "fm30",
+      "fm31",
+      "fm32",
+      "fm33",
+      "fm34",
+      "fm35",
+      "fm36",
+      "fm38",
+      "fm39",
+      "fm40",
+      "fm41",
+      "fm42",
+      "fm43",
+      "fm44",
+      "fm45",
+      "fm46",
+      "fm47",
+      "fm48",
+      "fm49",
+      "fm50",
+      "fm51",
+      "fm52",
+      "fm53",
+      "fm54",
+      "fm55",
+      "fm56",
+      "fm57",
+      "fm58",
+      "fm59",
+      "fm60",
+      "fm61",
+      "fm62",
+      "fm63",
+      "fm65",
+      "fm66",
+      "fm67",
+      "fm68",
+      "fm69",
+      "fm70",
+      "fm71",
+      "fm74",
+      "fm75"
+    ],
+    "anzahl": {
+      "fertig": 8,
+      "teilweise": 5,
+      "offen_gesamt": 67
+    }
+  }
 }

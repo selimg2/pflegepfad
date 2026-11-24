@@ -29,3 +29,27 @@ Stand 24.11.2026. Technisch geprüft heißt nicht fachlich freigegeben. Alle Än
 - Alle Leitlinien nur bibliografisch genannt, Inhalte eigenständig formuliert, keine Tabellen, Algorithmen oder Textpassagen übernommen (`citation_only`).
 - Keine DNQP-, NANDA-I- oder Fachbuchinhalte in diesem Paket berührt.
 - Der Assistent erhält nur App-eigene Auszüge; geschützte Leitlinientexte werden nicht an den KI-Dienst übermittelt.
+
+## P0-02 Kinder und Familie (umgesetzt, Entwurf bis Fachprüfung)
+
+| Modul | Wichtigste Befunde | Änderung |
+|---|---|---|
+| fm73 Kindernotfälle | Kühle Luft als wirksame Krupp-Maßnahme (nicht belegt); Notfallmedikation „ab 3–5 Minuten“ vs. „über 5 Minuten“ widersprüchlich; Fieberdefinition und Messort pauschal; Paracetamol „meist 15 mg/kg“; Quelle „S2k-Krupp 2020“ nicht auffindbar | Nach S3 Fiebermanagement 2025, Cochrane, GRC 2025 korrigiert; nicht verifizierbare Quelle ersetzt |
+| fm16 Gastroenteritis | Desinfektionsmittel unscharf („viruzid“); Rotavirus-Impfung der 5 Monate alten Schwester als nachholbar dargestellt; widersprüchliche Gewichte in der Fallwerkstatt | „begrenzt viruzid PLUS“ oder „viruzid“; STIKO-Zeitfenster; Fall konsistent |
+| fm37 Bronchiolitis | Sättigungsgrenze ohne Kontext | NICE-NG9-Schwellen (90/92 %) erläutert |
+| fm72 Frühgeborene | Akte 12 × 22 ml vs. Fall/Aufgabe 8 × 28 ml | vereinheitlicht |
+| fm26 Wochenbett | normaler Gewichtsverlust 7 % vs. 7–10 %; HF 120–160 vs. 110–160; Rechenaufgabe mit falschem Geburtsgewicht | vereinheitlicht, Aufgabe als anderes Kind markiert |
+| fm27 Typ-1-Diabetes | Basketball (Akte) vs. Fußball (Fallwerkstatt) | vereinheitlicht |
+
+## P0-03 Arzneimittel I (umgesetzt, Entwurf bis Fachprüfung)
+
+| Modul | Wichtigste Befunde | Änderung |
+|---|---|---|
+| fm64 Injektionen | i. m. „kontraindiziert bei Schock“ ohne Ausnahme – widerspricht Adrenalin i. m. bei Anaphylaxie; Hautfalte bei 4-mm-Nadeln; Pen-Test und Haltezeit als feste Zahl; Merke „mit Beschwerden“ widerspricht Kap. 0 | Ausnahme ergänzt, herstellerabhängig formuliert, vereinheitlicht |
+| fm20 Arzneimittelmanagement | Zahl abgesetzter Medikamente widersprüchlich | angeglichen |
+
+Weitere Querschnittskorrekturen: Kitteltasche „Isolierung“ (Noro/Rota-Desinfektion), Fachlexikon „Wadenwickel“ (körperwarm), Normwert Herzfrequenz Kleinkind in fm73 an fm37/Kitteltasche angeglichen.
+
+## Stand und ehrliche Einordnung
+
+8 von 75 Modulen sind vollständig gelesen und redigiert, 5 weitere teilweise (nur Notfallkapitel aus P0-01). 62 Module sind noch nicht vollständig bearbeitet. Liste: `.pflegepfad-review/status.json` → `fortschritt`. Pro Modul: `.pflegepfad-review/module.json`.

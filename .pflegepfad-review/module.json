@@ -1,0 +1,216 @@
+{
+ "hinweis": "Status je Modul. technisch_geprueft = Struktur-/Rauchtests bestanden; fachliche Freigabe steht aus (expert_review_pending).",
+ "module": {
+  "fm3": {
+   "paket": "P0-01",
+   "status": "teilweise",
+   "bearbeitet": "Kap. 2 SpO2-Ziel, Quelle; übrige Kapitel noch nicht vollständig redigiert",
+   "sha256": "e181fadd313ab2f1",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm5": {
+   "paket": "P0-01",
+   "status": "teilweise",
+   "bearbeitet": "Kap. 4 Reanimation; übrige Kapitel offen",
+   "sha256": "32c2aa075b445057",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm9": {
+   "paket": "P0-01",
+   "status": "teilweise",
+   "bearbeitet": "Kap. 2 BLS, Quellen; übrige Kapitel offen (Distraktor n9b_m1 'Lieblingsfernsehsendung')",
+   "sha256": "2312fc8716c39767",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm11": {
+   "paket": "P0-01",
+   "status": "teilweise",
+   "bearbeitet": "Abschlussquiz Zielsättigung; übrige Kapitel offen",
+   "sha256": "723b7554610680d7",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm21": {
+   "paket": "P0-01",
+   "status": "teilweise",
+   "bearbeitet": "Kap. 2 qSOFA-Grenzwert; übrige Kapitel offen",
+   "sha256": "327d177f59acf66e",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm73": {
+   "paket": "P0-02",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Pseudokrupp: kühle Luft nicht mehr als wirksame Maßnahme (Cochrane CD002870), Option ersetzt durch ruhige Umgebung; Feedback Glukokortikoide/Adrenalin-Inhalation mit Wirkdauer und Rebound",
+    "Fieberkrampf: Medikation ab > 5 min einheitlich (vorher 3–5 vs. 5 min), Status-epilepticus-Erklärung",
+    "Fieber: Definition 38,5 °C bzw. < 3 Monate 38,0 °C, Messort nach Alter, Antipyretika nur bei Leiden, Paracetamol 10–15 mg/kg, Ibuprofen 7–10 mg/kg ab 3 Monaten, Alternieren nur nach Rücksprache, Wadenwickel körperwarm, Warnzeichen nach S3-Leitlinie",
+    "Quiz: absurder Distraktor ersetzt",
+    "Quellen: nicht auffindbare S2k-Krupp-Leitlinie 2020 ersetzt; ERC 2021 → GRC 2025; Fieberkrampf-LL korrekt zitiert inkl. Gültigkeitsstatus"
+   ],
+   "quellen": [
+    "AWMF-027-074",
+    "AWMF-022-005",
+    "COCHRANE-CROUP-GC",
+    "COCHRANE-CROUP-AIR",
+    "GRC2025-KOMPAKT",
+    "ILAE2015 (unverified)"
+   ],
+   "offen": [
+    "Normwerte Herzfrequenz Kleinkind (100–150) vs. Kitteltasche (90–150) mit pädiatrischer Referenz klären",
+    "Ibuprofen-Tageshöchstdosis bewusst nicht als Zahl genannt (Fachinformation)"
+   ],
+   "sha256": "446482a42ba0dec2",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm16": {
+   "paket": "P0-02",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Noro/Rota: Desinfektionsmittel 'begrenzt viruzid PLUS' oder 'viruzid' statt unscharf 'viruzid'",
+    "Rotavirus-Impfung der 5 Monate alten Schwester: Hinweis korrigiert (Beginn spätestens 12. Woche, Abschluss 24./32. Woche)",
+    "Fallwerkstatt: widersprüchliche Gewichte (12 kg vs. 12,4/11,6 kg) als Folgetag-Szenario konsistent gemacht; Einordnung 3,3 % nach ESPGHAN-Kategorien korrigiert"
+   ],
+   "geprueft_ohne_aenderung": [
+    "ESPGHAN-Dehydratationsgrade <3/3–8/≥9 %",
+    "Windelwiegen",
+    "KUSS 0–4 J.",
+    "Wiederzulassung Kita 48 h"
+   ],
+   "quellen": [
+    "RKI-EPIBULL-2017-VIRUZID",
+    "STIKO-ROTA-2013",
+    "LZG-NRW-NORO (Sekundär)"
+   ],
+   "offen": [
+    "GPGE-S2k 068-003 (2019): Gültigkeit im AWMF-Register prüfen"
+   ],
+   "sha256": "d204a9e9c255896b",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm37": {
+   "paket": "P0-02",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Sättigungsgrenzen nach NICE NG9 (2021) präzisiert: dauerhaft < 92 % bei Raumluft als Warnzeichen; Sauerstoffschwelle 90 % ab 6 Wochen bzw. 92 % jünger/vorerkrankt; Zielwert ärztlich",
+    "Besuchsoption Bruder sprachlich und inhaltlich klar gefasst"
+   ],
+   "geprueft_ohne_aenderung": [
+    "AF > 70/min, Apnoe, Stöhnen als Warnzeichen (NICE)",
+    "Nirsevimab STIKO 2024",
+    "Sondenlängenmessung NEMU, pH-Lagekontrolle",
+    "SIDS-Prävention 16–18 °C"
+   ],
+   "quellen": [
+    "NICE-NG9"
+   ],
+   "offen": [
+    "Simulation sim_saeugling (Code) noch nicht geprüft"
+   ],
+   "sha256": "16575d2bce5c68b1",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm72": {
+   "paket": "P0-02",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Akte: Ernährung 12 × 22 ml widersprach 8 Mahlzeiten / 28 ml in Fall, Rechenaufgabe und Doku – vereinheitlicht"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Rechenaufgabe 150 ml/kg × 1,48 kg / 8 = 27,75 ml",
+    "Kerntemperatur 36,5–37,5 °C",
+    "Stress-/Stabilitätszeichen"
+   ],
+   "offen": [
+    "Routinemäßige Magenrestkontrolle: aktuelle Evidenz spricht eher dagegen – 'nach Anordnung' belassen, fachlich prüfen",
+    "Quellen Als 2009, Hoehl/Kullick 2019 nicht geöffnet"
+   ],
+   "sha256": "6d23fc026058cf4b",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm26": {
+   "paket": "P0-02",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Widerspruch normaler Gewichtsverlust (7 % vs. 7–10 %) aufgelöst: bis etwa 7 % üblich, ab etwa 10 % Abklärung",
+    "Herzfrequenz Neugeborenes 120–160 vs. 110–160 vereinheitlicht",
+    "Schätzaufgabe nutzte 3400 g statt Emmas 3380 g – als anderes Neugeborenes gekennzeichnet, Bezug zu Emma im Feedback"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Fundusstand, Lochien",
+    "U2 3.–10. Tag, Screening 36.–72. Lebensstunde",
+    "Ikterus < 24 h pathologisch",
+    "Baby Blues vs. Wochenbettdepression"
+   ],
+   "offen": [
+    "Grenze 10 % Gewichtsverlust mit Quelle (z. B. ABM-Protokoll, Stillleitlinie AWMF) belegen"
+   ],
+   "sha256": "0a4220f6c4a0e028",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm27": {
+   "paket": "P0-02",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Fallkonsistenz: Akte nennt Basketball, Fallwerkstatt/Bucket nannten Fußball – vereinheitlicht"
+   ],
+   "geprueft_ohne_aenderung": [
+    "DKA-Definition ISPAD 2022 (pH < 7,3 oder HCO3 < 18 mmol/l)",
+    "Kaliumverschiebung unter Insulin",
+    "Hirnödem als gefährlichste Komplikation",
+    "Krankheitstage-Regeln",
+    "1 KE = 10 g"
+   ],
+   "offen": [
+    "DDG-S3 Kinder/Jugend 057-016 (2023) Gültigkeit prüfen",
+    "ISPAD 2022 nicht erneut geöffnet"
+   ],
+   "sha256": "b30ed8124ee17e72",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm64": {
+   "paket": "P0-03",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "i. m.-Kontraindikation 'Schock' widersprach Adrenalin i. m. bei Anaphylaxie – Ausnahme ergänzt (Wissen + Lernkarte)",
+    "Hautfalte: 4-mm-Pen-Nadeln meist ohne Hautfalte (FITTER 2016); Enoxaparin-Hautfalte bis Injektionsende",
+    "Pen-Sicherheitstest und Haltezeit herstellerabhängig formuliert",
+    "Merke Hypoglykämie: Behandlung unter 70 mg/dl auch ohne Beschwerden (Widerspruch zu Kap. 0 aufgelöst)",
+    "Quiz i. m.-Ort präzisiert (Gesäßregion; Impfung Deltoid), Distraktor ersetzt"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Luftblase Fertigspritze belassen",
+    "ventrogluteal nach von Hochstetter",
+    "15-15-Regel",
+    "Blutzuckermessung Fehlerquellen"
+   ],
+   "quellen": [
+    "FITTER-2016 (unverified, nicht geöffnet)",
+    "FI-Enoxaparin (offen)"
+   ],
+   "offen": [
+    "Enoxaparin-Fachinformation konkret öffnen und Fundstelle eintragen"
+   ],
+   "sha256": "6df7ce31292a344b",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm20": {
+   "paket": "P0-03",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Fallwerkstatt: 'drei Medikamente abgesetzt' widersprach Outro (11 → 7 Wirkstoffe) – angeglichen"
+   ],
+   "geprueft_ohne_aenderung": [
+    "§ 31a SGB V Medikationsplan ab 3 systemischen Arzneimitteln",
+    "LADME, Altersveränderungen",
+    "Triple Whammy, Hyperkaliämiezeichen",
+    "INR-Ziel meist 2–3",
+    "BtMVV-Dokumentation"
+   ],
+   "offen": [
+    "Marcumar erscheint nur in der Fallwerkstatt, nicht in der Akte (11 Wirkstoffe nicht einzeln gelistet) – Akte ggf. ergänzen",
+    "Lapi 2013, Mangoni 2004, PRISCUS 2.0 nicht erneut geöffnet"
+   ],
+   "sha256": "a464a4cf7daaa9a4",
+   "fachliche_freigabe": "expert_review_pending"
+  }
+ }
+}
