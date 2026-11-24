@@ -1,210 +1,224 @@
 {
-  "bearbeitung": "inhaltsredaktion-2026-11",
-  "stand": "2026-11-24",
-  "kanonische_quellen": {
-    "module": "Schüler-App daten/module/jahr-*/fmN.js → Lehrer content.json:mods per werkzeuge/inhalt_sync.py (nie in content.json direkt redigieren)",
-    "fachlexikon": "Schüler-App daten/fachlexikon.js → Lehrer js/kern/06-fachlexikon.js (byte-identisch, per inhalt_sync.py)",
-    "kitteltasche": "Schüler-App js/app/01-app.bundle.js (Hauptliste, Strings mit \\x-Escapes) + js/training/34-zusaetzliche-kitteltasche-eintraeg.js; im Lehrerportal nicht vorhanden",
-    "lernkarten": "Schüler-App js/training/33-zusaetzliche-lernkarten-je-modul.js",
-    "assistent": "Keine eigene Wissensbasis: Edge Function assistent erhält nur auf dem Gerät gesuchte Auszüge aus Modulen, Lexikon, Kitteltasche, Lernkarten. Korrekturen dort wirken automatisch.",
-    "pflegeplanung_faelle": "Lehrer werkzeuge/pflegeplanung_faelle.py erzeugt die Dateien (nicht die erzeugten Dateien redigieren)",
-    "avatare": "daten/figuren.js, .avatar-svg, PXAV, content.json:chars – geschützt, Hash in struktur_basis.json"
+ "bearbeitung": "inhaltsredaktion-2026-11",
+ "stand": "2026-11-24",
+ "kanonische_quellen": {
+  "module": "Schüler-App daten/module/jahr-*/fmN.js → Lehrer content.json:mods per werkzeuge/inhalt_sync.py (nie in content.json direkt redigieren)",
+  "fachlexikon": "Schüler-App daten/fachlexikon.js → Lehrer js/kern/06-fachlexikon.js (byte-identisch, per inhalt_sync.py)",
+  "kitteltasche": "Schüler-App js/app/01-app.bundle.js (Hauptliste, Strings mit \\x-Escapes) + js/training/34-zusaetzliche-kitteltasche-eintraeg.js; im Lehrerportal nicht vorhanden",
+  "lernkarten": "Schüler-App js/training/33-zusaetzliche-lernkarten-je-modul.js",
+  "assistent": "Keine eigene Wissensbasis: Edge Function assistent erhält nur auf dem Gerät gesuchte Auszüge aus Modulen, Lexikon, Kitteltasche, Lernkarten. Korrekturen dort wirken automatisch.",
+  "pflegeplanung_faelle": "Lehrer werkzeuge/pflegeplanung_faelle.py erzeugt die Dateien (nicht die erzeugten Dateien redigieren)",
+  "avatare": "daten/figuren.js, .avatar-svg, PXAV, content.json:chars – geschützt, Hash in struktur_basis.json"
+ },
+ "tests": {
+  "struktur": "python3 -I werkzeuge/inhalt_pruefen.py <schueler-repo>",
+  "sync_pruefen": "python3 -I werkzeuge/inhalt_sync.py <schueler-repo> <lehrer-repo> --pruefen",
+  "rauch": "NODE_PATH=<playwright> node werkzeuge/tests/rauchtest.mjs <repo>  (beide Repos)",
+  "konsole": "CHROME=<chrome> node werkzeuge/pruefen.mjs <repo> --js ...",
+  "stationsalltag": "node werkzeuge/tests/stationsalltag-test.js",
+  "letzter_lauf": "2026-11-24: inhalt_pruefen OK (8 Regeln), inhalt_sync --pruefen 0 Abweichungen, rauchtest schueler 0, rauchtest lehrer 0, stationsalltag 0, node --check OK"
+ },
+ "pakete": [
+  {
+   "id": "P0-01",
+   "titel": "Reanimation und Notfallkarten: ERC 2025, Sauerstoffzielbereich, Sepsis- und Schlaganfallkarte",
+   "status": "technisch_geprueft",
+   "fachliche_freigabe": "expert_review_pending",
+   "dateien": {
+    "schueler": {
+     "daten/module/jahr-3/fm9.js": "2312fc8716c39767",
+     "daten/module/jahr-2/fm5.js": "32c2aa075b445057",
+     "daten/module/jahr-1/fm3.js": "e181fadd313ab2f1",
+     "daten/module/jahr-2/fm11.js": "723b7554610680d7",
+     "daten/module/jahr-2/fm21.js": "327d177f59acf66e",
+     "js/training/33-zusaetzliche-lernkarten-je-modul.js": "da173b9f28fc3b2b",
+     "js/training/34-zusaetzliche-kitteltasche-eintraeg.js": "a49158826d4c0da5",
+     "js/app/01-app.bundle.js": "e45bddec75fbd63b",
+     "sw.js": "Cache fallpfad-v54 → v55"
+    },
+    "lehrer": [
+     "content.json (Sync fm3, fm5, fm9, fm11, fm21)",
+     "js/erweiterungen/06-fertige-live-stunden-und-fallbeisp.js"
+    ]
+   },
+   "quellen": [
+    "ERC2025-BLS",
+    "GRC2025-KOMPAKT",
+    "AWMF-020-021",
+    "SSC2021"
+   ],
+   "tests": {
+    "inhalt_pruefen": "OK – 75 Module, Struktur/Antwortschlüssel/Avatare unverändert, 4 Regeln",
+    "inhalt_sync --pruefen": "OK – 0 Abweichungen",
+    "rauchtest schueler": "0 Probleme (3 Ansichten × hell/dunkel, 9 Bereiche)",
+    "rauchtest lehrer": "0 Probleme (3 Ansichten × hell/dunkel, 13 Bereiche)",
+    "pruefen.mjs schueler": "nur blockierter Supabase-Netzaufruf (erwartet); Daten geladen: Kitteltasche kinder-rea = Zwei-Daumen-Technik, fm9.sources[0] = ERC 2025",
+    "pruefen.mjs lehrer": "OK",
+    "stationsalltag": "problems 0",
+    "node --check": "Bundle, 33, 34, Lehrer 06 OK"
+   }
   },
-  "tests": {
-    "struktur": "python3 -I werkzeuge/inhalt_pruefen.py <schueler-repo>",
-    "sync_pruefen": "python3 -I werkzeuge/inhalt_sync.py <schueler-repo> <lehrer-repo> --pruefen",
-    "rauch": "NODE_PATH=<playwright> node werkzeuge/tests/rauchtest.mjs <repo>  (beide Repos)",
-    "konsole": "CHROME=<chrome> node werkzeuge/pruefen.mjs <repo> --js ...",
-    "stationsalltag": "node werkzeuge/tests/stationsalltag-test.js",
-    "letzter_lauf": "2026-11-24: inhalt_pruefen OK (8 Regeln), inhalt_sync --pruefen 0 Abweichungen, rauchtest schueler 0, rauchtest lehrer 0, stationsalltag 0, node --check OK"
+  {
+   "id": "P0-02",
+   "titel": "Kinder und Familie: Kindernotfälle, Fieber, Gastroenteritis, Bronchiolitis, Frühgeborene, Wochenbett, Typ-1-Diabetes",
+   "module": [
+    "fm73",
+    "fm16",
+    "fm37",
+    "fm72",
+    "fm26",
+    "fm27"
+   ],
+   "status": "technisch_geprueft",
+   "fachliche_freigabe": "expert_review_pending"
   },
-  "pakete": [
-    {
-      "id": "P0-01",
-      "titel": "Reanimation und Notfallkarten: ERC 2025, Sauerstoffzielbereich, Sepsis- und Schlaganfallkarte",
-      "status": "technisch_geprueft",
-      "fachliche_freigabe": "expert_review_pending",
-      "dateien": {
-        "schueler": {
-          "daten/module/jahr-3/fm9.js": "2312fc8716c39767",
-          "daten/module/jahr-2/fm5.js": "32c2aa075b445057",
-          "daten/module/jahr-1/fm3.js": "e181fadd313ab2f1",
-          "daten/module/jahr-2/fm11.js": "723b7554610680d7",
-          "daten/module/jahr-2/fm21.js": "327d177f59acf66e",
-          "js/training/33-zusaetzliche-lernkarten-je-modul.js": "da173b9f28fc3b2b",
-          "js/training/34-zusaetzliche-kitteltasche-eintraeg.js": "a49158826d4c0da5",
-          "js/app/01-app.bundle.js": "e45bddec75fbd63b",
-          "sw.js": "Cache fallpfad-v54 → v55"
-        },
-        "lehrer": [
-          "content.json (Sync fm3, fm5, fm9, fm11, fm21)",
-          "js/erweiterungen/06-fertige-live-stunden-und-fallbeisp.js"
-        ]
-      },
-      "quellen": [
-        "ERC2025-BLS",
-        "GRC2025-KOMPAKT",
-        "AWMF-020-021",
-        "SSC2021"
-      ],
-      "tests": {
-        "inhalt_pruefen": "OK – 75 Module, Struktur/Antwortschlüssel/Avatare unverändert, 4 Regeln",
-        "inhalt_sync --pruefen": "OK – 0 Abweichungen",
-        "rauchtest schueler": "0 Probleme (3 Ansichten × hell/dunkel, 9 Bereiche)",
-        "rauchtest lehrer": "0 Probleme (3 Ansichten × hell/dunkel, 13 Bereiche)",
-        "pruefen.mjs schueler": "nur blockierter Supabase-Netzaufruf (erwartet); Daten geladen: Kitteltasche kinder-rea = Zwei-Daumen-Technik, fm9.sources[0] = ERC 2025",
-        "pruefen.mjs lehrer": "OK",
-        "stationsalltag": "problems 0",
-        "node --check": "Bundle, 33, 34, Lehrer 06 OK"
-      }
-    },
-    {
-      "id": "P0-02",
-      "titel": "Kinder und Familie: Kindernotfälle, Fieber, Gastroenteritis, Bronchiolitis, Frühgeborene, Wochenbett, Typ-1-Diabetes",
-      "module": [
-        "fm73",
-        "fm16",
-        "fm37",
-        "fm72",
-        "fm26",
-        "fm27"
-      ],
-      "status": "technisch_geprueft",
-      "fachliche_freigabe": "expert_review_pending"
-    },
-    {
-      "id": "P0-03",
-      "titel": "Arzneimittel I: Injektionen/Blutzucker, Arzneimittelmanagement",
-      "module": [
-        "fm64",
-        "fm20"
-      ],
-      "status": "technisch_geprueft",
-      "fachliche_freigabe": "expert_review_pending"
-    },
-    {
-      "id": "P0-04",
-      "titel": "Arzneimittel II und Notfälle",
-      "module": [
-        "fm74",
-        "fm67",
-        "fm12",
-        "fm56",
-        "fm36",
-        "fm9",
-        "fm5",
-        "fm21",
-        "fm11",
-        "fm3"
-      ],
-      "zusatz": "PharmakoLab (js/funktionen/01-pharmako2.js): Wirkstofftexte von Tramadol, Metamizol, Paracetamol, Ibuprofen, MCP, Naloxon, Urapidil, Enoxaparin, Morphin, Lorazepam, Melperon, Ondansetron geprüft, ohne Änderungsbedarf; Simulationsparameter nicht fachlich validiert (Modell, als Lernsimulation gekennzeichnet)",
-      "status": "technisch_geprueft",
-      "fachliche_freigabe": "expert_review_pending"
-    }
-  ],
-  "naechste_pakete": [
-    {
-      "id": "P0-05",
-      "titel": "Hygiene und Zugänge: fm38, fm71, fm58, fm19, fm33"
-    },
-    {
-      "id": "P1-01",
-      "titel": "Jahr 1 Rest: fm1, fm2, fm6, fm7, fm4 (groß), fm8, fm18, fm23, fm35, fm39, fm42–fm46, fm61, fm65, fm66"
-    },
-    {
-      "id": "P1-02",
-      "titel": "Jahr 2 Rest: fm10, fm13, fm14, fm22, fm24, fm25, fm31, fm34, fm40, fm47–fm51, fm57, fm60, fm62, fm68–fm70"
-    },
-    {
-      "id": "P1-03",
-      "titel": "Jahr 3 Rest: fm15, fm17, fm28–fm30, fm32, fm41, fm52–fm55, fm59, fm63, fm75"
-    }
-  ],
-  "fortschritt": {
-    "vollstaendig_redigiert": [
-      "fm3",
-      "fm5",
-      "fm9",
-      "fm11",
-      "fm12",
-      "fm16",
-      "fm20",
-      "fm21",
-      "fm26",
-      "fm27",
-      "fm36",
-      "fm37",
-      "fm56",
-      "fm64",
-      "fm67",
-      "fm72",
-      "fm73",
-      "fm74"
-    ],
-    "teilweise": [],
-    "offen": [
-      "fm1",
-      "fm2",
-      "fm4",
-      "fm6",
-      "fm7",
-      "fm8",
-      "fm10",
-      "fm13",
-      "fm14",
-      "fm15",
-      "fm17",
-      "fm18",
-      "fm19",
-      "fm22",
-      "fm23",
-      "fm24",
-      "fm25",
-      "fm28",
-      "fm29",
-      "fm30",
-      "fm31",
-      "fm32",
-      "fm33",
-      "fm34",
-      "fm35",
-      "fm38",
-      "fm39",
-      "fm40",
-      "fm41",
-      "fm42",
-      "fm43",
-      "fm44",
-      "fm45",
-      "fm46",
-      "fm47",
-      "fm48",
-      "fm49",
-      "fm50",
-      "fm51",
-      "fm52",
-      "fm53",
-      "fm54",
-      "fm55",
-      "fm57",
-      "fm58",
-      "fm59",
-      "fm60",
-      "fm61",
-      "fm62",
-      "fm63",
-      "fm65",
-      "fm66",
-      "fm68",
-      "fm69",
-      "fm70",
-      "fm71",
-      "fm75"
-    ],
-    "anzahl": {
-      "fertig": 18,
-      "teilweise": 0,
-      "offen_gesamt": 57
-    }
+  {
+   "id": "P0-03",
+   "titel": "Arzneimittel I: Injektionen/Blutzucker, Arzneimittelmanagement",
+   "module": [
+    "fm64",
+    "fm20"
+   ],
+   "status": "technisch_geprueft",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  {
+   "id": "P0-04",
+   "titel": "Arzneimittel II und Notfälle",
+   "module": [
+    "fm74",
+    "fm67",
+    "fm12",
+    "fm56",
+    "fm36",
+    "fm9",
+    "fm5",
+    "fm21",
+    "fm11",
+    "fm3"
+   ],
+   "zusatz": "PharmakoLab (js/funktionen/01-pharmako2.js): Wirkstofftexte von Tramadol, Metamizol, Paracetamol, Ibuprofen, MCP, Naloxon, Urapidil, Enoxaparin, Morphin, Lorazepam, Melperon, Ondansetron geprüft, ohne Änderungsbedarf; Simulationsparameter nicht fachlich validiert (Modell, als Lernsimulation gekennzeichnet)",
+   "status": "technisch_geprueft",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  {
+   "id": "Q-01",
+   "titel": "Quellen aus Lerninhalten entfernt, Admin-Quellenregister im Lehrerportal",
+   "umfang": "alle 75 Module (277 Textstellen, 82 Klammerzitate, alle Quellenverzeichnisse), Kitteltasche, Training „Ruhig bleiben“, Glossar-Popup, Delir-Training; Lehrerportal content.json synchronisiert",
+   "register": "pflegepfadlehrer-main/daten/quellen-register.json (583 Quellen; 174 per PubMed formal geprüft, 18 inhaltlich verifiziert, 44 Rechtsquellen verlinkt, 229 formal nach APA 7 aufbereitet, 31 Kurzformen zugeordnet, 87 offen)",
+   "anzeige": "Lehrerportal → Admin-Zentrale (nur Rolle admin) → Reiter „Quellen“ (js/erweiterungen/18-quellen-admin.js)",
+   "test": "Regel Q-01 in werkzeuge/inhalt_pruefen.py",
+   "status": "technisch_geprueft",
+   "fachliche_freigabe": "nicht erforderlich (keine Fachaussage geändert)"
   }
+ ],
+ "naechste_pakete": [
+  {
+   "id": "P0-05",
+   "titel": "Hygiene und Zugänge: fm38, fm71, fm58, fm19, fm33"
+  },
+  {
+   "id": "P1-01",
+   "titel": "Jahr 1 Rest: fm1, fm2, fm6, fm7, fm4 (groß), fm8, fm18, fm23, fm35, fm39, fm42–fm46, fm61, fm65, fm66"
+  },
+  {
+   "id": "P1-02",
+   "titel": "Jahr 2 Rest: fm10, fm13, fm14, fm22, fm24, fm25, fm31, fm34, fm40, fm47–fm51, fm57, fm60, fm62, fm68–fm70"
+  },
+  {
+   "id": "P1-03",
+   "titel": "Jahr 3 Rest: fm15, fm17, fm28–fm30, fm32, fm41, fm52–fm55, fm59, fm63, fm75"
+  }
+ ],
+ "fortschritt": {
+  "vollstaendig_redigiert": [
+   "fm3",
+   "fm5",
+   "fm9",
+   "fm11",
+   "fm12",
+   "fm16",
+   "fm20",
+   "fm21",
+   "fm26",
+   "fm27",
+   "fm36",
+   "fm37",
+   "fm56",
+   "fm64",
+   "fm67",
+   "fm72",
+   "fm73",
+   "fm74"
+  ],
+  "teilweise": [],
+  "offen": [
+   "fm1",
+   "fm2",
+   "fm4",
+   "fm6",
+   "fm7",
+   "fm8",
+   "fm10",
+   "fm13",
+   "fm14",
+   "fm15",
+   "fm17",
+   "fm18",
+   "fm19",
+   "fm22",
+   "fm23",
+   "fm24",
+   "fm25",
+   "fm28",
+   "fm29",
+   "fm30",
+   "fm31",
+   "fm32",
+   "fm33",
+   "fm34",
+   "fm35",
+   "fm38",
+   "fm39",
+   "fm40",
+   "fm41",
+   "fm42",
+   "fm43",
+   "fm44",
+   "fm45",
+   "fm46",
+   "fm47",
+   "fm48",
+   "fm49",
+   "fm50",
+   "fm51",
+   "fm52",
+   "fm53",
+   "fm54",
+   "fm55",
+   "fm57",
+   "fm58",
+   "fm59",
+   "fm60",
+   "fm61",
+   "fm62",
+   "fm63",
+   "fm65",
+   "fm66",
+   "fm68",
+   "fm69",
+   "fm70",
+   "fm71",
+   "fm75"
+  ],
+  "anzahl": {
+   "fertig": 18,
+   "teilweise": 0,
+   "offen_gesamt": 57
+  }
+ },
+ "offene_punkte": [
+  "Quellenregister liegt als statische JSON-Datei im Lehrerportal und ist über die URL abrufbar (kein Personenbezug). Für echten Zugriffsschutz in Supabase-Tabelle mit Admin-RLS verschieben (braucht Freigabe, Produktivdatenbank).",
+  "87 Quellen ohne prüfbare Angaben (Webseiten ohne URL, Broschüren, Fachinformationen): manuell vervollständigen; 229 formal aufbereitete Bücher/Leitlinien am Original gegenprüfen."
+ ]
 }

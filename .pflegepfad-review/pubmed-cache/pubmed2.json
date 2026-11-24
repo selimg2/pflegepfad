@@ -1,0 +1,836 @@
+{
+"27558147": {
+"doi": "10.1007/s00103-016-2416-6",
+"title": "[Not Available].",
+"journal": "Bundesgesundheitsblatt, Gesundheitsforschung, Gesundheitsschutz",
+"iso": "Bundesgesundheitsblatt Gesundheitsforschung Gesundheitsschutz",
+"authors": [],
+"year": "2016",
+"volume": "59",
+"issue": "9",
+"pages": "1189-220",
+"types": [
+"Practice Guideline"
+],
+"lang": "ger"
+},
+"29589090": {
+"doi": "10.1007/s00103-018-2706-2",
+"title": "[Not Available].",
+"journal": "Bundesgesundheitsblatt, Gesundheitsforschung, Gesundheitsschutz",
+"iso": "Bundesgesundheitsblatt Gesundheitsforschung Gesundheitsschutz",
+"authors": [],
+"year": "2018",
+"volume": "61",
+"issue": "4",
+"pages": "448-473",
+"types": [
+"News"
+],
+"lang": "ger"
+},
+"24987771": {
+"doi": null,
+"title": "[Recommendations for prevention and control of methicillin-resistant staphylococcus aureus (MRSA) in medical and nursing facilities].",
+"journal": "Bundesgesundheitsblatt, Gesundheitsforschung, Gesundheitsschutz",
+"iso": "Bundesgesundheitsblatt Gesundheitsforschung Gesundheitsschutz",
+"authors": [],
+"year": "2014",
+"volume": "57",
+"issue": "6",
+"pages": "696-732",
+"types": [
+"Journal Article"
+],
+"lang": "ger"
+},
+"23011096": {
+"doi": "10.1007/s00103-012-1549-5",
+"title": "[Hygiene measures for infection or colonization with multidrug-resistant gram-negative bacilli. Commission recommendation for hospital hygiene and infection prevention (KRINKO) at the Robert Koch Institute (RKI)].",
+"journal": "Bundesgesundheitsblatt, Gesundheitsforschung, Gesundheitsschutz",
+"iso": "Bundesgesundheitsblatt Gesundheitsforschung Gesundheitsschutz",
+"authors": [],
+"year": "2012",
+"volume": "55",
+"issue": "10",
+"pages": "1311-54",
+"types": [
+"Journal Article"
+],
+"lang": "ger"
+},
+"27872155": {
+"doi": "10.2337/dc16-2215",
+"title": "Glucose Concentrations of Less Than 3.0 mmol/L (54 mg/dL) Should Be Reported in Clinical Trials: A Joint Position Statement of the American Diabetes Association and the European Association for the Study of Diabetes.",
+"journal": "Diabetes care",
+"iso": "Diabetes Care",
+"authors": [
+[
+"International Hypoglycaemia Study Group",
+"",
+""
+]
+],
+"year": "2017",
+"volume": "40",
+"issue": "1",
+"pages": "155-157",
+"types": [
+"Review",
+"Journal Article",
+"Research Support, Non-U.S. Gov't"
+],
+"lang": "eng"
+},
+"25892679": {
+"doi": "10.1016/S0140-6736(15)60690-0",
+"title": "Efficacy and safety of very early mobilisation within 24 h of stroke onset (AVERT): a randomised controlled trial.",
+"journal": "Lancet (London, England)",
+"iso": "Lancet",
+"authors": [
+[
+"AVERT Trial Collaboration group",
+"",
+""
+]
+],
+"year": "2015",
+"volume": "386",
+"issue": "9988",
+"pages": "46-55",
+"types": [
+"Journal Article",
+"Multicenter Study",
+"Randomized Controlled Trial",
+"Research Support, Non-U.S. Gov't"
+],
+"lang": "eng"
+},
+"24998511": {
+"doi": "10.1017/S0033291714001299",
+"title": "Does asking about suicide and related behaviours induce suicidal ideation? What is the evidence?",
+"journal": "Psychological medicine",
+"iso": "Psychol Med",
+"authors": [
+[
+"Dazzi",
+"T",
+"T"
+],
+[
+"Gribble",
+"R",
+"R"
+],
+[
+"Wessely",
+"S",
+"S"
+],
+[
+"Fear",
+"NT",
+"N T"
+]
+],
+"year": "2014",
+"volume": "44",
+"issue": "16",
+"pages": "3361-3",
+"types": [
+"Editorial",
+"Comment"
+],
+"lang": "eng"
+},
+"17362215": {
+"doi": "10.1111/j.1475-6773.2006.00629.x",
+"title": "Do professional interpreters improve clinical care for patients with limited English proficiency? A systematic review of the literature.",
+"journal": "Health services research",
+"iso": "Health Serv Res",
+"authors": [
+[
+"Karliner",
+"LS",
+"Leah S"
+],
+[
+"Jacobs",
+"EA",
+"Elizabeth A"
+],
+[
+"Chen",
+"AH",
+"Alice Hm"
+],
+[
+"Mutha",
+"S",
+"Sunita"
+]
+],
+"year": "2007",
+"volume": "42",
+"issue": "2",
+"pages": "727-54",
+"types": [
+"Journal Article",
+"Research Support, Non-U.S. Gov't",
+"Research Support, U.S. Gov't, P.H.S.",
+"Systematic Review"
+],
+"lang": "eng"
+},
+"20005692": {
+"doi": "10.1016/j.drugpo.2009.10.010",
+"title": "Does it matter how we refer to individuals with substance-related conditions? A randomized study of two commonly used terms.",
+"journal": "The International journal on drug policy",
+"iso": "Int J Drug Policy",
+"authors": [
+[
+"Kelly",
+"JF",
+"John F"
+],
+[
+"Westerhoff",
+"CM",
+"Cassandra M"
+]
+],
+"year": "2010",
+"volume": "21",
+"issue": "3",
+"pages": "202-7",
+"types": [
+"Journal Article"
+],
+"lang": "eng"
+},
+"3045356": {
+"doi": "10.1001/jama.260.12.1743",
+"title": "The quality of care. How can it be assessed?",
+"journal": "JAMA",
+"iso": "JAMA",
+"authors": [
+[
+"Donabedian",
+"A",
+"A"
+]
+],
+"year": "1988",
+"volume": "260",
+"issue": "12",
+"pages": "1743-8",
+"types": [
+"Journal Article",
+"Review"
+],
+"lang": "eng"
+},
+"27265691": {
+"doi": "10.1002/wps.20311",
+"title": "Understanding the burnout experience: recent research and its implications for psychiatry.",
+"journal": "World psychiatry : official journal of the World Psychiatric Association (WPA)",
+"iso": "World Psychiatry",
+"authors": [
+[
+"Maslach",
+"C",
+"Christina"
+],
+[
+"Leiter",
+"MP",
+"Michael P"
+]
+],
+"year": "2016",
+"volume": "15",
+"issue": "2",
+"pages": "103-11",
+"types": [
+"Journal Article"
+],
+"lang": "eng"
+},
+"23924135": {
+"doi": "10.7748/ns2013.08.27.49.35.e7649",
+"title": "Causes and consequences of sleep deprivation in hospitalised patients.",
+"journal": "Nursing standard (Royal College of Nursing (Great Britain) : 1987)",
+"iso": "Nurs Stand",
+"authors": [
+[
+"Pilkington",
+"S",
+"Stephanie"
+]
+],
+"year": "2013",
+"volume": "27",
+"issue": "49",
+"pages": "35-42",
+"types": [
+"Journal Article",
+"Review"
+],
+"lang": "eng"
+},
+"19592638": {
+"doi": "10.1093/geront/gnp107",
+"title": "The stigma of hearing loss.",
+"journal": "The Gerontologist",
+"iso": "Gerontologist",
+"authors": [
+[
+"Wallhagen",
+"MI",
+"Margaret I"
+]
+],
+"year": "2010",
+"volume": "50",
+"issue": "1",
+"pages": "66-75",
+"types": [
+"Comparative Study",
+"Journal Article",
+"Research Support, N.I.H., Extramural"
+],
+"lang": "eng"
+},
+"26571241": {
+"doi": "10.7326/M15-1150",
+"title": "Accuracy of peripheral thermometers for estimating temperature: a systematic review and meta-analysis.",
+"journal": "Annals of internal medicine",
+"iso": "Ann Intern Med",
+"authors": [
+[
+"Niven",
+"DJ",
+"Daniel J"
+],
+[
+"Gaudet",
+"JE",
+"Jonathan E"
+],
+[
+"Laupland",
+"KB",
+"Kevin B"
+],
+[
+"Mrklas",
+"KJ",
+"Kelly J"
+],
+[
+"Roberts",
+"DJ",
+"Derek J"
+],
+[
+"Stelfox",
+"HT",
+"Henry Thomas"
+]
+],
+"year": "2015",
+"volume": "163",
+"issue": "10",
+"pages": "768-77",
+"types": [
+"Journal Article",
+"Meta-Analysis",
+"Systematic Review"
+],
+"lang": "eng"
+},
+"26474316": {
+"doi": "10.1002/mds.26424",
+"title": "MDS clinical diagnostic criteria for Parkinson's disease.",
+"journal": "Movement disorders : official journal of the Movement Disorder Society",
+"iso": "Mov Disord",
+"authors": [
+[
+"Postuma",
+"RB",
+"Ronald B"
+],
+[
+"Berg",
+"D",
+"Daniela"
+],
+[
+"Stern",
+"M",
+"Matthew"
+],
+[
+"Poewe",
+"W",
+"Werner"
+],
+[
+"Olanow",
+"CW",
+"C Warren"
+],
+[
+"Oertel",
+"W",
+"Wolfgang"
+],
+[
+"Obeso",
+"J",
+"José"
+],
+[
+"Marek",
+"K",
+"Kenneth"
+],
+[
+"Litvan",
+"I",
+"Irene"
+],
+[
+"Lang",
+"AE",
+"Anthony E"
+],
+[
+"Halliday",
+"G",
+"Glenda"
+],
+[
+"Goetz",
+"CG",
+"Christopher G"
+],
+[
+"Gasser",
+"T",
+"Thomas"
+],
+[
+"Dubois",
+"B",
+"Bruno"
+],
+[
+"Chan",
+"P",
+"Piu"
+],
+[
+"Bloem",
+"BR",
+"Bastiaan R"
+],
+[
+"Adler",
+"CH",
+"Charles H"
+],
+[
+"Deuschl",
+"G",
+"Günther"
+]
+],
+"year": "2015",
+"volume": "30",
+"issue": "12",
+"pages": "1591-601",
+"types": [
+"Journal Article",
+"Research Support, Non-U.S. Gov't",
+"Review"
+],
+"lang": "eng"
+},
+"11380742": {
+"doi": "10.1046/j.1532-5415.2001.49108.x",
+"title": "Reducing delirium after hip fracture: a randomized trial.",
+"journal": "Journal of the American Geriatrics Society",
+"iso": "J Am Geriatr Soc",
+"authors": [
+[
+"Marcantonio",
+"ER",
+"E R"
+],
+[
+"Flacker",
+"JM",
+"J M"
+],
+[
+"Wright",
+"RJ",
+"R J"
+],
+[
+"Resnick",
+"NM",
+"N M"
+]
+],
+"year": "2001",
+"volume": "49",
+"issue": "5",
+"pages": "516-22",
+"types": [
+"Clinical Trial",
+"Journal Article",
+"Randomized Controlled Trial",
+"Research Support, Non-U.S. Gov't",
+"Research Support, U.S. Gov't, P.H.S."
+],
+"lang": "eng"
+},
+"33951145": {
+"doi": "10.1093/ageing/afaa224",
+"title": "Diagnostic accuracy of the 4AT for delirium detection in older adults: systematic review and meta-analysis.",
+"journal": "Age and ageing",
+"iso": "Age Ageing",
+"authors": [
+[
+"Tieges",
+"Z",
+"Zoë"
+],
+[
+"Maclullich",
+"AMJ",
+"Alasdair M J"
+],
+[
+"Anand",
+"A",
+"Atul"
+],
+[
+"Brookes",
+"C",
+"Claire"
+],
+[
+"Cassarino",
+"M",
+"Marica"
+],
+[
+"O'connor",
+"M",
+"Margaret"
+],
+[
+"Ryan",
+"D",
+"Damien"
+],
+[
+"Saller",
+"T",
+"Thomas"
+],
+[
+"Arora",
+"RC",
+"Rakesh C"
+],
+[
+"Chang",
+"Y",
+"Yue"
+],
+[
+"Agarwal",
+"K",
+"Kathryn"
+],
+[
+"Taffet",
+"G",
+"George"
+],
+[
+"Quinn",
+"T",
+"Terence"
+],
+[
+"Shenkin",
+"SD",
+"Susan D"
+],
+[
+"Galvin",
+"R",
+"Rose"
+]
+],
+"year": "2021",
+"volume": "50",
+"issue": "3",
+"pages": "733-743",
+"types": [
+"Journal Article",
+"Meta-Analysis",
+"Research Support, Non-U.S. Gov't",
+"Systematic Review"
+],
+"lang": "eng"
+},
+"25643002": {
+"doi": "10.1001/jamainternmed.2014.7779",
+"title": "Effectiveness of multicomponent nonpharmacological delirium interventions: a meta-analysis.",
+"journal": "JAMA internal medicine",
+"iso": "JAMA Intern Med",
+"authors": [
+[
+"Hshieh",
+"TT",
+"Tammy T"
+],
+[
+"Yue",
+"J",
+"Jirong"
+],
+[
+"Oh",
+"E",
+"Esther"
+],
+[
+"Puelle",
+"M",
+"Margaret"
+],
+[
+"Dowal",
+"S",
+"Sarah"
+],
+[
+"Travison",
+"T",
+"Thomas"
+],
+[
+"Inouye",
+"SK",
+"Sharon K"
+]
+],
+"year": "2015",
+"volume": "175",
+"issue": "4",
+"pages": "512-20",
+"types": [
+"Journal Article",
+"Meta-Analysis",
+"Research Support, N.I.H., Extramural"
+],
+"lang": "eng"
+},
+"9510815": {
+"doi": null,
+"title": "Infection control--a battle in vein: infusion phlebitis.",
+"journal": "Nursing times",
+"iso": "Nurs Times",
+"authors": [
+[
+"Jackson",
+"A",
+"A"
+]
+],
+"year": "1998",
+"volume": "94",
+"issue": "4",
+"pages": "68, 71",
+"types": [
+"Journal Article"
+],
+"lang": "eng"
+},
+"29275977": {
+"doi": "10.1016/S1474-4422(17)30470-2",
+"title": "Diagnosis of multiple sclerosis: 2017 revisions of the McDonald criteria.",
+"journal": "The Lancet. Neurology",
+"iso": "Lancet Neurol",
+"authors": [
+[
+"Thompson",
+"AJ",
+"Alan J"
+],
+[
+"Banwell",
+"BL",
+"Brenda L"
+],
+[
+"Barkhof",
+"F",
+"Frederik"
+],
+[
+"Carroll",
+"WM",
+"William M"
+],
+[
+"Coetzee",
+"T",
+"Timothy"
+],
+[
+"Comi",
+"G",
+"Giancarlo"
+],
+[
+"Correale",
+"J",
+"Jorge"
+],
+[
+"Fazekas",
+"F",
+"Franz"
+],
+[
+"Filippi",
+"M",
+"Massimo"
+],
+[
+"Freedman",
+"MS",
+"Mark S"
+],
+[
+"Fujihara",
+"K",
+"Kazuo"
+],
+[
+"Galetta",
+"SL",
+"Steven L"
+],
+[
+"Hartung",
+"HP",
+"Hans Peter"
+],
+[
+"Kappos",
+"L",
+"Ludwig"
+],
+[
+"Lublin",
+"FD",
+"Fred D"
+],
+[
+"Marrie",
+"RA",
+"Ruth Ann"
+],
+[
+"Miller",
+"AE",
+"Aaron E"
+],
+[
+"Miller",
+"DH",
+"David H"
+],
+[
+"Montalban",
+"X",
+"Xavier"
+],
+[
+"Mowry",
+"EM",
+"Ellen M"
+],
+[
+"Sorensen",
+"PS",
+"Per Soelberg"
+],
+[
+"Tintoré",
+"M",
+"Mar"
+],
+[
+"Traboulsee",
+"AL",
+"Anthony L"
+],
+[
+"Trojano",
+"M",
+"Maria"
+],
+[
+"Uitdehaag",
+"BMJ",
+"Bernard M J"
+],
+[
+"Vukusic",
+"S",
+"Sandra"
+],
+[
+"Waubant",
+"E",
+"Emmanuelle"
+],
+[
+"Weinshenker",
+"BG",
+"Brian G"
+],
+[
+"Reingold",
+"SC",
+"Stephen C"
+],
+[
+"Cohen",
+"JA",
+"Jeffrey A"
+]
+],
+"year": "2018",
+"volume": "17",
+"issue": "2",
+"pages": "162-173",
+"types": [
+"Journal Article",
+"Research Support, Non-U.S. Gov't",
+"Review"
+],
+"lang": "eng"
+}
+}

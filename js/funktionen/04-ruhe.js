@@ -22,7 +22,7 @@
     left: "M15 18l-6-6 6-6", right: "M9 6l6 6-6 6", check: "M5 12l5 5L20 7", play: "M7 4l13 8-13 8z", pause: "M7 4h4v16H7zM13 4h4v16h-4z", redo: "M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5", x: "M6 6l12 12M18 6L6 18"
   };
   function Ic(p) { return h("svg", { viewBox: "0 0 24 24", width: p.s || 20, height: p.s || 20, fill: "none", stroke: "currentColor", strokeWidth: p.w || 2, strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" }, h("path", { d: IC[p.k] })); }
-  function Src(p) { return h("p", { className: "rh-src" }, "Quellen: " + p.t); }
+  function Src(p) { return null; } /* Quellen nur im Admin-Bereich (Quellenregister) */
 
   /* ---------------- Inhalte ---------------- */
   var TOOLS = [
@@ -73,7 +73,7 @@
         h("b", null, "Warum das wirkt"),
         h("p", null, "Beim Ausatmen sinkt die Herzfrequenz leicht, beim Einatmen steigt sie. Wer länger aus- als einatmet, verschiebt das vegetative Nervensystem Richtung Ruhe. In einer randomisierten Studie verbesserte tägliches zyklisches Seufzen über fünf Minuten die Stimmung und senkte die Atemfrequenz in Ruhe stärker als eine Achtsamkeitsmeditation gleicher Dauer."),
         h("p", null, "Tipp für die Prüfung: Zwei bis drei Seufzer reichen oft schon, wenn du merkst, dass dein Herz rast. Niemand bemerkt es."),
-        h(Src, { t: "Balban, M. Y. et al. (2023). Brief structured respiration practices enhance mood and reduce physiological arousal. Cell Reports Medicine 4(1), 100895; Zaccaro, A. et al. (2018). How breath-control can change your life. Frontiers in Human Neuroscience 12, 353." })));
+        null));
   }
 
   /* ---------------- Gedanken-Check ---------------- */
@@ -92,7 +92,7 @@
       h("form", { className: "rh-own", onSubmit: function (e) { e.preventDefault(); if (eig[0].trim()) { sel[1](-1); step[1](0); } } },
         h("input", { className: "input", value: eig[0], onChange: function (e) { eig[1](e.target.value); }, placeholder: "Mein eigener Gedanke …", "aria-label": "Eigener Gedanke" }),
         h("button", { type: "submit", className: "btn ghost", disabled: !eig[0].trim() }, "Prüfen")),
-      h(Src, { t: "Liebert, R. M. & Morris, L. W. (1967). Psychological Reports 20, 975–978; Eysenck, M. W. et al. (2007). Anxiety and cognitive performance: Attentional control theory. Emotion 7, 336–353; Beck, J. S. (2021). Cognitive Behavior Therapy. 3rd ed., Guilford." }));
+      null);
     var x = sel[0] >= 0 ? GED[sel[0]] : { g: eig[0], f: null, fr: ["Was spricht dafür, was dagegen?", "Was würdest du einer guten Freundin sagen, die so denkt?", "Was ist realistisch das Wahrscheinlichste, und was kannst du jetzt tun?"], a: null };
     return h("div", { className: "rh-tool" },
       h("button", { type: "button", className: "skip back", onClick: function () { sel[1](null); neu[1](""); } }, h(Ic, { k: "left", s: 16 }), "Anderer Gedanke"),
@@ -128,7 +128,7 @@
       h("div", { className: "rh-row" },
         h("span", { className: "muted", style: { fontSize: 13 } }, "Dein Text wird nicht gespeichert und nicht übertragen."),
         h("button", { type: "button", className: "btn", disabled: !txt[0].trim(), onClick: weg }, fin[0] ? "Fertig, Zettel zerreißen" : "Zettel zerreißen")),
-      h(Src, { t: "Ramirez, G. & Beilock, S. L. (2011). Writing about testing worries boosts exam performance in the classroom. Science 331, 211–213; Pennebaker, J. W. & Smyth, J. M. (2016). Opening Up by Writing It Down. Guilford." }));
+      null);
   }
 
   /* ---------------- Aufregung umdeuten ---------------- */
@@ -146,7 +146,7 @@
         return h("button", { key: i, type: "button", className: "rh-c4" + (i <= st[0] ? " on" : ""), onClick: function () { st[1](i); if (i === S.length - 1) used("umdeuten"); } }, h("i", null, i + 1), h("b", null, x[0]), i <= st[0] ? h("span", null, x[1]) : h("span", { className: "muted" }, "Antippen"));
       })),
       h("div", { className: "rh-know" }, h("b", null, "Grenze"), h("p", null, "Umdeuten hilft bei normaler Aufregung. Bei Panikattacken oder Angst, die dich über Wochen lähmt, ist professionelle Unterstützung der richtige Weg (siehe ‚Wann Hilfe holen‘).")),
-      h(Src, { t: "Jamieson, J. P. et al. (2010). Turning the knots in your stomach into bows. Journal of Experimental Social Psychology 46, 208–212; Brooks, A. W. (2014). Get excited: Reappraising pre-performance anxiety as excitement. Journal of Experimental Psychology: General 143, 1144–1158; Kross, E. et al. (2014). Self-talk as a regulatory mechanism. Journal of Personality and Social Psychology 106, 304–324." }));
+      null);
   }
 
   /* ---------------- 5-4-3-2-1 ---------------- */
@@ -195,7 +195,7 @@
         h("div", { className: "rh-big" }, i[0] >= PMR.length ? h(R.Fragment, null, h(Ic, { k: "check", s: 40 }), h("b", null, "Fertig. Spür noch einen Moment nach.")) : null,
           h("button", { type: "button", className: "btn", onClick: function () { i[1](0); ph[1]("an"); sec[1](0); } }, h(Ic, { k: "play", s: 16 }), i[0] >= PMR.length ? "Noch einmal" : "Anleitung starten")),
       h("p", { className: "muted", style: { fontSize: 13 } }, "Bei Schmerzen oder Verletzungen eine Muskelgruppe auslassen oder nur sanft anspannen."),
-      h(Src, { t: "Jacobson, E. (1938). Progressive Relaxation. University of Chicago Press; Manzoni, G. M. et al. (2008). Relaxation training for anxiety: a ten-years systematic review with meta-analysis. BMC Psychiatry 8, 41." }));
+      null);
   }
 
   /* ---------------- Wenn-dann-Plan ---------------- */
@@ -221,7 +221,7 @@
       })),
       txt.length ? h("div", { className: "rh-know" }, h("b", null, "Mein Plan"), h("ul", null, txt.map(function (t, i) { return h("li", { key: i }, t); })),
         h("button", { type: "button", className: "btn ghost sm", onClick: function () { var s = "Mein Wenn-dann-Plan für die Prüfung\n\n" + txt.join("\n"); try { navigator.clipboard.writeText(s).then(function () { cp[1]("Kopiert."); used("plan"); }); } catch (e) { cp[1]("Kopieren nicht möglich."); } } }, "Plan kopieren"), cp[0] ? h("span", { className: "muted", style: { marginLeft: 8 } }, cp[0]) : null) : null,
-      h(Src, { t: "Gollwitzer, P. M. & Sheeran, P. (2006). Implementation intentions and goal achievement: A meta-analysis of effects and processes. Advances in Experimental Social Psychology 38, 69–119; Oettingen, G. (2014). Rethinking Positive Thinking. Current." }));
+      null);
   }
 
   /* ---------------- Feierabend-Schalter ---------------- */
@@ -239,7 +239,7 @@
       h("div", { className: "rh-cards4" }, W.map(function (x, i) { return h("button", { key: i, type: "button", className: "rh-c4 on" + (ch[0][i] ? " sel" : ""), "aria-pressed": !!ch[0][i], onClick: function () { tog(i); } }, h("i", null, ch[0][i] ? h(Ic, { k: "check", s: 14, w: 3 }) : i + 1), h("b", null, x[0]), h("span", null, x[1])); })),
       h("div", { className: "rh-know" }, h("b", null, "Nach belastenden Diensten"),
         h("p", null, "Nach einem Notfall, einem Todesfall oder Gewalt ist es normal, die Bilder noch Tage im Kopf zu haben. Sprich mit der Praxisanleitung oder Kolleginnen und Kollegen. Viele Häuser bieten kollegiale Erstbetreuung oder Supervision an. Halten Schlafprobleme, Bilder oder Anspannung länger als etwa vier Wochen an, hol dir professionelle Hilfe.")),
-      h(Src, { t: "Sonnentag, S. & Fritz, C. (2007). The Recovery Experience Questionnaire. Journal of Occupational Health Psychology 12, 204–221; Neff, K. D. (2003). Self-compassion. Self and Identity 2, 85–101; Bundesamt für Bevölkerungsschutz und Katastrophenhilfe (2012). Psychosoziale Notfallversorgung: Qualitätsstandards und Leitlinien." }));
+      null);
   }
 
   var VIEWS = { atem: Atem, gedanken: Gedanken, schreiben: Schreiben, umdeuten: Umdeuten, erden: Erden, pmr: Pmr, plan: Plan, abschalten: Abschalten };
@@ -293,7 +293,7 @@
         h("div", { className: "rh-two" },
           h("div", null, h("b", null, "Kurzfristig: Akuthilfe"), h("ul", null, h("li", null, "Atmung verlangsamen, länger ausatmen"), h("li", null, "Aufregung als Energie deuten"), h("li", null, "Sinne nutzen: 5-4-3-2-1"), h("li", null, "Mit ‚du‘ zu dir selbst sprechen"))),
           h("div", null, h("b", null, "Langfristig: Vorbeugen"), h("ul", null, h("li", null, "Verteilt lernen und dich selbst abfragen"), h("li", null, "Prüfungssituationen üben, etwa im Examenssimulator"), h("li", null, "Schlaf, Bewegung, feste Pausen"), h("li", null, "Wenn-dann-Pläne und Unterstützung im Kurs")))),
-        h(Src, { t: "Lazarus, R. S. & Folkman, S. (1984). Stress, Appraisal, and Coping. Springer; von der Embse, N. et al. (2018). Test anxiety effects, predictors, and correlates: A 30-year meta-analytic review. Journal of Affective Disorders 227, 483–493; Roediger, H. L. & Karpicke, J. D. (2006). Psychological Science 17, 249–255; Smith, A. M. et al. (2016). Retrieval practice protects memory against acute stress. Science 354, 1046–1048; Cepeda, N. J. et al. (2006). Psychological Bulletin 132, 354–380; Ranehill, E. et al. (2015). Psychological Science 26, 653–656; Singh, B. et al. (2023). British Journal of Sports Medicine 57, 1203–1209." })),
+        null),
       h("div", { className: "card rh-learn" },
         h("h3", null, "Mythos oder Fakt?"),
         h("div", { className: "rh-myth" }, MY.map(function (m, i) {

@@ -81,6 +81,7 @@ def text_of(paths):
         for f in glob.glob(os.path.join(root, p)):
             out.append((f, open(f, encoding="utf-8").read()))
     return out
+LERN = ["daten/module/*/fm*.js", "js/training/3[34]-*.js", "daten/fachlexikon.js", "js/funktionen/04-ruhe.js", "js/app/01-app.bundle.js"]
 REGELN = [
     ("P0-01", ["js/training/34-*.js", "daten/module/*/fm*.js", "js/training/33-*.js"], r"2-Finger|Zwei-Finger", "Säuglingsreanimation: nur Zwei-Daumen-Technik (ERC 2025)"),
     ("P0-01", ["daten/module/*/fm5.js", "daten/module/*/fm9.js"], r"Olasveengen", "BLS-Quelle auf ERC 2025 aktualisiert"),
@@ -90,6 +91,11 @@ REGELN = [
     ("P0-02", ["daten/module/*/fm73.js"], r"Paracetamol meist etwa 15 mg", "Antipyretika-Dosierung nach S3 Fiebermanagement (10–15 bzw. 7–10 mg/kg)"),
     ("P0-02", ["daten/module/*/fm16.js"], r"Rotavirus-Impfung der Schwester, sofern noch nicht erfolgt", "Rotavirus-Impfung: Beginn spätestens 12. Woche"),
     ("P0-03", ["daten/module/*/fm64.js"], r"bei Schock \(schlechte Durchblutung\) und", "i. m. bei Schock: Ausnahme Adrenalin bei Anaphylaxie"),
+    # Quellen nur im Admin-Quellenregister des Lehrerportals, nie in Lerninhalten
+    ("Q-01", LERN, r'"sources":\["', "Modul-Quellenlisten bleiben leer (Register: lehrer daten/quellen-register.json)"),
+    ("Q-01", LERN, r"Quellen?: [A-ZÄÖÜ][^<\"]{0,80}\(\d{4}|class=\\?\"src\\?\"", "keine Literaturangaben im Lerntext"),
+    ("Q-01", LERN, r"\bet al\.|doi\.org/|https?://(?:www\.)?awmf|\bAWMF-Register", "keine Autor-Jahr-Zitate, DOIs oder Registerverweise im Lerntext"),
+    ("Q-01", LERN, r"\((?!NRS\b)[A-ZÄÖÜ][A-Za-zäöüß\-]+(?: (?:&|und) [A-ZÄÖÜ][A-Za-zäöüß\-]+)?,? (?:19|20)\d{2}[a-z]?\)", "keine Klammerzitate (Autor Jahr)"),
 ]
 for pid, paths, pat, msg in REGELN:
     for f, t in text_of(paths):
