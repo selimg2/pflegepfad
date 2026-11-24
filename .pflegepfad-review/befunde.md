@@ -129,3 +129,12 @@ Weitere Querschnittskorrekturen: Kitteltasche „Isolierung“ (Noro/Rota-Desinf
 - **Widersprüche zum Fall:** In der Fehlersuche von fm13 hatte Herr Wagner eine Lähmung links, im Fall rechts. In fm14 war im Lerntext und in der Fehlersuche von Frau Hoffmanns „Kindern“ die Rede, im Fall sucht sie ihre Mutter. In fm10 standen in der Fehlersuche andere Gewichte als in der Fallarbeit. In fm25 passte die Schätzaufgabe (2,1 l Entzug) nicht zur Notfalldialyse mit 4,1 kg Zunahme.
 - **Rechtliche Präzisierung (fm14):** Bei fehlender Einwilligungsfähigkeit braucht ein Bettgitter die Einwilligung der Betreuung oder Bevollmächtigten **und** die gerichtliche Genehmigung, nicht eines von beiden.
 - fm22 ist ohne Änderungsbedarf geprüft.
+
+
+## P1-02b Jahr 2 (fm31, fm34, fm40, fm47, fm48, fm49)
+
+- **Fachlich falsch (fm40):** Bei der Reanimation sollte die Reservoirmaske die richtige Wahl sein. Eine Reservoirmaske setzt aber Spontanatmung voraus; bei der Reanimation wird beatmet. Die Zeile beschreibt jetzt einen spontan atmenden Patienten mit schwerer Atemnot.
+- **Selbstbestimmung (fm31):** In der PEG-Fallbesprechung wurde nur über den mutmaßlichen Willen gesprochen, obwohl Frau Zimmermann lediglich zeitweise verwirrt ist. Jetzt gehört dazu, sie in einem klaren Moment selbst zu fragen.
+- **Fallkonsistenz (fm47):** Herr Vogt hat eine Radiusfraktur rechts, die Zuordnungsaufgabe beschrieb aber Zittern und langsames Zuknöpfen mit der rechten Hand.
+- **Distraktoren (fm49):** „Viel Schlaf“ und „Zu viel Gemüse“ sind ersetzt durch plausible Irrtümer (eiweißreiche Ernährung, Verfärbung durch rote Bete).
+- fm48 ist ohne Änderungsbedarf geprüft.

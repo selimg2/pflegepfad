@@ -875,6 +875,106 @@
    ],
    "sha256": "a923dd5f9c4fb51d",
    "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm31": {
+   "paket": "P1-02b",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "PEG-Fallbesprechung: Frau Zimmermann (zeitweise verwirrt, Vollmacht der Tochter) wird jetzt selbst gefragt, statt nur über den mutmaßlichen Willen zu entscheiden"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Mangelernährung: >5 % in 3 Monaten, NRS 2002, MNA-SF, Expertenstandard Ernährungsmanagement",
+    "30 kcal/kg, Eiweiß ≥1 g/kg bei Älteren",
+    "PEG: Indikation, Einwilligung, Demenz ohne Nutzen",
+    "Sondengabe, Spülen, keine gemörserten Retardpräparate, 30° Oberkörper",
+    "Flüssigkeit 30 ml/kg, Rechenaufgaben nachgerechnet"
+   ],
+   "offen": [
+    "Laborsimulation ‚Zu wenig getrunken‘ handelt von Herrn Albers statt von der Modulpatientin; als Nebenfall belassen"
+   ],
+   "sha256": "660338b77d83468e",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm34": {
+   "paket": "P1-02b",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Fehlendes Feedback zu einer Antwortoption ergänzt",
+    "Rolle der Schwester als Betreuerin in der Entscheidungsaufgabe benannt"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Diagnostic Overshadowing, einfache Sprache, Unterstützte Kommunikation",
+    "UN-BRK 2009, BTHG, Begleitperson im Krankenhaus seit 2022",
+    "Erste Hilfe beim Anfall, Status epilepticus ab 5 min, bukkales Midazolam nach Notfallplan",
+    "Basale Stimulation, Kinästhetik",
+    "Betreuungsrecht 2023: Wünsche als Maßstab, Einwilligungsfähigkeit je Entscheidung"
+   ],
+   "sha256": "7c5ee88ae5aacf32",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm40": {
+   "paket": "P1-02b",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Zuordnung ‚Reanimation → Reservoirmaske‘ war fachlich falsch (ohne Spontanatmung wird beatmet); ersetzt durch spontan atmenden Patienten mit schwerer Hypoxämie",
+    "Formulierung ‚gesplintetes Kissen‘ verständlich gemacht"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Atembeobachtung, AF als Frühwarnzeichen, Sputumbeurteilung",
+    "Ziel-SpO2 92–96 %, 88–92 % bei CO2-Retentionsrisiko",
+    "Nasenbrille bis 6 l/min, FiO2-Faustregel, Maske ≥5 l/min, Reservoirmaske 10–15 l/min",
+    "Pneumonieprophylaxe, Lippenbremse, Kutschersitz"
+   ],
+   "sha256": "2843997febd4a131",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm47": {
+   "paket": "P1-02b",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Beobachtungen zu Bradykinese und Tremor auf die gesunde linke Hand verlegt (rechts Radiusfraktur)"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Kardinalsymptome, nicht-motorische Symptome",
+    "zeitkritische Gabe ±30 min, Eiweiß-Interaktion, keine Zerkleinerung retardierter Präparate",
+    "Kontraindikation MCP, Haloperidol, Promethazin; Domperidon, Quetiapin/Clozapin",
+    "Cueing bei Freezing, akinetische Krise, Rotigotin-Pflaster als Ersatz"
+   ],
+   "offen": [
+    "Name ‚Herr Vogt‘ auch in fm65 (andere Person)"
+   ],
+   "sha256": "8ea80556efd08563",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm48": {
+   "paket": "P1-02b",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [],
+   "geprueft_ohne_aenderung": [
+    "pAVK vs. venöse Störung, Fontaine I–IV mit 200-m-Grenze",
+    "Überwachung nach Katheterintervention, akuter Verschluss",
+    "strukturiertes Gehtraining, Rauchstopp, keine Kompression bei fortgeschrittener pAVK",
+    "Virchow-Trias, TVT-Zeichen, Mobilisation unter Antikoagulation",
+    "Lungenembolie: Zeichen und Sofortmaßnahmen"
+   ],
+   "sha256": "a2827ca80eaa58ff",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm49": {
+   "paket": "P1-02b",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Zwei Quizfragen mit unplausiblen Distraktoren (‚Viel Schlaf‘, ‚Zu viel Gemüse‘) durch gleichartige ersetzt"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Ursachen Zirrhose inkl. MASLD, Pfortaderhochdruck, Child-Pugh",
+    "hepatische Enzephalopathie, West Haven, Laktulose 2–3 weiche Stühle, Rifaximin",
+    "Aszitesüberwachung, Parazentese, Albumin ca. 8 g/l",
+    "keine Eiweißrestriktion, Spätmahlzeit, keine NSAR",
+    "Varizenblutung, Teerstuhl"
+   ],
+   "sha256": "c5957421977c059d",
+   "fachliche_freigabe": "expert_review_pending"
   }
  }
 }

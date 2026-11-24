@@ -157,6 +157,12 @@
    "titel": "Jahr 2: fm10, fm13, fm14, fm22, fm24, fm25",
    "status": "technisch_geprueft",
    "fachliche_freigabe": "expert_review_pending"
+  },
+  {
+   "id": "P1-02b",
+   "titel": "Jahr 2: fm31, fm34, fm40, fm47, fm48, fm49",
+   "status": "technisch_geprueft",
+   "fachliche_freigabe": "expert_review_pending"
   }
  ],
  "naechste_pakete": [
@@ -217,7 +223,13 @@
    "fm14",
    "fm22",
    "fm24",
-   "fm25"
+   "fm25",
+   "fm31",
+   "fm34",
+   "fm40",
+   "fm47",
+   "fm48",
+   "fm49"
   ],
   "teilweise": [],
   "offen": [
@@ -226,14 +238,8 @@
    "fm28",
    "fm29",
    "fm30",
-   "fm31",
    "fm32",
-   "fm34",
-   "fm40",
    "fm41",
-   "fm47",
-   "fm48",
-   "fm49",
    "fm50",
    "fm51",
    "fm52",
