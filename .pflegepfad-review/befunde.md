@@ -95,3 +95,12 @@ Weitere Querschnittskorrekturen: Kitteltasche „Isolierung“ (Noro/Rota-Desinf
 - Die Übersicht beginnt mit „Braucht deine Aufmerksamkeit“: Zugangsanfragen, neues Feedback, unbestätigte E-Mail-Adressen, Schulen ohne Aktivität und ungeprüfte Quellen. Jede Kachel führt direkt in den passenden Bereich. Die 14 gleich großen Zahlenkacheln sind in drei Karten zusammengefasst (Schulen und Konten, Lernaktivität, Feedback und KI).
 - Quellen: Prüfstand als Balken mit Filter je Status. Ansichten „Nach Modul“ (nach Ausbildungsjahr), „Alle Quellen“ (alphabetisch mit „verwendet in“), „Weitere“ und „Prüfprotokoll“. Quellen, die schon bei einer Textstelle stehen, werden im Modul nicht noch einmal aufgelistet. 16 doppelte Registereinträge mit gleicher DOI wurden zusammengeführt.
 - Funktionen, Datenabfragen und Rollenprüfung sind unverändert.
+
+
+## P1-01a Brenner-Fallreihe (fm1, fm2, fm6, fm7, fm8)
+
+- **Widersprüche in der Fallgeschichte:** In der Fehlersuche von fm1 standen Zeilen als „richtig“, die dem Fall widersprachen: 71 statt 58 Jahre, verwitwet im Erdgeschoss statt mit Ehefrau im 1. Stock, „keine Allergien“ trotz Pflasterallergie und Nüchternheit ab 24 Uhr. In fm8 lebte Herr Brenner plötzlich allein, wohnte im 3. Stock und arbeitete in einer Schreinerei statt im Dachdeckerbetrieb.
+- **Thromboseprophylaxe nach Knie-TEP:** Statt „meist mehrere Wochen“ steht jetzt mindestens 11 bis 14 Tage, maßgeblich ist die ärztliche Anordnung.
+- **Wunddokumentation (fm7)** an die Falldaten von Tag 4 angeglichen: 2 cm Rötung und 37,9 °C.
+- **Rasur (fm2):** Die Erklärung in der Fehlersuche passt jetzt zur KRINKO-Aussage im Lerntext.
+- Medizinisches und rechtliches Grundwissen der fünf Module ist geprüft und stimmt (siehe module.json).

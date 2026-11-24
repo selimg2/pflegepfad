@@ -466,6 +466,99 @@
    ],
    "sha256": "b6c35f9527c5ee1e",
    "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm1": {
+   "paket": "P1-01a",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Fehlersuche: als korrekt markierte Zeilen widersprachen dem Fall (71 statt 58 Jahre, verwitwet und Erdgeschoss statt Ehefrau und 1. Stock, ‚keine Allergien‘ trotz Pflasterallergie, Nüchternheit ab 24 Uhr)",
+    "Entzugsverlauf: Zeitangabe an Zeitleiste angepasst (1–2 Tage nach letztem Alkohol)",
+    "Kellgren-Lawrence: Grade 0 bis 4"
+   ],
+   "geprueft_ohne_aenderung": [
+    "§ 203 StGB, Art. 9 DSGVO, § 4 PflBG, § 630f BGB",
+    "Pflegeprozess 6/4 Schritte, SIS",
+    "Watzlawick, Schulz von Thun, Rogers",
+    "Expertenstandards Aufnahme, Braden, NRS-2002, BMI nach WHO",
+    "PÄS, Tanner, Priorisierung ABCDE"
+   ],
+   "offen": [],
+   "sha256": "869a4ef17157bcdc",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm2": {
+   "paket": "P1-01a",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Fehlersuche: Rasur-Erklärung an KRINKO angeglichen (Zeitpunkt des Clippens frei wählbar)",
+    "Ring: melden und nach Hausstandard sichern"
+   ],
+   "geprueft_ohne_aenderung": [
+    "§ 630d/e BGB, Anästhesieverfahren, ASA",
+    "Nüchternheit 6/2 h",
+    "WHO-Checkliste (1,5→0,8 % Mortalität)",
+    "Hypothermie < 36 °C, Postaggression, RAAS/Ramipril",
+    "Schweizer-Käse-Modell, CIRS, Speak up"
+   ],
+   "offen": [
+    "ESAIC-Nüchternheitsleitlinie für Erwachsene: Aktualisierung beobachten"
+   ],
+   "sha256": "4f85cdcc7297d587",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm6": {
+   "paket": "P1-01a",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Fehlersuche: missverständliches ‚Fingertest negativ‘ präzisiert"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Gehstützen, Dreipunktegang, Treppenregel",
+    "Virchow-Trias, Basismaßnahmen, NMH, HIT II, Kompressions-Kontraindikationen",
+    "Dekubitus-Kategorien, Fingertest",
+    "Sturz-Expertenstandard, § 1831 BGB",
+    "Gehgeschwindigkeit 0,8 m/s"
+   ],
+   "offen": [],
+   "sha256": "06e26296da2e3ca4",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm7": {
+   "paket": "P1-01a",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Wunddokumentation an Falldaten Tag 4 angeglichen (2 cm Rötung, 37,9 °C statt 3 cm/38,1 °C an Tag 5)"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Hautaufbau, Wundeinteilung, Heilungsphasen",
+    "CDC-SSI 30/90 Tage",
+    "Non-Touch-Verbandwechsel, Abstrich vor Antiseptik",
+    "MRSA/MRGN nach KRINKO"
+   ],
+   "offen": [
+    "KRINKO 2018 zur Liegedauer des OP-Verbands bei Gelegenheit wörtlich gegenprüfen"
+   ],
+   "sha256": "85ea7e8479186880",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm8": {
+   "paket": "P1-01a",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "ICF: Wohnung im 1. statt 3. Stock",
+    "Bucket: Dachdeckerbetrieb statt Schreinerei",
+    "Verlauf: ‚lebt allein‘ durch Ehefrau Petra/Tochter Lisa ersetzt",
+    "Fehlersuche: Thromboseprophylaxe nach Knie-TEP mindestens 11–14 Tage statt ‚mehrere Wochen‘"
+   ],
+   "geprueft_ohne_aenderung": [
+    "§ 39 Abs. 1a, § 31a, § 74 SGB V, SGB IX/XI",
+    "AHB innerhalb 14 Tagen",
+    "ICF, Ottawa-Charta, Salutogenese, Präventionsebenen",
+    "TTM, MI, Trajektmodell"
+   ],
+   "offen": [],
+   "sha256": "48b0ce457732741b",
+   "fachliche_freigabe": "expert_review_pending"
   }
  }
 }
