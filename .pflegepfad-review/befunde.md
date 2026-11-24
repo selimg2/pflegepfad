@@ -53,3 +53,17 @@ Weitere Querschnittskorrekturen: Kitteltasche „Isolierung“ (Noro/Rota-Desinf
 ## Stand und ehrliche Einordnung
 
 8 von 75 Modulen sind vollständig gelesen und redigiert, 5 weitere teilweise (nur Notfallkapitel aus P0-01). Damit sind 67 Module noch nicht vollständig redigiert, 62 davon noch gar nicht. Liste: `.pflegepfad-review/status.json` → `fortschritt`. Pro Modul: `.pflegepfad-review/module.json`.
+
+## P0-04 Arzneimittel II und Notfälle (umgesetzt, Entwurf bis Fachprüfung)
+
+| Modul | Wichtigste Befunde | Änderung |
+|---|---|---|
+| fm67 Dokumentation | Nächtliche Hypoglykämie (58 mg/dl) bei reiner, pausierter Metformin-Therapie fachlich kaum erklärbar | Basalinsulin am Vorabend in Akte, Kurve, SBAR und Übergabe ergänzt |
+| fm74 Polypharmazie | Musterdoku nannte Zopiclon, das der Patient nie hatte | Diphenhydramin |
+| fm12 Typ-2-Diabetes | Lipohypertrophie als „Verhärtung“ (fm64: weich, gummiartig); Messstelle „Fingerkuppe“ | vereinheitlicht inkl. Zusatz-Lernkarte |
+| fm56 Notaufnahme | Adrenalin-Wiederholung „nach 5–10 min“ | ERC/GRC 2025: erneut, wenn nach etwa 5 min keine Besserung |
+| fm9, fm5, fm3 | Offenkundig absurde Distraktoren („Lieblingsfernsehsendung“, „Fußball schauen“, „Körpergröße“); ERC-2021-ALS-Quelle; „Exploration“ statt Exposure | plausible Distraktoren mit Erklärung, Quellen aktualisiert |
+| fm36, fm21, fm11 | ohne fachlichen Fehler | geprüft, unverändert |
+| PharmakoLab | Textangaben (Tramadol 400 mg/Tag, Metamizol-Agranulozytose, MCP-Begrenzung, Naloxon-Wirkdauer, Urapidil-Senkungsziel) plausibel; Simulationsparameter nicht validiert | keine Änderung |
+
+**Stand nach P0-04:** 18 von 75 Modulen vollständig redigiert, 57 offen (Liste in `status.json` → `fortschritt`).

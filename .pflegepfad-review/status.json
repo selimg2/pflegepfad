@@ -81,60 +81,81 @@
       ],
       "status": "technisch_geprueft",
       "fachliche_freigabe": "expert_review_pending"
+    },
+    {
+      "id": "P0-04",
+      "titel": "Arzneimittel II und Notfälle",
+      "module": [
+        "fm74",
+        "fm67",
+        "fm12",
+        "fm56",
+        "fm36",
+        "fm9",
+        "fm5",
+        "fm21",
+        "fm11",
+        "fm3"
+      ],
+      "zusatz": "PharmakoLab (js/funktionen/01-pharmako2.js): Wirkstofftexte von Tramadol, Metamizol, Paracetamol, Ibuprofen, MCP, Naloxon, Urapidil, Enoxaparin, Morphin, Lorazepam, Melperon, Ondansetron geprüft, ohne Änderungsbedarf; Simulationsparameter nicht fachlich validiert (Modell, als Lernsimulation gekennzeichnet)",
+      "status": "technisch_geprueft",
+      "fachliche_freigabe": "expert_review_pending"
     }
   ],
   "naechste_pakete": [
-    {
-      "id": "P0-04",
-      "titel": "Arzneimittel II und Notfälle: fm74, fm67, fm12, fm56, fm36, fm9 (Rest), fm5 (Rest), fm21 (Rest); PharmakoLab js/funktionen/01-pharmako2.js"
-    },
     {
       "id": "P0-05",
       "titel": "Hygiene und Zugänge: fm38, fm71, fm58, fm19, fm33"
     },
     {
-      "id": "P1-xx",
-      "titel": "übrige Module nach Jahrgang, je 4–5 Module; Simulationen (sim2/labsim-Code) und Training js/training/06–24 gesondert"
+      "id": "P1-01",
+      "titel": "Jahr 1 Rest: fm1, fm2, fm6, fm7, fm4 (groß), fm8, fm18, fm23, fm35, fm39, fm42–fm46, fm61, fm65, fm66"
+    },
+    {
+      "id": "P1-02",
+      "titel": "Jahr 2 Rest: fm10, fm13, fm14, fm22, fm24, fm25, fm31, fm34, fm40, fm47–fm51, fm57, fm60, fm62, fm68–fm70"
+    },
+    {
+      "id": "P1-03",
+      "titel": "Jahr 3 Rest: fm15, fm17, fm28–fm30, fm32, fm41, fm52–fm55, fm59, fm63, fm75"
     }
   ],
   "fortschritt": {
     "vollstaendig_redigiert": [
-      "fm16",
-      "fm20",
-      "fm26",
-      "fm27",
-      "fm37",
-      "fm64",
-      "fm72",
-      "fm73"
-    ],
-    "teilweise": [
       "fm3",
       "fm5",
       "fm9",
       "fm11",
-      "fm21"
+      "fm12",
+      "fm16",
+      "fm20",
+      "fm21",
+      "fm26",
+      "fm27",
+      "fm36",
+      "fm37",
+      "fm56",
+      "fm64",
+      "fm67",
+      "fm72",
+      "fm73",
+      "fm74"
     ],
+    "teilweise": [],
     "offen": [
       "fm1",
       "fm2",
-      "fm3",
       "fm4",
-      "fm5",
       "fm6",
       "fm7",
       "fm8",
-      "fm9",
       "fm10",
-      "fm11",
-      "fm12",
       "fm13",
       "fm14",
       "fm15",
       "fm17",
       "fm18",
       "fm19",
-      "fm21",
       "fm22",
       "fm23",
       "fm24",
@@ -147,7 +168,6 @@
       "fm33",
       "fm34",
       "fm35",
-      "fm36",
       "fm38",
       "fm39",
       "fm40",
@@ -166,7 +186,6 @@
       "fm53",
       "fm54",
       "fm55",
-      "fm56",
       "fm57",
       "fm58",
       "fm59",
@@ -176,18 +195,16 @@
       "fm63",
       "fm65",
       "fm66",
-      "fm67",
       "fm68",
       "fm69",
       "fm70",
       "fm71",
-      "fm74",
       "fm75"
     ],
     "anzahl": {
-      "fertig": 8,
-      "teilweise": 5,
-      "offen_gesamt": 67
+      "fertig": 18,
+      "teilweise": 0,
+      "offen_gesamt": 57
     }
   }
 }

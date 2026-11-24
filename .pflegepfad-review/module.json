@@ -2,37 +2,100 @@
  "hinweis": "Status je Modul. technisch_geprueft = Struktur-/Rauchtests bestanden; fachliche Freigabe steht aus (expert_review_pending).",
  "module": {
   "fm3": {
-   "paket": "P0-01",
-   "status": "teilweise",
-   "bearbeitet": "Kap. 2 SpO2-Ziel, Quelle; übrige Kapitel noch nicht vollständig redigiert",
-   "sha256": "e181fadd313ab2f1",
+   "paket": "P0-01 + P0-04",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "SpO2-Zielbereich nach deutscher S3-Leitlinie (P0-01)",
+    "Absurder Distraktor 'Körpergröße' im Sepsisquiz durch 'Diastolischer Blutdruck' ersetzt"
+   ],
+   "geprueft_ohne_aenderung": [
+    "ESH-2023-Blutdruckeinteilung, Messbedingungen (AHA 2019)",
+    "Puls: Frequenz, Rhythmus, Qualität, Pulsdefizit",
+    "Fieberphasen, ACVPU/GCS",
+    "Übernahme Aufwachraum, Drainagemarkierung",
+    "Schockzeichen, Schockindex, ISBAR/Read-back",
+    "Sauerstoffkette, Opioid-Atemdepression bei normaler SpO2",
+    "qSOFA/Sepsis-3, Priorisierung"
+   ],
+   "offen": [
+    "Kap. 8 verweist nur auf BTS-Leitlinie; deutsche S3 ergänzen"
+   ],
+   "sha256": "97882438c638e453",
    "fachliche_freigabe": "expert_review_pending"
   },
   "fm5": {
-   "paket": "P0-01",
-   "status": "teilweise",
-   "bearbeitet": "Kap. 4 Reanimation; übrige Kapitel offen",
-   "sha256": "32c2aa075b445057",
+   "paket": "P0-01 + P0-04",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Kap. 4 Reanimation nach ERC 2025 (P0-01)",
+    "Absurder Distraktor ('Fußball schauen') im Entzugsquiz durch plausiblen Fehler ersetzt"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Synkope (ESC 2018), orthostatische Hypotonie ≥ 20/10 mmHg in 3 min",
+    "Komplikationszeitfenster, PONV-Apfel-Score",
+    "Harnverhalt, opioidbedingte Obstipation",
+    "Alkoholentzug 6–24 h, CIWA-Ar, Delir CAM/4AT",
+    "Schweigepflicht § 203 StGB, NURSE, SPIKES, CIRS"
+   ],
+   "sha256": "09756162d1c9d541",
    "fachliche_freigabe": "expert_review_pending"
   },
   "fm9": {
-   "paket": "P0-01",
-   "status": "teilweise",
-   "bearbeitet": "Kap. 2 BLS, Quellen; übrige Kapitel offen (Distraktor n9b_m1 'Lieblingsfernsehsendung')",
-   "sha256": "2312fc8716c39767",
+   "paket": "P0-01 + P0-04",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Kap. 2 BLS nach ERC 2025 (P0-01)",
+    "Absurder Distraktor 'Lieblingsfernsehsendung' durch plausiblen Fehler (Belastungstest durch Gang über den Flur) ersetzt",
+    "Teamkapitel: ERC-2021-ALS-Quelle durch GRC 2025 ersetzt",
+    "Quiz: 'Exploration' → Exposure"
+   ],
+   "geprueft_ohne_aenderung": [
+    "ABCDE, AVPU",
+    "ACS-Pathophysiologie, O2 bei SpO2 < 90 %",
+    "4 H/HITS, Rhythmusanalyse alle 2 min, Closed Loop",
+    "kardiogener Schock, Herzbettlagerung",
+    "Utstein, Debriefing"
+   ],
+   "offen": [
+    "Greif 2021 (Education) durch ERC 2025 Education ersetzen, sobald Fundstelle geprüft"
+   ],
+   "sha256": "551df291581ce3ea",
    "fachliche_freigabe": "expert_review_pending"
   },
   "fm11": {
-   "paket": "P0-01",
-   "status": "teilweise",
-   "bearbeitet": "Abschlussquiz Zielsättigung; übrige Kapitel offen",
+   "paket": "P0-01 + P0-04",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Abschlussquiz Zielsättigung: Distraktoren und Erklärung (P0-01)"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Pathophysiologie Air Trapping, Emphysem, FEV1/FVC < 0,7",
+    "Zielsättigung 88–92 % bei Hyperkapnierisiko, Hyperkapniezeichen",
+    "Lippenbremse, Kutschersitz, Huffing, Dosieraerosol-Technik",
+    "5A-Modell, motivierende Gesprächsführung, S3 Tabak 076-006"
+   ],
+   "offen": [
+    "GOLD 2024 → aktuelle GOLD-Fassung; S2k COPD 2018 durch NVL COPD ersetzt prüfen"
+   ],
    "sha256": "723b7554610680d7",
    "fachliche_freigabe": "expert_review_pending"
   },
   "fm21": {
-   "paket": "P0-01",
-   "status": "teilweise",
-   "bearbeitet": "Kap. 2 qSOFA-Grenzwert; übrige Kapitel offen",
+   "paket": "P0-01 + P0-04",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Kap. 2 qSOFA-Grenzwert (P0-01)"
+   ],
+   "geprueft_ohne_aenderung": [
+    "CRB-65 (S3 ambulant erworbene Pneumonie 2021)",
+    "Sepsis-3, septischer Schock (MAP ≥ 65, Laktat > 2)",
+    "Stunde-1-Bündel, Blutkulturen ≥ 2 Sets vor Antibiose",
+    "Laktat/PCT/CRP-Kinetik",
+    "Post-Sepsis-Syndrom"
+   ],
+   "offen": [
+    "Deutsche S3-Leitlinie Sepsis (AWMF 079-001) ergänzend zitieren"
+   ],
    "sha256": "327d177f59acf66e",
    "fachliche_freigabe": "expert_review_pending"
   },
@@ -210,6 +273,102 @@
     "Lapi 2013, Mangoni 2004, PRISCUS 2.0 nicht erneut geöffnet"
    ],
    "sha256": "a464a4cf7daaa9a4",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm74": {
+   "paket": "P0-04",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Musterdokumentation nannte Zopiclon, das Herr Hamann nie hatte – auf Diphenhydramin korrigiert"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Polypharmazie ab 5 (konsistent mit fm20)",
+    "Orthostase 128→102 mmHg, Test liegend/1/3 min",
+    "TUG-Schwellen",
+    "anticholinerge/sedierende Risikomedikamente, Triple Whammy + Apixaban",
+    "Expertenstandard Sturzprophylaxe 2022, Bettgitter freiheitsentziehend"
+   ],
+   "offen": [
+    "Tochter nur in der Musterdoku erwähnt, nicht in der Akte"
+   ],
+   "sha256": "cf2302617d69aeb1",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm67": {
+   "paket": "P0-04",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Fachliche Plausibilität: nächtliche Hypoglykämie (58 mg/dl) bei reiner, pausierter Metformin-Therapie kaum erklärbar – Basalinsulin am Vorabend in Akte, Kurve, SBAR und Übergabe ergänzt"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Nachtrag kennzeichnen, kein Rückdatieren",
+    "Read-back telefonischer Anordnungen",
+    "CIRS/Beinahe-Fehler",
+    "Übergabe am Bett, Vertraulichkeit",
+    "Zeitleiste Piritramid 00:00 und 02:10, Metamizol 02:00 undokumentiert (Lernanlass)"
+   ],
+   "offen": [
+    "Dosierungen Piritramid 3 bzw. 3,75 mg sind Fallfiktion nach Bedarfsanordnung, keine Empfehlung"
+   ],
+   "sha256": "79b91d52b077a6cf",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm12": {
+   "paket": "P0-04",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Lipohypertrophie als 'Verhärtung' beschrieben (widersprach fm64: weich, gummiartig) – Text, Lernkarte und Zusatz-Lernkarte angeglichen",
+    "Messstelle 'seitlich an der Fingerkuppe' → seitliche Fingerbeere (wie fm64)"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Hypoglykämie < 70 mg/dl, 15-20-g-Regel, Bewusstlosigkeit nichts oral",
+    "Diagnosekriterien HbA1c 6,5 %, nüchtern 126, Gelegenheit 200 mg/dl",
+    "diabetisches Fußsyndrom, 10-g-Monofilament",
+    "Mischinsulin + ausgefallenes Frühstück als Ursache plausibel"
+   ],
+   "offen": [
+    "NVL Typ-2-Diabetes Version 3.0 (2023) und IWGDF 2023 nicht erneut geöffnet"
+   ],
+   "sha256": "39093c1939025329",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm56": {
+   "paket": "P0-04",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Adrenalin-Wiederholung 'nach 5 bis 10 Minuten' an ERC/GRC 2025 angeglichen (erneut, wenn nach etwa 5 min keine Besserung); Hinweis gewichtsbezogene Kinderdosis"
+   ],
+   "geprueft_ohne_aenderung": [
+    "MTS-Kategorien und Zeiten",
+    "Schockformen, Schockindex > 1, Rekapillarisierung > 2 s",
+    "cABCDE",
+    "Adrenalin 0,5 mg i. m. Oberschenkel (GRC 2025 S. 84)",
+    "Deeskalation, Datenschutz"
+   ],
+   "quellen": [
+    "GRC2025-KOMPAKT"
+   ],
+   "offen": [
+    "S2k Anaphylaxie 061-025 (2021): Aktualisierung prüfen"
+   ],
+   "sha256": "c5ea7494a64fbef3",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm36": {
+   "paket": "P0-04",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [],
+   "geprueft_ohne_aenderung": [
+    "12-Kanal-EKG ≤ 10 min, Ampelregel, Brustwandelektroden",
+    "O2 nur bei SpO2 < 90 % (ESC 2023)",
+    "STEMI/NSTEMI/instabile AP, Troponin",
+    "Radialiszugang, DAPT 12 Monate, LDL-Ziel < 55 mg/dl",
+    "112 bei Brustschmerz > 5 min"
+   ],
+   "offen": [
+    "ESC 2023 und NVL KHK 7.0 nicht erneut geöffnet; Rauchstopp-Telefon des BIÖG: aktuelle Bezeichnung/Nummer prüfen"
+   ],
+   "sha256": "46dd6a404db59ffd",
    "fachliche_freigabe": "expert_review_pending"
   }
  }
