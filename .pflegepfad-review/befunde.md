@@ -157,3 +157,12 @@ Weitere Querschnittskorrekturen: Kitteltasche „Isolierung“ (Noro/Rota-Desinf
 - **Namen und Setting (fm29):** „Herr Webers Sohn“ statt Frau Webers Sohn; die Fehlersuche spielte bei einem Hausbesuch, obwohl Frau Weber im Pflegeheim lebt.
 - **Selbstbestimmung (fm17):** Lehnt Herr Fischer die Mundpflege ab, wird das jetzt respektiert und es werden Alternativen angeboten.
 - fm28, fm32, fm41, fm52 und fm53 sind ohne Änderungsbedarf geprüft.
+
+## P0-06 PharmakoLab (2026-11-24)
+- Dosisdaten aller 31 Wirkstoffe gegen übliche Fachinformationsangaben plausibilisiert; keine gefährliche Überdosierung im Modell gefunden.
+- Metoprolol: Standarddosis 47,5 mg entspricht Metoprololsuccinat retard → Bezeichnung angepasst.
+- Oxycodon retard: Abstandswarnung jetzt bei < 12 h (vorher 10 h).
+- MCP: Parkinson als Kontraindikation ergänzt; Pantoprazol-Einnahmezeit präzisiert; Betablocker bei Asthma differenziert.
+- Simulationshinweis („ersetzt keine Fachinformation und keine ärztliche Anordnung“) und Prüf-Checkbox vor Gabe vorhanden.
+- Fallstudie 1 (App-Bundle): Alter Herr Brenner an Fallakte angeglichen.
+- Status: technisch geprüft, fachliche Freigabe durch Pharmakologie/Lehrkraft offen.
