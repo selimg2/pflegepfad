@@ -77,3 +77,21 @@ Weitere Querschnittskorrekturen: Kitteltasche „Isolierung“ (Noro/Rota-Desinf
 - **Fehler in Quellenangaben gefunden:** O’Driscoll et al. (2017) Seiten ii1–ii90 statt i1–i90; Konstantinides et al. 2020 statt 2019, Aboyans et al. 2018 statt 2017 (Heftjahr); Teasdale & Jennett (1974) Band 304(7872); PubMed führt bei ERC BLS 2025 „Wolfgang, K.“, korrekt ist Keck, W. Zwei Modulzitate (Strametz 2021, Richardson 2019) passten zu keinem PubMed-Datensatz: Sie bleiben ungeprüft und sind im Register markiert.
 - **Absicherung:** Regel Q-01 im Strukturtest verhindert neue Quellenlisten, Autor-Jahr-Zitate, DOIs und Registerverweise in Lerninhalten. `quellen_auslagern.py` überschreibt das angereicherte Register nicht mehr.
 - **Offen:** Das Register ist eine statische Datei und über ihre URL abrufbar (enthält keine Personendaten). Echter Zugriffsschutz bräuchte eine Supabase-Tabelle mit Admin-RLS und damit eine Änderung an der Produktivdatenbank, die deine Freigabe braucht.
+
+
+## P0-05 Hygiene (fm38, fm71, fm58, fm19, fm33)
+
+- **Nadelstichverletzung:** Statt „bluten lassen“ heißt es jetzt: Blutfluss fördern, mit Antiseptikum desinfizieren, sofort melden und ohne Verzögerung zum D-Arzt, weil eine HIV-PEP zeitkritisch ist. Geändert in fm38 und im Fachlexikon.
+- **Abwurfbehälter:** „Höchstens zu zwei Dritteln“ ist keine Norm. Neu: nur bis zur markierten Füllgrenze, nicht nachdrücken. Geändert in fm38 und im Fachlexikon.
+- **Paravasat (fm58):** Bei Zytostatika und anderen gewebeschädigenden Mitteln bleibt die Kanüle zunächst liegen, damit aspiriert werden kann. Ob gekühlt oder gewärmt wird, hängt von der Substanz ab. Vorher hieß es pauschal „Zugang entfernen“.
+- **Fallkonsistenz:** In fm33 stand in der Musterlösung „erniedrigtes Kalium“, obwohl im Fall kein Kaliumwert angegeben ist. In fm19 widersprachen sich die Angaben zur Urinmenge, und es fehlte der Hinweis auf die ärztlich festgelegte Trinkmenge bei der herzinsuffizienten Patientin.
+- **C. difficile (fm71):** Handschuhe werden jetzt als Sporenbarriere betont. Im Quiz wird klargestellt, dass Sporen keine erworbene Resistenz sind.
+- 15 schwache Distraktoren wurden durch plausible ersetzt.
+
+
+## A-01 Admin-Zentrale übersichtlicher (Lehrerportal)
+
+- Kopf, Abschnittsüberschriften, Kacheln und farbige Kennzahlenkarten folgen jetzt der Startseite des Portals (Kurskarten, Schnellzugriff). Die Reiterleiste hat Icons, bleibt beim Scrollen oben und zeigt auf dem Handy nur die Icons.
+- Die Übersicht beginnt mit „Braucht deine Aufmerksamkeit“: Zugangsanfragen, neues Feedback, unbestätigte E-Mail-Adressen, Schulen ohne Aktivität und ungeprüfte Quellen. Jede Kachel führt direkt in den passenden Bereich. Die 14 gleich großen Zahlenkacheln sind in drei Karten zusammengefasst (Schulen und Konten, Lernaktivität, Feedback und KI).
+- Quellen: Prüfstand als Balken mit Filter je Status. Ansichten „Nach Modul“ (nach Ausbildungsjahr), „Alle Quellen“ (alphabetisch mit „verwendet in“), „Weitere“ und „Prüfprotokoll“. Quellen, die schon bei einer Textstelle stehen, werden im Modul nicht noch einmal aufgelistet. 16 doppelte Registereinträge mit gleicher DOI wurden zusammengeführt.
+- Funktionen, Datenabfragen und Rollenprüfung sind unverändert.

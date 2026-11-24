@@ -370,6 +370,102 @@
    ],
    "sha256": "46dd6a404db59ffd",
    "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm38": {
+   "paket": "P0-05",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Nadelstichverletzung: Blutfluss fördern, Antiseptikum, ohne Verzögerung D-Arzt (HIV-PEP zeitkritisch)",
+    "Abwurfbehälter: Füllgrenze statt pauschal zwei Drittel (auch Fachlexikon)",
+    "MRGN-Einteilung mit den vier Leitantibiotikagruppen",
+    "Noroviren: zusätzlich Tröpfchen beim Erbrechen",
+    "Quiz: plausible Distraktoren (Handschuhe ohne Anlass, Screening, Blutentnahme)",
+    "Sanierungskarte: 5 Tage, Kontrollabstriche frühestens 3 Tage danach an 3 Tagen",
+    "Diagnosefeld an Akte angeglichen (Nase und Rachen)"
+   ],
+   "geprueft_ohne_aenderung": [
+    "5 Momente der Händehygiene, 30 s Einwirkzeit",
+    "PSA-Reihenfolge",
+    "FFP2 bei offener Lungen-Tbc",
+    "Besuch und Kommunikation bei MRSA"
+   ],
+   "offen": [],
+   "sha256": "ecb6c2ddf147c55a",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm71": {
+   "paket": "P0-05",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "C. difficile: Handschuhe als Sporenbarriere, danach Desinfektion und Waschen",
+    "Quiz: Sporen keine erworbene Resistenz; plausible Distraktoren",
+    "Kolonisation-Quiz mit gleichartigen Distraktoren",
+    "Verlauf: Besiedlung statt Ansteckung",
+    "Lernkarte C. difficile präzisiert"
+   ],
+   "geprueft_ohne_aenderung": [
+    "4MRGN-Isolierung im Krankenhaus",
+    "PSA-Ablegen",
+    "Besuch und Überleitung",
+    "Schlussdesinfektion sporozid"
+   ],
+   "offen": [],
+   "sha256": "ff4f6075e8436944",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm58": {
+   "paket": "P0-05",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "PVK-Anlage: Händedesinfektion vor dem Anziehen der Handschuhe nach dem Tasten",
+    "Paravasat mit gewebeschädigenden Mitteln: Kanüle zunächst belassen, aspirieren; Kühlen/Wärmen substanzabhängig",
+    "Quiz: kein routinemäßiger Wechsel nach 72–96 h; Paravasat vs. Phlebitis"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Farbkodierung der Kanülen",
+    "Tropfenformel 20 Tropfen/ml und Rechenaufgaben",
+    "Sechs-R-Regel, Etikettierung",
+    "tägliche Inspektion und Indikationsprüfung"
+   ],
+   "offen": [],
+   "sha256": "c429fc4b37a68afb",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm19": {
+   "paket": "P0-05",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Urinmenge vereinheitlicht (1–2 l/Tag, passend zur Schätzaufgabe)",
+    "Trinkmenge bei Herzinsuffizienz: ärztlich festgelegte Menge über den Tag verteilen (Mythos und Fehlersuche)"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Kontinenzprofile, Miktionsprotokoll 48 h",
+    "Katheterpflege, Probenentnahme, keine Spülung, kein Routinewechsel",
+    "IAD, Bristol-Skala",
+    "Laborverlauf CRP"
+   ],
+   "offen": [],
+   "sha256": "efc784464ea8696e",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  "fm33": {
+   "paket": "P0-05",
+   "status": "vollstaendig_redigiert",
+   "aenderungen": [
+    "Bilanzaufgabe: Kalium war im Fall nicht angegeben – jetzt Elektrolyte kontrollieren lassen",
+    "Quiz Stomafarbe und Transfusionsreaktion mit plausiblen Distraktoren"
+   ],
+   "geprueft_ohne_aenderung": [
+    "Bedside-Test und Einleitung ärztlich",
+    "Zeichen der Transfusionsreaktion und Sofortmaßnahmen",
+    "High-Output-Stoma",
+    "Basisplatte 1–2 mm größer, Hautreinigung mit Wasser"
+   ],
+   "offen": [
+    "Vorsorgealter Darmkrebs bewusst allgemein gelassen; bei Bedarf mit G-BA-Richtlinie präzisieren"
+   ],
+   "sha256": "b6c35f9527c5ee1e",
+   "fachliche_freigabe": "expert_review_pending"
   }
  }
 }

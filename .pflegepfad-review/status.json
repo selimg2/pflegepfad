@@ -110,13 +110,32 @@
    "test": "Regel Q-01 in werkzeuge/inhalt_pruefen.py",
    "status": "technisch_geprueft",
    "fachliche_freigabe": "nicht erforderlich (keine Fachaussage geändert)"
+  },
+  {
+   "id": "P0-05",
+   "titel": "Hygiene und Infektionsschutz",
+   "module": [
+    "fm38",
+    "fm71",
+    "fm58",
+    "fm19",
+    "fm33"
+   ],
+   "status": "technisch_geprueft",
+   "fachliche_freigabe": "expert_review_pending"
+  },
+  {
+   "id": "A-01",
+   "titel": "Admin-Zentrale im Stil der Portal-Startseite",
+   "dateien": [
+    "pflegepfadlehrer-main/js/erweiterungen/16-admin-zentrale.js",
+    "pflegepfadlehrer-main/js/erweiterungen/18-quellen-admin.js"
+   ],
+   "status": "technisch_geprueft",
+   "test": "Headless-Screenshots hell/dunkel, 1280 und 390 px, mit Testdaten; Rauchtest Lehrerportal 0 Probleme"
   }
  ],
  "naechste_pakete": [
-  {
-   "id": "P0-05",
-   "titel": "Hygiene und Zugänge: fm38, fm71, fm58, fm19, fm33"
-  },
   {
    "id": "P1-01",
    "titel": "Jahr 1 Rest: fm1, fm2, fm6, fm7, fm4 (groß), fm8, fm18, fm23, fm35, fm39, fm42–fm46, fm61, fm65, fm66"
@@ -149,7 +168,12 @@
    "fm67",
    "fm72",
    "fm73",
-   "fm74"
+   "fm74",
+   "fm38",
+   "fm71",
+   "fm58",
+   "fm19",
+   "fm33"
   ],
   "teilweise": [],
   "offen": [
@@ -165,7 +189,6 @@
    "fm15",
    "fm17",
    "fm18",
-   "fm19",
    "fm22",
    "fm23",
    "fm24",
@@ -175,10 +198,8 @@
    "fm30",
    "fm31",
    "fm32",
-   "fm33",
    "fm34",
    "fm35",
-   "fm38",
    "fm39",
    "fm40",
    "fm41",
@@ -197,7 +218,6 @@
    "fm54",
    "fm55",
    "fm57",
-   "fm58",
    "fm59",
    "fm60",
    "fm61",
@@ -208,13 +228,12 @@
    "fm68",
    "fm69",
    "fm70",
-   "fm71",
    "fm75"
   ],
   "anzahl": {
-   "fertig": 18,
+   "fertig": 23,
    "teilweise": 0,
-   "offen_gesamt": 57
+   "offen_gesamt": 52
   }
  },
  "offene_punkte": [
